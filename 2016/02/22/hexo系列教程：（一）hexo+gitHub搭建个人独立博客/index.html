@@ -1,0 +1,415 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>嘟嘟独立博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Tengj Jun">
+    
+    <meta name="description" content="#前言：一直想要一个自己的独立博客，但是觉得申请域名+服务器的太麻烦了就一直没有实现。偶然机会发现Hexo这个优秀的静态博客框架，再搭配现在流行的gitHub，简直是完美写博客的黄金搭档（免费+方便）。于是就上网参考了好多教程最后磕磕碰碰的搭建了起来。但是网上的教程多多手手都有点问题，可能比较早把。">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="嘟嘟独立博客" title="嘟嘟独立博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="嘟嘟独立博客">嘟嘟独立博客</a></h1>
+				<h2 class="blog-motto">爱生活爱编码</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/02/22/hexo系列教程：（一）hexo+gitHub搭建个人独立博客/" title="" itemprop="url"></a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Tengj Jun">Tengj Jun</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-02-22T08:07:06.942Z" itemprop="datePublished">2016-02-22</time>
+    更新日期:<time datetime="2016-02-22T08:07:06.942Z" itemprop="dateModified">2016-02-22</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+		</div>
+		
+		<p>#前言：<br>一直想要一个自己的独立博客，但是觉得申请域名+服务器的太麻烦了就一直没有实现。偶然机会发现Hexo这个优秀的静态博客框架，再搭配现在流行的gitHub，简直是完美写博客的黄金搭档（免费+方便）。于是就上网参考了好多教程最后磕磕碰碰的搭建了起来。但是网上的教程多多手手都有点问题，可能比较早把。就有了这个自己总结的教程，一是自己总结一下。二是给也想搭建Hexo博客的童鞋们多一点参考。</p>
+<p>#正文：<br>我这个教程是基于window系统化用户，Hexo3版本</p>
+<p>##安装前提软件：<br><a href="https://nodejs.org/en" target="_blank" rel="external">Node.js</a>:<br>作用：node.js用来创建hexo博客框架的，我当前安装版本为：node-v5.6.0-x64   </p>
+<p>Git客户端：<br>作用：把本地的hexo内容提交到github上去，我当前安装的是Git-2.7.0-64-bit </p>
+<p>##安装Hexo<br>安装前先介绍几个hexo常用的命令,#后面为注释。</p>
+<pre><code>hexo g #完整命令为hexo generate,用于生成静态文件hexo s #完整命令为hexo server,用于启动服务器，主要用来本地预览 
+hexo d #完整命令为hexo deploy,用于将本地文件发布到github上
+hexo n #完整命令为hexo new,用于新建一篇文章
+</code></pre><p>利用 npm 命令即可安装。在任意位置点击鼠标右键，选择Git Base<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1.jpg" alt="">  </p>
+<p>输入安装hexo命令：  </p>
+<pre><code>npm install -g hexo
+</code></pre><p>安装完成后，在你喜爱的文件夹下（如C:\Hexo），执行以下指令(在E:\Hexo内点击鼠标右键，选择Git Bash)，Hexo 即会自动在目标文件夹建立网站所需要的所有文件。</p>
+<pre><code>hexo init
+</code></pre><p>安装依赖包：</p>
+<pre><code>npm install
+</code></pre><p>让我们看看刚刚下载的hexo文件带来了什么，在E:\hexo内执行以下命令：</p>
+<pre><code>hexo g
+hexo s
+</code></pre><p>然后用浏览器访问<a href="http://localhost:4000/，此时，你应该看到了一个漂亮的博客了，当然这个博客只是在本地的，别人是看不到的，hexo3.0使用的默认主题是landscape。轻轻松松就看到了一点成果，是不是很激动，这就是hexo的强大之处，这个本地预览的功能，我真是爱不释手。" target="_blank" rel="external">http://localhost:4000/，此时，你应该看到了一个漂亮的博客了，当然这个博客只是在本地的，别人是看不到的，hexo3.0使用的默认主题是landscape。轻轻松松就看到了一点成果，是不是很激动，这就是hexo的强大之处，这个本地预览的功能，我真是爱不释手。</a></p>
+<p>##注册Github帐号<br>已经有Github帐号跳过此步，首先进入<a href="https://github.com/" target="_blank" rel="external">Github</a>进行注册，用户名、邮箱和密码之后都需要用到，自己记好。</p>
+<p>##创建repository<br>repository相当于一个仓库，用来放置你的代码文件。首先，登陆进入<a href="https://github.com/" target="_blank" rel="external">Github</a>，并进入个人页面，选择repositories(下图第一个红圈的地方)，然后New一个repository(下图第二个红圈的地方)<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo2.jpg" alt=""></p>
+<p>创建时，只需要填写Repository name即可，当然这个名字的格式必须为youname.github.io，例如我的为tengj.github.io</p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo3.png" alt=""></p>
+<p>##部署本地文件到github<br>既然Repository已经创建了，当然是先把博客放到Github上去看看效果。编辑E：\hexo下的_config.yml文件，建议使用Notepad++。<br>在_config.yml最下方，添加如下配置(命令中的第一个tengj为Github的用户名,第二个tengj为之前New的Repository的名字,记得改成自己的。另外记得一点，hexo的配置文件中任何’:’后面都是带一个空格的),如果配置以下命令出现ERROR Deployer not found : github，则参考上文的解决方法</p>
+<pre><code>deploy: 
+    type: git
+    repository: https://github.com/huangjunhui/huangjunhui.github.io.git
+    branch: master
+</code></pre><p>配置_config.yml并保存。如果你是第一次使用Github或者是已经使用过，但没有配置过SSH，则可能需要配置一下:</p>
+<p>在Git Bash输入以下指令（任意位置点击鼠标右键），检查是否已经存在了SSH keys。</p>
+<pre><code>ls -al ~/.ssh
+</code></pre><p>如果不存在就没有关系，如果存在的话，直接删除.ssh文件夹里面所有文件：</p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo4.png" alt=""></p>
+<p>输入以下指令（邮箱就是你注册Github时候的邮箱）后，回车，出现提示让你输入的时候直接先回车，好像需要3次，如下图所示：</p>
+<pre><code>ssh-keygen -t rsa -C &quot;358593266@qq.com&quot;
+</code></pre><p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_5.png" alt=""></p>
+<p>然后键入以下指令：</p>
+<pre><code>ssh-agent -s
+</code></pre><p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_6.png" alt=""></p>
+<p>继续输入指令：</p>
+<pre><code>ssh-add ~/.ssh/id_rsa
+</code></pre><p>输入之后，在我这里是出错了，不知道你的有没有出错。</p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_7.png" alt=""></p>
+<p>如果你的也是这样子出错了的话，就输入以下指令：</p>
+<pre><code>eval `ssh-agent -s`
+ssh-add
+</code></pre><p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_8.png" alt=""></p>
+<p>到了这一步，就可以添加SSH key到你的Github账户了。键入以下指令，拷贝Key（先拷贝了，等一下可以直接粘贴，不放心的在执行下面命令后，先黏贴在记事本上）：</p>
+<pre><code>clip &lt; ~/.ssh/id_rsa.pub
+</code></pre><p>然后到Github里面，点击右上角的设置图标Settings,找到SSH keys,Ttile随便你命名，Key就黏贴上你刚才复制的key,然后点Add SSH key，最后会让你重新输入下gitHub的密码</p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_9.png" alt=""><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_10.png" alt=""></p>
+<p>最后还是测试一下吧，键入以下命令：</p>
+<pre><code>ssh -T git@github.com
+</code></pre><p>你可能会看到有警告，没事，输入“yes”就好<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_11.png" alt=""></p>
+<p>以上就表示SSH配置好了，执行以下命令部署到Github上。</p>
+<pre><code>hexo g
+hexo d
+</code></pre><p>如果执行hexo d命令报下名错：</p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_12.png" alt=""></p>
+<p>就先安装一下hexo-deployer-git这个模块：</p>
+<pre><code>npm install hexo-deployer-git --save
+</code></pre><p>安装好了继续执行hexo d部署命令，输入gitHub的账号密码，就可以访问了。我的是： tengj.github.io</p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_13.jpg" alt=""></p>
+<p>##发表一篇文章<br>1.在Git Bash执行命令：</p>
+<pre><code>hexo new &quot;my new post&quot;
+</code></pre><p>2.在E:\hexo\source_post中打开my-new-post.md，打开方式使用记事本或者其他文本工具。<br>hexo中写文章使用的是Markdown，这里推荐使用markdownpad这个工具。 Markdown编写语法自己百度一下，不难</p>
+<pre><code>title: my new post #可以改成中文的，如“新文章”
+date: 2016-02-21 16:04:09 #发表日期，一般不改动
+categories: blog #文章文类
+tags: [文章] #文章标签，多于一项时用这种格式，只有一项时使用tags: blog
+---
+#这里是正文，用markdown写，你可以选择写一段显示在首页的简介后，加上
+&lt;!--more--&gt;，在&lt;!--more--&gt;之前的内容会显示在首页，之后的内容会被隐藏，当游客点击Read more才能看到。
+</code></pre><p>写完文章后，你可以使用1.$ hexo g生成静态文件。2.$ hexo s在本地预览效果。3.hexo d同步到github，然后使用<a href="http://tengj.github.io进行访问。" target="_blank" rel="external">http://tengj.github.io进行访问。</a></p>
+<p>##参考<br><a href="http://opiece.me/2015/04/09/hexo-guide/#参考" target="_blank" rel="external">使用Hexo搭建个人博客(基于hexo3.0)</a><br><a href="http://www.jianshu.com/p/465830080ea9#" target="_blank" rel="external">HEXO+Github,搭建属于自己的博客</a><br><a href="http://jingyan.baidu.com/article/d8072ac47aca0fec95cefd2d.html" title="史上最详细“截图”搭建Hexo博客并部署到Github" target="_blank" rel="external">史上最详细“截图”搭建Hexo博客并部署到Github</a></p>
+<p>#总结<br>到这里，就算初步搭好了一个属于自己的独立博客，后续就是本地写文章然后部署最后发布就行。当然这只是最基本的流程，hexo提供了许多好看的主题，我准备下篇里面详细介绍下主题的下载以及配置。让你的博客更加的酷炫!<br>大家按照我这个整理的教程搭建，理论上都能搭建成功。如果过程中发现一些问题，也可以留言我们一起探讨。祝大家一次就能搭建属于自己的独立博客~撒花</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2016/02/22/hexo系列教程：（一）hexo+gitHub搭建个人独立博客/" data-title="嘟嘟独立博客" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/02/21/my-new-post/"  title="新文章">
+ <strong>NEXT:</strong><br/> 
+ <span>新文章
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/blog/" title="blog">blog<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/JAVA/" title="JAVA">JAVA<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">3</span></li></ul>
+  </div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a>
+    </div>
+  </div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 程序员上辈子都是折翼的天使 <br/>
+			Try to do better</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		
+		
+		<a href="https://github.com/tengj" target="_blank" title="github"></a>
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2016 
+		
+		<a href="http://yoursite.com" target="_blank" title="Tengj Jun">Tengj Jun</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"null"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>

@@ -1,10 +1,10 @@
 
-  <!DOCTYPE HTML>
+ <!DOCTYPE HTML>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   
-    <title>Archives: 2016 | 嘟嘟独立博客</title>
+    <title>tags | 嘟嘟独立博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Tengj Jun">
@@ -64,83 +64,21 @@
 
       </header>
       <div id="container">
-        
-
+          
 <div class="archive-title" >
-  <h2 class="archive-icon">2016</h2>
-  
-  <div class="archiveslist archive-float clearfix">
-   <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">3</span></li></ul>
- </div>
-  
+<h2 class="tag-icon">标签</h2>
+
+<a data-src="/tags/JAVA/" href="#JAVA" title="JAVA">JAVA<sup>1</sup></a>
+
 </div>
-<div id="main" class="archive-part clearfix">
-  <div id="archive-page">
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2016/02/22/hexo系列教程：（一）hexo+gitHub搭建个人独立博客/" title="" itemprop="url">
-  
-    <h1 itemprop="name"></h1>
-    
-    <time datetime="2016-02-22T08:07:06.942Z" itemprop="datePublished">2016-02-22</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2016/02/21/my-new-post/" title="新文章" itemprop="url">
-  
-    <h1 itemprop="name">新文章</h1>
-    
-    <time datetime="2016-02-21T08:04:09.000Z" itemprop="datePublished">2016-02-21</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2016/02/21/hello-world/" title="Hello World" itemprop="url">
-  
-    <h1 itemprop="name">Hello World</h1>
-    
-    <time datetime="2016-02-21T03:47:31.940Z" itemprop="datePublished">2016-02-21</time>
-  </a>
-</section>
-
-
-  </div>
+<div id="main" class="archive-part">
+<div class="all-list-box"></div>
 </div>
+
+
+
 
       </div>
-      <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<section class="info">
-		<p> 程序员上辈子都是折翼的天使 <br/>
-			Try to do better</p>
-	</section>
-	 
-	<div class="social-font clearfix">
-		
-		
-		
-		<a href="https://github.com/tengj" target="_blank" title="github"></a>
-		
-		
-		
-	</div>
-		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2016 
-		
-		<a href="http://yoursite.com" target="_blank" title="Tengj Jun">Tengj Jun</a>
-		
-		</p>
-</div>
-</footer>
       <script src="/js/jquery-2.1.0.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){ 
@@ -189,6 +127,24 @@ $(document).ready(function(){
 
 
 
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var list    = $('.archive-title a'),
+      box     = $('.all-list-box'),
+      first   = $('.archive-title a:first-of-type');
+      box.load(first.attr('data-src').toString()+' #archive-page');
+      first.addClass('current');
+  list.each(function(){
+    $(this).click(function(){
+      var listSrc=$(this).attr('data-src').toString()+' #archive-page';
+      box.load(listSrc);
+      list.removeClass('current');
+      $(this).addClass('current');
+     });  
+    });
+  }); 
+</script>
 
 
 
