@@ -77,7 +77,7 @@
     </p>
   <p class="article-time">
     <time datetime="2016-02-22T08:04:09.000Z" itemprop="datePublished">2016-02-22</time>
-    更新日期:<time datetime="2016-02-22T15:24:59.126Z" itemprop="dateModified">2016-02-22</time>
+    更新日期:<time datetime="2016-02-22T15:59:40.398Z" itemprop="dateModified">2016-02-22</time>
     
   </p>
 </header>
@@ -110,9 +110,9 @@ hexo n #完整命令为hexo new,用于新建一篇文章
 hexo s
 </code></pre><p>然后用浏览器访问<a href="http://localhost:4000/，此时，你应该看到了一个漂亮的博客了，当然这个博客只是在本地的，别人是看不到的，hexo3.0使用的默认主题是landscape。轻轻松松就看到了一点成果，是不是很激动，这就是hexo的强大之处，这个本地预览的功能，我真是爱不释手。" target="_blank" rel="external">http://localhost:4000/，此时，你应该看到了一个漂亮的博客了，当然这个博客只是在本地的，别人是看不到的，hexo3.0使用的默认主题是landscape。轻轻松松就看到了一点成果，是不是很激动，这就是hexo的强大之处，这个本地预览的功能，我真是爱不释手。</a></p>
 <h2 id="注册Github帐号"><a href="#注册Github帐号" class="headerlink" title="注册Github帐号"></a>注册Github帐号</h2><p>已经有Github帐号跳过此步，首先进入<a href="https://github.com/" target="_blank" rel="external">Github</a>进行注册，用户名、邮箱和密码之后都需要用到，自己记好。</p>
-<h2 id="创建repository"><a href="#创建repository" class="headerlink" title="创建repository"></a>创建repository</h2><p>repository相当于一个仓库，用来放置你的代码文件。首先，登陆进入<a href="https://github.com/" target="_blank" rel="external">Github</a>，并进入个人页面，选择repositories(下图第一个红圈的地方)，然后New一个repository(下图第二个红圈的地方)<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo2.jpg" alt=""></p>
-<p>创建时，只需要填写Repository name即可，当然这个名字的格式必须为youname.github.io，例如我的为tengj.github.io</p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo3.png" alt=""></p>
+<h2 id="创建repository"><a href="#创建repository" class="headerlink" title="创建repository"></a>创建repository</h2><p>repository相当于一个仓库，用来放置你的代码文件。首先，登陆进入<a href="https://github.com/" target="_blank" rel="external">Github</a>，并进入个人页面，选择repositories(下图第一个红圈的地方)，然后New一个repository(下图第二个红圈的地方)</p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo2.jpg" style="margin:0;"></p>
+<p>创建时，只需要填写Repository name即可，当然这个名字的格式必须为youname.github.io，例如我的为tengj.github.io<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo3.png" style="margin:0;"></p>
 <h2 id="部署本地文件到github"><a href="#部署本地文件到github" class="headerlink" title="部署本地文件到github"></a>部署本地文件到github</h2><p>既然Repository已经创建了，当然是先把博客放到Github上去看看效果。编辑E：\hexo下的_config.yml文件，建议使用Notepad++。<br>在_config.yml最下方，添加如下配置(命令中的第一个tengj为Github的用户名,第二个tengj为之前New的Repository的名字,记得改成自己的。另外记得一点，hexo的配置文件中任何’:’后面都是带一个空格的),如果配置以下命令出现ERROR Deployer not found : github，则参考上文的解决方法</p>
 <pre><code>deploy: 
     type: git
@@ -121,38 +121,36 @@ hexo s
 </code></pre><p>配置_config.yml并保存。如果你是第一次使用Github或者是已经使用过，但没有配置过SSH，则可能需要配置一下:</p>
 <p>在Git Bash输入以下指令（任意位置点击鼠标右键），检查是否已经存在了SSH keys。</p>
 <pre><code>ls -al ~/.ssh
-</code></pre><p>如果不存在就没有关系，如果存在的话，直接删除.ssh文件夹里面所有文件：</p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo4.png" alt=""></p>
-<p>输入以下指令（邮箱就是你注册Github时候的邮箱）后，回车，出现提示让你输入的时候直接先回车，好像需要3次，如下图所示：</p>
+</code></pre><p>如果不存在就没有关系，如果存在的话，直接删除.ssh文件夹里面所有文件：<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo4.png" style="margin:0;"><br>输入以下指令（邮箱就是你注册Github时候的邮箱）后，回车，出现提示让你输入的时候直接先回车，好像需要3次，如下图所示：</p>
 <pre><code>ssh-keygen -t rsa -C &quot;358593266@qq.com&quot;
-</code></pre><p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_5.png" alt=""></p>
+</code></pre><p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_5.png" style="margin:0;"></p>
 <p>然后键入以下指令：</p>
 <pre><code>ssh-agent -s
-</code></pre><p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_6.png" alt=""></p>
+</code></pre><p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_6.png" style="margin:0;"></p>
 <p>继续输入指令：</p>
 <pre><code>ssh-add ~/.ssh/id_rsa
 </code></pre><p>输入之后，在我这里是出错了，不知道你的有没有出错。</p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_7.png" alt=""></p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_7.png" style="margin:0;"></p>
 <p>如果你的也是这样子出错了的话，就输入以下指令：</p>
 <pre><code>eval `ssh-agent -s`
 ssh-add
-</code></pre><p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_8.png" alt=""></p>
+</code></pre><p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_8.png" style="margin:0;"></p>
 <p>到了这一步，就可以添加SSH key到你的Github账户了。键入以下指令，拷贝Key（先拷贝了，等一下可以直接粘贴，不放心的在执行下面命令后，先黏贴在记事本上）：</p>
 <pre><code>clip &lt; ~/.ssh/id_rsa.pub
 </code></pre><p>然后到Github里面，点击右上角的设置图标Settings,找到SSH keys,Ttile随便你命名，Key就黏贴上你刚才复制的key,然后点Add SSH key，最后会让你重新输入下gitHub的密码</p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_9.png" alt=""><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_10.png" alt=""></p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_9.png" style="margin:0;"><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_10.png" style="margin:0;"></p>
 <p>最后还是测试一下吧，键入以下命令：</p>
 <pre><code>ssh -T git@github.com
-</code></pre><p>你可能会看到有警告，没事，输入“yes”就好<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_11.png" alt=""></p>
+</code></pre><p>你可能会看到有警告，没事，输入“yes”就好<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_11.png" style="margin:0;"></p>
 <p>以上就表示SSH配置好了，执行以下命令部署到Github上。</p>
 <pre><code>hexo g
 hexo d
 </code></pre><p>如果执行hexo d命令报下名错：</p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_12.png" alt=""></p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_12.png" style="margin:0;"></p>
 <p>就先安装一下hexo-deployer-git这个模块：</p>
 <pre><code>npm install hexo-deployer-git --save
 </code></pre><p>安装好了继续执行hexo d部署命令，输入gitHub的账号密码，就可以访问了。我的是： tengj.github.io</p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_13.jpg" alt=""></p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_13.png" style="margin:0;"></p>
 <h2 id="发表一篇文章"><a href="#发表一篇文章" class="headerlink" title="发表一篇文章"></a>发表一篇文章</h2><p>1.在Git Bash执行命令：</p>
 <pre><code>hexo new &quot;my new post&quot;
 </code></pre><p>2.在E:\hexo\source_post中打开my-new-post.md，打开方式使用记事本或者其他文本工具。<br>hexo中写文章使用的是Markdown，这里推荐使用markdownpad这个工具。 Markdown编写语法自己百度一下，不难</p>
