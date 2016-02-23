@@ -77,7 +77,7 @@
     </p>
   <p class="article-time">
     <time datetime="2016-02-22T08:04:09.000Z" itemprop="datePublished">2016-02-22</time>
-    更新日期:<time datetime="2016-02-23T03:39:07.778Z" itemprop="dateModified">2016-02-23</time>
+    更新日期:<time datetime="2016-02-23T06:55:56.146Z" itemprop="dateModified">2016-02-23</time>
     
   </p>
 </header>
@@ -103,16 +103,16 @@ hexo n #完整命令为hexo new,用于新建一篇文章
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1.jpg" style="margin:0;"></p>
 <p>输入安装hexo命令：  </p>
 <pre><code>npm install -g hexo
-</code></pre><p>安装完成后，在你喜爱的文件夹下（如C:\Hexo），执行以下指令(在E:\Hexo内点击鼠标右键，选择Git Bash)，Hexo 即会自动在目标文件夹建立网站所需要的所有文件。</p>
+</code></pre><p>安装完成后，在你喜爱的文件夹下（如E:\Hexo），执行以下指令(在E:\Hexo内点击鼠标右键，选择Git Bash)，Hexo 即会自动在目标文件夹建立网站所需要的所有文件。</p>
 <pre><code>hexo init
 </code></pre><p>安装依赖包：</p>
 <pre><code>npm install
 </code></pre><p>让我们看看刚刚下载的hexo文件带来了什么，在E:\hexo内执行以下命令：</p>
 <pre><code>hexo g
 hexo s
-</code></pre><p>然后用浏览器访问<a href="http://localhost:4000/，此时，你应该看到了一个漂亮的博客了，当然这个博客只是在本地的，别人是看不到的，hexo3.0使用的默认主题是landscape。轻轻松松就看到了一点成果，是不是很激动，这就是hexo的强大之处，这个本地预览的功能，我真是爱不释手。" target="_blank" rel="external">http://localhost:4000/，此时，你应该看到了一个漂亮的博客了，当然这个博客只是在本地的，别人是看不到的，hexo3.0使用的默认主题是landscape。轻轻松松就看到了一点成果，是不是很激动，这就是hexo的强大之处，这个本地预览的功能，我真是爱不释手。</a></p>
+</code></pre><p>然后用浏览器访问<a href="http://localhost:4000，" target="_blank" rel="external">http://localhost:4000，</a>  此时，你应该看到了一个漂亮的博客了，当然这个博客只是在本地的，别人是看不到的，hexo3.0使用的默认主题是landscape。轻轻松松就看到了一点成果，是不是很激动，这就是hexo的强大之处，这个本地预览的功能，我真是爱不释手。</p>
 <h2 id="注册Github帐号"><a href="#注册Github帐号" class="headerlink" title="注册Github帐号"></a>注册Github帐号</h2><p>已经有Github帐号跳过此步，首先进入<a href="https://github.com/" target="_blank" rel="external">Github</a>进行注册，用户名、邮箱和密码之后都需要用到，自己记好。</p>
-<h2 id="创建repository"><a href="#创建repository" class="headerlink" title="创建repository"></a>创建repository</h2><p>repository相当于一个仓库，用来放置你的代码文件。首先，登陆进入<a href="https://github.com/" target="_blank" rel="external">Github</a>，并进入个人页面，选择repositories(下图第一个红圈的地方)，然后New一个repository(下图第二个红圈的地方)</p>
+<h2 id="创建repository"><a href="#创建repository" class="headerlink" title="创建repository"></a>创建repository</h2><p>repository相当于一个仓库，用来放置你的代码文件。首先，登陆进入<a href="https://github.com/" target="_blank" rel="external">Github</a>，并进入个人页面，选择<code>repositories</code>(下图第一个红圈的地方)，然后New一个<code>repository</code>(下图第二个红圈的地方)</p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo2.jpg" style="margin:0;"></p>
 <p>创建时，只需要填写Repository name即可，当然这个名字的格式必须为youname.github.io，例如我的为tengj.github.io<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo3.png" style="margin:0;"></p>
 <h2 id="部署本地文件到github"><a href="#部署本地文件到github" class="headerlink" title="部署本地文件到github"></a>部署本地文件到github</h2><p>既然Repository已经创建了，当然是先把博客放到Github上去看看效果。编辑E：\hexo下的_config.yml文件，建议使用Notepad++。<br>在_config.yml最下方，添加如下配置(命令中的第一个tengj为Github的用户名,第二个tengj为之前New的Repository的名字,记得改成自己的。另外记得一点，hexo的配置文件中任何’:’后面都是带一个空格的),如果配置以下命令出现ERROR Deployer not found : github，则参考上文的解决方法</p>
@@ -151,10 +151,10 @@ hexo d
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_12.png" style="margin:0;"></p>
 <p>就先安装一下hexo-deployer-git这个模块：</p>
 <pre><code>npm install hexo-deployer-git --save
-</code></pre><p>安装好了继续执行hexo d部署命令，输入gitHub的账号密码，就可以访问了。我的是： tengj.github.io<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_13.jpg" style="margin:0;"></p>
+</code></pre><p>安装好了继续执行<code>hexo d</code>部署命令，输入gitHub的账号密码，就可以访问了。我的是： tengj.github.io<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_13.jpg" style="margin:0;"></p>
 <h2 id="发表一篇文章"><a href="#发表一篇文章" class="headerlink" title="发表一篇文章"></a>发表一篇文章</h2><p>1.在Git Bash执行命令：</p>
 <pre><code>hexo new &quot;my new post&quot;
-</code></pre><p>2.在E:\hexo\source_post中打开my-new-post.md，打开方式使用记事本或者其他文本工具。<br>hexo中写文章使用的是Markdown，这里推荐使用markdownpad这个工具。 Markdown编写语法自己百度一下，不难</p>
+</code></pre><p>2.在E:\hexo\source_post中打开my-new-post.md，打开方式使用记事本或者其他文本工具。<br>hexo中写文章使用的是Markdown，这里推荐使用<code>markdownpad</code>这个工具。 Markdown编写语法自己百度一下，不难</p>
 <pre><code>title: my new post #可以改成中文的，如“新文章”
 date: 2016-02-21 16:04:09 #发表日期，一般不改动
 categories: blog #文章文类
@@ -425,5 +425,6 @@ $(document).ready(function(){
 
 
 
+    <a href="https://github.com/tengj" target="_blank"><img style="position: absolute; top: 0; left: 0; border: 0;" src="/img/forkme_left_green_007200.png" alt="Fork me on GitHub"></a>
   </body>
 </html>
