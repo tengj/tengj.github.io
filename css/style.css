@@ -112,7 +112,7 @@ a img {
 }
 body {
   background: #ddd;
-  background-image: url("/img/noise.png");
+  background-image: url("/img/bg.jpg");
   font-family: "Helvetica Neue", "Helvetica", "Microsoft YaHei", "WenQuanYi Micro Hei", Arial, sans-serif;
   font-size: 100%;
   color: #817c7c;
@@ -593,7 +593,7 @@ header nav ul li a:hover {
   }
 }
 #main section.post {
-  background: #fafafa;
+  background: #fff;
   margin-bottom: 0.125em;
 }
 #main section.post a {
@@ -631,7 +631,7 @@ header nav ul li a:hover {
   margin-left: 10% !important;
 }
 #page-nav {
-  background: #fafafa;
+  background: #fff;
   text-align: center;
   overflow: hidden;
 }
@@ -707,7 +707,7 @@ header nav ul li a:hover {
   margin: 1em 0;
   width: 97%;
   padding: 2em 0 2em 3%;
-  background: #fafafa;
+  background: #fff;
   border-left: 0.5em solid #ccc;
 }
 @media only screen and (min-width: 1024px) {
@@ -781,7 +781,7 @@ header nav ul li a:hover {
 }
 .post,
 .page {
-  background: #fafafa;
+  background: #fff;
 }
 .post a,
 .page a {
@@ -913,7 +913,7 @@ article .article-content blockquote {
   font-size: 110%;
 }
 article .article-content blockquote footer {
-  background: #fafafa;
+  background: #fff;
   padding: 0;
   margin: 0;
   font-size: 80%;
@@ -1042,7 +1042,7 @@ article .article-content .right {
   float: right;
 }
 footer.article-footer {
-  background: #fafafa;
+  background: #fff;
   padding: 0 4%;
   margin: 0;
   border-top: 1px solid #dbdbdb;
@@ -1486,7 +1486,7 @@ section.comment {
   }
 }
 #asidepart {
-  background: #fafafa;
+  background: #fff;
   margin: 1em 0 0;
   padding: 0.5em 2% 1em;
 }
@@ -1598,7 +1598,7 @@ section.comment {
 }
 .rsspart a:hover {
   color: #ea6753;
-  background: #fafafa;
+  background: #fff;
 }
 .rsspart a::before {
   font-family: "FontAwesome";
@@ -1759,7 +1759,7 @@ footer {
   width: 6.875em;
   height: 6.875em;
   margin: 0 auto;
-  background: no-repeat url("/img/author.jpg") left top;
+  background: no-repeat url("/img/dudu.jpg") left top;
   -webkit-background-size: 6.875em 6.875em;
   -moz-background-size: 6.875em 6.875em;
   background-size: 6.875em 6.875em;
@@ -1944,7 +1944,7 @@ footer {
 }
 .article-content .gist {
   margin: 0.5em 0;
-  background: #1d1f21;
+  background: #4d4d4d;
   padding: 1em 2%;
 }
 .article-content .gist .gist-file {
@@ -1970,7 +1970,7 @@ footer {
   border: none;
 }
 .article-content .gist .gist-file .gist-meta {
-  background: #1d1f21;
+  background: #4d4d4d;
   color: #969896;
   font: 0.85em "Georgia", serif;
   padding: 0;
@@ -2057,7 +2057,7 @@ pre .xml .cdata {
   color: #ea6753 !important;
 }
 .ds-avatar {
-  background: #fafafa !important;
+  background: #fff !important;
 }
 .ds-avatar img {
   width: 54px !important;
@@ -2129,7 +2129,7 @@ textarea::-moz-placeholder {
   color: #817c7c !important;
 }
 .article-gallery {
-  background: #fafafa;
+  background: #fff;
   position: relative;
 }
 .article-gallery-photos {
