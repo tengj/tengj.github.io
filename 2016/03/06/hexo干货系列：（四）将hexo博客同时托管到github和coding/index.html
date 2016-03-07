@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_10.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_11.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_12.png">
-<meta property="og:updated_time" content="2016-03-06T16:30:02.364Z">
+<meta property="og:updated_time" content="2016-03-07T15:46:57.259Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo干货系列：（四）将hexo博客同时托管到github和coding">
 <meta name="twitter:description" content="前言之前我们把hexo托管在github，但是毕竟github是国外的，访问速度上还是有点慢，所以想也部署一套在国内的托管平台，之前查资料听说gitcafe,但是听说gitcafe已经被coding收购了，所以就决定部署到coding。查询了多方资料，终于鼓捣出了本地一次部署，同时更新到github以及coding。
@@ -113,7 +113,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#config-yml配置"><span class="toc-number">2.1.</span> <span class="toc-text">_config.yml配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#coding上创建一个新项目"><span class="toc-number">2.2.</span> <span class="toc-text">coding上创建一个新项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同步本地hexo到coding上"><span class="toc-number">2.3.</span> <span class="toc-text">同步本地hexo到coding上</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署演示平台"><span class="toc-number">2.4.</span> <span class="toc-text">部署演示平台</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置自动部署"><span class="toc-number">2.5.</span> <span class="toc-text">设置自动部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">2.6.</span> <span class="toc-text">参考</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#config-yml配置"><span class="toc-number">2.1.</span> <span class="toc-text">_config.yml配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#coding上创建一个新项目"><span class="toc-number">2.2.</span> <span class="toc-text">coding上创建一个新项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同步本地hexo到coding上"><span class="toc-number">2.3.</span> <span class="toc-text">同步本地hexo到coding上</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pages服务方式部署"><span class="toc-number">2.4.</span> <span class="toc-text">pages服务方式部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#演示方式部署"><span class="toc-number">2.5.</span> <span class="toc-text">演示方式部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置自动部署"><span class="toc-number">2.6.</span> <span class="toc-text">设置自动部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">2.7.</span> <span class="toc-text">参考</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
 		
 		</div>
 		
@@ -129,7 +129,8 @@
 <p>如果得到下面提示就表示公钥添加成功了：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Coding.net Tips : [Hello ! You<span class="string">'ve conected to Coding.net by SSH successfully! ]</span></span><br></pre></td></tr></table></figure></p>
 <p>最后使用部署命令就能把博客同步到coding上面：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy -g</span><br></pre></td></tr></table></figure></p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_5.png" alt="">  </p>
-<h2 id="部署演示平台"><a href="#部署演示平台" class="headerlink" title="部署演示平台"></a>部署演示平台</h2><p>当你把你的静态网站上传到Coding之后，就可以着手部署演示了，Coding的演示平台支持静态网页，所以其实非常简单。在开启演示模式之前，会提醒你没有检测到环境，你直接强制开启就可以了。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_6.png" alt=""> </p>
+<h2 id="pages服务方式部署"><a href="#pages服务方式部署" class="headerlink" title="pages服务方式部署"></a>pages服务方式部署</h2><p>部署博客方式有两种，第一种就是pages服务的方式，也推荐这种方式，因为可以绑定域名，而第二种演示的方式必须升级会员才能绑定自定义域名。pages方式也很简单，因为前面配置的分支是master,因此开启之后，也需要是master。然后看起之后就可访问了。</p>
+<h2 id="演示方式部署"><a href="#演示方式部署" class="headerlink" title="演示方式部署"></a>演示方式部署</h2><p>当你把你的静态网站上传到Coding之后，就可以着手部署演示了，Coding的演示平台支持静态网页，所以其实非常简单。在开启演示模式之前，会提醒你没有检测到环境，你直接强制开启就可以了。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_6.png" alt=""> </p>
 <ul>
 <li>部署版本我没有填，默认是master</li>
 <li>运行环境一定要选择HTML</li>
@@ -142,8 +143,8 @@
 <ul>
 <li>找到项目设置那边的WebHook,然后点击新建 Hook </li>
 <li>第一个输入框中是填你的博客域名，然后在后面加上 /_ </li>
-<li>第二个输入框是输入一个 token ，我们直接填写 <code></code> 就可以了</li>
-<li>回到演示里，在左边的栏目中找到环境变量,变量名填写为 <code>WEBHOOK_TOKEN</code> ，值为 <code></code> ，接着重新启动应用就 ok 了！<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_9.png" alt=""><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_10.png" alt=""><br>最后一步我们要测试一下是否 push 代码的时候就会自动部署。我们回到命令行创建一个新的文章（可以什么都不写），然后生成静态页面 push 到仓库去：  <pre><code class="bash">hexo n codingPage
+<li>第二个输入框是输入一个 token ，我们直接填写 <code>{ { TOKEN } }</code> 就可以了,TOKEN两边的大括号见的空格记得去掉</li>
+<li>回到演示里，在左边的栏目中找到环境变量,变量名填写为 <code>WEBHOOK_TOKEN</code> ，值为 <code>{ { TOKEN } }</code> ，接着重新启动应用就 ok 了！<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_9.png" alt=""><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_10.png" alt=""><br>最后一步我们要测试一下是否 push 代码的时候就会自动部署。我们回到命令行创建一个新的文章（可以什么都不写），然后生成静态页面 push 到仓库去：  <pre><code class="bash">hexo n codingPage
 hexo deploy -g
 </code></pre>
 我们回到浏览器在输入博客的地址，如果那篇新写好的文章出现在首页了，说明我们自动部署成功了。以后再也不用自己去手动部署一次了！  </li>
@@ -187,6 +188,14 @@ hexo deploy -g
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2016/03/07/tes/" title="tes">
+  <strong>上一篇：</strong><br/>
+  <span>
+  tes</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2016/03/06/hexo干货系列：（三）hexo的Jacman主题优化/"  title="hexo干货系列：（三）hexo的Jacman主题优化">
@@ -210,7 +219,7 @@ hexo deploy -g
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#config-yml配置"><span class="toc-number">2.1.</span> <span class="toc-text">_config.yml配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#coding上创建一个新项目"><span class="toc-number">2.2.</span> <span class="toc-text">coding上创建一个新项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同步本地hexo到coding上"><span class="toc-number">2.3.</span> <span class="toc-text">同步本地hexo到coding上</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署演示平台"><span class="toc-number">2.4.</span> <span class="toc-text">部署演示平台</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置自动部署"><span class="toc-number">2.5.</span> <span class="toc-text">设置自动部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">2.6.</span> <span class="toc-text">参考</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#config-yml配置"><span class="toc-number">2.1.</span> <span class="toc-text">_config.yml配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#coding上创建一个新项目"><span class="toc-number">2.2.</span> <span class="toc-text">coding上创建一个新项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同步本地hexo到coding上"><span class="toc-number">2.3.</span> <span class="toc-text">同步本地hexo到coding上</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pages服务方式部署"><span class="toc-number">2.4.</span> <span class="toc-text">pages服务方式部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#演示方式部署"><span class="toc-number">2.5.</span> <span class="toc-text">演示方式部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置自动部署"><span class="toc-number">2.6.</span> <span class="toc-text">设置自动部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">2.7.</span> <span class="toc-text">参考</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
  
   </div>
 
@@ -265,7 +274,7 @@ hexo deploy -g
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
   </div>
 
 
