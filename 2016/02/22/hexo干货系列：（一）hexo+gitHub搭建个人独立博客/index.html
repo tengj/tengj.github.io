@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_11.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_12.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo1_13.jpg">
-<meta property="og:updated_time" content="2016-03-07T12:15:17.778Z">
+<meta property="og:updated_time" content="2016-03-09T11:25:46.568Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo干货系列：（一）hexo+gitHub搭建个人独立博客">
 <meta name="twitter:description" content="前言一直想要一个自己的独立博客，但是觉得申请域名+服务器的太麻烦了就一直没有实现。偶然机会发现Hexo这个优秀的静态博客框架，再搭配现在流行的gitHub，简直是完美写博客的黄金搭档（免费+方便）。于是就上网参考了好多教程最后磕磕碰碰的搭建了起来。但是网上的教程多多手手都有点问题，可能比较早把。就有了这个自己总结的教程，一是自己总结一下。二是给也想搭建Hexo博客的童鞋们多一点参考。">
@@ -115,7 +115,7 @@
 		</div>
 		
 		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>一直想要一个自己的独立博客，但是觉得申请域名+服务器的太麻烦了就一直没有实现。偶然机会发现Hexo这个优秀的静态博客框架，再搭配现在流行的gitHub，简直是完美写博客的黄金搭档（免费+方便）。于是就上网参考了好多教程最后磕磕碰碰的搭建了起来。但是网上的教程多多手手都有点问题，可能比较早把。就有了这个自己总结的教程，一是自己总结一下。二是给也想搭建Hexo博客的童鞋们多一点参考。<br><a id="more"></a></p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>我这个教程是基于window系统化用户，Hexo3版本</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>我这个教程是基于window系统用户，Hexo3版本</p>
 <h2 id="安装前提软件"><a href="#安装前提软件" class="headerlink" title="安装前提软件"></a>安装前提软件</h2><p><a href="https://nodejs.org/en" target="_blank" rel="external">Node.js</a>:<br>作用：node.js用来创建hexo博客框架的，我当前安装版本为：node-v5.6.0-x64   </p>
 <p><a href="http://git-scm.com/download" target="_blank" rel="external">Git客户端</a>:<br>作用：把本地的hexo内容提交到github上去，我当前安装的是Git-2.7.0-64-bit </p>
 <h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>安装前先介绍几个hexo常用的命令,#后面为注释。</p>
@@ -142,7 +142,7 @@ hexo s
 <h2 id="部署本地文件到github"><a href="#部署本地文件到github" class="headerlink" title="部署本地文件到github"></a>部署本地文件到github</h2><p>既然Repository已经创建了，当然是先把博客放到Github上去看看效果。编辑E：\hexo下的_config.yml文件，建议使用Notepad++。<br>在_config.yml最下方，添加如下配置(命令中的第一个tengj为Github的用户名,第二个tengj为之前New的Repository的名字,记得改成自己的。另外记得一点，hexo的配置文件中任何’:’后面都是带一个空格的),如果配置以下命令出现ERROR Deployer not found : github，则参考上文的解决方法</p>
 <pre><code>deploy: 
     type: git
-    repository: https://github.com/huangjunhui/huangjunhui.github.io.git
+    repository: https://github.com/tengj/tengj.github.io.git
     branch: master
 </code></pre><p>配置_config.yml并保存。如果你是第一次使用Github或者是已经使用过，但没有配置过SSH，则可能需要配置一下:</p>
 <p>在Git Bash输入以下指令（任意位置点击鼠标右键），检查是否已经存在了SSH keys。</p>
@@ -549,9 +549,17 @@ $(document).ready(function(){
 
 
 
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?f4257aa3c89f03674b17888878a3c3af";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 
 
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257841330'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1257841330' type='text/javascript'%3E%3C/script%3E"));</script>
 
 <!-- Analytics End -->
 
