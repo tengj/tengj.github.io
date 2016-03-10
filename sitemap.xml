@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://tengj.github.io/2016/03/10/jqueryLoading/</loc>
+    
+    <lastmod>2016-03-10T14:54:56.358Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://tengj.github.io/tags/index.html</loc>
     
     <lastmod>2016-03-09T16:26:16.926Z</lastmod>

@@ -4,30 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>hexo干货系列：（总纲）搭建独立博客初衷 | 嘟嘟独立博客</title>
+    <title>ajax一个很好的加载效果 | 嘟嘟独立博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Tengj Jun">
     
 
     
-    <meta name="description" content="前言我是一名程序员，以前知识整理都是整理在为知笔记上，博客用的比较少，更别说是使用独立博客，因为不会。。。2016年过年在家期间偶然的机会萌发了自己要搭建一个属于自己的独立博客的想法，于是就有了下面的这些。
-正文技能点涉及为了搭建自己的独立博客，结果学了许多东西，感觉也是蛮好玩的。下面用思维导图画一下我为了搭建个人博客而不得不涉及学习的知识点。  
-系列博文整理整理了下hexo系列的文章，发现写系">
+    <meta name="description" content="推荐一个常用的jquery加载效果插件：
+要引入这个插件的css和js:12&amp;lt;link href=&quot;&amp;lt;%=path %&amp;gt;/css/showLoading.css&quot; rel=&quot;stylesheet&quot; media=&quot;screen&quot; /&amp;gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;&amp;lt;%=path %&amp;gt;/js/jquery.showLo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo干货系列：（总纲）搭建独立博客初衷">
-<meta property="og:url" content="http://tengj.github.io/2016/02/20/hexo干货系列：（总纲）搭建独立博客初衷/index.html">
+<meta property="og:title" content="ajax一个很好的加载效果">
+<meta property="og:url" content="http://tengj.github.io/2016/03/10/jqueryLoading/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="前言我是一名程序员，以前知识整理都是整理在为知笔记上，博客用的比较少，更别说是使用独立博客，因为不会。。。2016年过年在家期间偶然的机会萌发了自己要搭建一个属于自己的独立博客的想法，于是就有了下面的这些。
-正文技能点涉及为了搭建自己的独立博客，结果学了许多东西，感觉也是蛮好玩的。下面用思维导图画一下我为了搭建个人博客而不得不涉及学习的知识点。  
-系列博文整理整理了下hexo系列的文章，发现写系">
-<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo0_1.png">
-<meta property="og:updated_time" content="2016-03-07T16:32:08.321Z">
+<meta property="og:description" content="推荐一个常用的jquery加载效果插件：
+要引入这个插件的css和js:12&amp;lt;link href=&quot;&amp;lt;%=path %&amp;gt;/css/showLoading.css&quot; rel=&quot;stylesheet&quot; media=&quot;screen&quot; /&amp;gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;&amp;lt;%=path %&amp;gt;/js/jquery.showLo">
+<meta property="og:updated_time" content="2016-03-10T14:54:56.358Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo干货系列：（总纲）搭建独立博客初衷">
-<meta name="twitter:description" content="前言我是一名程序员，以前知识整理都是整理在为知笔记上，博客用的比较少，更别说是使用独立博客，因为不会。。。2016年过年在家期间偶然的机会萌发了自己要搭建一个属于自己的独立博客的想法，于是就有了下面的这些。
-正文技能点涉及为了搭建自己的独立博客，结果学了许多东西，感觉也是蛮好玩的。下面用思维导图画一下我为了搭建个人博客而不得不涉及学习的知识点。  
-系列博文整理整理了下hexo系列的文章，发现写系">
+<meta name="twitter:title" content="ajax一个很好的加载效果">
+<meta name="twitter:description" content="推荐一个常用的jquery加载效果插件：
+要引入这个插件的css和js:12&amp;lt;link href=&quot;&amp;lt;%=path %&amp;gt;/css/showLoading.css&quot; rel=&quot;stylesheet&quot; media=&quot;screen&quot; /&amp;gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;&amp;lt;%=path %&amp;gt;/js/jquery.showLo">
 
     
     <link rel="alternative" href="/atom.xml" title="嘟嘟独立博客" type="application/atom+xml">
@@ -88,14 +84,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/02/20/hexo干货系列：（总纲）搭建独立博客初衷/" title="hexo干货系列：（总纲）搭建独立博客初衷" itemprop="url">hexo干货系列：（总纲）搭建独立博客初衷</a>
+      <a href="/2016/03/10/jqueryLoading/" title="ajax一个很好的加载效果" itemprop="url">ajax一个很好的加载效果</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Tengj Jun" target="_blank" itemprop="author">Tengj Jun</a>
 		
   <p class="article-time">
-    <time datetime="2016-02-20T13:30:30.000Z" itemprop="datePublished"> 发表于 2016-02-20</time>
+    <time datetime="2016-03-10T14:44:53.000Z" itemprop="datePublished"> 发表于 2016-03-10</time>
     
   </p>
 </header>
@@ -104,14 +100,15 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#技能点涉及"><span class="toc-number">2.1.</span> <span class="toc-text">技能点涉及</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#系列博文整理"><span class="toc-number">2.2.</span> <span class="toc-text">系列博文整理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结束语"><span class="toc-number">3.</span> <span class="toc-text">结束语</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#要引入这个插件的css和js"><span class="toc-number">1.</span> <span class="toc-text">要引入这个插件的css和js:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用的时候代码如下"><span class="toc-number">2.</span> <span class="toc-text">使用的时候代码如下:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax完整效果"><span class="toc-number">3.</span> <span class="toc-text">ajax完整效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jquery介绍"><span class="toc-number">4.</span> <span class="toc-text">jquery介绍</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我是一名程序员，以前知识整理都是整理在为知笔记上，博客用的比较少，更别说是使用独立博客，因为不会。。。<br>2016年过年在家期间偶然的机会萌发了自己要搭建一个属于自己的独立博客的想法，于是就有了下面的这些。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="技能点涉及"><a href="#技能点涉及" class="headerlink" title="技能点涉及"></a>技能点涉及</h2><p>为了搭建自己的独立博客，结果学了许多东西，感觉也是蛮好玩的。<br>下面用思维导图画一下我为了搭建个人博客而不得不涉及学习的知识点。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo0_1.png" alt="">  </p>
-<h2 id="系列博文整理"><a href="#系列博文整理" class="headerlink" title="系列博文整理"></a>系列博文整理</h2><p>整理了下hexo系列的文章，发现写系列博客感觉还是很棒的：<br><a href="http://tengj.top/2016/02/22/hexo干货系列：（一）hexo+gitHub搭建个人独立博客/" target="_blank" rel="external">hexo干货系列：（一）hexo+gitHub搭建个人独立博客</a><br><a href="http://tengj.top/2016/02/26/hexo干货系列：（二）hexo主题下载及配置/" target="_blank" rel="external">hexo干货系列：（二）hexo主题下载及配置</a><br><a href="http://tengj.top/2016/03/06/hexo干货系列：（三）hexo的Jacman主题优化/" target="_blank" rel="external">hexo干货系列：（三）hexo的Jacman主题优化</a><br><a href="http://tengj.top/2016/03/06/hexo干货系列：（四）将hexo博客同时托管到github和coding/" target="_blank" rel="external">hexo干货系列：（四）将hexo博客同时托管到github和coding</a></p>
-<h1 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h1><p>2016年才知道有hexo这个东西，真希望早两年有人告诉我可以这样搭博客~~<br>hexo系列的学的差不多了，个人博客也搭建好了，后续就是用来记录自己工作以及生活上的点点滴滴。也会顺便把这几年学习的心得一片片写出来跟大家分享。<br>有分享才有进度，期待与你的碰撞！</p>
+		<p>推荐一个常用的jquery加载效果插件：</p>
+<h2 id="要引入这个插件的css和js"><a href="#要引入这个插件的css和js" class="headerlink" title="要引入这个插件的css和js:"></a>要引入这个插件的css和js:</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">"&lt;%=path %&gt;/css/showLoading.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">media</span>=<span class="value">"screen"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"&lt;%=path %&gt;/js/jquery.showLoading.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用的时候代码如下"><a href="#使用的时候代码如下" class="headerlink" title="使用的时候代码如下:"></a>使用的时候代码如下:</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">".wrapper"</span>).showLoading();  <span class="comment">//展示加载效果 wrapper为你需要加载效果的div， 也可以用body</span></span><br><span class="line">$(<span class="string">".wrapper"</span>).hideLoading();  <span class="comment">//取消加载效果</span></span><br></pre></td></tr></table></figure>
+<h2 id="ajax完整效果"><a href="#ajax完整效果" class="headerlink" title="ajax完整效果"></a>ajax完整效果</h2><p>搭配ajaX的beforeSend提高用户体验：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 提交表单数据到后台处理</span></span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    type: <span class="string">"post"</span>,</span><br><span class="line">    data: studentInfo,</span><br><span class="line">    dataType:<span class="string">"json"</span>,</span><br><span class="line">    url: <span class="string">"/Home/Submit"</span>,</span><br><span class="line">    beforeSend: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 禁用按钮防止重复提交</span></span><br><span class="line">        $(<span class="string">".wrapper"</span>).showLoading();</span><br><span class="line">        $(<span class="string">"#submit"</span>).attr(&#123; disabled: <span class="string">"disabled"</span> &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (data == <span class="string">"Success"</span>) &#123;</span><br><span class="line">            <span class="comment">//清空输入框</span></span><br><span class="line">            clearBox();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    complete: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        $(<span class="string">".wrapper"</span>).hideLoading();</span><br><span class="line">        $(<span class="string">"#submit"</span>).removeAttr(<span class="string">"disabled"</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    error: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.info(<span class="string">"error: "</span> + data.responseText);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h2 id="jquery介绍"><a href="#jquery介绍" class="headerlink" title="jquery介绍"></a>jquery介绍</h2><p> jQuery是经常使用的一个开源js框架，其中的$.ajax请求中有一个beforeSend方法，用于在向服务器发送请求前执行一些动作。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">	beforeSend: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	 <span class="comment">// Handle the beforeSend event</span></span><br><span class="line">	&#125;,</span><br><span class="line">	complete: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	 <span class="comment">// Handle the complete event</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// ......</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -119,13 +116,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/hexo/">hexo</a>
+  <a class="article-category-link" href="/categories/jQuery/">jQuery</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/hexo/">hexo</a>
+  <span></span> <a href="/tags/jQuery/">jQuery</a>
   </div>
 
 </div>
@@ -134,7 +131,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://tengj.github.io/2016/02/20/hexo干货系列：（总纲）搭建独立博客初衷/" data-title="hexo干货系列：（总纲）搭建独立博客初衷 | 嘟嘟独立博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://tengj.github.io/2016/03/10/jqueryLoading/" data-title="ajax一个很好的加载效果 | 嘟嘟独立博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -147,20 +144,20 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/02/22/hexo干货系列：（一）hexo+gitHub搭建个人独立博客/" title="hexo干货系列：（一）hexo+gitHub搭建个人独立博客">
-  <strong>上一篇：</strong><br/>
-  <span>
-  hexo干货系列：（一）hexo+gitHub搭建个人独立博客</span>
+
+<div class="next">
+<a href="/2016/03/06/hexo干货系列：（四）将hexo博客同时托管到github和coding/"  title="hexo干货系列：（四）将hexo博客同时托管到github和coding">
+ <strong>下一篇：</strong><br/> 
+ <span>hexo干货系列：（四）将hexo博客同时托管到github和coding
+</span>
 </a>
 </div>
-
 
 </nav>
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/02/20/hexo干货系列：（总纲）搭建独立博客初衷/" data-title="hexo干货系列：（总纲）搭建独立博客初衷" data-url="http://tengj.github.io/2016/02/20/hexo干货系列：（总纲）搭建独立博客初衷/"></div>
+	<div class="ds-thread" data-thread-key="2016/03/10/jqueryLoading/" data-title="ajax一个很好的加载效果" data-url="http://tengj.github.io/2016/03/10/jqueryLoading/"></div>
 </section>
 
 
@@ -170,7 +167,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#技能点涉及"><span class="toc-number">2.1.</span> <span class="toc-text">技能点涉及</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#系列博文整理"><span class="toc-number">2.2.</span> <span class="toc-text">系列博文整理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结束语"><span class="toc-number">3.</span> <span class="toc-text">结束语</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#要引入这个插件的css和js"><span class="toc-number">1.</span> <span class="toc-text">要引入这个插件的css和js:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用的时候代码如下"><span class="toc-number">2.</span> <span class="toc-text">使用的时候代码如下:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax完整效果"><span class="toc-number">3.</span> <span class="toc-text">ajax完整效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jquery介绍"><span class="toc-number">4.</span> <span class="toc-text">jquery介绍</span></a></li></ol>
  
   </div>
 
