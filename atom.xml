@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tengj.github.io/"/>
-  <updated>2016-03-10T14:54:56.358Z</updated>
+  <updated>2016-03-10T17:23:26.044Z</updated>
   <id>http://tengj.github.io/</id>
   
   <author>
@@ -14,6 +14,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo干货系列：（五）hexo添加站内搜索</title>
+    <link href="http://tengj.github.io/2016/03/11/hexo5Swiftype/"/>
+    <id>http://tengj.github.io/2016/03/11/hexo5Swiftype/</id>
+    <published>2016-03-10T17:16:43.000Z</published>
+    <updated>2016-03-10T17:23:26.044Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;本来想用百度站内搜索，但是没成功，所以改用swiftype，用起来还是很棒的，这里分享一下我的安装步骤  &lt;/p&gt;
+&lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;h2 id=&quot;注册&quot;&gt;&lt;a href=&quot;#注册&quot; class=&quot;headerlink&quot; title=&quot;注册&quot;&gt;&lt;/a&gt;注册&lt;/h2&gt;&lt;p&gt;去swiftype&lt;a href=&quot;https://swiftype.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官网&lt;/a&gt;注册个账号，然后登陆，对了不要去在意30天试用，30天过了还能继续使用，网站给的是30天高级账户的使用（那种有可以建立多个搜索引擎、多账户共同管理、一个引擎index多个域名的功能的账户），降级成为免费的账户类型，但是还能使用。&lt;/p&gt;
+&lt;h2 id=&quot;Create-an-engine&quot;&gt;&lt;a href=&quot;#Create-an-engine&quot; class=&quot;headerlink&quot; title=&quot;Create an engine&quot;&gt;&lt;/a&gt;Create an engine&lt;/h2&gt;&lt;p&gt;登陆后选择开始开干，步骤大概如下&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;点击Create an engine  &lt;/li&gt;
+&lt;li&gt;给你的网站建立一个索引  &lt;/li&gt;
+&lt;li&gt;输入你的网址  &lt;/li&gt;
+&lt;li&gt;起个名字  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo5_1.png&quot; alt=&quot;&quot; title=&quot;点击Create an engine&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo5_2.png&quot; alt=&quot;&quot; title=&quot;给你的网站建立一个索引&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo5_3.png&quot; alt=&quot;3&quot; title=&quot;输入你的网址&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo5_4.png&quot; alt=&quot;&quot; title=&quot;起个名字&quot;&gt;&lt;/p&gt;
+&lt;p&gt;上面配置好后开始抓取你网站的数据，大概等了几分钟后，查看Manage下面的Content，就能看到抓取的一些目录和tag数据过来，如果你不想要的话可以手动删除。&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo5_5.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;h2 id=&quot;install-Search&quot;&gt;&lt;a href=&quot;#install-Search&quot; class=&quot;headerlink&quot; title=&quot;install Search&quot;&gt;&lt;/a&gt;install Search&lt;/h2&gt;&lt;p&gt;接下来就是重头戏，如何安装插件，首先点击左下方的&lt;code&gt;install Search&lt;/code&gt;，就会弹出插件的代码，先复制一下。这个就是一会要用到的插件代码。  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;说明一下，&lt;code&gt;swiftype&lt;/code&gt;提供两种方式，一种是弹出的方式，一种是新开一个页面的方式。前者默认就行，后者还要配置另外一推东西。我之前也按照网上别人帖子参考的写，结果一直不行。干脆不用了，用默认简单方便。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo5_6.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;hexo的Pacman主题配置&quot;&gt;&lt;a href=&quot;#hexo的Pacman主题配置&quot; class=&quot;headerlink&quot; title=&quot;hexo的Pacman主题配置&quot;&gt;&lt;/a&gt;hexo的Pacman主题配置&lt;/h2&gt;&lt;p&gt;接下来都是hexo这边配置，首先打开pacman主题下的_config.yml文件在末尾添加如下代码&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;swift_search:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;enable&lt;/span&gt;:  &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;然后再切换的到\themes\jacman\layout_partial目录下，最后需要做的收尾工作全部都在这个目录下。&lt;br&gt;先打开header.ejs，找到&lt;br&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;%  &amp;#125;  else  if(theme.baidu_search.enable)&amp;#123; %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;form class=&quot;search&quot; action=&quot;&amp;lt;%- theme.baidu_search.site %&amp;gt;&quot; target=&quot;_blank&quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;label&amp;gt;Search&amp;lt;/label&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;input name=&quot;s&quot; type=&quot;hidden&quot; value= &amp;lt;%= theme.baidu_search.id %&amp;gt; &amp;gt;&amp;lt;input type=&quot;text&quot; name=&quot;q&quot; size=&quot;30&quot; placeholder=&quot;&amp;lt;%= __(&#39;search&#39;) %&amp;gt;&quot;&amp;gt;&amp;lt;br&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;直接替换成&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;%&lt;/span&gt; &amp;#125; &lt;span class=&quot;attribute&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;if&lt;/span&gt;(&lt;span class=&quot;attribute&quot;&gt;theme.swift_search.enable&lt;/span&gt;)&amp;#123; %&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;form&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;search&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;action&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;&amp;lt;%- config.root %&amp;gt;search/index.html&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;method&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;get&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;accept-charset&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;label&lt;/span&gt;&amp;gt;&lt;/span&gt;Search&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;label&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;search&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;st-default-search-input&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;maxlength&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;20&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;placeholder&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;Search&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;form&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;反正我也不会用baidu_search，所以直接替换无所谓，你要是还想保留，就直接添加else判断吧。&lt;br&gt;最后打开footer.ejs（其实header也行，随便你），在最后一个&lt;code&gt;div&lt;/code&gt;标签之前添加一开始拷贝的那段js代码，我的是：&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script type=&lt;span class=&quot;string&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  (&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;w,d,t,u,n,s,e&lt;/span&gt;)&lt;/span&gt;&amp;#123;w[&lt;span class=&quot;string&quot;&gt;&#39;SwiftypeObject&#39;&lt;/span&gt;]=n;w[n]=w[n]||&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  (w[n].q=w[n].q||[]).push(&lt;span class=&quot;built_in&quot;&gt;arguments&lt;/span&gt;);&amp;#125;;s=d.createElement(t);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  e=d.getElementsByTagName(t)[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;];s.async=&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;s.src=u;e.parentNode.insertBefore(s,e);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;)(&lt;span class=&quot;built_in&quot;&gt;window&lt;/span&gt;,&lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;script&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;//s.swiftypecdn.com/install/v2/st.js&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;_st&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  _st(&lt;span class=&quot;string&quot;&gt;&#39;install&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;Ts_hz24x26ZaNWfhsYwW&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;2.0.0&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;大功告成，来看看什么效果吧，自己发布后打开&lt;a href=&quot;http://tengj.top&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;博客&lt;/a&gt;,查询一个博客文章中出现的内容，效果如下：&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo5_7.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;上面查询的列表其实是之前在swiftype那边解析的文章列表，如果Content那边没有东西。那你这边查询不会有用的。  &lt;/p&gt;
+&lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;p&gt;好了，站内搜索搞定了，要不要使用你们自己决定。希望这篇文章对你有帮助~下篇计划写个网站统计插件的教程，我用的CNZZ。写完这篇已经凌晨1点了，明天还要上班，洗洗睡。  &lt;/p&gt;
+&lt;h1 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://www.jerryfu.net/post/search-engine-for-hexo-with-swiftype-v2.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;利用swiftype为hexo添加站内搜索v2.0&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我是嘟嘟MD，我为这篇文章代言。  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;欢迎转载，但希望您能注明出处，毕竟没啥人气囧&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;本来想用百度站内搜索，但是没成功，所以改用swiftype，用起来还是很棒的，这里分享一下我的安装步骤  &lt;/p&gt;
+&lt;h1 id=&quot;正文&quot;&gt;
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://tengj.github.io/categories/hexo/"/>
+    
+    
+      <category term="hexo" scheme="http://tengj.github.io/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>ajax一个很好的加载效果</title>
