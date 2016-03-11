@@ -11,20 +11,20 @@
     
 
     
-    <meta name="description" content="前言今天工作启动项目的时候发现报了内存溢出的错误，java.lang.OutOfMemoryError: PermGen space，网上百度了许多，各种解决方案，有的说修改tomcat下面的catalina.bat,有的说修改myeclipse.ini，把我弄得晕头转向。后来发现一个个人认为最好的解决方案，就是使用jdk自带的jvisualvm.exe来监控，特此来总结一下，希望对大家有帮助。">
+    <meta name="description" content="前言今天工作启动项目的时候发现报了内存溢出的错误，java.lang.OutOfMemoryError: PermGen space">
 <meta property="og:type" content="article">
 <meta property="og:title" content="myeclipse中tomcat内存溢出完美解决方案">
 <meta property="og:url" content="http://tengj.github.io/2016/02/25/myeclipse中tomcat内存溢出完美解决方案/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="前言今天工作启动项目的时候发现报了内存溢出的错误，java.lang.OutOfMemoryError: PermGen space，网上百度了许多，各种解决方案，有的说修改tomcat下面的catalina.bat,有的说修改myeclipse.ini，把我弄得晕头转向。后来发现一个个人认为最好的解决方案，就是使用jdk自带的jvisualvm.exe来监控，特此来总结一下，希望对大家有帮助。">
+<meta property="og:description" content="前言今天工作启动项目的时候发现报了内存溢出的错误，java.lang.OutOfMemoryError: PermGen space">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javavm0.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javavm1.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javavm4.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javavm2.png">
-<meta property="og:updated_time" content="2016-02-25T04:41:00.900Z">
+<meta property="og:updated_time" content="2016-03-10T17:32:51.014Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="myeclipse中tomcat内存溢出完美解决方案">
-<meta name="twitter:description" content="前言今天工作启动项目的时候发现报了内存溢出的错误，java.lang.OutOfMemoryError: PermGen space，网上百度了许多，各种解决方案，有的说修改tomcat下面的catalina.bat,有的说修改myeclipse.ini，把我弄得晕头转向。后来发现一个个人认为最好的解决方案，就是使用jdk自带的jvisualvm.exe来监控，特此来总结一下，希望对大家有帮助。">
+<meta name="twitter:description" content="前言今天工作启动项目的时候发现报了内存溢出的错误，java.lang.OutOfMemoryError: PermGen space">
 
     
     <link rel="alternative" href="/atom.xml" title="嘟嘟独立博客" type="application/atom+xml">
@@ -105,7 +105,7 @@
 		
 		</div>
 		
-		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天工作启动项目的时候发现报了内存溢出的错误，java.lang.OutOfMemoryError: PermGen space，网上百度了许多，各种解决方案，有的说修改tomcat下面的catalina.bat,有的说修改myeclipse.ini，把我弄得晕头转向。后来发现一个个人认为最好的解决方案，就是使用jdk自带的jvisualvm.exe来监控，特此来总结一下，希望对大家有帮助。</p>
+		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天工作启动项目的时候发现报了内存溢出的错误，java.lang.OutOfMemoryError: PermGen space<br><a id="more"></a><br>网上百度了许多，各种解决方案，有的说修改tomcat下面的catalina.bat,有的说修改myeclipse.ini，把我弄得晕头转向。后来发现一个个人认为最好的解决方案，就是使用jdk自带的jvisualvm.exe来监控，特此来总结一下，希望对大家有帮助。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>动手前先了解这几个参数的意思：  </p>
 <pre><code>-Xms128m JVM初始分配的堆内存
 -Xmx512m JVM最大允许分配的堆内存，按需分配  

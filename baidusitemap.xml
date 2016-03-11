@@ -4,28 +4,8 @@
 
     
   <url>
-    <loc>http://tengj.github.io/2016/03/11/hexo5Swiftype/</loc>
-    <lastmod>2016-03-10T17:23:26.044Z</lastmod>
-    <data>
-        <display>
-        <title>hexo干货系列：（五）hexo添加站内搜索</title>
-        <pubTime>2016-03-10T17:16:43.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://tengj.github.io/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://tengj.github.io/2016/03/06/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%89%EF%BC%89hexo%E7%9A%84Jacman%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</loc>
-    <lastmod>2016-03-10T16:36:51.662Z</lastmod>
+    <lastmod>2016-03-11T08:58:53.627Z</lastmod>
     <data>
         <display>
         <title>hexo干货系列：（三）hexo的Jacman主题优化</title>
@@ -45,7 +25,7 @@
     
   <url>
     <loc>http://tengj.github.io/2016/02/20/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E6%80%BB%E7%BA%B2%EF%BC%89%E6%90%AD%E5%BB%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2%E5%88%9D%E8%A1%B7/</loc>
-    <lastmod>2016-03-10T14:58:10.740Z</lastmod>
+    <lastmod>2016-03-10T17:34:53.033Z</lastmod>
     <data>
         <display>
         <title>hexo干货系列：（总纲）搭建独立博客初衷</title>
@@ -64,29 +44,8 @@
 
     
   <url>
-    <loc>http://tengj.github.io/2016/03/10/jqueryLoading/</loc>
-    <lastmod>2016-03-10T14:54:56.358Z</lastmod>
-    <data>
-        <display>
-        <title>ajax一个很好的加载效果</title>
-        <pubTime>2016-03-10T14:44:53.000Z</pubTime>
-        
-        <tag>jQuery</tag>
-         
-         
-           
-             
-              <breadCrumb title="jQuery" url="http://tengj.github.io/categories/jQuery/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-    
-  <url>
     <loc>http://tengj.github.io/2016/02/22/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%80%EF%BC%89hexo+gitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2016-03-09T11:25:46.568Z</lastmod>
+    <lastmod>2016-03-10T17:34:31.813Z</lastmod>
     <data>
         <display>
         <title>hexo干货系列：（一）hexo+gitHub搭建个人独立博客</title>
@@ -104,31 +63,9 @@
     </url>
 
     
-    
-  <url>
-    <loc>http://tengj.github.io/2016/03/06/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E5%9B%9B%EF%BC%89%E5%B0%86hexo%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%97%B6%E6%89%98%E7%AE%A1%E5%88%B0github%E5%92%8Ccoding/</loc>
-    <lastmod>2016-03-08T06:45:05.944Z</lastmod>
-    <data>
-        <display>
-        <title>hexo干货系列：（四）将hexo博客同时托管到github和coding</title>
-        <pubTime>2016-03-06T15:48:57.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://tengj.github.io/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-    
   <url>
     <loc>http://tengj.github.io/2016/02/26/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%BA%8C%EF%BC%89hexo%E4%B8%BB%E9%A2%98%E4%B8%8B%E8%BD%BD%E5%8F%8A%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2016-03-06T14:42:35.056Z</lastmod>
+    <lastmod>2016-03-10T17:34:13.061Z</lastmod>
     <data>
         <display>
         <title>hexo干货系列：（二）hexo主题下载及配置</title>
@@ -147,8 +84,28 @@
 
     
   <url>
+    <loc>http://tengj.github.io/2016/03/06/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E5%9B%9B%EF%BC%89%E5%B0%86hexo%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%97%B6%E6%89%98%E7%AE%A1%E5%88%B0github%E5%92%8Ccoding/</loc>
+    <lastmod>2016-03-10T17:33:54.570Z</lastmod>
+    <data>
+        <display>
+        <title>hexo干货系列：（四）将hexo博客同时托管到github和coding</title>
+        <pubTime>2016-03-06T15:48:57.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://tengj.github.io/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://tengj.github.io/2016/02/25/myeclipse%E4%B8%ADtomcat%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%AE%8C%E7%BE%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
-    <lastmod>2016-02-25T04:41:00.900Z</lastmod>
+    <lastmod>2016-03-10T17:32:51.014Z</lastmod>
     <data>
         <display>
         <title>myeclipse中tomcat内存溢出完美解决方案</title>
@@ -165,5 +122,48 @@
     </data>
     </url>
 
+    
+  <url>
+    <loc>http://tengj.github.io/2016/03/10/jqueryLoading/</loc>
+    <lastmod>2016-03-10T17:31:57.574Z</lastmod>
+    <data>
+        <display>
+        <title>ajax一个很好的加载效果</title>
+        <pubTime>2016-03-10T14:44:53.000Z</pubTime>
+        
+        <tag>jQuery</tag>
+         
+         
+           
+             
+              <breadCrumb title="jQuery" url="http://tengj.github.io/categories/jQuery/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tengj.github.io/2016/03/11/hexo5Swiftype/</loc>
+    <lastmod>2016-03-10T17:30:10.870Z</lastmod>
+    <data>
+        <display>
+        <title>hexo干货系列：（五）hexo添加站内搜索</title>
+        <pubTime>2016-03-10T17:16:43.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://tengj.github.io/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
     
 </urlset>

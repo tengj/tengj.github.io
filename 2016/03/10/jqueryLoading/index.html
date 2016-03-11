@@ -11,19 +11,16 @@
     
 
     
-    <meta name="description" content="推荐一个常用的jquery加载效果插件：
-要引入这个插件的css和js:12&amp;lt;link href=&quot;&amp;lt;%=path %&amp;gt;/css/showLoading.css&quot; rel=&quot;stylesheet&quot; media=&quot;screen&quot; /&amp;gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;&amp;lt;%=path %&amp;gt;/js/jquery.showLo">
+    <meta name="description" content="推荐一个常用的jquery加载效果插件,很适合开发中使用。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ajax一个很好的加载效果">
 <meta property="og:url" content="http://tengj.github.io/2016/03/10/jqueryLoading/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="推荐一个常用的jquery加载效果插件：
-要引入这个插件的css和js:12&amp;lt;link href=&quot;&amp;lt;%=path %&amp;gt;/css/showLoading.css&quot; rel=&quot;stylesheet&quot; media=&quot;screen&quot; /&amp;gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;&amp;lt;%=path %&amp;gt;/js/jquery.showLo">
-<meta property="og:updated_time" content="2016-03-10T14:54:56.358Z">
+<meta property="og:description" content="推荐一个常用的jquery加载效果插件,很适合开发中使用。">
+<meta property="og:updated_time" content="2016-03-10T17:31:57.574Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ajax一个很好的加载效果">
-<meta name="twitter:description" content="推荐一个常用的jquery加载效果插件：
-要引入这个插件的css和js:12&amp;lt;link href=&quot;&amp;lt;%=path %&amp;gt;/css/showLoading.css&quot; rel=&quot;stylesheet&quot; media=&quot;screen&quot; /&amp;gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;&amp;lt;%=path %&amp;gt;/js/jquery.showLo">
+<meta name="twitter:description" content="推荐一个常用的jquery加载效果插件,很适合开发中使用。">
 
     
     <link rel="alternative" href="/atom.xml" title="嘟嘟独立博客" type="application/atom+xml">
@@ -104,7 +101,8 @@
 		
 		</div>
 		
-		<p>推荐一个常用的jquery加载效果插件：</p>
+		<p>推荐一个常用的jquery加载效果插件,很适合开发中使用。</p>
+<a id="more"></a> 
 <h2 id="要引入这个插件的css和js"><a href="#要引入这个插件的css和js" class="headerlink" title="要引入这个插件的css和js:"></a>要引入这个插件的css和js:</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">"&lt;%=path %&gt;/css/showLoading.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">media</span>=<span class="value">"screen"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"&lt;%=path %&gt;/js/jquery.showLoading.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="使用的时候代码如下"><a href="#使用的时候代码如下" class="headerlink" title="使用的时候代码如下:"></a>使用的时候代码如下:</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">".wrapper"</span>).showLoading();  <span class="comment">//展示加载效果 wrapper为你需要加载效果的div， 也可以用body</span></span><br><span class="line">$(<span class="string">".wrapper"</span>).hideLoading();  <span class="comment">//取消加载效果</span></span><br></pre></td></tr></table></figure>
 <h2 id="ajax完整效果"><a href="#ajax完整效果" class="headerlink" title="ajax完整效果"></a>ajax完整效果</h2><p>搭配ajaX的beforeSend提高用户体验：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 提交表单数据到后台处理</span></span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    type: <span class="string">"post"</span>,</span><br><span class="line">    data: studentInfo,</span><br><span class="line">    dataType:<span class="string">"json"</span>,</span><br><span class="line">    url: <span class="string">"/Home/Submit"</span>,</span><br><span class="line">    beforeSend: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 禁用按钮防止重复提交</span></span><br><span class="line">        $(<span class="string">".wrapper"</span>).showLoading();</span><br><span class="line">        $(<span class="string">"#submit"</span>).attr(&#123; disabled: <span class="string">"disabled"</span> &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (data == <span class="string">"Success"</span>) &#123;</span><br><span class="line">            <span class="comment">//清空输入框</span></span><br><span class="line">            clearBox();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    complete: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        $(<span class="string">".wrapper"</span>).hideLoading();</span><br><span class="line">        $(<span class="string">"#submit"</span>).removeAttr(<span class="string">"disabled"</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    error: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.info(<span class="string">"error: "</span> + data.responseText);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>

@@ -11,14 +11,12 @@
     
 
     
-    <meta name="description" content="前言之前我们把hexo托管在github，但是毕竟github是国外的，访问速度上还是有点慢，所以想也部署一套在国内的托管平台，之前查资料听说gitcafe,但是听说gitcafe已经被coding收购了，所以就决定部署到coding。查询了多方资料，终于鼓捣出了本地一次部署，同时更新到github以及coding。
-正文_config.yml配置想要同时部署到2个平台，就要修改博客根目录下面的_">
+    <meta name="description" content="前言之前我们把hexo托管在github，但是毕竟github是国外的，访问速度上还是有点慢，所以想也部署一套在国内的托管平台，之前查资料听说gitcafe,但是听说gitcafe已经被coding收购了，所以就决定部署到coding。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo干货系列：（四）将hexo博客同时托管到github和coding">
 <meta property="og:url" content="http://tengj.github.io/2016/03/06/hexo干货系列：（四）将hexo博客同时托管到github和coding/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="前言之前我们把hexo托管在github，但是毕竟github是国外的，访问速度上还是有点慢，所以想也部署一套在国内的托管平台，之前查资料听说gitcafe,但是听说gitcafe已经被coding收购了，所以就决定部署到coding。查询了多方资料，终于鼓捣出了本地一次部署，同时更新到github以及coding。
-正文_config.yml配置想要同时部署到2个平台，就要修改博客根目录下面的_">
+<meta property="og:description" content="前言之前我们把hexo托管在github，但是毕竟github是国外的，访问速度上还是有点慢，所以想也部署一套在国内的托管平台，之前查资料听说gitcafe,但是听说gitcafe已经被coding收购了，所以就决定部署到coding。">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_13.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_1.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_2.png">
@@ -34,11 +32,10 @@
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_11.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_16.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_17.png">
-<meta property="og:updated_time" content="2016-03-08T06:45:05.944Z">
+<meta property="og:updated_time" content="2016-03-10T17:33:54.570Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo干货系列：（四）将hexo博客同时托管到github和coding">
-<meta name="twitter:description" content="前言之前我们把hexo托管在github，但是毕竟github是国外的，访问速度上还是有点慢，所以想也部署一套在国内的托管平台，之前查资料听说gitcafe,但是听说gitcafe已经被coding收购了，所以就决定部署到coding。查询了多方资料，终于鼓捣出了本地一次部署，同时更新到github以及coding。
-正文_config.yml配置想要同时部署到2个平台，就要修改博客根目录下面的_">
+<meta name="twitter:description" content="前言之前我们把hexo托管在github，但是毕竟github是国外的，访问速度上还是有点慢，所以想也部署一套在国内的托管平台，之前查资料听说gitcafe,但是听说gitcafe已经被coding收购了，所以就决定部署到coding。">
 
     
     <link rel="alternative" href="/atom.xml" title="嘟嘟独立博客" type="application/atom+xml">
@@ -119,7 +116,7 @@
 		
 		</div>
 		
-		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前我们把hexo托管在github，但是毕竟github是国外的，访问速度上还是有点慢，所以想也部署一套在国内的托管平台，之前查资料听说gitcafe,但是听说gitcafe已经被coding收购了，所以就决定部署到coding。查询了多方资料，终于鼓捣出了本地一次部署，同时更新到github以及coding。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_13.jpg" alt=""></p>
+		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前我们把hexo托管在github，但是毕竟github是国外的，访问速度上还是有点慢，所以想也部署一套在国内的托管平台，之前查资料听说gitcafe,但是听说gitcafe已经被coding收购了，所以就决定部署到coding。<a id="more"></a> 查询了多方资料，终于鼓捣出了本地一次部署，同时更新到github以及coding。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_13.jpg" alt=""></p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="config-yml配置"><a href="#config-yml配置" class="headerlink" title="_config.yml配置"></a>_config.yml配置</h2><p>想要同时部署到2个平台，就要修改博客根目录下面的_config.yml文件中的deploy如下<br>根据Hexo官方文档需要修改成下面的形式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  message: [message]</span><br><span class="line">  repo:</span><br><span class="line">    github: &lt;repository url&gt;,[branch]</span><br><span class="line">    gitcafe: &lt;repository url&gt;,[branch]</span><br></pre></td></tr></table></figure></p>
 <p>所以我的是这样：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo:</span><br><span class="line">	  github: git@github.com:tengj/tengj.github.io.git,master</span><br><span class="line">	  coding: git@git.coding.net:tengj/hexoblob.git,master</span><br></pre></td></tr></table></figure></p>
 <p>这里要注意一下：上面这段代码左边的-号只能有2个(如下图红圈)，如果超过2个一般就是会被认定为填写格式有问题。我是在repo下面两行用tab键缩进就行，之前没注意这里一直报错。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_1.png" alt="">  </p>
