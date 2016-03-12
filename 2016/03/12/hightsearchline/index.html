@@ -4,23 +4,35 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>ajax一个很好的加载效果 | 嘟嘟独立博客</title>
+    <title>hightsearchline | 嘟嘟独立博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Tengj Jun">
     
 
     
-    <meta name="description" content="推荐一个常用的jquery加载效果插件,很适合开发中使用。">
+    <meta name="description" content="前言我们普通人平时都会用到搜索引擎，但也只是简单的输入名称查询而已，这里介绍几个比较简单但是又及其好用的高级搜索指令，能让你搜索效率提高好几倍。
+正文
+高级搜索指令这么理解：一般人不知道的，能够提高搜索效率以及精度的一些特殊指令。
+
+双引号（搜索：“关键词”）把搜索词汇放在双引号中，代表完全匹配搜索，也就是说搜索出来的结果页面都是保护双引号中所出现的所有词汇，连顺序也是完全匹配的。百度和Googl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ajax一个很好的加载效果">
-<meta property="og:url" content="http://tengj.github.io/2016/03/10/jqueryLoading/index.html">
+<meta property="og:title" content="hightsearchline">
+<meta property="og:url" content="http://tengj.github.io/2016/03/12/hightsearchline/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="推荐一个常用的jquery加载效果插件,很适合开发中使用。">
-<meta property="og:updated_time" content="2016-03-10T17:31:57.574Z">
+<meta property="og:description" content="前言我们普通人平时都会用到搜索引擎，但也只是简单的输入名称查询而已，这里介绍几个比较简单但是又及其好用的高级搜索指令，能让你搜索效率提高好几倍。
+正文
+高级搜索指令这么理解：一般人不知道的，能够提高搜索效率以及精度的一些特殊指令。
+
+双引号（搜索：“关键词”）把搜索词汇放在双引号中，代表完全匹配搜索，也就是说搜索出来的结果页面都是保护双引号中所出现的所有词汇，连顺序也是完全匹配的。百度和Googl">
+<meta property="og:updated_time" content="2016-03-12T15:42:11.049Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ajax一个很好的加载效果">
-<meta name="twitter:description" content="推荐一个常用的jquery加载效果插件,很适合开发中使用。">
+<meta name="twitter:title" content="hightsearchline">
+<meta name="twitter:description" content="前言我们普通人平时都会用到搜索引擎，但也只是简单的输入名称查询而已，这里介绍几个比较简单但是又及其好用的高级搜索指令，能让你搜索效率提高好几倍。
+正文
+高级搜索指令这么理解：一般人不知道的，能够提高搜索效率以及精度的一些特殊指令。
+
+双引号（搜索：“关键词”）把搜索词汇放在双引号中，代表完全匹配搜索，也就是说搜索出来的结果页面都是保护双引号中所出现的所有词汇，连顺序也是完全匹配的。百度和Googl">
 
     
     <link rel="alternative" href="/atom.xml" title="嘟嘟独立博客" type="application/atom+xml">
@@ -81,14 +93,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/10/jqueryLoading/" title="ajax一个很好的加载效果" itemprop="url">ajax一个很好的加载效果</a>
+      <a href="/2016/03/12/hightsearchline/" title="hightsearchline" itemprop="url">hightsearchline</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Tengj Jun" target="_blank" itemprop="author">Tengj Jun</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-10T14:44:53.000Z" itemprop="datePublished"> 发表于 2016-03-10</time>
+    <time datetime="2016-03-12T15:40:59.000Z" itemprop="datePublished"> 发表于 2016-03-12</time>
     
   </p>
 </header>
@@ -97,16 +109,22 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#要引入这个插件的css和js"><span class="toc-number">1.</span> <span class="toc-text">要引入这个插件的css和js:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用的时候代码如下"><span class="toc-number">2.</span> <span class="toc-text">使用的时候代码如下:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax完整效果"><span class="toc-number">3.</span> <span class="toc-text">ajax完整效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jquery介绍"><span class="toc-number">4.</span> <span class="toc-text">jquery介绍</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#双引号（搜索：“关键词”）"><span class="toc-number">2.1.</span> <span class="toc-text">双引号（搜索：“关键词”）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#减号（搜索：关键词-不需要的关键词）"><span class="toc-number">2.2.</span> <span class="toc-text">减号（搜索：关键词  -不需要的关键词）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#星号-（搜索：搜索-擎）"><span class="toc-number">2.3.</span> <span class="toc-text">星号 （搜索：搜索*擎）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#inurl：（搜索：inurl：任意字符串）"><span class="toc-number">2.4.</span> <span class="toc-text">inurl：（搜索：inurl：任意字符串）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#intitle：返回的是页面title中包含关键词的页面"><span class="toc-number">2.5.</span> <span class="toc-text">intitle：返回的是页面title中包含关键词的页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#filetype：搜索特定文件格式的时候使用"><span class="toc-number">2.6.</span> <span class="toc-text">filetype：搜索特定文件格式的时候使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#site：这个高级搜索指令用来搜索某个域名下面的所有文件"><span class="toc-number">2.7.</span> <span class="toc-text">site：这个高级搜索指令用来搜索某个域名下面的所有文件</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<p>推荐一个常用的jquery加载效果插件,很适合开发中使用。</p>
-<a id="more"></a> 
-<h2 id="要引入这个插件的css和js"><a href="#要引入这个插件的css和js" class="headerlink" title="要引入这个插件的css和js:"></a>要引入这个插件的css和js:</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">"&lt;%=path %&gt;/css/showLoading.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">media</span>=<span class="value">"screen"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"&lt;%=path %&gt;/js/jquery.showLoading.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="使用的时候代码如下"><a href="#使用的时候代码如下" class="headerlink" title="使用的时候代码如下:"></a>使用的时候代码如下:</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">".wrapper"</span>).showLoading();  <span class="comment">//展示加载效果 wrapper为你需要加载效果的div， 也可以用body</span></span><br><span class="line">$(<span class="string">".wrapper"</span>).hideLoading();  <span class="comment">//取消加载效果</span></span><br></pre></td></tr></table></figure>
-<h2 id="ajax完整效果"><a href="#ajax完整效果" class="headerlink" title="ajax完整效果"></a>ajax完整效果</h2><p>搭配ajaX的beforeSend提高用户体验：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 提交表单数据到后台处理</span></span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    type: <span class="string">"post"</span>,</span><br><span class="line">    data: studentInfo,</span><br><span class="line">    dataType:<span class="string">"json"</span>,</span><br><span class="line">    url: <span class="string">"/Home/Submit"</span>,</span><br><span class="line">    beforeSend: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 禁用按钮防止重复提交</span></span><br><span class="line">        $(<span class="string">".wrapper"</span>).showLoading();</span><br><span class="line">        $(<span class="string">"#submit"</span>).attr(&#123; disabled: <span class="string">"disabled"</span> &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (data == <span class="string">"Success"</span>) &#123;</span><br><span class="line">            <span class="comment">//清空输入框</span></span><br><span class="line">            clearBox();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    complete: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        $(<span class="string">".wrapper"</span>).hideLoading();</span><br><span class="line">        $(<span class="string">"#submit"</span>).removeAttr(<span class="string">"disabled"</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    error: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.info(<span class="string">"error: "</span> + data.responseText);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<h2 id="jquery介绍"><a href="#jquery介绍" class="headerlink" title="jquery介绍"></a>jquery介绍</h2><p> jQuery是经常使用的一个开源js框架，其中的$.ajax请求中有一个beforeSend方法，用于在向服务器发送请求前执行一些动作。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">	beforeSend: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	 <span class="comment">// Handle the beforeSend event</span></span><br><span class="line">	&#125;,</span><br><span class="line">	complete: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	 <span class="comment">// Handle the complete event</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// ......</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我们普通人平时都会用到搜索引擎，但也只是简单的输入名称查询而已，这里介绍几个比较简单但是又及其好用的高级搜索指令，能让你搜索效率提高好几倍。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><blockquote>
+<p>高级搜索指令<br>这么理解：一般人不知道的，能够提高搜索效率以及精度的一些特殊指令。</p>
+</blockquote>
+<h2 id="双引号（搜索：“关键词”）"><a href="#双引号（搜索：“关键词”）" class="headerlink" title="双引号（搜索：“关键词”）"></a>双引号（搜索：“关键词”）</h2><p>把搜索词汇放在双引号中，代表完全匹配搜索，也就是说搜索出来的结果页面都是保护双引号中所出现的所有词汇，连顺序也是完全匹配的。百度和Google都是支持这个指令的。</p>
+<h2 id="减号（搜索：关键词-不需要的关键词）"><a href="#减号（搜索：关键词-不需要的关键词）" class="headerlink" title="减号（搜索：关键词  -不需要的关键词）"></a>减号（搜索：关键词  -不需要的关键词）</h2><p>减号代表搜索引擎显示不包括减号后面词汇的页面。使用这个指令时减号前面必须是空格，减号后面没有空格，要紧跟着需要排除的词。Google和百度都支持这个指令。使用减号高级指令可以更加准确的找到需要的文件，尤其是某些词语有多重意义的时候。</p>
+<h2 id="星号-（搜索：搜索-擎）"><a href="#星号-（搜索：搜索-擎）" class="headerlink" title="星号 （搜索：搜索*擎）"></a>星号 （搜索：搜索*擎）</h2><p>星号是常用的通配符，也可以使用在搜索引擎中。百度不支持<em>号指令。比如在Google中搜索“ 搜索</em>擎”，其中*代表任何文字、出现的结果就不仅仅是包含“搜索引擎”的页面了。</p>
+<h2 id="inurl：（搜索：inurl：任意字符串）"><a href="#inurl：（搜索：inurl：任意字符串）" class="headerlink" title="inurl：（搜索：inurl：任意字符串）"></a>inurl：（搜索：inurl：任意字符串）</h2><p>inurl：指令用于搜索查询词出现在URL中的页面，可以按英文字面意思理解。百度和Google都是支持inurl：指令的。inurl：指令不仅支持英文，还支持中文。<br>高级搜索指令inurl的语法格式为：inurl：xxx（xxx可以为任意字符串）。此命令是查找url中包含xxx的网页。<br>如果你是做SEO的，那么inurl：指令对你会很有用，因为你可以快速的找到竞争对手（因为关键词出现在URL中对排名有一定的影响）。</p>
+<h2 id="intitle：返回的是页面title中包含关键词的页面"><a href="#intitle：返回的是页面title中包含关键词的页面" class="headerlink" title="intitle：返回的是页面title中包含关键词的页面"></a>intitle：返回的是页面title中包含关键词的页面</h2><p>百度和谷歌都支持intitle。 title是目前页面优化最重要的因素。无论是什么网站，基本都会把关键词放入title中。<br>详细用法：<a href="http://jingyan.baidu.com/article/3f16e003c21c162591c103a6.html" target="_blank" rel="external">http://jingyan.baidu.com/article/3f16e003c21c162591c103a6.html</a></p>
+<h2 id="filetype：搜索特定文件格式的时候使用"><a href="#filetype：搜索特定文件格式的时候使用" class="headerlink" title="filetype：搜索特定文件格式的时候使用"></a>filetype：搜索特定文件格式的时候使用</h2><p>例如：filetype:pdf 视频教程，显示的是包含“视频教程”的所有PDF文件。filetype指令可以用来搜索特定的资源，比如PDF电子书、Word文件等。Google和百度都是支持filetype：指令的。<br>详细用法：<a href="http://jingyan.baidu.com/article/73c3ce28f23d8de50343d9ac.html" target="_blank" rel="external">http://jingyan.baidu.com/article/73c3ce28f23d8de50343d9ac.html</a>  </p>
+<h2 id="site：这个高级搜索指令用来搜索某个域名下面的所有文件"><a href="#site：这个高级搜索指令用来搜索某个域名下面的所有文件" class="headerlink" title="site：这个高级搜索指令用来搜索某个域名下面的所有文件"></a>site：这个高级搜索指令用来搜索某个域名下面的所有文件</h2><p>比如搜索“site：www.zhihu.com“ ，出现的就是 www.zhihu.com 这个域名下面的所有页面，可以说这个高级指令是查询网站收入页面数量最直接的方法。site：指令也可以用于子域名。但site：并不准确，特别是在Google中，出现的收入页面经常有大幅度波动，只能用于参考，但不能完全相信。<br>之前有人用“site:yun.baidu.com  ”资源关键词这个搜网盘里面的资源，现在貌似不大顶用了，等下给出替代方案。<br>高级搜索指令大全诸位可自行百度，补充一点是，这些指令很多都可以互相搭配使用影响最后的结果。可以有很复杂的组合结果，好消息是有人帮我们封装好做写成了特殊的搜索引擎供我们使用。</p>
+<p>#总结<br>这些高级搜索指令我也是最近刚知道，也都尝试了一番，确实比我平时只会用但一个名称查询来的快捷，精确多了。 希望对大家有帮助。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -114,13 +132,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/jQuery/">jQuery</a>
+  <a class="article-category-link" href="/categories/互联网/">互联网</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/jQuery/">jQuery</a>
+  <span></span> <a href="/tags/互联网/">互联网</a>
   </div>
 
 </div>
@@ -129,7 +147,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://tengj.github.io/2016/03/10/jqueryLoading/" data-title="ajax一个很好的加载效果 | 嘟嘟独立博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://tengj.github.io/2016/03/12/hightsearchline/" data-title="hightsearchline | 嘟嘟独立博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -142,19 +160,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/03/11/hexo5Swiftype/" title="hexo干货系列：（五）hexo添加站内搜索">
-  <strong>上一篇：</strong><br/>
-  <span>
-  hexo干货系列：（五）hexo添加站内搜索</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/03/06/hexo干货系列：（四）将hexo博客同时托管到github和coding/"  title="hexo干货系列：（四）将hexo博客同时托管到github和coding">
+<a href="/2016/03/11/hexo5Swiftype/"  title="hexo干货系列：（五）hexo添加站内搜索">
  <strong>下一篇：</strong><br/> 
- <span>hexo干货系列：（四）将hexo博客同时托管到github和coding
+ <span>hexo干货系列：（五）hexo添加站内搜索
 </span>
 </a>
 </div>
@@ -163,7 +173,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/03/10/jqueryLoading/" data-title="ajax一个很好的加载效果" data-url="http://tengj.github.io/2016/03/10/jqueryLoading/"></div>
+	<div class="ds-thread" data-thread-key="2016/03/12/hightsearchline/" data-title="hightsearchline" data-url="http://tengj.github.io/2016/03/12/hightsearchline/"></div>
 </section>
 
 
@@ -173,7 +183,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#要引入这个插件的css和js"><span class="toc-number">1.</span> <span class="toc-text">要引入这个插件的css和js:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用的时候代码如下"><span class="toc-number">2.</span> <span class="toc-text">使用的时候代码如下:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax完整效果"><span class="toc-number">3.</span> <span class="toc-text">ajax完整效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jquery介绍"><span class="toc-number">4.</span> <span class="toc-text">jquery介绍</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#双引号（搜索：“关键词”）"><span class="toc-number">2.1.</span> <span class="toc-text">双引号（搜索：“关键词”）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#减号（搜索：关键词-不需要的关键词）"><span class="toc-number">2.2.</span> <span class="toc-text">减号（搜索：关键词  -不需要的关键词）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#星号-（搜索：搜索-擎）"><span class="toc-number">2.3.</span> <span class="toc-text">星号 （搜索：搜索*擎）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#inurl：（搜索：inurl：任意字符串）"><span class="toc-number">2.4.</span> <span class="toc-text">inurl：（搜索：inurl：任意字符串）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#intitle：返回的是页面title中包含关键词的页面"><span class="toc-number">2.5.</span> <span class="toc-text">intitle：返回的是页面title中包含关键词的页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#filetype：搜索特定文件格式的时候使用"><span class="toc-number">2.6.</span> <span class="toc-text">filetype：搜索特定文件格式的时候使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#site：这个高级搜索指令用来搜索某个域名下面的所有文件"><span class="toc-number">2.7.</span> <span class="toc-text">site：这个高级搜索指令用来搜索某个域名下面的所有文件</span></a></li></ol></li></ol>
  
   </div>
 
