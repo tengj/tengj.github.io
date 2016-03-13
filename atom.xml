@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tengj.github.io/"/>
-  <updated>2016-03-13T06:47:35.515Z</updated>
+  <updated>2016-03-13T06:56:39.106Z</updated>
   <id>http://tengj.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>嘟嘟干货系列：从零搭建springMVC+mybatis（一）：maven WEB项目的搭建</title>
+    <title>springMVC干货系列：从零搭建springMVC+mybatis（一）：maven WEB项目的搭建</title>
     <link href="http://tengj.github.io/2016/03/13/springmvcseries1/"/>
     <id>http://tengj.github.io/2016/03/13/springmvcseries1/</id>
     <published>2016-03-13T06:21:40.000Z</published>
-    <updated>2016-03-13T06:47:35.515Z</updated>
+    <updated>2016-03-13T06:56:39.106Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;今天手把手来教大家如何搭建基于Maven的SpringMVC WEB项目。&lt;/p&gt;
 &lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;h2 id=&quot;安装环境介绍&quot;&gt;&lt;a href=&quot;#安装环境介绍&quot; class=&quot;headerlink&quot; title=&quot;安装环境介绍&quot;&gt;&lt;/a&gt;安装环境介绍&lt;/h2&gt;&lt;blockquote&gt;
