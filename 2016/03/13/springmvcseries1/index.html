@@ -12,7 +12,7 @@
 
     
     <meta name="description" content="前言今天手把手来教大家如何搭建基于Maven的SpringMVC WEB项目。
-正文安装环境介绍
+正文开发环境介绍
 IDE: MyEclipse 2014jdk: 1.7maven：apache-maven-3.1.1  
 
 好了，基本环境只要上面这些就行，maven不需要安装，只要有解压包就行。MyEclipse 2014有自带的插件，我们只要指定下路径就行。
@@ -22,7 +22,7 @@ MyEclipse 2014中Maven的配置打开m">
 <meta property="og:url" content="http://tengj.github.io/2016/03/13/springmvcseries1/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
 <meta property="og:description" content="前言今天手把手来教大家如何搭建基于Maven的SpringMVC WEB项目。
-正文安装环境介绍
+正文开发环境介绍
 IDE: MyEclipse 2014jdk: 1.7maven：apache-maven-3.1.1  
 
 好了，基本环境只要上面这些就行，maven不需要安装，只要有解压包就行。MyEclipse 2014有自带的插件，我们只要指定下路径就行。
@@ -36,11 +36,11 @@ MyEclipse 2014中Maven的配置打开m">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/springmvc1_7.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/springmvc1_8.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/springmvc1_9.png">
-<meta property="og:updated_time" content="2016-03-13T07:02:53.296Z">
+<meta property="og:updated_time" content="2016-03-13T07:15:27.647Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springMVC干货系列：从零搭建springMVC+mybatis（一）：maven WEB项目的搭建">
 <meta name="twitter:description" content="前言今天手把手来教大家如何搭建基于Maven的SpringMVC WEB项目。
-正文安装环境介绍
+正文开发环境介绍
 IDE: MyEclipse 2014jdk: 1.7maven：apache-maven-3.1.1  
 
 好了，基本环境只要上面这些就行，maven不需要安装，只要有解压包就行。MyEclipse 2014有自带的插件，我们只要指定下路径就行。
@@ -121,12 +121,12 @@ MyEclipse 2014中Maven的配置打开m">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装环境介绍"><span class="toc-number">2.1.</span> <span class="toc-text">安装环境介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MyEclipse-2014中Maven的配置"><span class="toc-number">2.2.</span> <span class="toc-text">MyEclipse 2014中Maven的配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建WEB项目"><span class="toc-number">2.3.</span> <span class="toc-text">创建WEB项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置需要的安装包"><span class="toc-number">2.4.</span> <span class="toc-text">配置需要的安装包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置SpringMVC需要的配置文件"><span class="toc-number">2.5.</span> <span class="toc-text">配置SpringMVC需要的配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现一个简单的springMVC请求"><span class="toc-number">2.6.</span> <span class="toc-text">实现一个简单的springMVC请求</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#开发环境介绍"><span class="toc-number">2.1.</span> <span class="toc-text">开发环境介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MyEclipse-2014中Maven的配置"><span class="toc-number">2.2.</span> <span class="toc-text">MyEclipse 2014中Maven的配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建WEB项目"><span class="toc-number">2.3.</span> <span class="toc-text">创建WEB项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置需要的安装包"><span class="toc-number">2.4.</span> <span class="toc-text">配置需要的安装包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置SpringMVC需要的配置文件"><span class="toc-number">2.5.</span> <span class="toc-text">配置SpringMVC需要的配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现一个简单的springMVC请求"><span class="toc-number">2.6.</span> <span class="toc-text">实现一个简单的springMVC请求</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
 		
 		</div>
 		
 		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天手把手来教大家如何搭建基于Maven的SpringMVC WEB项目。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="安装环境介绍"><a href="#安装环境介绍" class="headerlink" title="安装环境介绍"></a>安装环境介绍</h2><blockquote>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="开发环境介绍"><a href="#开发环境介绍" class="headerlink" title="开发环境介绍"></a>开发环境介绍</h2><blockquote>
 <p>IDE: MyEclipse 2014<br>jdk: 1.7<br>maven：apache-maven-3.1.1  </p>
 </blockquote>
 <p>好了，基本环境只要上面这些就行，maven不需要安装，只要有解压包就行。MyEclipse 2014有自带的插件，我们只要指定下路径就行。</p>
@@ -219,7 +219,7 @@ MyEclipse 2014中Maven的配置打开m">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装环境介绍"><span class="toc-number">2.1.</span> <span class="toc-text">安装环境介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MyEclipse-2014中Maven的配置"><span class="toc-number">2.2.</span> <span class="toc-text">MyEclipse 2014中Maven的配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建WEB项目"><span class="toc-number">2.3.</span> <span class="toc-text">创建WEB项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置需要的安装包"><span class="toc-number">2.4.</span> <span class="toc-text">配置需要的安装包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置SpringMVC需要的配置文件"><span class="toc-number">2.5.</span> <span class="toc-text">配置SpringMVC需要的配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现一个简单的springMVC请求"><span class="toc-number">2.6.</span> <span class="toc-text">实现一个简单的springMVC请求</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#开发环境介绍"><span class="toc-number">2.1.</span> <span class="toc-text">开发环境介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MyEclipse-2014中Maven的配置"><span class="toc-number">2.2.</span> <span class="toc-text">MyEclipse 2014中Maven的配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建WEB项目"><span class="toc-number">2.3.</span> <span class="toc-text">创建WEB项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置需要的安装包"><span class="toc-number">2.4.</span> <span class="toc-text">配置需要的安装包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置SpringMVC需要的配置文件"><span class="toc-number">2.5.</span> <span class="toc-text">配置SpringMVC需要的配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现一个简单的springMVC请求"><span class="toc-number">2.6.</span> <span class="toc-text">实现一个简单的springMVC请求</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
  
   </div>
 
