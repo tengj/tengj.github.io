@@ -37,7 +37,7 @@
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo6_14.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo6_15.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/zhifubao.png">
-<meta property="og:updated_time" content="2016-03-14T14:43:25.231Z">
+<meta property="og:updated_time" content="2016-03-14T14:53:29.782Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo干货系列：（六）hexo提交搜索引擎（百度+谷歌）">
 <meta name="twitter:description" content="前言能看到这里，说明大家都跟我一样，已经把博客搭起来并洋洋洒洒写了几篇博文，正春风得意感觉良好的时候，搭建博客有屎以来最大的危机出现在没有准备的我面前，百度+谷歌都无法搜索到我的博客。装逼还没几天就这样，真是不能忍。于是就研究了几天，鼓捣出了这篇文章。教大家如何脱坑。
@@ -173,7 +173,7 @@
 <p>成功提示： </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo6_12.png" alt="">  </p>
 <p>地址错误提示：  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo6_13.png" alt=""></p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo6_13.png" alt="">  </p>
 <h4 id="自动推送"><a href="#自动推送" class="headerlink" title="自动推送"></a>自动推送</h4><p>自动推送很简单，就是在你代码里面嵌入自动推送JS代码，在页面被访问时，页面URL将立即被推送给百度<br>代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> bp = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">    bp.src = <span class="string">'//push.zhanzhang.baidu.com/push.js'</span>;</span><br><span class="line">    <span class="keyword">var</span> s = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"script"</span>)[<span class="number">0</span>];</span><br><span class="line">    s.parentNode.insertBefore(bp, s);</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;/<span class="title">pre</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
 <p>我是放在<code>\themes\jacman\layout\_partial\after_footer.ejs</code>中，添加到下面就行。</p>
 <h4 id="sitemap提交"><a href="#sitemap提交" class="headerlink" title="sitemap提交"></a>sitemap提交</h4><p><code>sitemap</code>提交最上面提过了，直接提交<a href="http://tengj.top/baidusitemap.xml" target="_blank" rel="external">http://tengj.top/baidusitemap.xml</a> 就行，大家看下图就知道，一开始我是提交 <code>sitemap.xml</code>，里面是指向<code>github</code>的，结果主域校验失败了，后来切换到指向<code>tengj.top</code>域名的<code>baidusitemap.xml</code>就提交成功。  </p>
@@ -222,6 +222,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2016/03/14/baidunoshouluresson/" title="百度链接提交主动推送后不收录的原因">
+  <strong>上一篇：</strong><br/>
+  <span>
+  百度链接提交主动推送后不收录的原因</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2016/03/13/springmvcseries1/"  title="springMVC干货系列：从零搭建springMVC+mybatis（一）：maven WEB项目的搭建">
@@ -285,7 +293,7 @@
 		  
 		
 		  
-			<li><a href="/categories/互联网/" title="互联网">互联网<sup>1</sup></a></li>
+			<li><a href="/categories/互联网/" title="互联网">互联网<sup>2</sup></a></li>
 		  
 		
 		</ul>
@@ -302,6 +310,10 @@
 			
 		
 			
+				<li><a href="/tags/互联网/" title="互联网">互联网<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/springMVC/" title="springMVC">springMVC<sup>1</sup></a></li>
 			
 		
@@ -313,10 +325,6 @@
 				<li><a href="/tags/jQuery/" title="jQuery">jQuery<sup>1</sup></a></li>
 			
 		
-			
-				<li><a href="/tags/互联网/" title="互联网">互联网<sup>1</sup></a></li>
-			
-		
 		</ul>
 </div>
 
@@ -324,7 +332,7 @@
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
   </div>
 
 
@@ -332,7 +340,7 @@
   <div class="tagcloudlist">
     <p class="asidetitle">标签云</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/springMVC/" style="font-size: 10px;">springMVC</a> <a href="/tags/互联网/" style="font-size: 10px;">互联网</a>
+       <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/springMVC/" style="font-size: 10px;">springMVC</a> <a href="/tags/互联网/" style="font-size: 15px;">互联网</a>
     </div>
   </div>
 

@@ -4,27 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>myeclipse中tomcat内存溢出完美解决方案 | 嘟嘟独立博客</title>
+    <title>百度链接提交主动推送后不收录的原因 | 嘟嘟独立博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Tengj Jun">
     
 
     
-    <meta name="description" content="前言今天工作启动项目的时候发现报了内存溢出的错误，java.lang.OutOfMemoryError: PermGen space">
+    <meta name="description" content="前言 （转载）自从百度站长平台开放了百度链接主动推送接口以后，很多站长都开始使用百度开放的这个主动推送接口来推送网站的最新内容，但是在使用这个推送接口的时候，大家肯定也发现了不少问题，比如推送的内容不收录、推送的链接数量 和 站长平台显示的主动提交数量不符等等，今天小编就针对这些问题给大家做一个详细的说明。
+主动推送不一定百分百收录虽然说百度链接主动推送在收录速度上要优先于sitemap 和 网页">
 <meta property="og:type" content="article">
-<meta property="og:title" content="myeclipse中tomcat内存溢出完美解决方案">
-<meta property="og:url" content="http://tengj.github.io/2016/02/25/myeclipse中tomcat内存溢出完美解决方案/index.html">
+<meta property="og:title" content="百度链接提交主动推送后不收录的原因">
+<meta property="og:url" content="http://tengj.github.io/2016/03/14/baidunoshouluresson/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="前言今天工作启动项目的时候发现报了内存溢出的错误，java.lang.OutOfMemoryError: PermGen space">
-<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javavm0.png">
-<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javavm1.png">
-<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javavm4.png">
-<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javavm2.png">
-<meta property="og:updated_time" content="2016-03-10T17:32:51.014Z">
+<meta property="og:description" content="前言 （转载）自从百度站长平台开放了百度链接主动推送接口以后，很多站长都开始使用百度开放的这个主动推送接口来推送网站的最新内容，但是在使用这个推送接口的时候，大家肯定也发现了不少问题，比如推送的内容不收录、推送的链接数量 和 站长平台显示的主动提交数量不符等等，今天小编就针对这些问题给大家做一个详细的说明。
+主动推送不一定百分百收录虽然说百度链接主动推送在收录速度上要优先于sitemap 和 网页">
+<meta property="og:updated_time" content="2016-03-14T14:55:52.269Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="myeclipse中tomcat内存溢出完美解决方案">
-<meta name="twitter:description" content="前言今天工作启动项目的时候发现报了内存溢出的错误，java.lang.OutOfMemoryError: PermGen space">
+<meta name="twitter:title" content="百度链接提交主动推送后不收录的原因">
+<meta name="twitter:description" content="前言 （转载）自从百度站长平台开放了百度链接主动推送接口以后，很多站长都开始使用百度开放的这个主动推送接口来推送网站的最新内容，但是在使用这个推送接口的时候，大家肯定也发现了不少问题，比如推送的内容不收录、推送的链接数量 和 站长平台显示的主动提交数量不符等等，今天小编就针对这些问题给大家做一个详细的说明。
+主动推送不一定百分百收录虽然说百度链接主动推送在收录速度上要优先于sitemap 和 网页">
 
     
     <link rel="alternative" href="/atom.xml" title="嘟嘟独立博客" type="application/atom+xml">
@@ -85,14 +84,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/02/25/myeclipse中tomcat内存溢出完美解决方案/" title="myeclipse中tomcat内存溢出完美解决方案" itemprop="url">myeclipse中tomcat内存溢出完美解决方案</a>
+      <a href="/2016/03/14/baidunoshouluresson/" title="百度链接提交主动推送后不收录的原因" itemprop="url">百度链接提交主动推送后不收录的原因</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Tengj Jun" target="_blank" itemprop="author">Tengj Jun</a>
 		
   <p class="article-time">
-    <time datetime="2016-02-24T16:26:06.000Z" itemprop="datePublished"> 发表于 2016-02-25</time>
+    <time datetime="2016-03-14T14:54:24.000Z" itemprop="datePublished"> 发表于 2016-03-14</time>
     
   </p>
 </header>
@@ -101,28 +100,19 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#启动jvisualvm"><span class="toc-number">2.1.</span> <span class="toc-text">启动jvisualvm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改MaxPermSize参数"><span class="toc-number">2.2.</span> <span class="toc-text">修改MaxPermSize参数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#堆-Heap-和非堆-Non-heap-内存"><span class="toc-number">3.1.</span> <span class="toc-text">堆(Heap)和非堆(Non-heap)内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#堆内存分配"><span class="toc-number">3.2.</span> <span class="toc-text">堆内存分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非堆内存分配"><span class="toc-number">3.3.</span> <span class="toc-text">非堆内存分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM内存限制-最大值"><span class="toc-number">3.4.</span> <span class="toc-text">JVM内存限制(最大值)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言-（转载）"><span class="toc-number">1.</span> <span class="toc-text">前言 （转载）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主动推送不一定百分百收录"><span class="toc-number">1.1.</span> <span class="toc-text">主动推送不一定百分百收录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主动推送并非立马出现在搜索结果快照中"><span class="toc-number">1.2.</span> <span class="toc-text">主动推送并非立马出现在搜索结果快照中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#站长平台显示的主动提交数量和推送数量不符"><span class="toc-number">1.3.</span> <span class="toc-text">站长平台显示的主动提交数量和推送数量不符</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天工作启动项目的时候发现报了内存溢出的错误，java.lang.OutOfMemoryError: PermGen space<br><a id="more"></a><br>网上百度了许多，各种解决方案，有的说修改tomcat下面的catalina.bat,有的说修改myeclipse.ini，把我弄得晕头转向。后来发现一个个人认为最好的解决方案，就是使用jdk自带的jvisualvm.exe来监控，特此来总结一下，希望对大家有帮助。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>动手前先了解这几个参数的意思：  </p>
-<pre><code>-Xms128m JVM初始分配的堆内存
--Xmx512m JVM最大允许分配的堆内存，按需分配  
--XX:PermSize=64M JVM初始分配的非堆内存  
--XX:MaxPermSize=128M JVM最大允许分配的非堆内存，按需分配  
-</code></pre><h2 id="启动jvisualvm"><a href="#启动jvisualvm" class="headerlink" title="启动jvisualvm"></a>启动jvisualvm</h2><p><code>jvisualvm.exe</code>在jdk的bin路径下，我的路径是\jdk1.6.0_45\bin，<code>jvisualvm.exe</code>启动后的界面如下，顺便简单说明下几个地方：  </p>
-<ol>
-<li>这里是有使用到java的地方，这边的tomcat就是你启动后的web项目（部署到tomcat服务器的）</li>
-<li>这里是我们最关心的地方，有两个tab项，一个是堆，另外一个是PermGen（简称非堆，内存溢出问题大多出在这个地方）<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/javavm0.png" style="margin:0;"><br>下图是我项目启动报 PermGen space错的时候PermGen的使用情况，大家可以看到这边已使用的已经达到了最大值，所以就报错了，要解决这个问题，就是要加大这个PermGen的最大值，也就是上次我提到的参数<code>MaxPermSize</code><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/javavm1.png" style="margin:0;"><h2 id="修改MaxPermSize参数"><a href="#修改MaxPermSize参数" class="headerlink" title="修改MaxPermSize参数"></a>修改MaxPermSize参数</h2>我是用myeclipse来运行项目的，用到的是tomcat6,所以要这样修改就行：<br>Window-&gt;Preferences-&gt;Myeclipse-&gt;Services-&gt;Tomcat-&gt;Tomcat 6.x-&gt;JDK<br>在Optional Java VM arguments:下边的输入框里输入:<br><code>-Xms512m -Xmx512m -XX:PermSize=256m -XX:MaxPermSize=256m</code><br>这个大小可以根据上面监控里面已使用的最大值来调整，合适的就行!<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/javavm4.png" style="margin:0;"></li>
-</ol>
-<p>修改完后，重启下项目再看看监控，发现已使用的不会超过最大值了，就不会再出现内存溢出问题了。如图：<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/javavm2.png" style="margin:0;"></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>问题解决了，还有时间就顺便了解一下JVM内存管理的机制</p>
-<h2 id="堆-Heap-和非堆-Non-heap-内存"><a href="#堆-Heap-和非堆-Non-heap-内存" class="headerlink" title="堆(Heap)和非堆(Non-heap)内存"></a>堆(Heap)和非堆(Non-heap)内存</h2><p>按照官方的说法：“Java 虚拟机具有一个堆，堆是运行时数据区域，所有类实例和数组的内存均从此处分配。堆是在 Java 虚拟机启动时创建的。”“在JVM中堆之外的内存称为非堆内存(Non-heap memory)”。可以看出JVM主要管理两种类型的内存：<code>堆和非堆</code>。简单来说堆就是Java代码可及的内存，是留给开发人员使用的；非堆就是JVM留给自己用的，所以方法区、JVM内部处理或优化所需的内存(如JIT编译后的代码缓存)、每个类结构(如运行时常数池、字段和方法数据)以及方法和构造方法的代码都在非堆内存中。 </p>
-<h2 id="堆内存分配"><a href="#堆内存分配" class="headerlink" title="堆内存分配"></a>堆内存分配</h2><p>JVM初始分配的堆内存由-Xms指定，默认是物理内存的1/64；JVM最大分配的堆内存由-Xmx指定，默认是物理内存的1/4。默认空余堆内存小于40%时，JVM就会增大堆直到-Xmx的最大限制；<br>空余堆内存大于70%时，JVM会减少堆直到-Xms的最小限制。<code>因此服务器一般设置-Xms、-Xmx 相等以避免在每次GC后调整堆的大小</code>。<br>说明：如果-Xmx 不指定或者指定偏小，应用可能会导致java.lang.OutOfMemory错误，此错误来自JVM，不是Throwable的，无法用try…catch捕捉。</p>
-<h2 id="非堆内存分配"><a href="#非堆内存分配" class="headerlink" title="非堆内存分配"></a>非堆内存分配</h2><p> JVM使用<code>-XX:PermSize</code>设置非堆内存初始值，默认是物理内存的1/64；由<code>XX:MaxPermSize</code>设置最大非堆内存的大小，默认是物理内存的1/4。（还有一说：<code>MaxPermSize</code>缺省值和-server -client选项相关， -server选项下默认<code>MaxPermSize</code>为64m，-client选项下默认<code>MaxPermSize</code>为32m。这个我没有实验。）<br>上面错误信息中的PermGen space的全称是Permanent Generation space，是指内存的永久保存区域。还没有弄明白PermGen space是属于非堆内存，还是就是非堆内存，但至少是属于了。<br><code>XX:MaxPermSize</code>设置过小会导致java.lang.OutOfMemoryError: PermGen space 就是内存益出。<br>说说为什么会内存益出：<br>（1）这一部分内存用于存放Class和Meta的信息，Class在被 Load的时候被放入PermGen space区域，它和存放Instance的Heap区域不同<br>（2）GC(Garbage Collection)不会在主程序运行期对PermGen space进行清理，所以如果你的APP会LOAD很多CLASS 的话,就很可能出现PermGen space错误。<br>这种错误常见在web服务器对JSP进行pre compile的时候。  </p>
-<h2 id="JVM内存限制-最大值"><a href="#JVM内存限制-最大值" class="headerlink" title="JVM内存限制(最大值)"></a>JVM内存限制(最大值)</h2><p> 首先JVM内存限制于实际的最大物理内存，假设物理内存无限大的话，JVM内存的最大值跟操作系统有很大的关系。简单的说就32位处理器虽然可控内存空间有4GB,但是具体的操作系统会给一个限制， 这个限制一般是2GB-3GB（一般来说Windows系统下为1.5G-2G，Linux系统下为2G-3G），而64bit以上的处理器就不会有限制了。  </p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.cnblogs.com/mingforyou/archive/2012/03/03/2378143.html" target="_blank" rel="external">Xms Xmx PermSize MaxPermSize 区别</a><br><a href="http://blog.csdn.net/communicate_/article/details/8979588" target="_blank" rel="external">jvm 内存溢出 在myeclipse中加大tomcat的jvm内存</a></p>
+		<h1 id="前言-（转载）"><a href="#前言-（转载）" class="headerlink" title="前言 （转载）"></a>前言 （转载）</h1><p>自从百度站长平台开放了百度链接主动推送接口以后，很多站长都开始使用百度开放的这个主动推送接口来推送网站的最新内容，但是在使用这个推送接口的时候，大家肯定也发现了不少问题，比如推送的内容不收录、推送的链接数量 和 站长平台显示的主动提交数量不符等等，今天小编就针对这些问题给大家做一个详细的说明。</p>
+<h2 id="主动推送不一定百分百收录"><a href="#主动推送不一定百分百收录" class="headerlink" title="主动推送不一定百分百收录"></a>主动推送不一定百分百收录</h2><p>虽然说百度链接主动推送在收录速度上要优先于sitemap 和 网页提交，但是提交的内容是否收录还要取决你内容本身，如果你提交的网页内容质量较低，属于采集内容或者违规内容，那么这样的内容及时你使用主动推送提交也不一定能够百分百收录。</p>
+<p>百度的主动推送只是给站长们提供一个能够更快让百度发现网页链接的接口，但是内容是否会被收录依然要经过百度数据库的对比检测以后，符合收录标准的内容才会被收录。</p>
+<h2 id="主动推送并非立马出现在搜索结果快照中"><a href="#主动推送并非立马出现在搜索结果快照中" class="headerlink" title="主动推送并非立马出现在搜索结果快照中"></a>主动推送并非立马出现在搜索结果快照中</h2><p>很多站长朋友们使用的百度的主动推送接口以后，都错误的以为通过百度主动推送接口推送的内容都可以在第一时间内显示在百度搜索结果的快照中，其实这是错误的理解，因为你推送的内容仅仅是进入了百度搜索的数据库中，是否会在搜索结果快照中显示还需要百度爬虫的进一步检测和处理，一般收录以后的内容1-5天才会出现在快照中。当然，如果你的网站质量较高，或者你的网站属于新闻源类型的网站，一般主动推送以后的内容确实是立刻就能出现在搜索引擎结果中的。</p>
+<p>但是对于大部分的企业网站或者个人网站来说，主动推送的内容也不是立马在快照中显示的，所以大家在主动推送以后不要急着去查询快照结果，很多人查询不到快照结果就会不断重新提交相同的页面，这样对于网站的排名其实是非常不好的，因为百度的主动推送是为了让大家推送最新产生的网页，而不是不断提交相同的旧网页，如果重复提交之前提交过的网页，有可能会被搜索引擎错误的认为是作弊行为，可能会给网站带来更多的负面作用。</p>
+<h2 id="站长平台显示的主动提交数量和推送数量不符"><a href="#站长平台显示的主动提交数量和推送数量不符" class="headerlink" title="站长平台显示的主动提交数量和推送数量不符"></a>站长平台显示的主动提交数量和推送数量不符</h2><p>这个问题相信也有一些站长已经发现了，比如我们5月30号使用百度主动推送接口推送了2000条内容，但是等到过几天，去百度站长平台的后天查看时，发现百度站长平台显示的主动提交数量可能就是几条或者几十条，并非2000条内容，遇到这样的情况以后，很多站长都会感觉可能是百度主动推送接口出问题了。</p>
+<p>其实并非如此，如果你推送的2000条内容全部为最新产生的链接，那么百度站长平台看到的提交数量就是2000条，如果你主动推送的2000条内容中有很多都是之前已经被百度收录的内容，那么百度站长平台显示的主动提交数量就是你推送的总数量减去百度之前收录的网页数量的一个结果。</p>
+<p>也就是说百度站长平台显示的主动提交数量统计的是网站最新产生并且提交到百度的数量，并非你推送的真实数量，从这一点我们也不难看出，百度主动推送存在的目的就是让站长们推送最新产生的链接，而不是推送之前已经收录的内容。</p>
+<p>以上这三个方面就是百度主动推送接口最近可能大家遇到的一些问题，如果大家在使用百度主动推送接口时还遇到过什么其他的奇怪问题，欢迎一起讨论，让我们共同学习，一起进步！</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -130,13 +120,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/java/">java</a>
+  <a class="article-category-link" href="/categories/互联网/">互联网</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/java/">java</a>
+  <span></span> <a href="/tags/互联网/">互联网</a>
   </div>
 
 </div>
@@ -145,7 +135,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://tengj.github.io/2016/02/25/myeclipse中tomcat内存溢出完美解决方案/" data-title="myeclipse中tomcat内存溢出完美解决方案 | 嘟嘟独立博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://tengj.github.io/2016/03/14/baidunoshouluresson/" data-title="百度链接提交主动推送后不收录的原因 | 嘟嘟独立博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -158,19 +148,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/02/26/hexo干货系列：（二）hexo主题下载及配置/" title="hexo干货系列：（二）hexo主题下载及配置">
-  <strong>上一篇：</strong><br/>
-  <span>
-  hexo干货系列：（二）hexo主题下载及配置</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/02/22/hexo干货系列：（一）hexo+gitHub搭建个人独立博客/"  title="hexo干货系列：（一）hexo+gitHub搭建个人独立博客">
+<a href="/2016/03/14/hexo6seo/"  title="hexo干货系列：（六）hexo提交搜索引擎（百度+谷歌）">
  <strong>下一篇：</strong><br/> 
- <span>hexo干货系列：（一）hexo+gitHub搭建个人独立博客
+ <span>hexo干货系列：（六）hexo提交搜索引擎（百度+谷歌）
 </span>
 </a>
 </div>
@@ -179,7 +161,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/02/25/myeclipse中tomcat内存溢出完美解决方案/" data-title="myeclipse中tomcat内存溢出完美解决方案" data-url="http://tengj.github.io/2016/02/25/myeclipse中tomcat内存溢出完美解决方案/"></div>
+	<div class="ds-thread" data-thread-key="2016/03/14/baidunoshouluresson/" data-title="百度链接提交主动推送后不收录的原因" data-url="http://tengj.github.io/2016/03/14/baidunoshouluresson/"></div>
 </section>
 
 
@@ -189,7 +171,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#启动jvisualvm"><span class="toc-number">2.1.</span> <span class="toc-text">启动jvisualvm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改MaxPermSize参数"><span class="toc-number">2.2.</span> <span class="toc-text">修改MaxPermSize参数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#堆-Heap-和非堆-Non-heap-内存"><span class="toc-number">3.1.</span> <span class="toc-text">堆(Heap)和非堆(Non-heap)内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#堆内存分配"><span class="toc-number">3.2.</span> <span class="toc-text">堆内存分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非堆内存分配"><span class="toc-number">3.3.</span> <span class="toc-text">非堆内存分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM内存限制-最大值"><span class="toc-number">3.4.</span> <span class="toc-text">JVM内存限制(最大值)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言-（转载）"><span class="toc-number">1.</span> <span class="toc-text">前言 （转载）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主动推送不一定百分百收录"><span class="toc-number">1.1.</span> <span class="toc-text">主动推送不一定百分百收录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主动推送并非立马出现在搜索结果快照中"><span class="toc-number">1.2.</span> <span class="toc-text">主动推送并非立马出现在搜索结果快照中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#站长平台显示的主动提交数量和推送数量不符"><span class="toc-number">1.3.</span> <span class="toc-text">站长平台显示的主动提交数量和推送数量不符</span></a></li></ol></li></ol>
  
   </div>
 
