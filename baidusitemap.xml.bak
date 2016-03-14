@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>http://tengj.github.io/2016/03/12/hightsearchline/</loc>
+    <lastmod>2016-03-14T15:39:44.377Z</lastmod>
+    <data>
+        <display>
+        <title>使用高级搜索指令提高搜索效率（百度，谷歌）</title>
+        <pubTime>2016-03-12T15:40:59.000Z</pubTime>
+        
+        <tag>SEO</tag>
+         
+         
+           
+             
+              <breadCrumb title="SEO" url="http://tengj.github.io/categories/SEO/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tengj.github.io/2016/03/14/baidunoshouluresson/</loc>
+    <lastmod>2016-03-14T15:39:00.011Z</lastmod>
+    <data>
+        <display>
+        <title>百度链接提交主动推送后不收录的原因</title>
+        <pubTime>2016-03-14T14:54:24.000Z</pubTime>
+        
+        <tag>SEO</tag>
+         
+         
+           
+             
+              <breadCrumb title="SEO" url="http://tengj.github.io/categories/SEO/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://tengj.github.io/2016/03/14/hexo6seo/</loc>
     <lastmod>2016-03-14T15:35:17.478Z</lastmod>
     <data>
@@ -17,46 +57,6 @@
            
              
               <breadCrumb title="hexo" url="http://tengj.github.io/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tengj.github.io/2016/03/12/hightsearchline/</loc>
-    <lastmod>2016-03-14T15:01:02.753Z</lastmod>
-    <data>
-        <display>
-        <title>使用高级搜索指令提高搜索效率（百度，谷歌）</title>
-        <pubTime>2016-03-12T15:40:59.000Z</pubTime>
-        
-        <tag>互联网</tag>
-         
-         
-           
-             
-              <breadCrumb title="互联网" url="http://tengj.github.io/categories/%E4%BA%92%E8%81%94%E7%BD%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tengj.github.io/2016/03/14/baidunoshouluresson/</loc>
-    <lastmod>2016-03-14T15:00:00.225Z</lastmod>
-    <data>
-        <display>
-        <title>百度链接提交主动推送后不收录的原因</title>
-        <pubTime>2016-03-14T14:54:24.000Z</pubTime>
-        
-        <tag>互联网</tag>
-         
-         
-           
-             
-              <breadCrumb title="互联网" url="http://tengj.github.io/categories/%E4%BA%92%E8%81%94%E7%BD%91/"/>
           
         </display>
     </data>
