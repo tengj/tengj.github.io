@@ -4,12 +4,12 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/03/14/baidunoshouluresson/</loc>
-    <lastmod>2016-03-14T14:55:52.269Z</lastmod>
+    <loc>http://tengj.top/2016/03/12/hightsearchline/</loc>
+    <lastmod>2016-03-14T15:01:02.753Z</lastmod>
     <data>
         <display>
-        <title>百度链接提交主动推送后不收录的原因</title>
-        <pubTime>2016-03-14T14:54:24.000Z</pubTime>
+        <title>使用高级搜索指令提高搜索效率（百度，谷歌）</title>
+        <pubTime>2016-03-12T15:40:59.000Z</pubTime>
         
         <tag>互联网</tag>
          
@@ -25,7 +25,7 @@
     
   <url>
     <loc>http://tengj.top/2016/03/14/hexo6seo/</loc>
-    <lastmod>2016-03-14T14:53:29.782Z</lastmod>
+    <lastmod>2016-03-14T15:00:30.689Z</lastmod>
     <data>
         <display>
         <title>hexo干货系列：（六）hexo提交搜索引擎（百度+谷歌）</title>
@@ -37,6 +37,26 @@
            
              
               <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tengj.top/2016/03/14/baidunoshouluresson/</loc>
+    <lastmod>2016-03-14T15:00:00.225Z</lastmod>
+    <data>
+        <display>
+        <title>百度链接提交主动推送后不收录的原因</title>
+        <pubTime>2016-03-14T14:54:24.000Z</pubTime>
+        
+        <tag>互联网</tag>
+         
+         
+           
+             
+              <breadCrumb title="互联网" url="http://tengj.top/categories/%E4%BA%92%E8%81%94%E7%BD%91/"/>
           
         </display>
     </data>
@@ -77,26 +97,6 @@
            
              
               <breadCrumb title="springMVC" url="http://tengj.top/categories/springMVC/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tengj.top/2016/03/12/hightsearchline/</loc>
-    <lastmod>2016-03-12T16:00:14.995Z</lastmod>
-    <data>
-        <display>
-        <title>使用高级搜索指令提高搜索效率（百度，谷歌）</title>
-        <pubTime>2016-03-12T15:40:59.000Z</pubTime>
-        
-        <tag>互联网</tag>
-         
-         
-           
-             
-              <breadCrumb title="互联网" url="http://tengj.top/categories/%E4%BA%92%E8%81%94%E7%BD%91/"/>
           
         </display>
     </data>
