@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://tengj.top/2016/03/06/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E5%9B%9B%EF%BC%89%E5%B0%86hexo%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%97%B6%E6%89%98%E7%AE%A1%E5%88%B0github%E5%92%8Ccoding/</loc>
+    <lastmod>2016-03-15T04:38:58.085Z</lastmod>
+    <data>
+        <display>
+        <title>hexo干货系列：（四）将hexo博客同时托管到github和coding</title>
+        <pubTime>2016-03-06T15:48:57.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://tengj.top/2016/03/12/hightsearchline/</loc>
     <lastmod>2016-03-14T15:39:44.377Z</lastmod>
     <data>
@@ -150,26 +170,6 @@
         <display>
         <title>hexo干货系列：（二）hexo主题下载及配置</title>
         <pubTime>2016-02-26T06:14:34.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tengj.top/2016/03/06/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E5%9B%9B%EF%BC%89%E5%B0%86hexo%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%97%B6%E6%89%98%E7%AE%A1%E5%88%B0github%E5%92%8Ccoding/</loc>
-    <lastmod>2016-03-10T17:33:54.570Z</lastmod>
-    <data>
-        <display>
-        <title>hexo干货系列：（四）将hexo博客同时托管到github和coding</title>
-        <pubTime>2016-03-06T15:48:57.000Z</pubTime>
         
         <tag>hexo</tag>
          

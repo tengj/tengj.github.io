@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_11.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_16.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_17.png">
-<meta property="og:updated_time" content="2016-03-10T17:33:54.570Z">
+<meta property="og:updated_time" content="2016-03-15T04:38:58.085Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo干货系列：（四）将hexo博客同时托管到github和coding">
 <meta name="twitter:description" content="前言之前我们把hexo托管在github，但是毕竟github是国外的，访问速度上还是有点慢，所以想也部署一套在国内的托管平台，之前查资料听说gitcafe,但是听说gitcafe已经被coding收购了，所以就决定部署到coding。">
@@ -129,7 +129,12 @@
 <p>最后使用部署命令就能把博客同步到coding上面：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy -g</span><br></pre></td></tr></table></figure></p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_5.png" alt="">  </p>
 <h2 id="pages服务方式部署"><a href="#pages服务方式部署" class="headerlink" title="pages服务方式部署"></a>pages服务方式部署</h2><p>部署博客方式有两种，第一种就是pages服务的方式，也推荐这种方式，因为可以绑定域名，而第二种演示的方式必须升级会员才能绑定自定义域名。pages方式也很简单<br>就是在source/需要创建一个空白文件，至于原因，是因为 coding.net需要这个文件来作为以静态文件部署的标志。就是说看到这个Staticfile就知道按照静态文件来发布。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="built_in">source</span>/</span><br><span class="line">touch Staticfile  <span class="comment">#名字必须是Staticfile</span></span><br></pre></td></tr></table></figure></p>
-<p>分支选择master，因为前面配置的分支是master,因此开启之后，也需要是master。然后看起之后就可访问了。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_15.png" alt=""></p>
+<p>分支选择master，因为前面配置的分支是master,因此开启之后，也需要是master。然后看起之后就可访问了。  </p>
+<p><strong>注意</strong>：</p>
+<blockquote>
+<p>如果你的项目名称跟你coinding的用户名一样，比如我的用户是叫tengj,博客项目名也叫tengj<br>那直接访问 <code>tengj.coding.me</code>就能访问博客，否则就要带上项目名：<code>tengj.coding.me/项目名</code> 才能访问<br>推荐项目名跟用户名一样，这样就可以省略项目名了  </p>
+</blockquote>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_15.png" alt=""></p>
 <h2 id="演示方式部署"><a href="#演示方式部署" class="headerlink" title="演示方式部署"></a>演示方式部署</h2><p>当你把你的静态网站上传到Coding之后，就可以着手部署演示了，Coding的演示平台支持静态网页，所以其实非常简单。在开启演示模式之前，会提醒你没有检测到环境，你直接强制开启就可以了。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_6.png" alt=""> </p>
 <ul>
 <li>部署版本我没有填，默认是master</li>
