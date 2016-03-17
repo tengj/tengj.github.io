@@ -4,15 +4,20 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/03/17/hexo6count/</loc>
-    <lastmod>2016-03-17T13:24:23.562Z</lastmod>
+    <loc>http://tengj.top/2016/03/17/hexo7count/</loc>
+    <lastmod>2016-03-17T13:30:30.557Z</lastmod>
     <data>
         <display>
         <title>hexo干货系列：（七）hexo安装统计插件</title>
         <pubTime>2016-03-17T13:22:58.000Z</pubTime>
         
+        <tag>hexo</tag>
+         
          
            
+             
+              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
+          
         </display>
     </data>
     </url>
