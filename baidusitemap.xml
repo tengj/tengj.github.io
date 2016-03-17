@@ -4,12 +4,127 @@
 
     
   <url>
+    <loc>http://tengj.top/2016/03/17/hexo6count/</loc>
+    <lastmod>2016-03-17T13:24:23.562Z</lastmod>
+    <data>
+        <display>
+        <title>hexo干货系列：（七）hexo安装统计插件</title>
+        <pubTime>2016-03-17T13:22:58.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tengj.top/2016/03/11/hexo5Swiftype/</loc>
+    <lastmod>2016-03-17T13:20:53.075Z</lastmod>
+    <data>
+        <display>
+        <title>hexo干货系列：（五）hexo添加站内搜索</title>
+        <pubTime>2016-03-10T17:16:43.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://tengj.top/2016/03/06/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E5%9B%9B%EF%BC%89%E5%B0%86hexo%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%97%B6%E6%89%98%E7%AE%A1%E5%88%B0github%E5%92%8Ccoding/</loc>
-    <lastmod>2016-03-15T04:41:28.869Z</lastmod>
+    <lastmod>2016-03-17T13:20:39.502Z</lastmod>
     <data>
         <display>
         <title>hexo干货系列：（四）将hexo博客同时托管到github和coding</title>
         <pubTime>2016-03-06T15:48:57.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tengj.top/2016/03/06/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%89%EF%BC%89hexo%E7%9A%84Jacman%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</loc>
+    <lastmod>2016-03-17T13:20:21.231Z</lastmod>
+    <data>
+        <display>
+        <title>hexo干货系列：（三）hexo的Jacman主题优化</title>
+        <pubTime>2016-03-06T14:14:54.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tengj.top/2016/02/26/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%BA%8C%EF%BC%89hexo%E4%B8%BB%E9%A2%98%E4%B8%8B%E8%BD%BD%E5%8F%8A%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2016-03-17T13:20:14.027Z</lastmod>
+    <data>
+        <display>
+        <title>hexo干货系列：（二）hexo主题下载及配置</title>
+        <pubTime>2016-02-26T06:14:34.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tengj.top/2016/02/22/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%80%EF%BC%89hexo+gitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2016-03-17T13:20:05.867Z</lastmod>
+    <data>
+        <display>
+        <title>hexo干货系列：（一）hexo+gitHub搭建个人独立博客</title>
+        <pubTime>2016-02-22T08:04:09.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tengj.top/2016/03/14/hexo6seo/</loc>
+    <lastmod>2016-03-17T13:19:03.375Z</lastmod>
+    <data>
+        <display>
+        <title>hexo干货系列：（六）hexo提交搜索引擎（百度+谷歌）</title>
+        <pubTime>2016-03-14T14:23:39.000Z</pubTime>
         
         <tag>hexo</tag>
          
@@ -64,26 +179,6 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/03/14/hexo6seo/</loc>
-    <lastmod>2016-03-14T15:35:17.478Z</lastmod>
-    <data>
-        <display>
-        <title>hexo干货系列：（六）hexo提交搜索引擎（百度+谷歌）</title>
-        <pubTime>2016-03-14T14:23:39.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://tengj.top/2016/02/20/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E6%80%BB%E7%BA%B2%EF%BC%89%E6%90%AD%E5%BB%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2%E5%88%9D%E8%A1%B7/</loc>
     <lastmod>2016-03-14T14:47:12.522Z</lastmod>
     <data>
@@ -124,66 +219,6 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/03/06/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%89%EF%BC%89hexo%E7%9A%84Jacman%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</loc>
-    <lastmod>2016-03-11T08:58:53.627Z</lastmod>
-    <data>
-        <display>
-        <title>hexo干货系列：（三）hexo的Jacman主题优化</title>
-        <pubTime>2016-03-06T14:14:54.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tengj.top/2016/02/22/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%80%EF%BC%89hexo+gitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2016-03-10T17:34:31.813Z</lastmod>
-    <data>
-        <display>
-        <title>hexo干货系列：（一）hexo+gitHub搭建个人独立博客</title>
-        <pubTime>2016-02-22T08:04:09.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tengj.top/2016/02/26/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%BA%8C%EF%BC%89hexo%E4%B8%BB%E9%A2%98%E4%B8%8B%E8%BD%BD%E5%8F%8A%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2016-03-10T17:34:13.061Z</lastmod>
-    <data>
-        <display>
-        <title>hexo干货系列：（二）hexo主题下载及配置</title>
-        <pubTime>2016-02-26T06:14:34.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://tengj.top/2016/02/25/myeclipse%E4%B8%ADtomcat%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%AE%8C%E7%BE%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
     <lastmod>2016-03-10T17:32:51.014Z</lastmod>
     <data>
@@ -217,26 +252,6 @@
            
              
               <breadCrumb title="jQuery" url="http://tengj.top/categories/jQuery/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tengj.top/2016/03/11/hexo5Swiftype/</loc>
-    <lastmod>2016-03-10T17:30:10.870Z</lastmod>
-    <data>
-        <display>
-        <title>hexo干货系列：（五）hexo添加站内搜索</title>
-        <pubTime>2016-03-10T17:16:43.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
           
         </display>
     </data>
