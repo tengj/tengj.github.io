@@ -2398,7 +2398,7 @@ pre .javascript .function {
   color: #32b9b1;
 }
 .timeline-content a:hover {
-  color: #666;
+  color: #2ca6cb;
   text-decoration: none;
 }
 .timeline-content a:focus {
@@ -2503,8 +2503,7 @@ pre .javascript .function {
   font-size: 14px;
   z-index: 100;
 }
-.timeline .timeline-row > div,
-.timeline .timeline-icon > div {
+.timeline .timeline-row .timeline-icon > div {
   -webkit-border-radius: 50%;
   border-radius: 50%;
   line-height: 34px;
@@ -2516,7 +2515,7 @@ pre .javascript .function {
   background-color: #fff;
   color: #333;
 }
-.timeline .timeline-row .timeline-contentafter {
+.timeline .timeline-row .timeline-content:after {
   content: "";
   position: absolute;
   top: 48px;
@@ -2558,7 +2557,7 @@ pre .javascript .function {
   margin-right: 40px;
   margin-left: 0;
 }
-.timeline .timeline-row:nth-child(odd) .timeline-contentafter {
+.timeline .timeline-row:nth-child(odd) .timeline-content:after {
   left: auto;
   right: -41px;
 }
@@ -2587,11 +2586,11 @@ pre .javascript .function {
 .timeline .animated .timeline-row.active:nth-child(odd) .timeline-content {
   left: 0;
 }
-@media only screen and (min-width: 1560px) {
+@media (max-width: 1200px) {
   .timeline {
     padding: 15px 10px;
   }
-  .timelineafter {
+  .timeline:after {
     left: 28px;
   }
   .timeline .timeline-row {
@@ -2620,7 +2619,7 @@ pre .javascript .function {
     box-shadow: 0 1px 2px rgba(0,0,0,0.1);
     position: relative;
   }
-  .timeline .timeline-row .timeline-contentafter {
+  .timeline .timeline-row .timeline-content:after {
     right: auto !important;
     left: -20px !important;
     top: 32px;

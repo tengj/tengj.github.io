@@ -85,32 +85,116 @@
 <script src="/js/jquery-2.0.3.min.js"></script>
 <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script>
+</script>
+<script>
     $(function () {
+	var arrs=new Array();
+	
+	  var obj={};
+	  obj.title="springMVC干货系列：从零搭建springMVC+mybatis（一）：maven WEB项目的搭建";
+	  obj.date="2016-03-13";
+	  obj.path="2016/03/13/springmvcseries1/";
+	  arrs.push(obj);
+	
+	  var obj={};
+	  obj.title="myeclipse中tomcat内存溢出完美解决方案";
+	  obj.date="2016-02-25";
+	  obj.path="2016/02/25/myeclipse中tomcat内存溢出完美解决方案/";
+	  arrs.push(obj);
+	
+	  var obj={};
+	  obj.title="ajax一个很好的加载效果";
+	  obj.date="2016-03-10";
+	  obj.path="2016/03/10/jqueryLoading/";
+	  arrs.push(obj);
+	
+	  var obj={};
+	  obj.title="使用高级搜索指令提高搜索效率（百度，谷歌）";
+	  obj.date="2016-03-12";
+	  obj.path="2016/03/12/hightsearchline/";
+	  arrs.push(obj);
+	
+	  var obj={};
+	  obj.title="hexo干货系列：（总纲）搭建独立博客初衷";
+	  obj.date="2016-02-20";
+	  obj.path="2016/02/20/hexo干货系列：（总纲）搭建独立博客初衷/";
+	  arrs.push(obj);
+	
+	  var obj={};
+	  obj.title="hexo干货系列：（四）将hexo博客同时托管到github和coding";
+	  obj.date="2016-03-06";
+	  obj.path="2016/03/06/hexo干货系列：（四）将hexo博客同时托管到github和coding/";
+	  arrs.push(obj);
+	
+	  var obj={};
+	  obj.title="hexo干货系列：（二）hexo主题下载及配置";
+	  obj.date="2016-02-26";
+	  obj.path="2016/02/26/hexo干货系列：（二）hexo主题下载及配置/";
+	  arrs.push(obj);
+	
+	  var obj={};
+	  obj.title="hexo干货系列：（三）hexo的Jacman主题优化";
+	  obj.date="2016-03-06";
+	  obj.path="2016/03/06/hexo干货系列：（三）hexo的Jacman主题优化/";
+	  arrs.push(obj);
+	
+	  var obj={};
+	  obj.title="hexo干货系列：（一）hexo+gitHub搭建个人独立博客";
+	  obj.date="2016-02-22";
+	  obj.path="2016/02/22/hexo干货系列：（一）hexo+gitHub搭建个人独立博客/";
+	  arrs.push(obj);
+	
+	  var obj={};
+	  obj.title="hexo干货系列：（七）hexo安装统计插件";
+	  obj.date="2016-03-17";
+	  obj.path="2016/03/17/hexo7count/";
+	  arrs.push(obj);
+	
+	  var obj={};
+	  obj.title="hexo干货系列：（六）hexo提交搜索引擎（百度+谷歌）";
+	  obj.date="2016-03-14";
+	  obj.path="2016/03/14/hexo6seo/";
+	  arrs.push(obj);
+	
+	  var obj={};
+	  obj.title="hexo干货系列：（五）hexo添加站内搜索";
+	  obj.date="2016-03-11";
+	  obj.path="2016/03/11/hexo5Swiftype/";
+	  arrs.push(obj);
+	
+	  var obj={};
+	  obj.title="百度链接提交主动推送后不收录的原因";
+	  obj.date="2016-03-14";
+	  obj.path="2016/03/14/baidunoshouluresson/";
+	  arrs.push(obj);
+	
+
+	arrs.sort(function(a, b){
+	  return new Date(b.date.replace(/-/g, "/")) - new Date(a.date.replace(/-/g, "/"));
+	});
       var loadTimeline;
       loadTimeline=function(){
-        for(var i=0;i<20;i++){
-          var strArs=new Array();
-          strArs.push('<div class="timeline-row">');
-          strArs.push('<div class="timeline-time">');
-          strArs.push('<small>2016-12-12</small>6:14 PM');
-          strArs.push('</div>');
-
-          strArs.push('<div class="timeline-icon">');
-          strArs.push('<div class="bg-primary">');
-          strArs.push('<i class="fa fa-pencil"></i>');
-          strArs.push('</div>');
-          strArs.push('</div>');
-
-          strArs.push('<div class="panel timeline-content">');
-          strArs.push('<div class="panel-body">');
-          strArs.push('<h2>');
-          strArs.push('<a>hexo干货系列：（一）hexo+gitHub搭建个人独立博客</a>');
-          strArs.push('</h2>');
-          strArs.push('</div>');
-          strArs.push('</div>');
-          strArs.push('</div>');
+	  var strArs=new Array();
+	  for(var i=0;i<arrs.length;i++){
+	    strArs.push('<div class="timeline-row">');
+            strArs.push('<div class="timeline-time">');
+            strArs.push(arrs[i].date);
+            strArs.push('</div>');
+            strArs.push('<div class="timeline-icon">');
+            strArs.push('<div class="bg-primary">');
+            strArs.push('<i class="fa fa-pencil"></i>');
+            strArs.push('</div>');
+            strArs.push('</div>');
+            strArs.push('<div class="panel timeline-content">');
+            strArs.push('<div class="panel-body">');
+            strArs.push('<h2>');
+      	    strArs.push('<a href="/'+obj.path+'">'+arrs[i].title+'</a>');
+            strArs.push('</h2>');
+            strArs.push('</div>');
+            strArs.push('</div>');
+            strArs.push('</div>');
+	  }
           $("#timelineDiv").prepend(strArs.join(''));
-        }
       }
       loadTimeline();
     })
