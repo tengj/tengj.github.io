@@ -28,7 +28,7 @@
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo7_7.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo7_8.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/zhifubao.png">
-<meta property="og:updated_time" content="2016-03-20T02:57:49.908Z">
+<meta property="og:updated_time" content="2016-03-20T06:55:11.326Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo干货系列：（七）hexo安装统计插件">
 <meta name="twitter:description" content="前言前面介绍了如何让百度和谷歌收录我们的博客，那如何查看自己的博客每天被多少人访问呢~ 这里我介绍下hexo中如何使用统计插件，每天看到自己的博客访问量越来越高也是一种享受。
@@ -107,13 +107,6 @@
 </header>
 	<div class="article-content">
 		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
-		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#开启统计功能"><span class="toc-number">2.1.</span> <span class="toc-text">开启统计功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注册CNZZ"><span class="toc-number">2.2.</span> <span class="toc-text">注册CNZZ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置密码"><span class="toc-number">2.3.</span> <span class="toc-text">配置密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手机端截图"><span class="toc-number">2.4.</span> <span class="toc-text">手机端截图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
-		
-		</div>
-		
 		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前面介绍了如何让百度和谷歌收录我们的博客，那如何查看自己的博客每天被多少人访问呢~ 这里我介绍下<code>hexo</code>中如何使用统计插件，每天看到自己的博客访问量越来越高也是一种享受。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="开启统计功能"><a href="#开启统计功能" class="headerlink" title="开启统计功能"></a>开启统计功能</h2><p>我使用的<code>Jacman</code>主题的配置文件中就有配置有统计插件，有谷歌，百度以及<code>CNZZ</code>，我最终选择的是<code>CNZZ</code>,原因是<code>CNZZ</code>有手机版，比较好随时查看。百度的一开始我也有安装，不过下载的手机软件我打开时空白的，我是<code>IOS</code>版本的，最终CNZZ整体上让我比较满意<br>对应的配置如下，开启<code>cnzz_tongji</code>对应的<code>enable</code>属性改成<code>true</code>,<code>siteid</code>就从注册的<code>cnzz</code>控制台获取。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#### Analytics</span></span><br><span class="line">google_analytics:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  id:        <span class="comment">## e.g. UA-46321946-2 your google analytics ID.</span></span><br><span class="line">  site:      <span class="comment">## e.g. wuchong.me your google analytics site or set the value as auto.</span></span><br><span class="line"><span class="comment">## You MUST upgrade to Universal Analytics first!</span></span><br><span class="line"><span class="comment">## https://developers.google.com/analytics/devguides/collection/upgrade/?hl=zh_CN</span></span><br><span class="line">baidu_tongji:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  sitecode: e6d1f421bbc9962127a50488f9ed37d1  <span class="comment">## e.g. e6d1f421bbc9962127a50488f9ed37d1 your baidu tongji site code</span></span><br><span class="line">cnzz_tongji:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  siteid: <span class="number">1253575964</span>   <span class="comment">## e.g. 1253575964 your cnzz tongji site id</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="注册CNZZ"><a href="#注册CNZZ" class="headerlink" title="注册CNZZ"></a>注册CNZZ</h2><p>进入<a href="http://tongji.cnzz.com/" target="_blank" rel="external">CNZZ</a>注册一下，然后添加你的站点，如下</p>
@@ -131,7 +124,7 @@
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo7_8.jpg" alt=""></p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>到此，就搞定了统计功能，整个博客基本上功能也就齐全了。每天晚上看看自己博客的流量那种感觉蛮爽哇卡卡。后续打算介绍下<code>markdown</code>写法，只需要掌握一点点就可以写出很棒的排版，真的很方便。相见恨晚~~</p>
 <hr>
-<p>最后，厚颜无耻的求打赏..如果您认为博主的教程质量还不错不妨请我吃个早餐馒头钱~让我有动力继续写出高质量的教程<br> <img src="http://7xqch5.com1.z0.glb.clouddn.com/zhifubao.png" alt=""></p>
+<p>最后，厚颜无耻的求打赏..如果您认为博主的教程帮助到了你~<br>你懂的o(^▽^)o (/▽＼=)<br> <img src="http://7xqch5.com1.z0.glb.clouddn.com/zhifubao.png" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -167,6 +160,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2016/03/20/hexo8hidewidgets/" title="hexo干货系列：（八）hexo文章自动隐藏侧边栏">
+  <strong>上一篇：</strong><br/>
+  <span>
+  hexo干货系列：（八）hexo文章自动隐藏侧边栏</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2016/03/14/baidunoshouluresson/"  title="百度链接提交主动推送后不收录的原因">
@@ -186,13 +187,6 @@
 
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
- 
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#开启统计功能"><span class="toc-number">2.1.</span> <span class="toc-text">开启统计功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注册CNZZ"><span class="toc-number">2.2.</span> <span class="toc-text">注册CNZZ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置密码"><span class="toc-number">2.3.</span> <span class="toc-text">配置密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手机端截图"><span class="toc-number">2.4.</span> <span class="toc-text">手机端截图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
- 
-  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -218,7 +212,7 @@
 		  
 		
 		  
-			<li><a href="/categories/hexo/" title="hexo">hexo<sup>8</sup></a></li>
+			<li><a href="/categories/hexo/" title="hexo">hexo<sup>9</sup></a></li>
 		  
 		
 		  
@@ -240,7 +234,7 @@
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
   </div>
 
 
@@ -347,12 +341,11 @@ $(document).ready(function(){
   var m = $('#main'),
       a = $('#asidepart'), //侧边栏
       c = $('.closeaside'),//隐藏侧边栏
-      ta = $('#toc.toc-aside'),
       o = $('.openaside'); //显示侧边栏
   c.click(function(){
     a.addClass('fadeOut').css('display', 'none');
     o.css('display', 'block').addClass('fadeIn');
-    ta.css('display', 'block').addClass('fadeIn');
+    $('#toc.toc-aside').css('display', 'block').addClass('fadeIn'); //这个是我新加的，修改点
     m.addClass('moveMain');
   });
   o.click(function(){
@@ -377,8 +370,6 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
-      
-      $('#toc.toc-aside').css('display', 'none');
         
     }
   });

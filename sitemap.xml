@@ -2,9 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://tengj.github.io/2016/03/20/hexo8hidewidgets/</loc>
+    
+    <lastmod>2016-03-20T07:12:54.300Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tengj.github.io/2016/03/14/hexo6seo/</loc>
+    
+    <lastmod>2016-03-20T06:56:54.701Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tengj.github.io/2016/03/11/hexo5Swiftype/</loc>
+    
+    <lastmod>2016-03-20T06:56:41.943Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tengj.github.io/2016/03/06/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E5%9B%9B%EF%BC%89%E5%B0%86hexo%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%97%B6%E6%89%98%E7%AE%A1%E5%88%B0github%E5%92%8Ccoding/</loc>
+    
+    <lastmod>2016-03-20T06:56:32.558Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tengj.github.io/2016/03/06/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%89%EF%BC%89hexo%E7%9A%84Jacman%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</loc>
+    
+    <lastmod>2016-03-20T06:56:24.303Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tengj.github.io/2016/02/26/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%BA%8C%EF%BC%89hexo%E4%B8%BB%E9%A2%98%E4%B8%8B%E8%BD%BD%E5%8F%8A%E9%85%8D%E7%BD%AE/</loc>
+    
+    <lastmod>2016-03-20T06:56:14.376Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tengj.github.io/2016/02/22/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%80%EF%BC%89hexo+gitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2/</loc>
+    
+    <lastmod>2016-03-20T06:56:06.359Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://tengj.github.io/2016/03/17/hexo7count/</loc>
     
-    <lastmod>2016-03-20T02:57:49.908Z</lastmod>
+    <lastmod>2016-03-20T06:55:11.326Z</lastmod>
     
   </url>
   
@@ -12,48 +61,6 @@
     <loc>http://tengj.github.io/timeline/index.html</loc>
     
     <lastmod>2016-03-19T09:53:42.455Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tengj.github.io/2016/03/11/hexo5Swiftype/</loc>
-    
-    <lastmod>2016-03-17T13:20:53.075Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tengj.github.io/2016/03/06/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E5%9B%9B%EF%BC%89%E5%B0%86hexo%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%97%B6%E6%89%98%E7%AE%A1%E5%88%B0github%E5%92%8Ccoding/</loc>
-    
-    <lastmod>2016-03-17T13:20:39.502Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tengj.github.io/2016/03/06/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%89%EF%BC%89hexo%E7%9A%84Jacman%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</loc>
-    
-    <lastmod>2016-03-17T13:20:21.231Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tengj.github.io/2016/02/26/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%BA%8C%EF%BC%89hexo%E4%B8%BB%E9%A2%98%E4%B8%8B%E8%BD%BD%E5%8F%8A%E9%85%8D%E7%BD%AE/</loc>
-    
-    <lastmod>2016-03-17T13:20:14.027Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tengj.github.io/2016/02/22/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%80%EF%BC%89hexo+gitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2/</loc>
-    
-    <lastmod>2016-03-17T13:20:05.867Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tengj.github.io/2016/03/14/hexo6seo/</loc>
-    
-    <lastmod>2016-03-17T13:19:03.375Z</lastmod>
     
   </url>
   

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tengj.github.io/"/>
-  <updated>2016-03-20T02:57:49.908Z</updated>
+  <updated>2016-03-20T07:12:54.300Z</updated>
   <id>http://tengj.github.io/</id>
   
   <author>
@@ -16,11 +16,54 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>hexo干货系列：（八）hexo文章自动隐藏侧边栏</title>
+    <link href="http://tengj.github.io/2016/03/20/hexo8hidewidgets/"/>
+    <id>http://tengj.github.io/2016/03/20/hexo8hidewidgets/</id>
+    <published>2016-03-20T06:54:21.000Z</published>
+    <updated>2016-03-20T07:12:54.300Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;使用Jacman主题的时候发现打开具体文章后，侧边栏还是会展示，我想要的效果是自动隐藏侧边栏，并且展示目录。但是当我修改了主题配置文件里面&lt;code&gt;close_aside&lt;/code&gt;属性为&lt;code&gt;true&lt;/code&gt;的时候，发现侧边栏隐藏了，但是目录没出来。于是就有了这篇文章，让我带你一步步明白原理并解决问题~&lt;/p&gt;
+&lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;h2 id=&quot;侧边栏的代码结构&quot;&gt;&lt;a href=&quot;#侧边栏的代码结构&quot; class=&quot;headerlink&quot; title=&quot;侧边栏的代码结构&quot;&gt;&lt;/a&gt;侧边栏的代码结构&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo8_1.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo8_2.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;如图：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;为显示侧边栏按钮,对应的是openaside，默认隐藏&lt;/li&gt;
+&lt;li&gt;为文章目录,对应的是to和toc-aside，默认隐藏&lt;/li&gt;
+&lt;li&gt;为侧边栏,对应的是asidepart，默认是展示&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;实现自动隐藏侧边栏&quot;&gt;&lt;a href=&quot;#实现自动隐藏侧边栏&quot; class=&quot;headerlink&quot; title=&quot;实现自动隐藏侧边栏&quot;&gt;&lt;/a&gt;实现自动隐藏侧边栏&lt;/h2&gt;&lt;p&gt;那我们现在要做得就是打算一打开具体文章，默认先显示成文字目录，而不是侧边栏&lt;br&gt;要实现这个就要通过js来改变，我查找了对应的文件，发现在  &lt;code&gt;\themes\jacman\layout\_partial\after_footer.ejs&lt;/code&gt;这里有相关代码：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var m = $(&amp;#39;#main&amp;#39;),&amp;#10;    a = $(&amp;#39;#asidepart&amp;#39;), //&amp;#20391;&amp;#36793;&amp;#26639;&amp;#10;    c = $(&amp;#39;.closeaside&amp;#39;),//&amp;#38544;&amp;#34255;&amp;#20391;&amp;#36793;&amp;#26639;&amp;#10;    o = $(&amp;#39;.openaside&amp;#39;); //&amp;#26174;&amp;#31034;&amp;#20391;&amp;#36793;&amp;#26639;&amp;#10;c.click(function()&amp;#123;&amp;#10;  a.addClass(&amp;#39;fadeOut&amp;#39;).css(&amp;#39;display&amp;#39;, &amp;#39;none&amp;#39;);&amp;#10;  o.css(&amp;#39;display&amp;#39;, &amp;#39;block&amp;#39;).addClass(&amp;#39;fadeIn&amp;#39;);&amp;#10;  m.addClass(&amp;#39;moveMain&amp;#39;);&amp;#10;&amp;#125;);  &amp;#10;//*******************************&amp;#10; &amp;#20013;&amp;#38388;&amp;#36824;&amp;#26377;&amp;#19968;&amp;#20123;&amp;#20195;&amp;#30721;&amp;#12290;&amp;#12290;&amp;#36825;&amp;#37324;&amp;#19981;&amp;#23637;&amp;#31034;&amp;#10; //******************************&amp;#10;&amp;#60;% if (is_post() &amp;#38;&amp;#38; theme.close_aside) &amp;#123; %&amp;#62;&amp;#10;      getSize();&amp;#10;      if (myWidth &amp;#62;= 1024) &amp;#123;&amp;#10;        c.click();&amp;#10;      &amp;#125;&amp;#10;&amp;#60;% &amp;#125; %&amp;#62;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;上面代码可以看出来&lt;br&gt;&lt;code&gt;is_post()&lt;/code&gt;用来判断当前是否post布局，大家记住我们博文详情页默认是&lt;code&gt;post&lt;/code&gt;布局，所以为&lt;code&gt;true&lt;/code&gt;.&lt;br&gt;&lt;code&gt;theme.close_aside&lt;/code&gt;这个是在主题配置文件&lt;code&gt;_config.yml&lt;/code&gt;下面对应的配置：&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;close_aside: &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;  &lt;span class=&quot;comment&quot;&gt;#close sidebar in post page if true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mathjax: &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;      &lt;span class=&quot;comment&quot;&gt;#enable mathjax if true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;我这边&lt;code&gt;close_aside&lt;/code&gt;就设置了&lt;code&gt;true&lt;/code&gt;，在&lt;code&gt;post&lt;/code&gt;布局里面默认关闭侧边栏&lt;br&gt;如果页面宽度大于1024就触发&lt;code&gt;c.click()&lt;/code&gt;，也就是触发了隐藏侧边栏的方法。&lt;br&gt;原本的代码&lt;code&gt;c.click(function(){})&lt;/code&gt;里面只是简单的隐藏和显示了图标，最关键的目录对应的&lt;code&gt;&amp;lt;div id=&amp;quot;toc&amp;quot; class=&amp;quot;toc-aside&amp;quot;&amp;gt;&lt;/code&gt;没有显示，因为默认隐藏的。&lt;br&gt;&lt;strong&gt;没错，这就是问题的关键所在&lt;/strong&gt;，所以我这里添加上了显示这个&lt;code&gt;div&lt;/code&gt;的代码，正确代码如下：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var m = $(&amp;#39;#main&amp;#39;),&amp;#10;    a = $(&amp;#39;#asidepart&amp;#39;), //&amp;#20391;&amp;#36793;&amp;#26639;&amp;#10;    c = $(&amp;#39;.closeaside&amp;#39;),//&amp;#38544;&amp;#34255;&amp;#20391;&amp;#36793;&amp;#26639;&amp;#10;    o = $(&amp;#39;.openaside&amp;#39;); //&amp;#26174;&amp;#31034;&amp;#20391;&amp;#36793;&amp;#26639;&amp;#10;c.click(function()&amp;#123;&amp;#10;  a.addClass(&amp;#39;fadeOut&amp;#39;).css(&amp;#39;display&amp;#39;, &amp;#39;none&amp;#39;);&amp;#10;  o.css(&amp;#39;display&amp;#39;, &amp;#39;block&amp;#39;).addClass(&amp;#39;fadeIn&amp;#39;);&amp;#10;   var m = $(&amp;#39;#main&amp;#39;),&amp;#10;    a = $(&amp;#39;#asidepart&amp;#39;), //&amp;#20391;&amp;#36793;&amp;#26639;&amp;#10;    c = $(&amp;#39;.closeaside&amp;#39;),//&amp;#38544;&amp;#34255;&amp;#20391;&amp;#36793;&amp;#26639;&amp;#10;    o = $(&amp;#39;.openaside&amp;#39;); //&amp;#26174;&amp;#31034;&amp;#20391;&amp;#36793;&amp;#26639;&amp;#10;c.click(function()&amp;#123;&amp;#10;  a.addClass(&amp;#39;fadeOut&amp;#39;).css(&amp;#39;display&amp;#39;, &amp;#39;none&amp;#39;);&amp;#10;  o.css(&amp;#39;display&amp;#39;, &amp;#39;block&amp;#39;).addClass(&amp;#39;fadeIn&amp;#39;);&amp;#10;  $(&amp;#39;#toc.toc-aside&amp;#39;).css(&amp;#39;display&amp;#39;, &amp;#39;block&amp;#39;).addClass(&amp;#39;fadeIn&amp;#39;); //&amp;#36825;&amp;#20010;&amp;#26159;&amp;#25105;&amp;#26032;&amp;#21152;&amp;#30340;&amp;#65292;&amp;#20462;&amp;#25913;&amp;#28857;&amp;#10;  m.addClass(&amp;#39;moveMain&amp;#39;);&amp;#10;&amp;#125;);  &amp;#10;//*******************************&amp;#10; &amp;#20013;&amp;#38388;&amp;#36824;&amp;#26377;&amp;#19968;&amp;#20123;&amp;#20195;&amp;#30721;&amp;#12290;&amp;#12290;&amp;#36825;&amp;#37324;&amp;#19981;&amp;#23637;&amp;#31034;&amp;#10; //******************************&amp;#10;&amp;#60;% if (is_post() &amp;#38;&amp;#38; theme.close_aside) &amp;#123; %&amp;#62;&amp;#10;      getSize();&amp;#10;      if (myWidth &amp;#62;= 1024) &amp;#123;&amp;#10;        c.click();&amp;#10;      &amp;#125;&amp;#10;&amp;#60;% &amp;#125; %&amp;#62;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;好了搞定,默认打开文章的效果如下：  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo8_3.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;p&gt;如果你没看懂的话也没关系，概括起来就修改两个地方&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;\themes\jacman\_config.yml&lt;/code&gt;里面修改&lt;code&gt;close_aside&lt;/code&gt;属性为&lt;code&gt;true&lt;/code&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;close_aside: &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;  &lt;span class=&quot;comment&quot;&gt;#close sidebar in post page if true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;```  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;. `\themes\jacman\layout\_partial\after_footer.ejs`里面添加下面的代码，具体添加在哪里，看看文章里面有提到&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;``` bash&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; $(&lt;span class=&quot;string&quot;&gt;&#39;#toc.toc-aside&#39;&lt;/span&gt;).css(&lt;span class=&quot;string&quot;&gt;&#39;display&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;block&#39;&lt;/span&gt;).addClass(&lt;span class=&quot;string&quot;&gt;&#39;fadeIn&#39;&lt;/span&gt;); //这个是我新加的，修改点&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;最后，厚颜无耻的求打赏..如果您认为博主的教程帮助到了你~&lt;br&gt;你懂的o(^▽^)o (/▽＼=)&lt;br&gt; &lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/zhifubao.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;使用Jacman主题的时候发现打开具体文章后，侧边栏还是会展示，我想要的效果是自动隐藏侧边栏，并且展示目录。但是当我修改了主题配置文件里面&lt;
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://tengj.github.io/categories/hexo/"/>
+    
+    
+      <category term="hexo" scheme="http://tengj.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>hexo干货系列：（七）hexo安装统计插件</title>
     <link href="http://tengj.github.io/2016/03/17/hexo7count/"/>
     <id>http://tengj.github.io/2016/03/17/hexo7count/</id>
     <published>2016-03-17T13:22:58.000Z</published>
-    <updated>2016-03-20T02:57:49.908Z</updated>
+    <updated>2016-03-20T06:55:11.326Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;前面介绍了如何让百度和谷歌收录我们的博客，那如何查看自己的博客每天被多少人访问呢~ 这里我介绍下&lt;code&gt;hexo&lt;/code&gt;中如何使用统计插件，每天看到自己的博客访问量越来越高也是一种享受。&lt;/p&gt;
 &lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;h2 id=&quot;开启统计功能&quot;&gt;&lt;a href=&quot;#开启统计功能&quot; class=&quot;headerlink&quot; title=&quot;开启统计功能&quot;&gt;&lt;/a&gt;开启统计功能&lt;/h2&gt;&lt;p&gt;我使用的&lt;code&gt;Jacman&lt;/code&gt;主题的配置文件中就有配置有统计插件，有谷歌，百度以及&lt;code&gt;CNZZ&lt;/code&gt;，我最终选择的是&lt;code&gt;CNZZ&lt;/code&gt;,原因是&lt;code&gt;CNZZ&lt;/code&gt;有手机版，比较好随时查看。百度的一开始我也有安装，不过下载的手机软件我打开时空白的，我是&lt;code&gt;IOS&lt;/code&gt;版本的，最终CNZZ整体上让我比较满意&lt;br&gt;对应的配置如下，开启&lt;code&gt;cnzz_tongji&lt;/code&gt;对应的&lt;code&gt;enable&lt;/code&gt;属性改成&lt;code&gt;true&lt;/code&gt;,&lt;code&gt;siteid&lt;/code&gt;就从注册的&lt;code&gt;cnzz&lt;/code&gt;控制台获取。&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#### Analytics&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;google_analytics:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;built_in&quot;&gt;enable&lt;/span&gt;: &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  id:        &lt;span class=&quot;comment&quot;&gt;## e.g. UA-46321946-2 your google analytics ID.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  site:      &lt;span class=&quot;comment&quot;&gt;## e.g. wuchong.me your google analytics site or set the value as auto.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;## You MUST upgrade to Universal Analytics first!&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;## https://developers.google.com/analytics/devguides/collection/upgrade/?hl=zh_CN&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;baidu_tongji:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;built_in&quot;&gt;enable&lt;/span&gt;: &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  sitecode: e6d1f421bbc9962127a50488f9ed37d1  &lt;span class=&quot;comment&quot;&gt;## e.g. e6d1f421bbc9962127a50488f9ed37d1 your baidu tongji site code&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cnzz_tongji:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;built_in&quot;&gt;enable&lt;/span&gt;: &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  siteid: &lt;span class=&quot;number&quot;&gt;1253575964&lt;/span&gt;   &lt;span class=&quot;comment&quot;&gt;## e.g. 1253575964 your cnzz tongji site id&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
@@ -39,7 +82,7 @@
 &lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo7_8.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;p&gt;到此，就搞定了统计功能，整个博客基本上功能也就齐全了。每天晚上看看自己博客的流量那种感觉蛮爽哇卡卡。后续打算介绍下&lt;code&gt;markdown&lt;/code&gt;写法，只需要掌握一点点就可以写出很棒的排版，真的很方便。相见恨晚~~&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;最后，厚颜无耻的求打赏..如果您认为博主的教程质量还不错不妨请我吃个早餐馒头钱~让我有动力继续写出高质量的教程&lt;br&gt; &lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/zhifubao.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;最后，厚颜无耻的求打赏..如果您认为博主的教程帮助到了你~&lt;br&gt;你懂的o(^▽^)o (/▽＼=)&lt;br&gt; &lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/zhifubao.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -91,7 +134,7 @@
     <link href="http://tengj.github.io/2016/03/14/hexo6seo/"/>
     <id>http://tengj.github.io/2016/03/14/hexo6seo/</id>
     <published>2016-03-14T14:23:39.000Z</published>
-    <updated>2016-03-17T13:19:03.375Z</updated>
+    <updated>2016-03-20T06:56:54.701Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;能看到这里，说明大家都跟我一样，已经把博客搭起来并洋洋洒洒写了几篇博文，正春风得意感觉良好的时候，搭建博客有屎以来最大的危机出现在没有准备的我面前，百度+谷歌都无法搜索到我的博客。装逼还没几天就这样，真是不能忍。&lt;a id=&quot;more&quot;&gt;&lt;/a&gt; 于是就研究了几天，鼓捣出了这篇文章。教大家如何脱坑。&lt;/p&gt;
 &lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;p&gt;下面准备分别介绍谷歌和百度如何提交搜索引擎，其中有一些共同的地方，这里先说明&lt;/p&gt;
@@ -156,7 +199,7 @@
 &lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://selfboot.cn/2014/12/21/add_blog_to_google/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;# 博客推广——提交搜索引擎&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;p&gt;写了3个小时终于写差不多了，很早就想写这篇的，结果百度不给力，一直不给收录所以拖到今天，昨天花了点时间写了下主动推送的接口方便大家，地址上面有。&lt;br&gt;3月8号 分别用&lt;code&gt;sitemap&lt;/code&gt;和&lt;code&gt;baidusitemap&lt;/code&gt;提交到谷歌和百度&lt;br&gt;3月9号 谷歌的收录了，可以搜索到我的博客&lt;br&gt;3月10号 百度收录了&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;最后，厚颜无耻的求打赏..如果您认为博主的教程质量还不错不妨请我吃个早餐馒头钱~&lt;br&gt;让我有动力继续写出高质量的教程&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/zhifubao.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;最后，厚颜无耻的求打赏..如果您认为博主的教程帮助到了你~&lt;br&gt;你懂的o(^▽^)o (/▽＼=)&lt;br&gt; &lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/zhifubao.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -270,7 +313,7 @@
     <link href="http://tengj.github.io/2016/03/11/hexo5Swiftype/"/>
     <id>http://tengj.github.io/2016/03/11/hexo5Swiftype/</id>
     <published>2016-03-10T17:16:43.000Z</published>
-    <updated>2016-03-17T13:20:53.075Z</updated>
+    <updated>2016-03-20T06:56:41.943Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;本来想用百度站内搜索，但是没成功，所以改用swiftype，用起来还是很棒的，这里分享一下我的安装步骤&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt; 
@@ -302,7 +345,7 @@
 &lt;p&gt;欢迎转载，但希望您能注明出处，毕竟没啥人气囧&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
-&lt;p&gt;最后，厚颜无耻的求打赏..如果您认为博主的教程质量还不错不妨请我吃个早餐馒头钱~让我有动力继续写出高质量的教程&lt;br&gt; &lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/zhifubao.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;最后，厚颜无耻的求打赏..如果您认为博主的教程帮助到了你~&lt;br&gt;你懂的o(^▽^)o (/▽＼=)&lt;br&gt; &lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/zhifubao.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -351,7 +394,7 @@
     <link href="http://tengj.github.io/2016/03/06/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E5%9B%9B%EF%BC%89%E5%B0%86hexo%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%97%B6%E6%89%98%E7%AE%A1%E5%88%B0github%E5%92%8Ccoding/"/>
     <id>http://tengj.github.io/2016/03/06/hexo干货系列：（四）将hexo博客同时托管到github和coding/</id>
     <published>2016-03-06T15:48:57.000Z</published>
-    <updated>2016-03-17T13:20:39.502Z</updated>
+    <updated>2016-03-20T06:56:32.558Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;之前我们把hexo托管在github，但是毕竟github是国外的，访问速度上还是有点慢，所以想也部署一套在国内的托管平台，之前查资料听说gitcafe,但是听说gitcafe已经被coding收购了，所以就决定部署到coding。&lt;a id=&quot;more&quot;&gt;&lt;/a&gt; 查询了多方资料，终于鼓捣出了本地一次部署，同时更新到github以及coding。&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo4_13.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;h2 id=&quot;config-yml配置&quot;&gt;&lt;a href=&quot;#config-yml配置&quot; class=&quot;headerlink&quot; title=&quot;_config.yml配置&quot;&gt;&lt;/a&gt;_config.yml配置&lt;/h2&gt;&lt;p&gt;想要同时部署到2个平台，就要修改博客根目录下面的_config.yml文件中的deploy如下&lt;br&gt;根据Hexo官方文档需要修改成下面的形式&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;deploy:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;built_in&quot;&gt;type&lt;/span&gt;: git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  message: [message]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  repo:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    github: &amp;lt;repository url&amp;gt;,[branch]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    gitcafe: &amp;lt;repository url&amp;gt;,[branch]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
@@ -400,7 +443,7 @@ hexo deploy -g
 &lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://hexo-demo-d281b.coding.io/2014/12/04/hexo-demo/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;使用Cover主题，在Coding上搭建Hexo博客&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://opiece.me/2015/04/28/push-hexo-to-github-and-gitcafe/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;将hexo博客同时托管到github和gitcafe&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://segmentfault.com/q/1010000004557073?_ea=651524&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;个人域名如何同时绑定 github 和 coding 上的博客&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;p&gt; 到此为止，终于可以实现部署一次，github和coding两个同步都搞定了。访问速度也是唰唰唰的快，忙乎了大半个月终于搭好了独立博客。希望对还在搭建hexo独立博客的小伙伴有帮助。下一篇研究下如何让百度能收录我的博客。&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;最后，厚颜无耻的求打赏..如果您认为博主的教程质量还不错不妨请我吃个早餐馒头钱~让我有动力继续写出高质量的教程&lt;br&gt; &lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/zhifubao.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;最后，厚颜无耻的求打赏..如果您认为博主的教程帮助到了你~&lt;br&gt;你懂的o(^▽^)o (/▽＼=)&lt;br&gt; &lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/zhifubao.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -421,7 +464,7 @@ hexo deploy -g
     <link href="http://tengj.github.io/2016/03/06/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%89%EF%BC%89hexo%E7%9A%84Jacman%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/"/>
     <id>http://tengj.github.io/2016/03/06/hexo干货系列：（三）hexo的Jacman主题优化/</id>
     <published>2016-03-06T14:14:54.000Z</published>
-    <updated>2016-03-17T13:20:21.231Z</updated>
+    <updated>2016-03-20T06:56:24.303Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;上一篇介绍了Jacman主题的安装和配置，今天根据上次的基础做了些优化，让博客看起来很舒服。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt; 
@@ -455,7 +498,7 @@ hexo deploy -g
 &lt;p&gt;5.查看是否成功，输入你的博客域名，后面加上/atom.xml,比如我的是&lt;a href=&quot;http://tengj.top/atom.xml&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://tengj.top/atom.xml&lt;/a&gt; 如果打开有下面数据就表示成功。&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo3_3.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;p&gt;暂时先优化这么多，已经感觉很不错了。我们关心的应该是内容，而不是死命折腾博客本身，总觉得它会被我们玩坏。冏&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;最后，厚颜无耻的求打赏..如果您认为博主的教程质量还不错不妨请我吃个早餐馒头钱~让我有动力继续写出高质量的教程&lt;br&gt; &lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/zhifubao.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;最后，厚颜无耻的求打赏..如果您认为博主的教程帮助到了你~&lt;br&gt;你懂的o(^▽^)o (/▽＼=)&lt;br&gt; &lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/zhifubao.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -476,7 +519,7 @@ hexo deploy -g
     <link href="http://tengj.github.io/2016/02/26/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%BA%8C%EF%BC%89hexo%E4%B8%BB%E9%A2%98%E4%B8%8B%E8%BD%BD%E5%8F%8A%E9%85%8D%E7%BD%AE/"/>
     <id>http://tengj.github.io/2016/02/26/hexo干货系列：（二）hexo主题下载及配置/</id>
     <published>2016-02-26T06:14:34.000Z</published>
-    <updated>2016-03-17T13:20:14.027Z</updated>
+    <updated>2016-03-20T06:56:14.376Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;上一篇文章介绍了hexo+gitHub简易搭建属于自己的个人独立博客，但是主题是默认的landscape，略显简单，今天的教程推荐Jacman主题。&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;Jacman是一款为Hexo打造的一款扁平化，有着响应式设计的主题，个人感觉还不错就使用了。&lt;/p&gt;
 &lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;h2 id=&quot;安装主题&quot;&gt;&lt;a href=&quot;#安装主题&quot; class=&quot;headerlink&quot; title=&quot;安装主题&quot;&gt;&lt;/a&gt;安装主题&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ git &lt;span class=&quot;built_in&quot;&gt;clone&lt;/span&gt; https://github.com/wuchong/jacman.git themes/jacman&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -512,7 +555,7 @@ hexo deploy -g
 &lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/peace1213/article/details/47010381&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;hexo的jacman主题配置&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;p&gt;以上就是hexo主题的下载以及配置，简单的说就是对两个config.yml文件的配置，hexo提供的主题很多，大家可以去&lt;a href=&quot;https://hexo.io/themes&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官网&lt;/a&gt;选择喜欢主题。下一篇打算总结下基于这个主题下我的一些优化配置。&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;最后，厚颜无耻的求打赏..如果您认为博主的教程质量还不错不妨请我吃个早餐馒头钱~让我有动力继续写出高质量的教程&lt;br&gt; &lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/zhifubao.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;最后，厚颜无耻的求打赏..如果您认为博主的教程帮助到了你~&lt;br&gt;你懂的o(^▽^)o (/▽＼=)&lt;br&gt; &lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/zhifubao.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -573,7 +616,7 @@ hexo deploy -g
     <link href="http://tengj.github.io/2016/02/22/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%80%EF%BC%89hexo+gitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2/"/>
     <id>http://tengj.github.io/2016/02/22/hexo干货系列：（一）hexo+gitHub搭建个人独立博客/</id>
     <published>2016-02-22T08:04:09.000Z</published>
-    <updated>2016-03-17T13:20:05.867Z</updated>
+    <updated>2016-03-20T06:56:06.359Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;一直想要一个自己的独立博客，但是觉得申请域名+服务器的太麻烦了就一直没有实现。偶然机会发现Hexo这个优秀的静态博客框架，再搭配现在流行的gitHub，简直是完美写博客的黄金搭档（免费+方便）。&lt;a id=&quot;more&quot;&gt;&lt;/a&gt; 于是就上网参考了好多教程最后磕磕碰碰的搭建了起来。但是网上的教程多多手手都有点问题，可能比较早把。就有了这个自己总结的教程，一是自己总结一下。二是给也想搭建Hexo博客的童鞋们多一点参考。&lt;br&gt;&lt;!--more--&gt;&lt;/p&gt;
 &lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;p&gt;我这个教程是基于window系统用户，Hexo3版本&lt;/p&gt;
@@ -651,7 +694,7 @@ tags: [文章] #文章标签，多于一项时用这种格式，只有一项时�
 &lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://opiece.me/2015/04/09/hexo-guide/#参考&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;使用Hexo搭建个人博客(基于hexo3.0)&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.jianshu.com/p/465830080ea9#&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HEXO+Github,搭建属于自己的博客&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://jingyan.baidu.com/article/d8072ac47aca0fec95cefd2d.html&quot; title=&quot;史上最详细“截图”搭建Hexo博客并部署到Github&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;史上最详细“截图”搭建Hexo博客并部署到Github&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;p&gt;到这里，就算初步搭好了一个属于自己的独立博客，后续就是本地写文章然后部署最后发布就行。当然这只是最基本的流程，hexo提供了许多好看的主题，我准备下篇里面详细介绍下主题的下载以及配置。让你的博客更加的酷炫!&lt;br&gt;大家按照我这个整理的教程搭建，理论上都能搭建成功。如果过程中发现一些问题，也可以留言我们一起探讨。祝大家一次就能搭建属于自己的独立博客~撒花&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;最后，厚颜无耻的求打赏..如果您认为博主的教程质量还不错不妨请我吃个早餐馒头钱~让我有动力继续写出高质量的教程&lt;br&gt; &lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/zhifubao.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;最后，厚颜无耻的求打赏..如果您认为博主的教程帮助到了你~&lt;br&gt;你懂的o(^▽^)o (/▽＼=)&lt;br&gt; &lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/zhifubao.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
