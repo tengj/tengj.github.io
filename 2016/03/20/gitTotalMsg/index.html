@@ -4,23 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>ajax一个很好的加载效果 | 嘟嘟独立博客</title>
+    <title>git干货系列：（总纲）根据使用场景介绍git | 嘟嘟独立博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Teng Jun">
     
 
     
-    <meta name="description" content="推荐一个常用的jquery加载效果插件,很适合开发中使用。">
+    <meta name="description" content="前言本人搭建独立博客的时候需要使用到github，coding以及开源中国，发现全部使用git来进行版本控制。了解之后发现git很棒，所以决定学。学习过程中做了一些笔记，经过整理就有了这个系列的文章，其实是我自己的学习笔记整理，如果你也是新手就跟着我一起学习，如果你是大神，那么希望您能指出我的错误，让我学习更进一步，这也是我写这系列笔记的初衷。
+正文学习环境本人是使用window系统来学习的，li">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ajax一个很好的加载效果">
-<meta property="og:url" content="http://tengj.github.io/2016/03/10/jqueryLoading/index.html">
+<meta property="og:title" content="git干货系列：（总纲）根据使用场景介绍git">
+<meta property="og:url" content="http://tengj.github.io/2016/03/20/gitTotalMsg/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="推荐一个常用的jquery加载效果插件,很适合开发中使用。">
-<meta property="og:updated_time" content="2016-03-10T17:31:57.574Z">
+<meta property="og:description" content="前言本人搭建独立博客的时候需要使用到github，coding以及开源中国，发现全部使用git来进行版本控制。了解之后发现git很棒，所以决定学。学习过程中做了一些笔记，经过整理就有了这个系列的文章，其实是我自己的学习笔记整理，如果你也是新手就跟着我一起学习，如果你是大神，那么希望您能指出我的错误，让我学习更进一步，这也是我写这系列笔记的初衷。
+正文学习环境本人是使用window系统来学习的，li">
+<meta property="og:updated_time" content="2016-03-20T14:52:56.574Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ajax一个很好的加载效果">
-<meta name="twitter:description" content="推荐一个常用的jquery加载效果插件,很适合开发中使用。">
+<meta name="twitter:title" content="git干货系列：（总纲）根据使用场景介绍git">
+<meta name="twitter:description" content="前言本人搭建独立博客的时候需要使用到github，coding以及开源中国，发现全部使用git来进行版本控制。了解之后发现git很棒，所以决定学。学习过程中做了一些笔记，经过整理就有了这个系列的文章，其实是我自己的学习笔记整理，如果你也是新手就跟着我一起学习，如果你是大神，那么希望您能指出我的错误，让我学习更进一步，这也是我写这系列笔记的初衷。
+正文学习环境本人是使用window系统来学习的，li">
 
     
     <link rel="alternative" href="/atom.xml" title="嘟嘟独立博客" type="application/atom+xml">
@@ -82,14 +85,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/10/jqueryLoading/" title="ajax一个很好的加载效果" itemprop="url">ajax一个很好的加载效果</a>
+      <a href="/2016/03/20/gitTotalMsg/" title="git干货系列：（总纲）根据使用场景介绍git" itemprop="url">git干货系列：（总纲）根据使用场景介绍git</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Teng Jun" target="_blank" itemprop="author">Teng Jun</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-10T14:44:53.000Z" itemprop="datePublished"> 发表于 2016-03-10</time>
+    <time datetime="2016-03-20T14:49:30.000Z" itemprop="datePublished"> 发表于 2016-03-20</time>
     
   </p>
 </header>
@@ -98,16 +101,16 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#要引入这个插件的css和js"><span class="toc-number">1.</span> <span class="toc-text">要引入这个插件的css和js:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用的时候代码如下"><span class="toc-number">2.</span> <span class="toc-text">使用的时候代码如下:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax完整效果"><span class="toc-number">3.</span> <span class="toc-text">ajax完整效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jquery介绍"><span class="toc-number">4.</span> <span class="toc-text">jquery介绍</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#学习环境"><span class="toc-number">2.1.</span> <span class="toc-text">学习环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#书写方式"><span class="toc-number">2.2.</span> <span class="toc-text">书写方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#系列博文整理"><span class="toc-number">2.3.</span> <span class="toc-text">系列博文整理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#所有学习git资源"><span class="toc-number">2.4.</span> <span class="toc-text">所有学习git资源</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
 		
 		</div>
 		
-		<p>推荐一个常用的jquery加载效果插件,很适合开发中使用。</p>
-<a id="more"></a> 
-<h2 id="要引入这个插件的css和js"><a href="#要引入这个插件的css和js" class="headerlink" title="要引入这个插件的css和js:"></a>要引入这个插件的css和js:</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">"&lt;%=path %&gt;/css/showLoading.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">media</span>=<span class="value">"screen"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"&lt;%=path %&gt;/js/jquery.showLoading.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="使用的时候代码如下"><a href="#使用的时候代码如下" class="headerlink" title="使用的时候代码如下:"></a>使用的时候代码如下:</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">".wrapper"</span>).showLoading();  <span class="comment">//展示加载效果 wrapper为你需要加载效果的div， 也可以用body</span></span><br><span class="line">$(<span class="string">".wrapper"</span>).hideLoading();  <span class="comment">//取消加载效果</span></span><br></pre></td></tr></table></figure>
-<h2 id="ajax完整效果"><a href="#ajax完整效果" class="headerlink" title="ajax完整效果"></a>ajax完整效果</h2><p>搭配ajaX的beforeSend提高用户体验：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 提交表单数据到后台处理</span></span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    type: <span class="string">"post"</span>,</span><br><span class="line">    data: studentInfo,</span><br><span class="line">    dataType:<span class="string">"json"</span>,</span><br><span class="line">    url: <span class="string">"/Home/Submit"</span>,</span><br><span class="line">    beforeSend: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 禁用按钮防止重复提交</span></span><br><span class="line">        $(<span class="string">".wrapper"</span>).showLoading();</span><br><span class="line">        $(<span class="string">"#submit"</span>).attr(&#123; disabled: <span class="string">"disabled"</span> &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (data == <span class="string">"Success"</span>) &#123;</span><br><span class="line">            <span class="comment">//清空输入框</span></span><br><span class="line">            clearBox();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    complete: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        $(<span class="string">".wrapper"</span>).hideLoading();</span><br><span class="line">        $(<span class="string">"#submit"</span>).removeAttr(<span class="string">"disabled"</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    error: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.info(<span class="string">"error: "</span> + data.responseText);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<h2 id="jquery介绍"><a href="#jquery介绍" class="headerlink" title="jquery介绍"></a>jquery介绍</h2><p> jQuery是经常使用的一个开源js框架，其中的$.ajax请求中有一个beforeSend方法，用于在向服务器发送请求前执行一些动作。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">	beforeSend: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	 <span class="comment">// Handle the beforeSend event</span></span><br><span class="line">	&#125;,</span><br><span class="line">	complete: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	 <span class="comment">// Handle the complete event</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// ......</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本人搭建独立博客的时候需要使用到<code>github</code>，<code>coding</code>以及<code>开源中国</code>，发现全部使用<code>git</code>来进行版本控制。了解之后发<code>现git</code>很棒，所以决定学。学习过程中做了一些笔记，经过整理就有了这个系列的文章，其实是我自己的学习笔记整理，如果你也是新手就跟着我一起学习，如果你是大神，那么希望您能指出我的错误，让我学习更进一步，这也是我写这系列笔记的初衷。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="学习环境"><a href="#学习环境" class="headerlink" title="学习环境"></a>学习环境</h2><p>本人是使用window系统来学习的，linux以及Mac的同学自行安装软件哦~</p>
+<h2 id="书写方式"><a href="#书写方式" class="headerlink" title="书写方式"></a>书写方式</h2><p>网上<code>git</code>教程也很多，我想记录我自己学习使用过程中的点滴，不单单是个教程，我想把它当成工具来写，根据实际使用场景来分类，这样方便以后自己快速查找。</p>
+<h2 id="系列博文整理"><a href="#系列博文整理" class="headerlink" title="系列博文整理"></a>系列博文整理</h2><p>整理了下git系列的文章，发现写系列博客感觉还是很棒的：<br>git干货系列：（一）我是小白，我想要搭建git仓库<br>git干货系列：（二）深入学习之前先理解git暂存区（待写）<br>git干货系列：（三）我提交错了我想回退版本（待写）<br>git干货系列：（四）我要连接远程仓库（github，coding）（待写）<br>git干货系列：（五）多人协同工作之分支管理（待写）<br>git干货系列：（六）公司内部搭建git服务器（待写）  </p>
+<h2 id="所有学习git资源"><a href="#所有学习git资源" class="headerlink" title="所有学习git资源"></a>所有学习git资源</h2><p>学习过程中我参考了许许多多的教程，分享跟大家：<br><a href="http://www.yiibai.com/git/" target="_blank" rel="external">git教程</a><br><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰git教程</a><br><a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="external">git–简易指南</a><br><a href="http://backlogtool.com/git-guide/cn/" target="_blank" rel="external">猴子都能懂的GIT入门</a><br><a href="http://gitref.justjavac.com/" target="_blank" rel="external">Git参考手册</a>  </p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>上面列出的目录是我接下来打算写的文章~学习跨度1-2周，一般两三天写一篇，希望自己不要拖延~动起来小伙伴们，跟我一起学会了装逼。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -115,14 +118,9 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/jQuery/">jQuery</a>
+  <a class="article-category-link" href="/categories/git/">git</a>
 </div>
 
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/jQuery/">jQuery</a>
-  </div>
 
 </div>
 
@@ -130,7 +128,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://tengj.github.io/2016/03/10/jqueryLoading/" data-title="ajax一个很好的加载效果 | 嘟嘟独立博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://tengj.github.io/2016/03/20/gitTotalMsg/" data-title="git干货系列：（总纲）根据使用场景介绍git | 嘟嘟独立博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -144,18 +142,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/03/11/hexo5Swiftype/" title="hexo干货系列：（五）hexo添加站内搜索">
+ <a href="/2016/03/20/git1creategit/" title="git干货系列：（一）我是小白，我想要搭建git仓库">
   <strong>上一篇：</strong><br/>
   <span>
-  hexo干货系列：（五）hexo添加站内搜索</span>
+  git干货系列：（一）我是小白，我想要搭建git仓库</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/03/06/hexo干货系列：（四）将hexo博客同时托管到github和coding/"  title="hexo干货系列：（四）将hexo博客同时托管到github和coding">
+<a href="/2016/03/20/hexo8hidewidgets/"  title="hexo干货系列：（八）hexo文章自动隐藏侧边栏">
  <strong>下一篇：</strong><br/> 
- <span>hexo干货系列：（四）将hexo博客同时托管到github和coding
+ <span>hexo干货系列：（八）hexo文章自动隐藏侧边栏
 </span>
 </a>
 </div>
@@ -164,7 +162,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/03/10/jqueryLoading/" data-title="ajax一个很好的加载效果" data-url="http://tengj.github.io/2016/03/10/jqueryLoading/"></div>
+	<div class="ds-thread" data-thread-key="2016/03/20/gitTotalMsg/" data-title="git干货系列：（总纲）根据使用场景介绍git" data-url="http://tengj.github.io/2016/03/20/gitTotalMsg/"></div>
 </section>
 
 
@@ -174,7 +172,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#要引入这个插件的css和js"><span class="toc-number">1.</span> <span class="toc-text">要引入这个插件的css和js:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用的时候代码如下"><span class="toc-number">2.</span> <span class="toc-text">使用的时候代码如下:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax完整效果"><span class="toc-number">3.</span> <span class="toc-text">ajax完整效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jquery介绍"><span class="toc-number">4.</span> <span class="toc-text">jquery介绍</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#学习环境"><span class="toc-number">2.1.</span> <span class="toc-text">学习环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#书写方式"><span class="toc-number">2.2.</span> <span class="toc-text">书写方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#系列博文整理"><span class="toc-number">2.3.</span> <span class="toc-text">系列博文整理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#所有学习git资源"><span class="toc-number">2.4.</span> <span class="toc-text">所有学习git资源</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
  
   </div>
 
