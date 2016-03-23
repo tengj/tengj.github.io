@@ -1,0 +1,602 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>git干货系列：（二）深入学习之前先理解git暂存区 | 嘟嘟独立博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Teng Jun">
+    
+
+    
+    <meta name="description" content="前言暂存区（stage, index）是Git最重要的概念之一，理解了这个概念很多 Git 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git干货系列：（二）深入学习之前先理解git暂存区">
+<meta property="og:url" content="http://tengj.github.io/2016/03/23/git2konwindex/index.html">
+<meta property="og:site_name" content="嘟嘟独立博客">
+<meta property="og:description" content="前言暂存区（stage, index）是Git最重要的概念之一，理解了这个概念很多 Git 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_1.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_2.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_3.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_4.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_5.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_6.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_7.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_8.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_9.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_10.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_11.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_12.png">
+<meta property="og:updated_time" content="2016-03-23T02:38:57.435Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git干货系列：（二）深入学习之前先理解git暂存区">
+<meta name="twitter:description" content="前言暂存区（stage, index）是Git最重要的概念之一，理解了这个概念很多 Git 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。">
+
+    
+    <link rel="alternative" href="/atom.xml" title="嘟嘟独立博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/dudu.gif" alt="嘟嘟独立博客" title="嘟嘟独立博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="嘟嘟独立博客">嘟嘟独立博客</a></h1>
+				<h2 class="blog-motto">爱生活爱编码</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/timeline">时光机</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" class="st-default-search-input" maxlength="20" placeholder="Search" />
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/23/git2konwindex/" title="git干货系列：（二）深入学习之前先理解git暂存区" itemprop="url">git干货系列：（二）深入学习之前先理解git暂存区</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Teng Jun" target="_blank" itemprop="author">Teng Jun</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-23T02:33:27.000Z" itemprop="datePublished"> 发表于 2016-03-23</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下面举列子来证明以上观点"><span class="toc-number">2.1.</span> <span class="toc-text">下面举列子来证明以上观点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#证明git-diff结论"><span class="toc-number">2.2.</span> <span class="toc-text">证明git diff结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#证明git-reset跟-git-checkout结论"><span class="toc-number">2.3.</span> <span class="toc-text">证明git reset跟 git checkout结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#证明git-rm-结论"><span class="toc-number">2.4.</span> <span class="toc-text">证明git rm 结论</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>暂存区<code>（stage, index）</code>是<code>Git</code>最重要的概念之一，理解了这个概念很多 <code>Git</code> 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。<br><a id="more"></a> </p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>下面这个图展示了工作区、版本库中的暂存区和版本库之间的关系。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_1.png" alt=""><br>在这个图中，我们可以看到部分 <code>Git</code>命令是如何影响工作区和暂存区<code>（stage, index）</code>的。</p>
+<ul>
+<li>图中左侧为工作区，右侧为版本库。在版本库中标记为 <code>index</code> 的区域是暂存区<code>（stage, index）</code>，标记为 <code>master</code> 的是 <code>master</code> 分支所代表的目录树。</li>
+<li>图中我们可以看出此时<code>HEAD</code>实际是指向<code>master</code>分支的一个“游标”。所以图示的命令中出现<code>HEAD</code>的地方可以用<code>master</code>来替换。</li>
+<li>图中的<code>objects</code>标识的区域为<code>Git</code>的对象库，实际位于<code>.git/objects</code>目录下，我们会在后面的章节重点介绍。</li>
+<li>当对工作区修改（或新增）的文件执行<code>git add</code>命令时，暂存区的目录树被更新，同时工作区修改（或新增）的文件内容被写入到对象库中的一个新的对象中，而该对象的<code>ID</code> 被记录在暂存区的文件索引中。</li>
+<li>当执行提交操作<code>（git commit）</code>时，暂存区的目录树写到版本库（对象库）中，<code>master</code>分支会做相应的更新。即<code>master</code>指向的目录树就是提交时暂存区的目录树。</li>
+<li>当执行 <code>git reset HEAD</code> 命令时，暂存区的目录树会被重写，被 master 分支指向的目录树所替换，但是工作区不受影响。</li>
+<li>当执行 <code>git checkout .</code> 或者 <code>git checkout -- [file]</code> 命令时，会用暂存区全部或指定的文件替换工作区的文件。这个操作很危险，会清除工作区中未添加到暂存区的改动。</li>
+<li>当执行 <code>git checkout HEAD .</code> 或者 <code>git checkout HEAD [file]</code> 命令时，会用 <code>HEAD</code> 指向的 <code>master</code> 分支中的全部或者部分文件替换暂存区和以及工作区中的文件。这个命令也是极具危险性的，因为不但会清除工作区中未提交的改动，也会清除暂存区中未提交的改 动。</li>
+<li>当执行 <code>git rm --cached [file]</code>命令时，会直接从暂存区删除文件，工作区则不做出改变。</li>
+<li>当执行 <code>git rm file</code>命令时，会同时删除暂存区和工作区的文件。</li>
+<li>当执行 <code>rm file</code>命令时，只会删除工作区的文件。</li>
+</ul>
+<hr>
+<h2 id="下面举列子来证明以上观点"><a href="#下面举列子来证明以上观点" class="headerlink" title="下面举列子来证明以上观点"></a>下面举列子来证明以上观点</h2><p>假设：<br>工作区：a<br>暂存区（index）:b<br>HEAD:C</p>
+<p>git diff命令结论<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git diff           比较a跟b</span><br><span class="line">git diff --cached  比较b跟c</span><br><span class="line">git diff HEAD      比较a跟c</span><br></pre></td></tr></table></figure></p>
+<p>git reset跟 git checkout结论</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD              c覆盖b</span><br><span class="line">git checkout -- &lt;file&gt;      b覆盖a</span><br><span class="line">git checkout HEAD &lt;file&gt;    c覆盖a,b</span><br></pre></td></tr></table></figure>
+<p>git rm命令结论<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rm          删除a跟b</span><br><span class="line">git rm --cached 只删除b</span><br><span class="line">rm file         只删除a</span><br></pre></td></tr></table></figure></p>
+<h2 id="证明git-diff结论"><a href="#证明git-diff结论" class="headerlink" title="证明git diff结论"></a>证明git diff结论</h2><p>例子，默认新建一个<code>readme.txt</code>，里面输入内容<code>one</code>然后add并且<code>commit</code>一次。</p>
+<p>1：修改<code>readme.txt</code>，新增内容<code>two</code>，这时候a内容改变了,多了<code>two</code>，而b跟c内容不变，都只有<code>one</code>。<br>执行<code>git diff readme.txt</code>查看效果  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_2.png" alt="">  </p>
+<p>结论：如图看出，内容有修改， a跟b比较了</p>
+<hr>
+<p>执行<code>git diff --cached readme.txt</code>查看效果  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_3.png" alt="">  </p>
+<p>结论：如图看出，没有变化，因为b跟c内容一样。</p>
+<hr>
+<p>执行<code>git diff HEAD readme.txt</code>查看效果  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_4.png" alt="">  </p>
+<p>如图所示：内容有修改，a跟c比较了</p>
+<hr>
+<p>2.这时候执行<code>git add readme.txt</code>,这时候a，b内容都多了two，而c内容不变，只有<code>one</code><br>执行<code>git diff readme.txt</code>查看效果  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_5.png" alt="">  </p>
+<p>结论：如图看出，没有变化， 因为a跟b内容一样。</p>
+<hr>
+<p>执行git diff –cached readme.txt查看效果  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_6.png" alt="">  </p>
+<p>结论：如图看出，内容有修改，b跟c比较了</p>
+<hr>
+<p>执行git diff HEAD readme.txt查看效果  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_7.png" alt="">  </p>
+<p>结论：如图看出，内容有修改，a跟c比较了</p>
+<p>3.最后使用git commit 提交一次，这时候a,b,c内容都一样，都包含two。  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_8.png" alt="">  </p>
+<p>结论，如图看出，没有变化，说明a,b,c内容一样</p>
+<hr>
+<p>根据上面的实例再一次证明了如下观点：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git diff           比较工作区跟暂存区</span><br><span class="line">git diff --cached  比较暂存区跟HEAD</span><br><span class="line">git diff HEAD      比较工作区跟HEAD</span><br></pre></td></tr></table></figure></p>
+<h2 id="证明git-reset跟-git-checkout结论"><a href="#证明git-reset跟-git-checkout结论" class="headerlink" title="证明git reset跟 git checkout结论"></a>证明git reset跟 git checkout结论</h2><p>例子，默认新建一个<code>readme.txt</code>，里面输入内容<code>one</code>然后add并且<code>commit</code>一次，这时候a,b,c内容都是<code>one</code></p>
+<hr>
+<p>1.修改<code>readme.txt</code>，新增内容<code>two</code>，执行<code>git add readme.txt</code>操作，这时候a ,b内容都多了<code>two</code>,c还是只有<code>one</code>.<br>执行<code>git reset HEAD -- readme.txt</code>命令后，c覆盖b,这时候b内容也变成只有<code>one</code>了，使用<code>git diff  readme.txt</code>命令可以看到，有内容修改，a跟b内容不一样。  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_9.png" alt=""></p>
+<hr>
+<p>2.此时a内容有two,b和c都只有one，执行<code>git checkout -- readme.txt</code>后，b覆盖a,此时a,b,c都是one。执行<code>git diff readme.txt</code>命令可以看到，没有改变。  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_10.png" alt=""></p>
+<hr>
+<p>3.此时a,b,c都只有<code>one</code>，修改一下，添加内容<code>two</code>，执行<code>git add readme.txt</code>和<code>git commit -m &quot;two&quot;</code>.再修改一次<code>readme.txt</code>,添加内容<code>three</code>,然后会执行<code>git add readme.txt</code>，此时a跟b都包含three，而c只包含one跟two。执行<code>git checkout HEAD readme.txt</code>后，c覆盖a和b,a,b里面内容都只有one跟two。分别使用命令<code>git diff --cached</code>和<code>git diff HEAD</code>来查看b跟c，a跟c的比对，发现都一样。  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_11.png" alt=""></p>
+<hr>
+<p>根据上面的实例再一次证明了如下观点：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD              HEAD覆盖暂存区</span><br><span class="line">git checkout -- &lt;file&gt;      暂存区覆盖工作区</span><br><span class="line">git checkout HEAD &lt;file&gt;    HEAD覆盖暂存区和工作区</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="证明git-rm-结论"><a href="#证明git-rm-结论" class="headerlink" title="证明git rm 结论"></a>证明git rm 结论</h2><p>默认新建一个<code>readme.txt</code>，里面输入内容<code>one</code>，然后使用<code>git add readme.txt</code>命令。<br>1.执行git rm readme.txt命令，发现文件被删除了。</p>
+<p>2.再新建一个一个<code>readme.txt</code>，里面输入内容 one，然后使用<code>git add readme.txt</code>命令。执行<code>git rm --cached readme.txt</code>命令，发现文件内<code>readme.txt</code>还在，然后执行<code>git status</code>命令，发现是<code>Untracked</code>状态，也就是未<code>add</code>，这就说明暂存区被删除了。  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_12.png" alt=""></p>
+<hr>
+<p>根据上面的实例再一次证明了如下观点：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rm file      会将文件从缓存区和你的硬盘中（工作区）删除</span><br><span class="line">git rm --cached  只删除暂存区，不删除工作区</span><br><span class="line">rm file          只删除工作区</span><br></pre></td></tr></table></figure></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>暂存区的原理需要大家重复的加深了解，基础打牢了后面学起来就轻松很多，上面几个例子都自己验证一遍，加深印象。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/git/">git</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://tengj.github.io/2016/03/23/git2konwindex/" data-title="git干货系列：（二）深入学习之前先理解git暂存区 | 嘟嘟独立博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/03/22/apprecommend1/"  title="提高办事效率-奇妙清单">
+ <strong>下一篇：</strong><br/> 
+ <span>提高办事效率-奇妙清单
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/03/23/git2konwindex/" data-title="git干货系列：（二）深入学习之前先理解git暂存区" data-url="http://tengj.github.io/2016/03/23/git2konwindex/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下面举列子来证明以上观点"><span class="toc-number">2.1.</span> <span class="toc-text">下面举列子来证明以上观点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#证明git-diff结论"><span class="toc-number">2.2.</span> <span class="toc-text">证明git diff结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#证明git-reset跟-git-checkout结论"><span class="toc-number">2.3.</span> <span class="toc-text">证明git reset跟 git checkout结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#证明git-rm-结论"><span class="toc-number">2.4.</span> <span class="toc-text">证明git rm 结论</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="tengj" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/SEO/" title="SEO">SEO<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/app推荐/" title="app推荐">app推荐<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/git/" title="git">git<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/hexo/" title="hexo">hexo<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/jQuery/" title="jQuery">jQuery<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/java/" title="java">java<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/springMVC/" title="springMVC">springMVC<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
+  </div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/SEO/" style="font-size: 15px;">SEO</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/springMVC/" style="font-size: 10px;">springMVC</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://shomy.top" target="_blank" title="天空的城">天空的城</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://iamaboy.xyz" target="_blank" title="WenQiang&#39;s Notes">WenQiang&#39;s Notes</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.cocosdever.com" target="_blank" title="C的博客">C的博客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 程序员上辈子都是折翼的天使 <br/>
+			This is my blog,Try to do better.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/tengj" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Teng Jun">Teng Jun</a>
+		
+		</p>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','Ts_hz24x26ZaNWfhsYwW','2.0.0');
+</script>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  
+  var m = $('#main'),
+      a = $('#asidepart'), //侧边栏
+      c = $('.closeaside'),//隐藏侧边栏
+      o = $('.openaside'); //显示侧边栏
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    $('#toc.toc-aside').css('display', 'block').addClass('fadeIn'); //这个是我新加的，修改点
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"tengj"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257841330'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1257841330%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

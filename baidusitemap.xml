@@ -4,6 +4,42 @@
 
     
   <url>
+    <loc>http://tengj.top/2016/03/20/gitTotalMsg/</loc>
+    <lastmod>2016-03-23T02:44:05.361Z</lastmod>
+    <data>
+        <display>
+        <title>git干货系列：（总纲）根据使用场景介绍git</title>
+        <pubTime>2016-03-20T14:49:30.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="git" url="http://tengj.top/categories/git/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tengj.top/2016/03/23/git2konwindex/</loc>
+    <lastmod>2016-03-23T02:38:57.435Z</lastmod>
+    <data>
+        <display>
+        <title>git干货系列：（二）深入学习之前先理解git暂存区</title>
+        <pubTime>2016-03-23T02:33:27.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="git" url="http://tengj.top/categories/git/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://tengj.top/2016/03/22/apprecommend1/</loc>
     <lastmod>2016-03-22T10:52:31.993Z</lastmod>
     <data>
@@ -28,24 +64,6 @@
         <display>
         <title>git干货系列：（一）我是小白，我想要搭建git仓库</title>
         <pubTime>2016-03-20T14:49:42.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="git" url="http://tengj.top/categories/git/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tengj.top/2016/03/20/gitTotalMsg/</loc>
-    <lastmod>2016-03-20T14:52:56.574Z</lastmod>
-    <data>
-        <display>
-        <title>git干货系列：（总纲）根据使用场景介绍git</title>
-        <pubTime>2016-03-20T14:49:30.000Z</pubTime>
         
          
            
