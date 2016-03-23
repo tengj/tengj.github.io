@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://tengj.github.io/2016/03/20/git1creategit/</loc>
+    
+    <lastmod>2016-03-23T03:30:20.197Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tengj.github.io/2016/03/20/hexo8hidewidgets/</loc>
+    
+    <lastmod>2016-03-23T03:15:54.649Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tengj.github.io/2016/03/17/hexo7count/</loc>
+    
+    <lastmod>2016-03-23T03:13:42.994Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tengj.github.io/2016/03/14/hexo6seo/</loc>
+    
+    <lastmod>2016-03-23T03:10:36.180Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tengj.github.io/2016/03/11/hexo5Swiftype/</loc>
+    
+    <lastmod>2016-03-23T03:04:32.521Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://tengj.github.io/2016/03/23/git2konwindex/</loc>
     
     <lastmod>2016-03-23T02:51:40.052Z</lastmod>
@@ -19,20 +54,6 @@
     <loc>http://tengj.github.io/2016/03/22/apprecommend1/</loc>
     
     <lastmod>2016-03-22T10:52:31.993Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tengj.github.io/2016/03/20/git1creategit/</loc>
-    
-    <lastmod>2016-03-21T01:08:37.985Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tengj.github.io/2016/03/20/hexo8hidewidgets/</loc>
-    
-    <lastmod>2016-03-20T11:18:23.304Z</lastmod>
     
   </url>
   
@@ -61,27 +82,6 @@
     <loc>http://tengj.github.io/2016/02/20/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E6%80%BB%E7%BA%B2%EF%BC%89%E6%90%AD%E5%BB%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2%E5%88%9D%E8%A1%B7/</loc>
     
     <lastmod>2016-03-20T07:39:40.065Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tengj.github.io/2016/03/17/hexo7count/</loc>
-    
-    <lastmod>2016-03-20T07:23:18.425Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tengj.github.io/2016/03/14/hexo6seo/</loc>
-    
-    <lastmod>2016-03-20T06:56:54.701Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tengj.github.io/2016/03/11/hexo5Swiftype/</loc>
-    
-    <lastmod>2016-03-20T06:56:41.943Z</lastmod>
     
   </url>
   
