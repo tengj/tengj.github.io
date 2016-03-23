@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tengj.github.io/"/>
-  <updated>2016-03-23T02:38:57.435Z</updated>
+  <updated>2016-03-23T02:51:40.052Z</updated>
   <id>http://tengj.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://tengj.github.io/2016/03/23/git2konwindex/"/>
     <id>http://tengj.github.io/2016/03/23/git2konwindex/</id>
     <published>2016-03-23T02:33:27.000Z</published>
-    <updated>2016-03-23T02:38:57.435Z</updated>
+    <updated>2016-03-23T02:51:40.052Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;暂存区&lt;code&gt;（stage, index）&lt;/code&gt;是&lt;code&gt;Git&lt;/code&gt;最重要的概念之一，理解了这个概念很多 &lt;code&gt;Git&lt;/code&gt; 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt; &lt;/p&gt;
 &lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;p&gt;下面这个图展示了工作区、版本库中的暂存区和版本库之间的关系。&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git2_1.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;在这个图中，我们可以看到部分 &lt;code&gt;Git&lt;/code&gt;命令是如何影响工作区和暂存区&lt;code&gt;（stage, index）&lt;/code&gt;的。&lt;/p&gt;
@@ -64,14 +64,14 @@
 &lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git2_6.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
 &lt;p&gt;结论：如图看出，内容有修改，b跟c比较了&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;执行git diff HEAD readme.txt查看效果  &lt;/p&gt;
+&lt;p&gt;执行&lt;code&gt;git diff HEAD readme.txt&lt;/code&gt;查看效果  &lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git2_7.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
 &lt;p&gt;结论：如图看出，内容有修改，a跟c比较了&lt;/p&gt;
-&lt;p&gt;3.最后使用git commit 提交一次，这时候a,b,c内容都一样，都包含two。  &lt;/p&gt;
+&lt;p&gt;3.最后使用&lt;code&gt;git commit&lt;/code&gt;提交一次，这时候a,b,c内容都一样，都包含&lt;code&gt;two&lt;/code&gt;。  &lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git2_8.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
 &lt;p&gt;结论，如图看出，没有变化，说明a,b,c内容一样&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;根据上面的实例再一次证明了如下观点：&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git diff           比较工作区跟暂存区&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git diff --cached  比较暂存区跟HEAD&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git diff HEAD      比较工作区跟HEAD&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;根据上面的实例再一次证明了如下观点：&lt;br&gt;&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git diff           比较工作区跟暂存区&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git diff --cached  比较暂存区跟HEAD&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git diff HEAD      比较工作区跟HEAD&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h2 id=&quot;证明git-reset跟-git-checkout结论&quot;&gt;&lt;a href=&quot;#证明git-reset跟-git-checkout结论&quot; class=&quot;headerlink&quot; title=&quot;证明git reset跟 git checkout结论&quot;&gt;&lt;/a&gt;证明git reset跟 git checkout结论&lt;/h2&gt;&lt;p&gt;例子，默认新建一个&lt;code&gt;readme.txt&lt;/code&gt;，里面输入内容&lt;code&gt;one&lt;/code&gt;然后add并且&lt;code&gt;commit&lt;/code&gt;一次，这时候a,b,c内容都是&lt;code&gt;one&lt;/code&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;1.修改&lt;code&gt;readme.txt&lt;/code&gt;，新增内容&lt;code&gt;two&lt;/code&gt;，执行&lt;code&gt;git add readme.txt&lt;/code&gt;操作，这时候a ,b内容都多了&lt;code&gt;two&lt;/code&gt;,c还是只有&lt;code&gt;one&lt;/code&gt;.&lt;br&gt;执行&lt;code&gt;git reset HEAD -- readme.txt&lt;/code&gt;命令后，c覆盖b,这时候b内容也变成只有&lt;code&gt;one&lt;/code&gt;了，使用&lt;code&gt;git diff  readme.txt&lt;/code&gt;命令可以看到，有内容修改，a跟b内容不一样。  &lt;/p&gt;
@@ -89,7 +89,7 @@
 &lt;p&gt;2.再新建一个一个&lt;code&gt;readme.txt&lt;/code&gt;，里面输入内容 one，然后使用&lt;code&gt;git add readme.txt&lt;/code&gt;命令。执行&lt;code&gt;git rm --cached readme.txt&lt;/code&gt;命令，发现文件内&lt;code&gt;readme.txt&lt;/code&gt;还在，然后执行&lt;code&gt;git status&lt;/code&gt;命令，发现是&lt;code&gt;Untracked&lt;/code&gt;状态，也就是未&lt;code&gt;add&lt;/code&gt;，这就说明暂存区被删除了。  &lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git2_12.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;根据上面的实例再一次证明了如下观点：&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git rm file      会将文件从缓存区和你的硬盘中（工作区）删除&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git rm --cached  只删除暂存区，不删除工作区&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rm file          只删除工作区&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;根据上面的实例再一次证明了如下观点：&lt;br&gt;&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git rm file      会将文件从缓存区和你的硬盘中（工作区）删除&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git rm --cached  只删除暂存区，不删除工作区&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rm file          只删除工作区&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;p&gt;暂存区的原理需要大家重复的加深了解，基础打牢了后面学起来就轻松很多，上面几个例子都自己验证一遍，加深印象。&lt;/p&gt;
 </content>
     
