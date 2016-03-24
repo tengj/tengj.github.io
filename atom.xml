@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tengj.github.io/"/>
-  <updated>2016-03-23T02:51:40.052Z</updated>
+  <updated>2016-03-24T14:29:51.991Z</updated>
   <id>http://tengj.github.io/</id>
   
   <author>
@@ -16,11 +16,51 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>git干货系列：（三）我提交错了我想撤销或者回退版本</title>
+    <link href="http://tengj.github.io/2016/03/24/git3reset/"/>
+    <id>http://tengj.github.io/2016/03/24/git3reset/</id>
+    <published>2016-03-24T14:15:55.000Z</published>
+    <updated>2016-03-24T14:29:51.991Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;在上图大家回顾一下，看这里&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git2_1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;h2 id=&quot;撤销操作&quot;&gt;&lt;a href=&quot;#撤销操作&quot; class=&quot;headerlink&quot; title=&quot;撤销操作&quot;&gt;&lt;/a&gt;撤销操作&lt;/h2&gt;&lt;h3 id=&quot;git-checkout-–-file&quot;&gt;&lt;a href=&quot;#git-checkout-–-file&quot; class=&quot;headerlink&quot; title=&quot;git checkout – [file]&quot;&gt;&lt;/a&gt;git checkout – [file]&lt;/h3&gt;&lt;p&gt;如果你文件只是在工作区修改了，但是还没提交到暂存区的时候，你可以用&lt;code&gt;git checkout -- [file]&lt;/code&gt;来撤销。简单的说就是暂存区覆盖工作区。这里模拟一下，比如现在&lt;code&gt;readme.txt&lt;/code&gt;里面内容是&lt;code&gt;first day&lt;/code&gt;，并且已经提交到暂存区了，此时修改&lt;code&gt;readme.txt&lt;/code&gt;，内容改成&lt;code&gt;second day.&lt;/code&gt;，然后执行&lt;code&gt;git checkout -- readme.txt&lt;/code&gt;命令,你会发现&lt;code&gt;readme.txt&lt;/code&gt;内容又变成&lt;code&gt;first day&lt;/code&gt;了&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git3_1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;git-reset-HEAD&quot;&gt;&lt;a href=&quot;#git-reset-HEAD&quot; class=&quot;headerlink&quot; title=&quot;git reset HEAD&quot;&gt;&lt;/a&gt;git reset HEAD&lt;/h3&gt;&lt;p&gt;如果你文件在工作区修改了,并且也执行&lt;code&gt;git add&lt;/code&gt;命令提交给暂存区了，那么执行上面的&lt;code&gt;git checkout -- [file]&lt;/code&gt;已经无效了，因为工作区跟暂存区已经一样了，再怎么覆盖内容也一样，这时候就应该使用&lt;code&gt;git reset HEAD&lt;/code&gt;命令来撤销，简单的说就是让&lt;code&gt;HEAD&lt;/code&gt;覆盖暂存区，因为此时的&lt;code&gt;HEAD&lt;/code&gt;这边的文件内容还是上次提交时的内容。现在模拟一下，现在有&lt;code&gt;readme.txt&lt;/code&gt;跟&lt;code&gt;hello.txt&lt;/code&gt;两个文件，都经过修改&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git3_2.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;如图可以看到，使用&lt;code&gt;git status -s&lt;/code&gt;来查看的时候，红色的M表示这2个文件都经过修改，使用&lt;code&gt;git add .&lt;/code&gt;提交后在查看，发现都是绿色的M，表示都提交到暂存区了，这时候执行&lt;code&gt;git reset HEAD hello.txt&lt;/code&gt;后在查看，发现&lt;code&gt;hello.txt&lt;/code&gt;变成红色M了，说明hello.txt从暂存区撤销了。如果还想把工作区间的文件也撤回，就继续执行上面的&lt;code&gt;git reset HEAD readme.txt&lt;/code&gt;就行。&lt;/p&gt;
+&lt;h3 id=&quot;git-checkout-HEAD-file&quot;&gt;&lt;a href=&quot;#git-checkout-HEAD-file&quot; class=&quot;headerlink&quot; title=&quot;git checkout HEAD [file]&quot;&gt;&lt;/a&gt;git checkout HEAD [file]&lt;/h3&gt;&lt;p&gt;&lt;code&gt;git checkout HEAD [file]&lt;/code&gt;命令是&lt;code&gt;git checkout -- [file]&lt;/code&gt;和&lt;code&gt;git reset HEAD&lt;/code&gt;的合成体，直接用HEAD覆盖工作区,暂存区。如下图中所示，一开始 工作区暂存区以及HEAD中文件内容都是&lt;code&gt;first day.&lt;/code&gt;,此时修改&lt;code&gt;readme.txt&lt;/code&gt;内容为&lt;code&gt;second day.&lt;/code&gt;，然后执行&lt;code&gt;git add .&lt;/code&gt;提交到暂存区，接着执行&lt;code&gt;git checkout HEAD readme.txt&lt;/code&gt;命令，再查看&lt;code&gt;readme.txt&lt;/code&gt;内容的时候你会发现变成了&lt;code&gt;first day.&lt;/code&gt;&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git3_3.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;版本回退以及切换&quot;&gt;&lt;a href=&quot;#版本回退以及切换&quot; class=&quot;headerlink&quot; title=&quot;版本回退以及切换&quot;&gt;&lt;/a&gt;版本回退以及切换&lt;/h2&gt;&lt;h3 id=&quot;git-reset-–hard-HEAD&quot;&gt;&lt;a href=&quot;#git-reset-–hard-HEAD&quot; class=&quot;headerlink&quot; title=&quot;git reset –hard HEAD^&quot;&gt;&lt;/a&gt;git reset –hard HEAD^&lt;/h3&gt;&lt;p&gt;首先，&lt;code&gt;Git&lt;/code&gt;必须知道当前版本是哪个版本，在&lt;code&gt;Git&lt;/code&gt;中，用&lt;code&gt;HEAD&lt;/code&gt;表示当前版本，也就是最新的提交&lt;code&gt;3628164...882e1e0&lt;/code&gt;（注意我的提交ID和你的肯定不一样），上一个版本就是&lt;code&gt;HEAD^&lt;/code&gt;，上上一个版本就是&lt;code&gt;HEAD^^&lt;/code&gt;，当然往上100个版本写100个&lt;code&gt;^&lt;/code&gt;比较容易数不过来，所以写成&lt;code&gt;HEAD~100&lt;/code&gt;。&lt;br&gt;先查看当前版本记录，发现最近的两个版本为&lt;code&gt;b520a36 第一次提交&lt;/code&gt;和&lt;code&gt;479c6fd 第二次提交&lt;/code&gt;&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git3_4.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;当前版本是&lt;code&gt;b520a36 第一次提交&lt;/code&gt;,现在我们来执行&lt;code&gt;git reset --hard HEAD^&lt;/code&gt;来回退到&lt;code&gt;479c6fd 第二次提交&lt;/code&gt;版本,如图：&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git3_5.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;git-reset-–hard-commit-id&quot;&gt;&lt;a href=&quot;#git-reset-–hard-commit-id&quot; class=&quot;headerlink&quot; title=&quot;git reset –hard commit_id&quot;&gt;&lt;/a&gt;git reset –hard commit_id&lt;/h3&gt;&lt;p&gt;如果你回退版本后又后悔了，想恢复最后那个版本怎么办，通过&lt;code&gt;git reset --hard commit_id&lt;/code&gt;命令可以搞定，注意这里的&lt;code&gt;commit_id&lt;/code&gt;是版本号，只要记得版本号，你想切换到哪个版本都行，如果你忘记了刚才最后一个的版本号，可以通过&lt;code&gt;git reflog&lt;/code&gt;来查看，这里我们记得最后那次版本号为&lt;code&gt;b520a36&lt;/code&gt;，执行&lt;code&gt;git reset --hard b520a36&lt;/code&gt;&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git3_6.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;删除操作&quot;&gt;&lt;a href=&quot;#删除操作&quot; class=&quot;headerlink&quot; title=&quot;删除操作&quot;&gt;&lt;/a&gt;删除操作&lt;/h2&gt;&lt;p&gt;这里介绍一下&lt;code&gt;git&lt;/code&gt;中的删除操作命令，以及意外删除了该如何还原。&lt;/p&gt;
+&lt;h3 id=&quot;git-rm&quot;&gt;&lt;a href=&quot;#git-rm&quot; class=&quot;headerlink&quot; title=&quot;git rm&quot;&gt;&lt;/a&gt;git rm&lt;/h3&gt;&lt;p&gt;执行&lt;code&gt;git rm&lt;/code&gt;命令会同时删除工作区跟暂存区中的指定文件，要慎重处理。&lt;/p&gt;
+&lt;p&gt;但是如果你意外删除了也是可以恢复的。不过要分成2种情况处理：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;还未执行&lt;code&gt;git commit&lt;/code&gt;提交到&lt;code&gt;HEAD&lt;/code&gt;的时候删除文件，这时候直接使用&lt;code&gt;git checkout HEAD [file]&lt;/code&gt;就能还原。&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git3_7.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;执行&lt;code&gt;git commit&lt;/code&gt;提交到&lt;code&gt;HAED&lt;/code&gt;后时候才删除文件，这时候就只能执行&lt;code&gt;git reset --hard HEAD^&lt;/code&gt;回退上一个版本。&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git3_8.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;结束&quot;&gt;&lt;a href=&quot;#结束&quot; class=&quot;headerlink&quot; title=&quot;结束&quot;&gt;&lt;/a&gt;结束&lt;/h2&gt;&lt;p&gt;总结一下上面所学的：&lt;/p&gt;
+&lt;p&gt;场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令&lt;code&gt;git checkout -- file&lt;/code&gt;。&lt;br&gt;场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令&lt;code&gt;git reset HEAD file&lt;/code&gt;，就回到了场景1，第二步按场景1操作。&lt;br&gt;场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，使用&lt;code&gt;git reset --hard HEAD^&lt;/code&gt;。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="git" scheme="http://tengj.github.io/categories/git/"/>
+    
+    
+      <category term="git" scheme="http://tengj.github.io/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
     <title>git干货系列：（二）深入学习之前先理解git暂存区</title>
     <link href="http://tengj.github.io/2016/03/23/git2konwindex/"/>
     <id>http://tengj.github.io/2016/03/23/git2konwindex/</id>
     <published>2016-03-23T02:33:27.000Z</published>
-    <updated>2016-03-23T02:51:40.052Z</updated>
+    <updated>2016-03-23T04:30:48.059Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;暂存区&lt;code&gt;（stage, index）&lt;/code&gt;是&lt;code&gt;Git&lt;/code&gt;最重要的概念之一，理解了这个概念很多 &lt;code&gt;Git&lt;/code&gt; 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt; &lt;/p&gt;
 &lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;p&gt;下面这个图展示了工作区、版本库中的暂存区和版本库之间的关系。&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git2_1.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;在这个图中，我们可以看到部分 &lt;code&gt;Git&lt;/code&gt;命令是如何影响工作区和暂存区&lt;code&gt;（stage, index）&lt;/code&gt;的。&lt;/p&gt;
@@ -38,7 +78,7 @@
 &lt;li&gt;当执行 &lt;code&gt;rm file&lt;/code&gt;命令时，只会删除工作区的文件。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id=&quot;下面举列子来证明以上观点&quot;&gt;&lt;a href=&quot;#下面举列子来证明以上观点&quot; class=&quot;headerlink&quot; title=&quot;下面举列子来证明以上观点&quot;&gt;&lt;/a&gt;下面举列子来证明以上观点&lt;/h2&gt;&lt;p&gt;假设：&lt;br&gt;工作区：a&lt;br&gt;暂存区（index）:b&lt;br&gt;HEAD:C&lt;/p&gt;
+&lt;h2 id=&quot;下面举例子来证明以上观点&quot;&gt;&lt;a href=&quot;#下面举例子来证明以上观点&quot; class=&quot;headerlink&quot; title=&quot;下面举例子来证明以上观点&quot;&gt;&lt;/a&gt;下面举例子来证明以上观点&lt;/h2&gt;&lt;p&gt;假设：&lt;br&gt;工作区：a&lt;br&gt;暂存区（index）:b&lt;br&gt;HEAD:C&lt;/p&gt;
 &lt;p&gt;git diff命令结论&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git diff           比较a跟b&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git diff --cached  比较b跟c&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git diff HEAD      比较a跟c&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;git reset跟 git checkout结论&lt;/p&gt;
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git reset HEAD              c覆盖b&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git checkout -- &amp;lt;file&amp;gt;      b覆盖a&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git checkout HEAD &amp;lt;file&amp;gt;    c覆盖a,b&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -193,12 +233,12 @@
     <link href="http://tengj.github.io/2016/03/20/gitTotalMsg/"/>
     <id>http://tengj.github.io/2016/03/20/gitTotalMsg/</id>
     <published>2016-03-20T14:49:30.000Z</published>
-    <updated>2016-03-23T02:44:05.361Z</updated>
+    <updated>2016-03-24T14:30:54.533Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;本人搭建独立博客的时候需要使用到&lt;code&gt;github&lt;/code&gt;，&lt;code&gt;coding&lt;/code&gt;以及&lt;code&gt;开源中国&lt;/code&gt;，发现全部使用&lt;code&gt;git&lt;/code&gt;来进行版本控制。了解之后发&lt;code&gt;现git&lt;/code&gt;很棒，所以决定学。学习过程中做了一些笔记，经过整理就有了这个系列的文章，其实是我自己的学习笔记整理，如果你也是新手就跟着我一起学习，如果你是大神，那么希望您能指出我的错误，让我学习更进一步，这也是我写这系列笔记的初衷。&lt;/p&gt;
 &lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;h2 id=&quot;学习环境&quot;&gt;&lt;a href=&quot;#学习环境&quot; class=&quot;headerlink&quot; title=&quot;学习环境&quot;&gt;&lt;/a&gt;学习环境&lt;/h2&gt;&lt;p&gt;本人是使用window系统来学习的，linux以及Mac的同学自行安装软件哦~&lt;/p&gt;
 &lt;h2 id=&quot;书写方式&quot;&gt;&lt;a href=&quot;#书写方式&quot; class=&quot;headerlink&quot; title=&quot;书写方式&quot;&gt;&lt;/a&gt;书写方式&lt;/h2&gt;&lt;p&gt;网上&lt;code&gt;git&lt;/code&gt;教程也很多，我想记录我自己学习使用过程中的点滴，不单单是个教程，我想把它当成工具来写，根据实际使用场景来分类，这样方便以后自己快速查找。&lt;/p&gt;
-&lt;h2 id=&quot;系列博文整理&quot;&gt;&lt;a href=&quot;#系列博文整理&quot; class=&quot;headerlink&quot; title=&quot;系列博文整理&quot;&gt;&lt;/a&gt;系列博文整理&lt;/h2&gt;&lt;p&gt;整理了下git系列的文章，发现写系列博客感觉还是很棒的：&lt;br&gt;&lt;a href=&quot;http://tengj.top/2016/03/20/git1creategit/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git干货系列：（一）我是小白，我想要搭建git仓库&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://tengj.top/2016/03/23/git2konwindex/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git干货系列：（二）深入学习之前先理解git暂存区&lt;/a&gt;&lt;br&gt;git干货系列：（三）我提交错了我想回退版本（待写）&lt;br&gt;git干货系列：（四）我要连接远程仓库（github，coding）（待写）&lt;br&gt;git干货系列：（五）多人协同工作之分支管理（待写）&lt;br&gt;git干货系列：（六）公司内部搭建git服务器（待写）  &lt;/p&gt;
+&lt;h2 id=&quot;系列博文整理&quot;&gt;&lt;a href=&quot;#系列博文整理&quot; class=&quot;headerlink&quot; title=&quot;系列博文整理&quot;&gt;&lt;/a&gt;系列博文整理&lt;/h2&gt;&lt;p&gt;整理了下git系列的文章，发现写系列博客感觉还是很棒的：&lt;br&gt;&lt;a href=&quot;http://tengj.top/2016/03/20/git1creategit/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git干货系列：（一）我是小白，我想要搭建git仓库&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://tengj.top/2016/03/23/git2konwindex/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git干货系列：（二）深入学习之前先理解git暂存区&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://tengj.top/2016/03/24/git3reset/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git干货系列：（三）我提交错了我想撤销或者回退版本&lt;/a&gt;&lt;br&gt;git干货系列：（四）我要连接远程仓库（github，coding）（待写）&lt;br&gt;git干货系列：（五）多人协同工作之分支管理（待写）&lt;br&gt;git干货系列：（六）公司内部搭建git服务器（待写）  &lt;/p&gt;
 &lt;h2 id=&quot;所有学习git资源&quot;&gt;&lt;a href=&quot;#所有学习git资源&quot; class=&quot;headerlink&quot; title=&quot;所有学习git资源&quot;&gt;&lt;/a&gt;所有学习git资源&lt;/h2&gt;&lt;p&gt;学习过程中我参考了许许多多的教程，分享跟大家：&lt;br&gt;&lt;a href=&quot;http://www.yiibai.com/git/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git教程&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;廖雪峰git教程&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://rogerdudler.github.io/git-guide/index.zh.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git–简易指南&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://backlogtool.com/git-guide/cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;猴子都能懂的GIT入门&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://gitref.justjavac.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Git参考手册&lt;/a&gt;  &lt;/p&gt;
 &lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;p&gt;上面列出的目录是我接下来打算写的文章~学习跨度1-2周，一般两三天写一篇，希望自己不要拖延~动起来小伙伴们，跟我一起学会了装逼。&lt;/p&gt;
 </content>

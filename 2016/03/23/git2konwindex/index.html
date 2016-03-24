@@ -29,7 +29,7 @@
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_10.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_11.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_12.png">
-<meta property="og:updated_time" content="2016-03-23T02:51:40.052Z">
+<meta property="og:updated_time" content="2016-03-23T04:30:48.059Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git干货系列：（二）深入学习之前先理解git暂存区">
 <meta name="twitter:description" content="前言暂存区（stage, index）是Git最重要的概念之一，理解了这个概念很多 Git 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。">
@@ -110,7 +110,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下面举列子来证明以上观点"><span class="toc-number">2.1.</span> <span class="toc-text">下面举列子来证明以上观点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#证明git-diff结论"><span class="toc-number">2.2.</span> <span class="toc-text">证明git diff结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#证明git-reset跟-git-checkout结论"><span class="toc-number">2.3.</span> <span class="toc-text">证明git reset跟 git checkout结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#证明git-rm-结论"><span class="toc-number">2.4.</span> <span class="toc-text">证明git rm 结论</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下面举例子来证明以上观点"><span class="toc-number">2.1.</span> <span class="toc-text">下面举例子来证明以上观点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#证明git-diff结论"><span class="toc-number">2.2.</span> <span class="toc-text">证明git diff结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#证明git-reset跟-git-checkout结论"><span class="toc-number">2.3.</span> <span class="toc-text">证明git reset跟 git checkout结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#证明git-rm-结论"><span class="toc-number">2.4.</span> <span class="toc-text">证明git rm 结论</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
 		
 		</div>
 		
@@ -130,7 +130,7 @@
 <li>当执行 <code>rm file</code>命令时，只会删除工作区的文件。</li>
 </ul>
 <hr>
-<h2 id="下面举列子来证明以上观点"><a href="#下面举列子来证明以上观点" class="headerlink" title="下面举列子来证明以上观点"></a>下面举列子来证明以上观点</h2><p>假设：<br>工作区：a<br>暂存区（index）:b<br>HEAD:C</p>
+<h2 id="下面举例子来证明以上观点"><a href="#下面举例子来证明以上观点" class="headerlink" title="下面举例子来证明以上观点"></a>下面举例子来证明以上观点</h2><p>假设：<br>工作区：a<br>暂存区（index）:b<br>HEAD:C</p>
 <p>git diff命令结论<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git diff           比较a跟b</span><br><span class="line">git diff --cached  比较b跟c</span><br><span class="line">git diff HEAD      比较a跟c</span><br></pre></td></tr></table></figure></p>
 <p>git reset跟 git checkout结论</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD              c覆盖b</span><br><span class="line">git checkout -- &lt;file&gt;      b覆盖a</span><br><span class="line">git checkout HEAD &lt;file&gt;    c覆盖a,b</span><br></pre></td></tr></table></figure>
@@ -213,6 +213,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2016/03/24/git3reset/" title="git干货系列：（三）我提交错了我想撤销或者回退版本">
+  <strong>上一篇：</strong><br/>
+  <span>
+  git干货系列：（三）我提交错了我想撤销或者回退版本</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2016/03/22/apprecommend1/"  title="提高办事效率-奇妙清单">
@@ -236,7 +244,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下面举列子来证明以上观点"><span class="toc-number">2.1.</span> <span class="toc-text">下面举列子来证明以上观点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#证明git-diff结论"><span class="toc-number">2.2.</span> <span class="toc-text">证明git diff结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#证明git-reset跟-git-checkout结论"><span class="toc-number">2.3.</span> <span class="toc-text">证明git reset跟 git checkout结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#证明git-rm-结论"><span class="toc-number">2.4.</span> <span class="toc-text">证明git rm 结论</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下面举例子来证明以上观点"><span class="toc-number">2.1.</span> <span class="toc-text">下面举例子来证明以上观点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#证明git-diff结论"><span class="toc-number">2.2.</span> <span class="toc-text">证明git diff结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#证明git-reset跟-git-checkout结论"><span class="toc-number">2.3.</span> <span class="toc-text">证明git reset跟 git checkout结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#证明git-rm-结论"><span class="toc-number">2.4.</span> <span class="toc-text">证明git rm 结论</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
  
   </div>
 
@@ -268,7 +276,7 @@
 		  
 		
 		  
-			<li><a href="/categories/git/" title="git">git<sup>3</sup></a></li>
+			<li><a href="/categories/git/" title="git">git<sup>4</sup></a></li>
 		  
 		
 		  
@@ -294,7 +302,7 @@
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
   </div>
 
 
@@ -302,7 +310,7 @@
   <div class="tagcloudlist">
     <p class="asidetitle">标签云</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/SEO/" style="font-size: 15px;">SEO</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/springMVC/" style="font-size: 10px;">springMVC</a>
+       <a href="/tags/SEO/" style="font-size: 15px;">SEO</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/springMVC/" style="font-size: 10px;">springMVC</a>
     </div>
   </div>
 

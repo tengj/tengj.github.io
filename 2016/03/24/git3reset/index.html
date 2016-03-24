@@ -1,0 +1,553 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>git干货系列：（三）我提交错了我想撤销或者回退版本 | 嘟嘟独立博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Teng Jun">
+    
+
+    
+    <meta name="description" content="前言前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git干货系列：（三）我提交错了我想撤销或者回退版本">
+<meta property="og:url" content="http://tengj.github.io/2016/03/24/git3reset/index.html">
+<meta property="og:site_name" content="嘟嘟独立博客">
+<meta property="og:description" content="前言前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_1.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git3_1.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git3_2.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git3_3.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git3_4.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git3_5.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git3_6.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git3_7.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git3_8.png">
+<meta property="og:updated_time" content="2016-03-24T14:29:51.991Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git干货系列：（三）我提交错了我想撤销或者回退版本">
+<meta name="twitter:description" content="前言前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。">
+
+    
+    <link rel="alternative" href="/atom.xml" title="嘟嘟独立博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/dudu.gif" alt="嘟嘟独立博客" title="嘟嘟独立博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="嘟嘟独立博客">嘟嘟独立博客</a></h1>
+				<h2 class="blog-motto">爱生活爱编码</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/timeline">时光机</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" class="st-default-search-input" maxlength="20" placeholder="Search" />
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/24/git3reset/" title="git干货系列：（三）我提交错了我想撤销或者回退版本" itemprop="url">git干货系列：（三）我提交错了我想撤销或者回退版本</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Teng Jun" target="_blank" itemprop="author">Teng Jun</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-24T14:15:55.000Z" itemprop="datePublished"> 发表于 2016-03-24</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number"></span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#撤销操作"><span class="toc-number">1.</span> <span class="toc-text">撤销操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-checkout-–-file"><span class="toc-number">1.1.</span> <span class="toc-text">git checkout – [file]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-reset-HEAD"><span class="toc-number">1.2.</span> <span class="toc-text">git reset HEAD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-checkout-HEAD-file"><span class="toc-number">1.3.</span> <span class="toc-text">git checkout HEAD [file]</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#版本回退以及切换"><span class="toc-number">2.</span> <span class="toc-text">版本回退以及切换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-reset-–hard-HEAD"><span class="toc-number">2.1.</span> <span class="toc-text">git reset –hard HEAD^</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-reset-–hard-commit-id"><span class="toc-number">2.2.</span> <span class="toc-text">git reset –hard commit_id</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除操作"><span class="toc-number">3.</span> <span class="toc-text">删除操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-rm"><span class="toc-number">3.1.</span> <span class="toc-text">git rm</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结束"><span class="toc-number">4.</span> <span class="toc-text">结束</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。<br><a id="more"></a><br>在上图大家回顾一下，看这里<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_1.png" alt=""></p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h2><h3 id="git-checkout-–-file"><a href="#git-checkout-–-file" class="headerlink" title="git checkout – [file]"></a>git checkout – [file]</h3><p>如果你文件只是在工作区修改了，但是还没提交到暂存区的时候，你可以用<code>git checkout -- [file]</code>来撤销。简单的说就是暂存区覆盖工作区。这里模拟一下，比如现在<code>readme.txt</code>里面内容是<code>first day</code>，并且已经提交到暂存区了，此时修改<code>readme.txt</code>，内容改成<code>second day.</code>，然后执行<code>git checkout -- readme.txt</code>命令,你会发现<code>readme.txt</code>内容又变成<code>first day</code>了<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_1.png" alt=""></p>
+<h3 id="git-reset-HEAD"><a href="#git-reset-HEAD" class="headerlink" title="git reset HEAD"></a>git reset HEAD</h3><p>如果你文件在工作区修改了,并且也执行<code>git add</code>命令提交给暂存区了，那么执行上面的<code>git checkout -- [file]</code>已经无效了，因为工作区跟暂存区已经一样了，再怎么覆盖内容也一样，这时候就应该使用<code>git reset HEAD</code>命令来撤销，简单的说就是让<code>HEAD</code>覆盖暂存区，因为此时的<code>HEAD</code>这边的文件内容还是上次提交时的内容。现在模拟一下，现在有<code>readme.txt</code>跟<code>hello.txt</code>两个文件，都经过修改<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_2.png" alt=""><br>如图可以看到，使用<code>git status -s</code>来查看的时候，红色的M表示这2个文件都经过修改，使用<code>git add .</code>提交后在查看，发现都是绿色的M，表示都提交到暂存区了，这时候执行<code>git reset HEAD hello.txt</code>后在查看，发现<code>hello.txt</code>变成红色M了，说明hello.txt从暂存区撤销了。如果还想把工作区间的文件也撤回，就继续执行上面的<code>git reset HEAD readme.txt</code>就行。</p>
+<h3 id="git-checkout-HEAD-file"><a href="#git-checkout-HEAD-file" class="headerlink" title="git checkout HEAD [file]"></a>git checkout HEAD [file]</h3><p><code>git checkout HEAD [file]</code>命令是<code>git checkout -- [file]</code>和<code>git reset HEAD</code>的合成体，直接用HEAD覆盖工作区,暂存区。如下图中所示，一开始 工作区暂存区以及HEAD中文件内容都是<code>first day.</code>,此时修改<code>readme.txt</code>内容为<code>second day.</code>，然后执行<code>git add .</code>提交到暂存区，接着执行<code>git checkout HEAD readme.txt</code>命令，再查看<code>readme.txt</code>内容的时候你会发现变成了<code>first day.</code><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_3.png" alt=""></p>
+<h2 id="版本回退以及切换"><a href="#版本回退以及切换" class="headerlink" title="版本回退以及切换"></a>版本回退以及切换</h2><h3 id="git-reset-–hard-HEAD"><a href="#git-reset-–hard-HEAD" class="headerlink" title="git reset –hard HEAD^"></a>git reset –hard HEAD^</h3><p>首先，<code>Git</code>必须知道当前版本是哪个版本，在<code>Git</code>中，用<code>HEAD</code>表示当前版本，也就是最新的提交<code>3628164...882e1e0</code>（注意我的提交ID和你的肯定不一样），上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，当然往上100个版本写100个<code>^</code>比较容易数不过来，所以写成<code>HEAD~100</code>。<br>先查看当前版本记录，发现最近的两个版本为<code>b520a36 第一次提交</code>和<code>479c6fd 第二次提交</code><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_4.png" alt=""></p>
+<p>当前版本是<code>b520a36 第一次提交</code>,现在我们来执行<code>git reset --hard HEAD^</code>来回退到<code>479c6fd 第二次提交</code>版本,如图：<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_5.png" alt=""></p>
+<h3 id="git-reset-–hard-commit-id"><a href="#git-reset-–hard-commit-id" class="headerlink" title="git reset –hard commit_id"></a>git reset –hard commit_id</h3><p>如果你回退版本后又后悔了，想恢复最后那个版本怎么办，通过<code>git reset --hard commit_id</code>命令可以搞定，注意这里的<code>commit_id</code>是版本号，只要记得版本号，你想切换到哪个版本都行，如果你忘记了刚才最后一个的版本号，可以通过<code>git reflog</code>来查看，这里我们记得最后那次版本号为<code>b520a36</code>，执行<code>git reset --hard b520a36</code><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_6.png" alt=""></p>
+<h2 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h2><p>这里介绍一下<code>git</code>中的删除操作命令，以及意外删除了该如何还原。</p>
+<h3 id="git-rm"><a href="#git-rm" class="headerlink" title="git rm"></a>git rm</h3><p>执行<code>git rm</code>命令会同时删除工作区跟暂存区中的指定文件，要慎重处理。</p>
+<p>但是如果你意外删除了也是可以恢复的。不过要分成2种情况处理：</p>
+<ol>
+<li><p>还未执行<code>git commit</code>提交到<code>HEAD</code>的时候删除文件，这时候直接使用<code>git checkout HEAD [file]</code>就能还原。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_7.png" alt=""></p>
+</li>
+<li><p>执行<code>git commit</code>提交到<code>HAED</code>后时候才删除文件，这时候就只能执行<code>git reset --hard HEAD^</code>回退上一个版本。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_8.png" alt=""></p>
+</li>
+</ol>
+<h2 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h2><p>总结一下上面所学的：</p>
+<p>场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令<code>git checkout -- file</code>。<br>场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令<code>git reset HEAD file</code>，就回到了场景1，第二步按场景1操作。<br>场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，使用<code>git reset --hard HEAD^</code>。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/git/">git</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/git/">git</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://tengj.github.io/2016/03/24/git3reset/" data-title="git干货系列：（三）我提交错了我想撤销或者回退版本 | 嘟嘟独立博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/03/23/git2konwindex/"  title="git干货系列：（二）深入学习之前先理解git暂存区">
+ <strong>下一篇：</strong><br/> 
+ <span>git干货系列：（二）深入学习之前先理解git暂存区
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/03/24/git3reset/" data-title="git干货系列：（三）我提交错了我想撤销或者回退版本" data-url="http://tengj.github.io/2016/03/24/git3reset/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number"></span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#撤销操作"><span class="toc-number">1.</span> <span class="toc-text">撤销操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-checkout-–-file"><span class="toc-number">1.1.</span> <span class="toc-text">git checkout – [file]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-reset-HEAD"><span class="toc-number">1.2.</span> <span class="toc-text">git reset HEAD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-checkout-HEAD-file"><span class="toc-number">1.3.</span> <span class="toc-text">git checkout HEAD [file]</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#版本回退以及切换"><span class="toc-number">2.</span> <span class="toc-text">版本回退以及切换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-reset-–hard-HEAD"><span class="toc-number">2.1.</span> <span class="toc-text">git reset –hard HEAD^</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-reset-–hard-commit-id"><span class="toc-number">2.2.</span> <span class="toc-text">git reset –hard commit_id</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除操作"><span class="toc-number">3.</span> <span class="toc-text">删除操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-rm"><span class="toc-number">3.1.</span> <span class="toc-text">git rm</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结束"><span class="toc-number">4.</span> <span class="toc-text">结束</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="tengj" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/SEO/" title="SEO">SEO<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/app推荐/" title="app推荐">app推荐<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/git/" title="git">git<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/hexo/" title="hexo">hexo<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/jQuery/" title="jQuery">jQuery<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/java/" title="java">java<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/springMVC/" title="springMVC">springMVC<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
+  </div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/SEO/" style="font-size: 15px;">SEO</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/springMVC/" style="font-size: 10px;">springMVC</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://shomy.top" target="_blank" title="天空的城">天空的城</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://iamaboy.xyz" target="_blank" title="WenQiang&#39;s Notes">WenQiang&#39;s Notes</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.cocosdever.com" target="_blank" title="C的博客">C的博客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 程序员上辈子都是折翼的天使 <br/>
+			This is my blog,Try to do better.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/tengj" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Teng Jun">Teng Jun</a>
+		
+		</p>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','Ts_hz24x26ZaNWfhsYwW','2.0.0');
+</script>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  
+  var m = $('#main'),
+      a = $('#asidepart'), //侧边栏
+      c = $('.closeaside'),//隐藏侧边栏
+      o = $('.openaside'); //显示侧边栏
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    $('#toc.toc-aside').css('display', 'block').addClass('fadeIn'); //这个是我新加的，修改点
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"tengj"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257841330'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1257841330%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
