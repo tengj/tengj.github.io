@@ -1,0 +1,568 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>git干货系列：（四）我要连接远程仓库（github，coding） | 嘟嘟独立博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Teng Jun">
+    
+
+    
+    <meta name="description" content="前言Git本地操作的熟练了后，就可以尝试连接远程仓库了，目前国内外比较出名的提供Git仓库远程托管的有国外的github，国内的开源中国以及coding。这里我以coding为例子介绍如何操作远程仓库。
+正文假如你现在本地有一个gitLearn的项目，想托管到coding上面，那么你先进入coding创建一个仓库，如图。  
+  
+创建完后复制远程仓库的SSH方式的地址。
+连接远仓库命令现进入本地">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git干货系列：（四）我要连接远程仓库（github，coding）">
+<meta property="og:url" content="http://tengj.github.io/2016/03/25/git4remote/index.html">
+<meta property="og:site_name" content="嘟嘟独立博客">
+<meta property="og:description" content="前言Git本地操作的熟练了后，就可以尝试连接远程仓库了，目前国内外比较出名的提供Git仓库远程托管的有国外的github，国内的开源中国以及coding。这里我以coding为例子介绍如何操作远程仓库。
+正文假如你现在本地有一个gitLearn的项目，想托管到coding上面，那么你先进入coding创建一个仓库，如图。  
+  
+创建完后复制远程仓库的SSH方式的地址。
+连接远仓库命令现进入本地">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git4_1.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git4_2.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git4_3.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git4_4.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git4_8.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git4_5.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git4_6.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git4_7.png">
+<meta property="og:updated_time" content="2016-03-25T15:03:43.550Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git干货系列：（四）我要连接远程仓库（github，coding）">
+<meta name="twitter:description" content="前言Git本地操作的熟练了后，就可以尝试连接远程仓库了，目前国内外比较出名的提供Git仓库远程托管的有国外的github，国内的开源中国以及coding。这里我以coding为例子介绍如何操作远程仓库。
+正文假如你现在本地有一个gitLearn的项目，想托管到coding上面，那么你先进入coding创建一个仓库，如图。  
+  
+创建完后复制远程仓库的SSH方式的地址。
+连接远仓库命令现进入本地">
+
+    
+    <link rel="alternative" href="/atom.xml" title="嘟嘟独立博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/dudu.gif" alt="嘟嘟独立博客" title="嘟嘟独立博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="嘟嘟独立博客">嘟嘟独立博客</a></h1>
+				<h2 class="blog-motto">爱生活爱编码</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/timeline">时光机</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" class="st-default-search-input" maxlength="20" placeholder="Search" />
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/25/git4remote/" title="git干货系列：（四）我要连接远程仓库（github，coding）" itemprop="url">git干货系列：（四）我要连接远程仓库（github，coding）</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Teng Jun" target="_blank" itemprop="author">Teng Jun</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-25T14:52:16.000Z" itemprop="datePublished"> 发表于 2016-03-25</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#连接远仓库命令"><span class="toc-number">2.1.</span> <span class="toc-text">连接远仓库命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列出远端别名"><span class="toc-number">2.2.</span> <span class="toc-text">列出远端别名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#推送内容到远程库"><span class="toc-number">2.3.</span> <span class="toc-text">推送内容到远程库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从远程仓库下载项目到本地"><span class="toc-number">2.4.</span> <span class="toc-text">从远程仓库下载项目到本地</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从远端仓库提取数据并尝试合并到当前分支"><span class="toc-number">2.5.</span> <span class="toc-text">从远端仓库提取数据并尝试合并到当前分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除跟远程仓库的连接"><span class="toc-number">2.6.</span> <span class="toc-text">删除跟远程仓库的连接</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><code>Git</code>本地操作的熟练了后，就可以尝试连接远程仓库了，目前国内外比较出名的提供<code>Git</code>仓库远程托管的有国外的<code>github</code>，国内的<code>开源中国</code>以及<code>coding</code>。这里我以<code>coding</code>为例子介绍如何操作远程仓库。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>假如你现在本地有一个<code>gitLearn</code>的项目，想托管到<code>coding</code>上面，那么你先进入<code>coding</code>创建一个仓库，如图。  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git4_1.png" alt=""><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git4_2.png" alt="">  </p>
+<p>创建完后复制远程仓库的SSH方式的地址。</p>
+<h2 id="连接远仓库命令"><a href="#连接远仓库命令" class="headerlink" title="连接远仓库命令"></a>连接远仓库命令</h2><p>现进入本地<code>gitLearn</code>的目录，执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure></p>
+<p>初始化你的项目，然后提交你的代码到本地库，执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add readme.txt</span><br><span class="line">git commit -m <span class="string">"first submit"</span></span><br></pre></td></tr></table></figure></p>
+<p>此时你的代码已经在本地库了，执行命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@git.coding.net:tengj/gitLearn.git</span><br></pre></td></tr></table></figure>
+<p>就连上了远程的<code>gitLearn</code>项目。远程库的名字就是<code>origin</code>，这是Git默认的叫法，也可以改成别的，但是<code>origin</code>这个名字一看就知道是远程库。</p>
+<h2 id="列出远端别名"><a href="#列出远端别名" class="headerlink" title="列出远端别名"></a>列出远端别名</h2><p>我们可以使用<code>git remote</code>来列出远端别名，如果没有任何参数，<code>Git</code>会列出它存储的远端仓库别名了事。默认情况下，如果你的项目是克隆的（与本地创建一个新的相反）， <code>Git</code>会自动将你的项目克隆自的仓库添加到列表中，并取名“<code>origin</code>”。 如果你执行时加上 <code>-v</code> 参数，你还可以看到每个别名的实际链接地址。  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git4_3.png" alt=""></p>
+<h2 id="推送内容到远程库"><a href="#推送内容到远程库" class="headerlink" title="推送内容到远程库"></a>推送内容到远程库</h2><p>连上之后就可以推送代码到远程仓库了，执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git4_4.png" alt="">  </p>
+<p>由于远程库是空的，我们第一次推送<code>master</code>分支时，加上了<code>-u</code>参数，<code>Git</code>不但会把本地的<code>master</code>分支内容推送的远程新的<code>master</code>分支，还会把本地的<code>master</code>分支和远程的<code>master</code>分支关联起来，在以后的推送或者拉取时就可以简化命令，直接用<code>git push origin master</code>。<br>推送完后，可以查看远程仓库上多了<code>readme.txt</code>文件。  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git4_8.png" alt=""></p>
+<p>如果你使用上面命令出现如下错误提示：  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git4_5.png" alt="">  </p>
+<p>不用紧张，那是因为你<code>HEAD</code>区域还是空的，记得先用<code>git add</code>和<code>git commit</code>命令提交你想提交的文件到<code>HEAD</code>。然后在用<code>git push -u origin master</code>就可以了。</p>
+<h2 id="从远程仓库下载项目到本地"><a href="#从远程仓库下载项目到本地" class="headerlink" title="从远程仓库下载项目到本地"></a>从远程仓库下载项目到本地</h2><p>在网上看到别人的项目了，想要下载下来该如何，用<code>git clone</code><br>比如我想在我电脑<code>E:\gitRepository</code>目录下面下载这个远程仓库项目<br>直接使用命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@git.coding.net:tengj/gitLearn.git</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git4_6.png" alt="">  </p>
+<p>就会下载项目到<code>E:\gitRepository</code>下面，如图，大家看到了<code>gitLean</code>了没，这个就是远程的仓库项目，<code>gitLean</code>是我远程仓库项目的项目名。</p>
+<h2 id="从远端仓库提取数据并尝试合并到当前分支"><a href="#从远端仓库提取数据并尝试合并到当前分支" class="headerlink" title="从远端仓库提取数据并尝试合并到当前分支"></a>从远端仓库提取数据并尝试合并到当前分支</h2><p>如果你跟别人一起连着一个远程仓库项目，别人提交了代码，你想更新成最新的代码怎么办。<br>使用<code>git pull</code>命令即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git4_7.png" alt=""></p>
+<h2 id="删除跟远程仓库的连接"><a href="#删除跟远程仓库的连接" class="headerlink" title="删除跟远程仓库的连接"></a>删除跟远程仓库的连接</h2><p>如果你需要删除一个远端 —— 不再需要它了、项目已经没了，等等 —— 你可以使用 <code>git remote rm [alias]</code> 把它删掉。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote rm origin</span><br></pre></td></tr></table></figure></p>
+<p>注意，断开跟远程的连接后，如果还想连上，则需要再来一次<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@git.coding.net:tengj/gitLearn.git</span><br></pre></td></tr></table></figure></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这次<code>Git</code>连接远程仓库教程到此为止,总结如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote               &#26597;&#30475;&#36828;&#31243;&#24211;&#30340;&#20449;&#24687;  &#10;git remote -v            &#26174;&#31034;&#26356;&#35814;&#32454;&#30340;&#20449;&#24687;  &#10;git remote add origin git@git.coding.net:tengj/gitLearn.git  &#36830;&#25509;&#36828;&#31243;&#20179;&#24211;  &#10;git clone git@git.coding.net:tengj/gitLearn.git            &#22797;&#21046;&#19968;&#20221;&#36828;&#31243;&#20179;&#24211;&#39033;&#30446;&#21040;&#26412;&#22320;  &#10;git remote rm origin     &#20851;&#38381;&#36830;&#25509;&#36828;&#31243;&#20179;&#24211;  &#10;git push origin master   &#25512;&#36865;&#20998;&#25903;  &#10;git pull origin master   &#25235;&#21462;&#26356;&#26032;</span><br></pre></td></tr></table></figure></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/git/">git</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://tengj.github.io/2016/03/25/git4remote/" data-title="git干货系列：（四）我要连接远程仓库（github，coding） | 嘟嘟独立博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/03/24/git3reset/"  title="git干货系列：（三）我提交错了我想撤销或者回退版本">
+ <strong>下一篇：</strong><br/> 
+ <span>git干货系列：（三）我提交错了我想撤销或者回退版本
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/03/25/git4remote/" data-title="git干货系列：（四）我要连接远程仓库（github，coding）" data-url="http://tengj.github.io/2016/03/25/git4remote/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#连接远仓库命令"><span class="toc-number">2.1.</span> <span class="toc-text">连接远仓库命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列出远端别名"><span class="toc-number">2.2.</span> <span class="toc-text">列出远端别名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#推送内容到远程库"><span class="toc-number">2.3.</span> <span class="toc-text">推送内容到远程库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从远程仓库下载项目到本地"><span class="toc-number">2.4.</span> <span class="toc-text">从远程仓库下载项目到本地</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从远端仓库提取数据并尝试合并到当前分支"><span class="toc-number">2.5.</span> <span class="toc-text">从远端仓库提取数据并尝试合并到当前分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除跟远程仓库的连接"><span class="toc-number">2.6.</span> <span class="toc-text">删除跟远程仓库的连接</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="tengj" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/SEO/" title="SEO">SEO<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/app推荐/" title="app推荐">app推荐<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/git/" title="git">git<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/hexo/" title="hexo">hexo<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/jQuery/" title="jQuery">jQuery<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/java/" title="java">java<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/springMVC/" title="springMVC">springMVC<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
+  </div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/SEO/" style="font-size: 15px;">SEO</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/springMVC/" style="font-size: 10px;">springMVC</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://shomy.top" target="_blank" title="天空的城">天空的城</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://iamaboy.xyz" target="_blank" title="WenQiang&#39;s Notes">WenQiang&#39;s Notes</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.cocosdever.com" target="_blank" title="C的博客">C的博客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 程序员上辈子都是折翼的天使 <br/>
+			This is my blog,Try to do better.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/tengj" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Teng Jun">Teng Jun</a>
+		
+		</p>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','Ts_hz24x26ZaNWfhsYwW','2.0.0');
+</script>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  
+  var m = $('#main'),
+      a = $('#asidepart'), //侧边栏
+      c = $('.closeaside'),//隐藏侧边栏
+      o = $('.openaside'); //显示侧边栏
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    $('#toc.toc-aside').css('display', 'block').addClass('fadeIn'); //这个是我新加的，修改点
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"tengj"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257841330'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1257841330%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

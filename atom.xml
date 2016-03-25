@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tengj.github.io/"/>
-  <updated>2016-03-24T14:29:51.991Z</updated>
+  <updated>2016-03-25T15:03:43.550Z</updated>
   <id>http://tengj.github.io/</id>
   
   <author>
@@ -14,6 +14,53 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git干货系列：（四）我要连接远程仓库（github，coding）</title>
+    <link href="http://tengj.github.io/2016/03/25/git4remote/"/>
+    <id>http://tengj.github.io/2016/03/25/git4remote/</id>
+    <published>2016-03-25T14:52:16.000Z</published>
+    <updated>2016-03-25T15:03:43.550Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;&lt;code&gt;Git&lt;/code&gt;本地操作的熟练了后，就可以尝试连接远程仓库了，目前国内外比较出名的提供&lt;code&gt;Git&lt;/code&gt;仓库远程托管的有国外的&lt;code&gt;github&lt;/code&gt;，国内的&lt;code&gt;开源中国&lt;/code&gt;以及&lt;code&gt;coding&lt;/code&gt;。这里我以&lt;code&gt;coding&lt;/code&gt;为例子介绍如何操作远程仓库。&lt;/p&gt;
+&lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;p&gt;假如你现在本地有一个&lt;code&gt;gitLearn&lt;/code&gt;的项目，想托管到&lt;code&gt;coding&lt;/code&gt;上面，那么你先进入&lt;code&gt;coding&lt;/code&gt;创建一个仓库，如图。  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git4_1.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git4_2.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;创建完后复制远程仓库的SSH方式的地址。&lt;/p&gt;
+&lt;h2 id=&quot;连接远仓库命令&quot;&gt;&lt;a href=&quot;#连接远仓库命令&quot; class=&quot;headerlink&quot; title=&quot;连接远仓库命令&quot;&gt;&lt;/a&gt;连接远仓库命令&lt;/h2&gt;&lt;p&gt;现进入本地&lt;code&gt;gitLearn&lt;/code&gt;的目录，执行&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git init&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;初始化你的项目，然后提交你的代码到本地库，执行：&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git add readme.txt&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git commit -m &lt;span class=&quot;string&quot;&gt;&quot;first submit&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;此时你的代码已经在本地库了，执行命令&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git remote add origin git@git.coding.net:tengj/gitLearn.git&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;就连上了远程的&lt;code&gt;gitLearn&lt;/code&gt;项目。远程库的名字就是&lt;code&gt;origin&lt;/code&gt;，这是Git默认的叫法，也可以改成别的，但是&lt;code&gt;origin&lt;/code&gt;这个名字一看就知道是远程库。&lt;/p&gt;
+&lt;h2 id=&quot;列出远端别名&quot;&gt;&lt;a href=&quot;#列出远端别名&quot; class=&quot;headerlink&quot; title=&quot;列出远端别名&quot;&gt;&lt;/a&gt;列出远端别名&lt;/h2&gt;&lt;p&gt;我们可以使用&lt;code&gt;git remote&lt;/code&gt;来列出远端别名，如果没有任何参数，&lt;code&gt;Git&lt;/code&gt;会列出它存储的远端仓库别名了事。默认情况下，如果你的项目是克隆的（与本地创建一个新的相反）， &lt;code&gt;Git&lt;/code&gt;会自动将你的项目克隆自的仓库添加到列表中，并取名“&lt;code&gt;origin&lt;/code&gt;”。 如果你执行时加上 &lt;code&gt;-v&lt;/code&gt; 参数，你还可以看到每个别名的实际链接地址。  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git4_3.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;推送内容到远程库&quot;&gt;&lt;a href=&quot;#推送内容到远程库&quot; class=&quot;headerlink&quot; title=&quot;推送内容到远程库&quot;&gt;&lt;/a&gt;推送内容到远程库&lt;/h2&gt;&lt;p&gt;连上之后就可以推送代码到远程仓库了，执行&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git push -u origin master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git4_4.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;由于远程库是空的，我们第一次推送&lt;code&gt;master&lt;/code&gt;分支时，加上了&lt;code&gt;-u&lt;/code&gt;参数，&lt;code&gt;Git&lt;/code&gt;不但会把本地的&lt;code&gt;master&lt;/code&gt;分支内容推送的远程新的&lt;code&gt;master&lt;/code&gt;分支，还会把本地的&lt;code&gt;master&lt;/code&gt;分支和远程的&lt;code&gt;master&lt;/code&gt;分支关联起来，在以后的推送或者拉取时就可以简化命令，直接用&lt;code&gt;git push origin master&lt;/code&gt;。&lt;br&gt;推送完后，可以查看远程仓库上多了&lt;code&gt;readme.txt&lt;/code&gt;文件。  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git4_8.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;如果你使用上面命令出现如下错误提示：  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git4_5.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;不用紧张，那是因为你&lt;code&gt;HEAD&lt;/code&gt;区域还是空的，记得先用&lt;code&gt;git add&lt;/code&gt;和&lt;code&gt;git commit&lt;/code&gt;命令提交你想提交的文件到&lt;code&gt;HEAD&lt;/code&gt;。然后在用&lt;code&gt;git push -u origin master&lt;/code&gt;就可以了。&lt;/p&gt;
+&lt;h2 id=&quot;从远程仓库下载项目到本地&quot;&gt;&lt;a href=&quot;#从远程仓库下载项目到本地&quot; class=&quot;headerlink&quot; title=&quot;从远程仓库下载项目到本地&quot;&gt;&lt;/a&gt;从远程仓库下载项目到本地&lt;/h2&gt;&lt;p&gt;在网上看到别人的项目了，想要下载下来该如何，用&lt;code&gt;git clone&lt;/code&gt;&lt;br&gt;比如我想在我电脑&lt;code&gt;E:\gitRepository&lt;/code&gt;目录下面下载这个远程仓库项目&lt;br&gt;直接使用命令：&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git &lt;span class=&quot;built_in&quot;&gt;clone&lt;/span&gt; git@git.coding.net:tengj/gitLearn.git&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git4_6.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;就会下载项目到&lt;code&gt;E:\gitRepository&lt;/code&gt;下面，如图，大家看到了&lt;code&gt;gitLean&lt;/code&gt;了没，这个就是远程的仓库项目，&lt;code&gt;gitLean&lt;/code&gt;是我远程仓库项目的项目名。&lt;/p&gt;
+&lt;h2 id=&quot;从远端仓库提取数据并尝试合并到当前分支&quot;&gt;&lt;a href=&quot;#从远端仓库提取数据并尝试合并到当前分支&quot; class=&quot;headerlink&quot; title=&quot;从远端仓库提取数据并尝试合并到当前分支&quot;&gt;&lt;/a&gt;从远端仓库提取数据并尝试合并到当前分支&lt;/h2&gt;&lt;p&gt;如果你跟别人一起连着一个远程仓库项目，别人提交了代码，你想更新成最新的代码怎么办。&lt;br&gt;使用&lt;code&gt;git pull&lt;/code&gt;命令即可&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git pull origin master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git4_7.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;删除跟远程仓库的连接&quot;&gt;&lt;a href=&quot;#删除跟远程仓库的连接&quot; class=&quot;headerlink&quot; title=&quot;删除跟远程仓库的连接&quot;&gt;&lt;/a&gt;删除跟远程仓库的连接&lt;/h2&gt;&lt;p&gt;如果你需要删除一个远端 —— 不再需要它了、项目已经没了，等等 —— 你可以使用 &lt;code&gt;git remote rm [alias]&lt;/code&gt; 把它删掉。&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git remote rm origin&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;注意，断开跟远程的连接后，如果还想连上，则需要再来一次&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git remote add origin git@git.coding.net:tengj/gitLearn.git&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;p&gt;这次&lt;code&gt;Git&lt;/code&gt;连接远程仓库教程到此为止,总结如下：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git remote               &amp;#26597;&amp;#30475;&amp;#36828;&amp;#31243;&amp;#24211;&amp;#30340;&amp;#20449;&amp;#24687;  &amp;#10;git remote -v            &amp;#26174;&amp;#31034;&amp;#26356;&amp;#35814;&amp;#32454;&amp;#30340;&amp;#20449;&amp;#24687;  &amp;#10;git remote add origin git@git.coding.net:tengj/gitLearn.git  &amp;#36830;&amp;#25509;&amp;#36828;&amp;#31243;&amp;#20179;&amp;#24211;  &amp;#10;git clone git@git.coding.net:tengj/gitLearn.git            &amp;#22797;&amp;#21046;&amp;#19968;&amp;#20221;&amp;#36828;&amp;#31243;&amp;#20179;&amp;#24211;&amp;#39033;&amp;#30446;&amp;#21040;&amp;#26412;&amp;#22320;  &amp;#10;git remote rm origin     &amp;#20851;&amp;#38381;&amp;#36830;&amp;#25509;&amp;#36828;&amp;#31243;&amp;#20179;&amp;#24211;  &amp;#10;git push origin master   &amp;#25512;&amp;#36865;&amp;#20998;&amp;#25903;  &amp;#10;git pull origin master   &amp;#25235;&amp;#21462;&amp;#26356;&amp;#26032;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;&lt;code&gt;Git&lt;/code&gt;本地操作的熟练了后，就可以尝试连接远程仓库了，目前国内外比较出名的提供&lt;code&gt;Git&lt;/code&gt;仓库远
+    
+    </summary>
+    
+      <category term="git" scheme="http://tengj.github.io/categories/git/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>git干货系列：（三）我提交错了我想撤销或者回退版本</title>
@@ -233,12 +280,12 @@
     <link href="http://tengj.github.io/2016/03/20/gitTotalMsg/"/>
     <id>http://tengj.github.io/2016/03/20/gitTotalMsg/</id>
     <published>2016-03-20T14:49:30.000Z</published>
-    <updated>2016-03-24T14:30:54.533Z</updated>
+    <updated>2016-03-25T14:56:11.595Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;本人搭建独立博客的时候需要使用到&lt;code&gt;github&lt;/code&gt;，&lt;code&gt;coding&lt;/code&gt;以及&lt;code&gt;开源中国&lt;/code&gt;，发现全部使用&lt;code&gt;git&lt;/code&gt;来进行版本控制。了解之后发&lt;code&gt;现git&lt;/code&gt;很棒，所以决定学。学习过程中做了一些笔记，经过整理就有了这个系列的文章，其实是我自己的学习笔记整理，如果你也是新手就跟着我一起学习，如果你是大神，那么希望您能指出我的错误，让我学习更进一步，这也是我写这系列笔记的初衷。&lt;/p&gt;
 &lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;h2 id=&quot;学习环境&quot;&gt;&lt;a href=&quot;#学习环境&quot; class=&quot;headerlink&quot; title=&quot;学习环境&quot;&gt;&lt;/a&gt;学习环境&lt;/h2&gt;&lt;p&gt;本人是使用window系统来学习的，linux以及Mac的同学自行安装软件哦~&lt;/p&gt;
 &lt;h2 id=&quot;书写方式&quot;&gt;&lt;a href=&quot;#书写方式&quot; class=&quot;headerlink&quot; title=&quot;书写方式&quot;&gt;&lt;/a&gt;书写方式&lt;/h2&gt;&lt;p&gt;网上&lt;code&gt;git&lt;/code&gt;教程也很多，我想记录我自己学习使用过程中的点滴，不单单是个教程，我想把它当成工具来写，根据实际使用场景来分类，这样方便以后自己快速查找。&lt;/p&gt;
-&lt;h2 id=&quot;系列博文整理&quot;&gt;&lt;a href=&quot;#系列博文整理&quot; class=&quot;headerlink&quot; title=&quot;系列博文整理&quot;&gt;&lt;/a&gt;系列博文整理&lt;/h2&gt;&lt;p&gt;整理了下git系列的文章，发现写系列博客感觉还是很棒的：&lt;br&gt;&lt;a href=&quot;http://tengj.top/2016/03/20/git1creategit/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git干货系列：（一）我是小白，我想要搭建git仓库&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://tengj.top/2016/03/23/git2konwindex/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git干货系列：（二）深入学习之前先理解git暂存区&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://tengj.top/2016/03/24/git3reset/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git干货系列：（三）我提交错了我想撤销或者回退版本&lt;/a&gt;&lt;br&gt;git干货系列：（四）我要连接远程仓库（github，coding）（待写）&lt;br&gt;git干货系列：（五）多人协同工作之分支管理（待写）&lt;br&gt;git干货系列：（六）公司内部搭建git服务器（待写）  &lt;/p&gt;
+&lt;h2 id=&quot;系列博文整理&quot;&gt;&lt;a href=&quot;#系列博文整理&quot; class=&quot;headerlink&quot; title=&quot;系列博文整理&quot;&gt;&lt;/a&gt;系列博文整理&lt;/h2&gt;&lt;p&gt;整理了下git系列的文章，发现写系列博客感觉还是很棒的：&lt;br&gt;&lt;a href=&quot;http://tengj.top/2016/03/20/git1creategit/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git干货系列：（一）我是小白，我想要搭建git仓库&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://tengj.top/2016/03/23/git2konwindex/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git干货系列：（二）深入学习之前先理解git暂存区&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://tengj.top/2016/03/24/git3reset/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git干货系列：（三）我提交错了我想撤销或者回退版本&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://tengj.top/2016/03/25/git4remote/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git干货系列：（四）我要连接远程仓库（github，coding）&lt;/a&gt;&lt;br&gt;git干货系列：（五）多人协同工作之分支管理（待写）&lt;br&gt;git干货系列：（六）公司内部搭建git服务器（待写）  &lt;/p&gt;
 &lt;h2 id=&quot;所有学习git资源&quot;&gt;&lt;a href=&quot;#所有学习git资源&quot; class=&quot;headerlink&quot; title=&quot;所有学习git资源&quot;&gt;&lt;/a&gt;所有学习git资源&lt;/h2&gt;&lt;p&gt;学习过程中我参考了许许多多的教程，分享跟大家：&lt;br&gt;&lt;a href=&quot;http://www.yiibai.com/git/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git教程&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;廖雪峰git教程&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://rogerdudler.github.io/git-guide/index.zh.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git–简易指南&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://backlogtool.com/git-guide/cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;猴子都能懂的GIT入门&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://gitref.justjavac.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Git参考手册&lt;/a&gt;  &lt;/p&gt;
 &lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;p&gt;上面列出的目录是我接下来打算写的文章~学习跨度1-2周，一般两三天写一篇，希望自己不要拖延~动起来小伙伴们，跟我一起学会了装逼。&lt;/p&gt;
 </content>

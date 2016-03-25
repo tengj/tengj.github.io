@@ -4,8 +4,26 @@
 
     
   <url>
+    <loc>http://tengj.top/2016/03/25/git4remote/</loc>
+    <lastmod>2016-03-25T15:03:43.550Z</lastmod>
+    <data>
+        <display>
+        <title>git干货系列：（四）我要连接远程仓库（github，coding）</title>
+        <pubTime>2016-03-25T14:52:16.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="git" url="http://tengj.top/categories/git/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://tengj.top/2016/03/20/gitTotalMsg/</loc>
-    <lastmod>2016-03-24T14:30:54.533Z</lastmod>
+    <lastmod>2016-03-25T14:56:11.595Z</lastmod>
     <data>
         <display>
         <title>git干货系列：（总纲）根据使用场景介绍git</title>
