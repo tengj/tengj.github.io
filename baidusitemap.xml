@@ -4,6 +4,24 @@
 
     
   <url>
+    <loc>http://tengj.top/2016/03/27/git5branch/</loc>
+    <lastmod>2016-03-27T09:27:45.540Z</lastmod>
+    <data>
+        <display>
+        <title>git干货系列：（五）多人协同工作之分支管理</title>
+        <pubTime>2016-03-27T09:03:56.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="git" url="http://tengj.top/categories/git/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://tengj.top/2016/03/14/baidunoshouluresson/</loc>
     <lastmod>2016-03-27T09:23:44.251Z</lastmod>
     <data>
@@ -324,24 +342,6 @@
         <display>
         <title>git干货系列：（四）我要连接远程仓库（github，coding）</title>
         <pubTime>2016-03-25T14:52:16.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="git" url="http://tengj.top/categories/git/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tengj.top/2016/03/27/git5branch/</loc>
-    <lastmod>2016-03-27T09:17:33.122Z</lastmod>
-    <data>
-        <display>
-        <title>git干货系列：（五）多人协同工作之分支管理</title>
-        <pubTime>2016-03-27T09:03:56.000Z</pubTime>
         
          
            
