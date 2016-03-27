@@ -11,12 +11,14 @@
     
 
     
-    <meta name="description" content="前言前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。">
+    <meta name="description" content="前言
+前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git干货系列：（三）我提交错了我想撤销或者回退版本">
 <meta property="og:url" content="http://tengj.github.io/2016/03/24/git3reset/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="前言前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。">
+<meta property="og:description" content="前言
+前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_1.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git3_1.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git3_2.png">
@@ -26,10 +28,12 @@
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git3_6.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git3_7.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git3_8.png">
-<meta property="og:updated_time" content="2016-03-24T14:29:51.991Z">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
+<meta property="og:updated_time" content="2016-03-27T09:19:38.919Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git干货系列：（三）我提交错了我想撤销或者回退版本">
-<meta name="twitter:description" content="前言前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。">
+<meta name="twitter:description" content="前言
+前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。">
 
     
     <link rel="alternative" href="/atom.xml" title="嘟嘟独立博客" type="application/atom+xml">
@@ -111,15 +115,26 @@
 		
 		</div>
 		
-		<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。<br><a id="more"></a><br>在上图大家回顾一下，看这里<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_1.png" alt=""></p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h2><h3 id="git-checkout-–-file"><a href="#git-checkout-–-file" class="headerlink" title="git checkout – [file]"></a>git checkout – [file]</h3><p>如果你文件只是在工作区修改了，但是还没提交到暂存区的时候，你可以用<code>git checkout -- [file]</code>来撤销。简单的说就是暂存区覆盖工作区。这里模拟一下，比如现在<code>readme.txt</code>里面内容是<code>first day</code>，并且已经提交到暂存区了，此时修改<code>readme.txt</code>，内容改成<code>second day.</code>，然后执行<code>git checkout -- readme.txt</code>命令,你会发现<code>readme.txt</code>内容又变成<code>first day</code>了<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_1.png" alt=""></p>
-<h3 id="git-reset-HEAD"><a href="#git-reset-HEAD" class="headerlink" title="git reset HEAD"></a>git reset HEAD</h3><p>如果你文件在工作区修改了,并且也执行<code>git add</code>命令提交给暂存区了，那么执行上面的<code>git checkout -- [file]</code>已经无效了，因为工作区跟暂存区已经一样了，再怎么覆盖内容也一样，这时候就应该使用<code>git reset HEAD</code>命令来撤销，简单的说就是让<code>HEAD</code>覆盖暂存区，因为此时的<code>HEAD</code>这边的文件内容还是上次提交时的内容。现在模拟一下，现在有<code>readme.txt</code>跟<code>hello.txt</code>两个文件，都经过修改<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_2.png" alt=""><br>如图可以看到，使用<code>git status -s</code>来查看的时候，红色的M表示这2个文件都经过修改，使用<code>git add .</code>提交后在查看，发现都是绿色的M，表示都提交到暂存区了，这时候执行<code>git reset HEAD hello.txt</code>后在查看，发现<code>hello.txt</code>变成红色M了，说明hello.txt从暂存区撤销了。如果还想把工作区间的文件也撤回，就继续执行上面的<code>git reset HEAD readme.txt</code>就行。</p>
-<h3 id="git-checkout-HEAD-file"><a href="#git-checkout-HEAD-file" class="headerlink" title="git checkout HEAD [file]"></a>git checkout HEAD [file]</h3><p><code>git checkout HEAD [file]</code>命令是<code>git checkout -- [file]</code>和<code>git reset HEAD</code>的合成体，直接用HEAD覆盖工作区,暂存区。如下图中所示，一开始 工作区暂存区以及HEAD中文件内容都是<code>first day.</code>,此时修改<code>readme.txt</code>内容为<code>second day.</code>，然后执行<code>git add .</code>提交到暂存区，接着执行<code>git checkout HEAD readme.txt</code>命令，再查看<code>readme.txt</code>内容的时候你会发现变成了<code>first day.</code><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_3.png" alt=""></p>
-<h2 id="版本回退以及切换"><a href="#版本回退以及切换" class="headerlink" title="版本回退以及切换"></a>版本回退以及切换</h2><h3 id="git-reset-–hard-HEAD"><a href="#git-reset-–hard-HEAD" class="headerlink" title="git reset –hard HEAD^"></a>git reset –hard HEAD^</h3><p>首先，<code>Git</code>必须知道当前版本是哪个版本，在<code>Git</code>中，用<code>HEAD</code>表示当前版本，也就是最新的提交<code>3628164...882e1e0</code>（注意我的提交ID和你的肯定不一样），上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，当然往上100个版本写100个<code>^</code>比较容易数不过来，所以写成<code>HEAD~100</code>。<br>先查看当前版本记录，发现最近的两个版本为<code>b520a36 第一次提交</code>和<code>479c6fd 第二次提交</code><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_4.png" alt=""></p>
+		<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><hr>
+<p>前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。<br><a id="more"></a><br>在上图大家回顾一下，看这里<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_1.png" alt=""></p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><hr>
+<h2 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h2><hr>
+<h3 id="git-checkout-–-file"><a href="#git-checkout-–-file" class="headerlink" title="git checkout – [file]"></a>git checkout – [file]</h3><hr>
+<p>如果你文件只是在工作区修改了，但是还没提交到暂存区的时候，你可以用<code>git checkout -- [file]</code>来撤销。简单的说就是暂存区覆盖工作区。这里模拟一下，比如现在<code>readme.txt</code>里面内容是<code>first day</code>，并且已经提交到暂存区了，此时修改<code>readme.txt</code>，内容改成<code>second day.</code>，然后执行<code>git checkout -- readme.txt</code>命令,你会发现<code>readme.txt</code>内容又变成<code>first day</code>了<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_1.png" alt=""></p>
+<h3 id="git-reset-HEAD"><a href="#git-reset-HEAD" class="headerlink" title="git reset HEAD"></a>git reset HEAD</h3><hr>
+<p>如果你文件在工作区修改了,并且也执行<code>git add</code>命令提交给暂存区了，那么执行上面的<code>git checkout -- [file]</code>已经无效了，因为工作区跟暂存区已经一样了，再怎么覆盖内容也一样，这时候就应该使用<code>git reset HEAD</code>命令来撤销，简单的说就是让<code>HEAD</code>覆盖暂存区，因为此时的<code>HEAD</code>这边的文件内容还是上次提交时的内容。现在模拟一下，现在有<code>readme.txt</code>跟<code>hello.txt</code>两个文件，都经过修改<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_2.png" alt=""><br>如图可以看到，使用<code>git status -s</code>来查看的时候，红色的M表示这2个文件都经过修改，使用<code>git add .</code>提交后在查看，发现都是绿色的M，表示都提交到暂存区了，这时候执行<code>git reset HEAD hello.txt</code>后在查看，发现<code>hello.txt</code>变成红色M了，说明hello.txt从暂存区撤销了。如果还想把工作区间的文件也撤回，就继续执行上面的<code>git reset HEAD readme.txt</code>就行。</p>
+<h3 id="git-checkout-HEAD-file"><a href="#git-checkout-HEAD-file" class="headerlink" title="git checkout HEAD [file]"></a>git checkout HEAD [file]</h3><hr>
+<p><code>git checkout HEAD [file]</code>命令是<code>git checkout -- [file]</code>和<code>git reset HEAD</code>的合成体，直接用HEAD覆盖工作区,暂存区。如下图中所示，一开始 工作区暂存区以及HEAD中文件内容都是<code>first day.</code>,此时修改<code>readme.txt</code>内容为<code>second day.</code>，然后执行<code>git add .</code>提交到暂存区，接着执行<code>git checkout HEAD readme.txt</code>命令，再查看<code>readme.txt</code>内容的时候你会发现变成了<code>first day.</code><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_3.png" alt=""></p>
+<h2 id="版本回退以及切换"><a href="#版本回退以及切换" class="headerlink" title="版本回退以及切换"></a>版本回退以及切换</h2><hr>
+<h3 id="git-reset-–hard-HEAD"><a href="#git-reset-–hard-HEAD" class="headerlink" title="git reset –hard HEAD^"></a>git reset –hard HEAD^</h3><hr>
+<p>首先，<code>Git</code>必须知道当前版本是哪个版本，在<code>Git</code>中，用<code>HEAD</code>表示当前版本，也就是最新的提交<code>3628164...882e1e0</code>（注意我的提交ID和你的肯定不一样），上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，当然往上100个版本写100个<code>^</code>比较容易数不过来，所以写成<code>HEAD~100</code>。<br>先查看当前版本记录，发现最近的两个版本为<code>b520a36 第一次提交</code>和<code>479c6fd 第二次提交</code><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_4.png" alt=""></p>
 <p>当前版本是<code>b520a36 第一次提交</code>,现在我们来执行<code>git reset --hard HEAD^</code>来回退到<code>479c6fd 第二次提交</code>版本,如图：<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_5.png" alt=""></p>
-<h3 id="git-reset-–hard-commit-id"><a href="#git-reset-–hard-commit-id" class="headerlink" title="git reset –hard commit_id"></a>git reset –hard commit_id</h3><p>如果你回退版本后又后悔了，想恢复最后那个版本怎么办，通过<code>git reset --hard commit_id</code>命令可以搞定，注意这里的<code>commit_id</code>是版本号，只要记得版本号，你想切换到哪个版本都行，如果你忘记了刚才最后一个的版本号，可以通过<code>git reflog</code>来查看，这里我们记得最后那次版本号为<code>b520a36</code>，执行<code>git reset --hard b520a36</code><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_6.png" alt=""></p>
-<h2 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h2><p>这里介绍一下<code>git</code>中的删除操作命令，以及意外删除了该如何还原。</p>
-<h3 id="git-rm"><a href="#git-rm" class="headerlink" title="git rm"></a>git rm</h3><p>执行<code>git rm</code>命令会同时删除工作区跟暂存区中的指定文件，要慎重处理。</p>
+<h3 id="git-reset-–hard-commit-id"><a href="#git-reset-–hard-commit-id" class="headerlink" title="git reset –hard commit_id"></a>git reset –hard commit_id</h3><hr>
+<p>如果你回退版本后又后悔了，想恢复最后那个版本怎么办，通过<code>git reset --hard commit_id</code>命令可以搞定，注意这里的<code>commit_id</code>是版本号，只要记得版本号，你想切换到哪个版本都行，如果你忘记了刚才最后一个的版本号，可以通过<code>git reflog</code>来查看，这里我们记得最后那次版本号为<code>b520a36</code>，执行<code>git reset --hard b520a36</code><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_6.png" alt=""></p>
+<h2 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h2><hr>
+<p>这里介绍一下<code>git</code>中的删除操作命令，以及意外删除了该如何还原。</p>
+<h3 id="git-rm"><a href="#git-rm" class="headerlink" title="git rm"></a>git rm</h3><hr>
+<p>执行<code>git rm</code>命令会同时删除工作区跟暂存区中的指定文件，要慎重处理。</p>
 <p>但是如果你意外删除了也是可以恢复的。不过要分成2种情况处理：</p>
 <ol>
 <li><p>还未执行<code>git commit</code>提交到<code>HEAD</code>的时候删除文件，这时候直接使用<code>git checkout HEAD [file]</code>就能还原。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_7.png" alt=""></p>
@@ -127,8 +142,11 @@
 <li><p>执行<code>git commit</code>提交到<code>HAED</code>后时候才删除文件，这时候就只能执行<code>git reset --hard HEAD^</code>回退上一个版本。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_8.png" alt=""></p>
 </li>
 </ol>
-<h2 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h2><p>总结一下上面所学的：</p>
+<h2 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h2><hr>
+<p>总结一下上面所学的：</p>
 <p>场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令<code>git checkout -- file</code>。<br>场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令<code>git reset HEAD file</code>，就回到了场景1，第二步按场景1操作。<br>场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，使用<code>git reset --hard HEAD^</code>。</p>
+<hr>
+<p>最近撸了个java的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -227,7 +245,7 @@
 		  
 		
 		  
-			<li><a href="/categories/git/" title="git">git<sup>5</sup></a></li>
+			<li><a href="/categories/git/" title="git">git<sup>6</sup></a></li>
 		  
 		
 		  
@@ -253,7 +271,7 @@
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
   </div>
 
 
