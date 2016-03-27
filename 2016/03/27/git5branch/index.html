@@ -20,6 +20,8 @@
 <meta property="og:description" content="前言分支就是科幻电影里面的平行宇宙，当你正在电脑前努力学习Git的时候，另一个你正在另一个平行宇宙里努力学习SVN。如果两个平行宇宙互不干扰，那对现在的你也没啥影响。不过，在某个时间点，两个平行宇宙合并了，结果，你既学会了Git又学会了SVN！
 正文分支简介为了真正理解 Git 处理分支的方式，我们需要回顾一下Git是如何保存数据的。Git 保存的不是文件的变化或者差异，而是一系列不同时刻的文件快">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git5_14.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git5_1.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git5_2.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git5_3.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git5_4.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git5_6.png">
@@ -31,7 +33,7 @@
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git5_11.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git5_12.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
-<meta property="og:updated_time" content="2016-03-27T09:27:45.540Z">
+<meta property="og:updated_time" content="2016-03-27T09:31:10.432Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git干货系列：（五）多人协同工作之分支管理">
 <meta name="twitter:description" content="前言分支就是科幻电影里面的平行宇宙，当你正在电脑前努力学习Git的时候，另一个你正在另一个平行宇宙里努力学习SVN。如果两个平行宇宙互不干扰，那对现在的你也没啥影响。不过，在某个时间点，两个平行宇宙合并了，结果，你既学会了Git又学会了SVN！
@@ -125,7 +127,13 @@
 </blockquote>
 <p>分支在实际中有什么用呢？假设你准备开发一个新功能，但是需要两周才能完成，第一周你写了50%的代码，如果立刻提交，由于代码还没写完，不完整的代码库会导致别人不能干活了。如果等代码全部写完再一次提交，又存在丢失每天进度的巨大风险。<br>现在有了分支，就不用怕了。你创建了一个属于你自己的分支，别人看不到，还继续在原来的分支上正常工作，而你在自己的分支上干活，想提交就提交，直到开发完毕后，再一次性合并到原来的分支上，这样，既安全，又不影响别人工作。<br>其他版本控制系统如SVN等都有分支管理，但是用过之后你会发现，这些版本控制系统创建和切换分支比蜗牛还慢，简直让人无法忍受，结果分支功能成了摆设，大家都不去用。<br>但<code>Git</code>的分支是与众不同的，无论创建、切换和删除分支，<code>Git</code>在1秒钟之内就能完成！无论你的版本库是1个文件还是1万个文件。</p>
 <h2 id="分支创建"><a href="#分支创建" class="headerlink" title="分支创建"></a>分支创建</h2><p><code>Git</code>是怎么创建新分支的呢？ 很简单，它只是为你创建了一个可以移动的新的指针。 比如，创建一个 <code>testing</code>分支， 你需要使用 <code>git branch</code> 命令：  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ git branch testing</span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line">这会在当前所在的提交对象上创建一个指针。  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">![两个指向相同提交历史的分支。](http://<span class="number">7</span>xqch5.com1.z0.glb.clouddn.com/git5_1.png)</span><br><span class="line">那么，`Git`又是怎么知道当前在哪一个分支上呢？ 也很简单，它有一个名为 `HEAD` 的特殊指针。 请注意它和许多其它版本控制系统（如 Subversion 或 CVS）里的 `HEAD` 概念完全不同。 在 `Git`中，它是一个指针，指向当前所在的本地分支（译注：将 `HEAD` 想象为当前分支的别名）。 在本例中，你仍然在`master` 分支上。 因为 `git branch` 命令仅仅 _创建_ 一个新分支，并不会自动切换到新分支中去。</span><br><span class="line">![HEAD 指向当前所在的分支.](http://<span class="number">7</span>xqch5.com1.z0.glb.clouddn.com/git5_2.png)</span><br><span class="line">你可以简单地使用 `git <span class="built_in">log</span>` 命令查看各个分支当前所指的对象。 提供这一功能的参数是 `--decorate`。</span><br><span class="line">``` bash</span><br><span class="line">$ git <span class="built_in">log</span> --oneline --decorate</span><br><span class="line">f30ab (HEAD, master, testing) add feature <span class="comment">#32 - ability to add new</span></span><br><span class="line"><span class="number">34</span>ac2 fixed bug <span class="comment">#1328 - stack overflow under certain conditions</span></span><br><span class="line"><span class="number">98</span>ca9 initial commit of my project</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch testing</span><br></pre></td></tr></table></figure>
+<p>这会在当前所在的提交对象上创建一个指针。  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git5_1.png" alt="两个指向相同提交历史的分支。">  </p>
+<p>那么，<code>Git</code>又是怎么知道当前在哪一个分支上呢？ 也很简单，它有一个名为 <code>HEAD</code> 的特殊指针。 请注意它和许多其它版本控制系统（如 Subversion 或 CVS）里的 <code>HEAD</code> 概念完全不同。 在 <code>Git</code>中，它是一个指针，指向当前所在的本地分支（译注：将 <code>HEAD</code> 想象为当前分支的别名）。 在本例中，你仍然在<code>master</code> 分支上。 因为 <code>git branch</code> 命令仅仅 <em>创建</em> 一个新分支，并不会自动切换到新分支中去。  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git5_2.png" alt="HEAD 指向当前所在的分支.">  </p>
+<p>你可以简单地使用 <code>git log</code> 命令查看各个分支当前所指的对象。 提供这一功能的参数是 <code>--decorate</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --oneline --decorate</span><br><span class="line">f30ab (HEAD, master, testing) add feature <span class="comment">#32 - ability to add new</span></span><br><span class="line"><span class="number">34</span>ac2 fixed bug <span class="comment">#1328 - stack overflow under certain conditions</span></span><br><span class="line"><span class="number">98</span>ca9 initial commit of my project</span><br></pre></td></tr></table></figure>
 <p>正如你所见，当前 “master” 和 “testing” 分支均指向校验和以 <code>f30ab</code> 开头的提交对象。</p>
 <h2 id="分支切换"><a href="#分支切换" class="headerlink" title="分支切换"></a>分支切换</h2><p>要切换到一个已存在的分支，你需要使用<code>git checkout</code>命令。 我们现在切换到新创建的 <code>testing</code> 分支去：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout testing</span><br></pre></td></tr></table></figure></p>
 <p>这样 <code>HEAD</code> 就指向 <code>testing</code> 分支了。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git5_3.png" alt="HEAD 指向当前所在的分支."></p>
