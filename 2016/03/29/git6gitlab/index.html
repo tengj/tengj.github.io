@@ -1,0 +1,610 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>git干货系列：（六）公司内部搭建git服务器 | 嘟嘟独立博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Teng Jun">
+    
+
+    
+    <meta name="description" content="前言因为gitHub上的项目是公开的，不适合公司内部项目放在上面，而私人的需要收费，这绝非是我们愿意的。所以找了个跟gitHub很相似，但是又免费的gitLab。现在将搭建gitLab过程记录一下留作参考。
+正文gitLab介绍GitLab是利用 Ruby on Rails 一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。它拥有与Github类似">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git干货系列：（六）公司内部搭建git服务器">
+<meta property="og:url" content="http://tengj.github.io/2016/03/29/git6gitlab/index.html">
+<meta property="og:site_name" content="嘟嘟独立博客">
+<meta property="og:description" content="前言因为gitHub上的项目是公开的，不适合公司内部项目放在上面，而私人的需要收费，这绝非是我们愿意的。所以找了个跟gitHub很相似，但是又免费的gitLab。现在将搭建gitLab过程记录一下留作参考。
+正文gitLab介绍GitLab是利用 Ruby on Rails 一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。它拥有与Github类似">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_1.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_2.jpg">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_3.jpg">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_4.jpg">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_5.jpg">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_6.jpg">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_7.jpg">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_9.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_10.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_11.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_12.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_13.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_141.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_15.jpg">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_16.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_17.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_18.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_19.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_20.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_21.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_22.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_23.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_24.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_25.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_26.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_27.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_28.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_29.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
+<meta property="og:updated_time" content="2016-03-29T07:46:34.492Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git干货系列：（六）公司内部搭建git服务器">
+<meta name="twitter:description" content="前言因为gitHub上的项目是公开的，不适合公司内部项目放在上面，而私人的需要收费，这绝非是我们愿意的。所以找了个跟gitHub很相似，但是又免费的gitLab。现在将搭建gitLab过程记录一下留作参考。
+正文gitLab介绍GitLab是利用 Ruby on Rails 一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。它拥有与Github类似">
+
+    
+    <link rel="alternative" href="/atom.xml" title="嘟嘟独立博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/dudu.gif" alt="嘟嘟独立博客" title="嘟嘟独立博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="嘟嘟独立博客">嘟嘟独立博客</a></h1>
+				<h2 class="blog-motto">爱生活爱编码</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/timeline">时光机</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" class="st-default-search-input" maxlength="20" placeholder="Search" />
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/29/git6gitlab/" title="git干货系列：（六）公司内部搭建git服务器" itemprop="url">git干货系列：（六）公司内部搭建git服务器</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Teng Jun" target="_blank" itemprop="author">Teng Jun</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-29T07:24:03.000Z" itemprop="datePublished"> 发表于 2016-03-29</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#gitLab介绍"><span class="toc-number">2.1.</span> <span class="toc-text">gitLab介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#先连接SSH"><span class="toc-number">2.2.</span> <span class="toc-text">先连接SSH</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化root密码"><span class="toc-number">2.3.</span> <span class="toc-text">初始化root密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装gitlib整合包"><span class="toc-number">2.4.</span> <span class="toc-text">安装gitlib整合包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动命令"><span class="toc-number">2.5.</span> <span class="toc-text">启动命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#登陆系统"><span class="toc-number">2.6.</span> <span class="toc-text">登陆系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建项目前的设置"><span class="toc-number">2.7.</span> <span class="toc-text">创建项目前的设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置服务器邮件"><span class="toc-number">2.8.</span> <span class="toc-text">配置服务器邮件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建小组，添加组内成员"><span class="toc-number">2.9.</span> <span class="toc-text">创建小组，添加组内成员</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新增项目"><span class="toc-number">2.10.</span> <span class="toc-text">新增项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置SSH-key"><span class="toc-number">2.11.</span> <span class="toc-text">配置SSH key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程下载项目"><span class="toc-number">2.12.</span> <span class="toc-text">远程下载项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置权限"><span class="toc-number">2.13.</span> <span class="toc-text">配置权限</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>因为<code>gitHub</code>上的项目是公开的，不适合公司内部项目放在上面，而私人的需要收费，这绝非是我们愿意的。所以找了个跟<code>gitHub</code>很相似，但是又免费的<code>gitLab</code>。现在将搭建<code>gitLab</code>过程记录一下留作参考。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="gitLab介绍"><a href="#gitLab介绍" class="headerlink" title="gitLab介绍"></a>gitLab介绍</h2><p><a href="https://about.gitlab.com/" target="_blank" rel="external">GitLab</a>是利用 <code>Ruby on Rails</code> 一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。它拥有与Github类似的功能，能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序(Wall)进行交流。它还提供一个代码片段收集功能可以轻松实现代码复用，便于日后有需要的时候进行查找。  </p>
+<p>依赖组件：ruby 1.9.3+，MySQL，git，redis， Sidekiq。<br>最低配置CPU 1G，RAM 1G+swap可以支持100用户。</p>
+<h2 id="先连接SSH"><a href="#先连接SSH" class="headerlink" title="先连接SSH"></a>先连接SSH</h2><p>首先要确定<code>ubuntu</code>上安装并且启动了<code>ssh</code>服务,然后还要确保<code>linux</code>系统上的防火墙要关闭,<code>win8</code>的防火墙可以正常开启<br><code>SSH</code>(仿真终端工具有PUTTY，SecureCRT 以及Fterm等）可以<code>google</code>下载的了.<br>步骤:<br>1, 有人说首先要在<code>Virtual Network Editor</code>做<code>NAT</code>的端口映射,其实是不需要的;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps <span class="operator">-e</span>|grep ssh</span><br></pre></td></tr></table></figure></p>
+<p>如果结果中只有<code>ssh-agent</code>,那说明<code>ssh-server</code>还没有启动,一般<code>ubuntu</code>是默认安装<code>ssh</code>的,要是没有安装,可以通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openssh-server</span><br></pre></td></tr></table></figure></p>
+<p>安装ssh服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/ssh start</span><br></pre></td></tr></table></figure></p>
+<p>启动ssh服务</p>
+<h2 id="初始化root密码"><a href="#初始化root密码" class="headerlink" title="初始化root密码"></a>初始化root密码</h2><p><code>ubuntn</code>刚安装时候<code>root</code>还没有密码，设置一个，使用命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo passwd</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_1.png" alt=""></p>
+<h2 id="安装gitlib整合包"><a href="#安装gitlib整合包" class="headerlink" title="安装gitlib整合包"></a>安装gitlib整合包</h2><p><a href="https://about.gitlab.com/downloads/" target="_blank" rel="external">官方有安装包</a>与脚本下载，<a href="https://about.gitlab.com/installation/" target="_blank" rel="external">官方安装指南</a>。同样GITHUB上有个社区非官方的<a href="https://github.com/gitlabhq/gitlab-recipes" target="_blank" rel="external">安装指南</a>。<br>但这儿里推荐<code>bitnami</code>下载打包安装版本 <a href="https://bitnami.com/stack/gitlab/installer" title="https://bitnami.com/stack/gitlab/installer" target="_blank" rel="external">https://bitnami.com/stack/gitlab/installer</a> ,省去很多时间。他们也提供相关<a href="http://wiki.bitnami.com/Applications/BitNami_GitLab" target="_blank" rel="external">WIKI</a><br>以<a href="http://www.ubuntu.com/download/" target="_blank" rel="external">ubuntu</a>为演示环境，来安装这个包，切换到<code>root</code>账户, 在终端运行：<br>如果没有权限，先授权账号：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod <span class="number">777</span> bitnami-gitlab-<span class="number">8.5</span>.<span class="number">7</span>-<span class="number">0</span>-linux-x64-installer.run</span><br></pre></td></tr></table></figure></p>
+<p>然后切换<code>root</code>用户执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bitnami-gitlab-<span class="number">8.5</span>.<span class="number">7</span>-<span class="number">0</span>-linux-x64-installer.run</span><br></pre></td></tr></table></figure></p>
+<p>执行后就会弹出图形化界面，一步步确认就行，如下图<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_2.jpg" alt="">  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_3.jpg" alt="">  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_4.jpg" alt="">  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_5.jpg" alt="">  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_6.jpg" alt="">  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_7.jpg" alt="">  </p>
+<h2 id="启动命令"><a href="#启动命令" class="headerlink" title="启动命令"></a>启动命令</h2><p>第一次安装好了就默认启动了<code>gitlab</code>，如果要手动启动的话有两种办法<br>1.找到安装好的路径<code>/opt/gitlab-8.5.7-0</code><br>需要<code>root</code>权限执行命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo ./ctlscript.sh start</span><br><span class="line">```  </span><br><span class="line">![](http://<span class="number">7</span>xqch5.com1.z0.glb.clouddn.com/git6_8.png)  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">2</span>.也可以查看`GUI`管理控制台，在`Manage Servers中`选择`Start All`启动所有</span><br><span class="line">``` bash</span><br><span class="line">sudo ./manager-linux-x64.run</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_9.png" alt=""></p>
+<h2 id="登陆系统"><a href="#登陆系统" class="headerlink" title="登陆系统"></a>登陆系统</h2><p>启动后，就可以访问系统页面了，这里先通过ifconfig命令获取当前的ip地址<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_10.png" alt=""><br>我的是<code>192.168.153.128</code>，于是就可以在外面<code>window</code>系统浏览器访问  </p>
+<p><a href="http://192.168.153.128/users/sign_in" target="_blank" rel="external">http://192.168.153.128/users/sign_in</a>  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_11.png" alt="">  </p>
+<p>使用我之前配置的<code>git</code>登陆,我之前安装的时候配置的管理员账号是<code>git</code>,密码12345678，<br>这里我登陆后发现跳转到<code>404</code>页面，把地址<code>http://192.168.153.128/users/sign_in</code><br>后面的<code>users/sign_in</code>删掉回车就行,就去后界面如下：  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_12.png" alt="">  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_13.png" alt=""></p>
+<h2 id="创建项目前的设置"><a href="#创建项目前的设置" class="headerlink" title="创建项目前的设置"></a>创建项目前的设置</h2><p>如果你是自己一个人玩就直接创建项目即可，因为我这边是给团队使用的，所以需要创建一下用户组，以及添加组成员，配置权限等，下面来介绍这些配置</p>
+<h2 id="配置服务器邮件"><a href="#配置服务器邮件" class="headerlink" title="配置服务器邮件"></a>配置服务器邮件</h2><p>添加人员或者自己注册的时候需要发邮件激活，所以要先配置服务器，我在<code>bitnami</code>提供的<a href="https://wiki.bitnami.com/Applications/BitNami_GitLab#How_to_configure_the_email_settings_of_GitLab.3f" target="_blank" rel="external">wiki</a>里面找到了办法，原文如下：</p>
+<blockquote>
+<p> <em>How to configure the email settings of GitLab?</em><br>You can configure the SMTP settings during the installation process. If you are using the Virtual Machine or AMI, you can configure it manually. For example, these are the options to configure it using a GMail account:<br>/opt/bitnami/apps/gitlab/htdocs/config/environments/production.rb<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">config.action_mailer.raise_delivery_errors = <span class="literal">true</span></span><br><span class="line">config.action_mailer.delivery_method = :smtp   </span><br><span class="line">config.action_mailer.perform_deliveries = <span class="literal">true</span></span><br><span class="line">config.action_mailer.smtp_settings = &#123;</span><br><span class="line">:address =&gt; <span class="string">"smtp.gmail.com"</span>,</span><br><span class="line">:port =&gt; <span class="number">587</span>,</span><br><span class="line">:domain =&gt; <span class="string">"gmail.com"</span>,</span><br><span class="line">:authentication =&gt; :plain,</span><br><span class="line">:user_name =&gt; <span class="string">"your_account@gmail.com"</span>,</span><br><span class="line">:，password =&gt; <span class="string">"your_password"</span>,</span><br><span class="line">:<span class="built_in">enable</span>_starttls_auto =&gt; <span class="literal">true</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>简单的说就是修改<code>/opt/bitnami/apps/gitlab/htdocs/config/environments/production.rb</code>文件，里面的内容，<code>address</code>，<code>domain</code>，<code>user_name</code>，<code>password</code>这几个配置成你自己的邮箱，记得你的邮箱必须要支持<code>smtp</code>。<code>port</code>端口我默认也是587，不需要修改。<br>配置好了邮箱，就要测试一下，我们在<code>http://192.168.153.128/users/sign_in</code> 首页，注册一个额用户，然后我收到邮件激活，然后就可以登陆系统了。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_141.png" alt="">  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_15.jpg" alt="">  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_16.png" alt="">  </p>
+<p>可以看到，非管理员登陆右上角就没有<code>Admin Area</code>功能</p>
+<h2 id="创建小组，添加组内成员"><a href="#创建小组，添加组内成员" class="headerlink" title="创建小组，添加组内成员"></a>创建小组，添加组内成员</h2><p>让组内成员自己注册账号激活后，我们就准备创建小组了，创建小组是为了方便管理，创建项目的时候直接指定小组，这样小组内的成员都可以看到项目  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_17.png" alt="">  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_18.png" alt="">  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_19.png" alt="">  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_20.png" alt="">  </p>
+<h2 id="新增项目"><a href="#新增项目" class="headerlink" title="新增项目"></a>新增项目</h2><p>小组创建好了就可以新增一个项目了,这里创建的时候选择<code>edw</code>这个创建好的小组，并且项目宣称<code>private</code>私有项目。这样只有小组内的成员可以下载这个项目  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_21.png" alt="">  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_22.png" alt="">  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_23.png" alt="">  </p>
+<h2 id="配置SSH-key"><a href="#配置SSH-key" class="headerlink" title="配置SSH key"></a>配置SSH key</h2><p>这里切换到<code>tengj</code>用户登陆，发现已经有了<code>springmvctouchbaidu</code>项目  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_24.png" alt=""><br>但是要下载到本地还需要配置<code>SSH key</code>,复制我们本地<code>\.ssh\id_rsa.pub</code>的内容黏贴到下面图中指定的即可。  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_25.png" alt=""></p>
+<h2 id="远程下载项目"><a href="#远程下载项目" class="headerlink" title="远程下载项目"></a>远程下载项目</h2><p>这里模拟<code>tengj</code>下载远程项目，在这之前我已经用管理员账号把项目传上去了，如图  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_26.png" alt="">  </p>
+<p>指定一个目录存放该项目，执行<code>git clone</code>命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone git@192.168.153.128:edw/springmvctouchbaidu.git&#10;Cloning into &#39;springmvctouchbaidu&#39;...&#10;The authenticity of host &#39;192.168.153.128 (192.168.153.128)&#39; can&#39;t be established.&#10;ECDSA key fingerprint is SHA256:1SgfW1DLmaZ9m/E82vVtWjBK1AaP+LMW5U4ng8nv6uE.&#10;Are you sure you want to continue connecting (yes/no)? yes&#10;Warning: Permanently added &#39;192.168.153.128&#39; (ECDSA) to the list of known hosts.&#10;remote: &#23545;&#35937;&#35745;&#25968;&#20013;: 339, &#23436;&#25104;.&#10;remote: &#21387;&#32553;&#23545;&#35937;&#20013;: 100% (242/242), &#23436;&#25104;.&#10;remote: Total 339 (delta 68), reused 339 (delta 68)&#10;Receiving objects: 100% (339/339), 12.97 MiB | 14.44 MiB/s, done.&#10;Resolving deltas: 100% (68/68), done.&#10;Checking connectivity... done.</span><br></pre></td></tr></table></figure></p>
+<p>搞定，下载下来了。</p>
+<h2 id="配置权限"><a href="#配置权限" class="headerlink" title="配置权限"></a>配置权限</h2><p>前面文章也说过，一般一个实际项目中<code>master</code>用来版本发布，一般不在这个分支上开发，所以除了<code>git</code>管理员用户可以提交代码到<code>master</code>外，其他组成员只能<code>push</code>代码到<code>dev</code>这个分支。<br>比如我添加<code>tengj</code>用户的时候选择的是<code>Developer</code>角色，只要在<code>Protected Branches</code>中这个勾不够上就行了。这样开发人员就无法<code>push</code>代码到<code>master</code>分支上。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_27.png" alt="">  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_28.png" alt="">  </p>
+<p>下面模拟一下tengj用户提交代码：  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_29.png" alt="">  </p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>ok，花了三天时间终于搞定了，截图还是蛮累人的哈哈，算是比较详细的记录了我这次安装<code>gitlab</code>的过程，个人感觉比网络上的文章调理清晰多了。一开始查资料快累死了。希望对你有所帮助。</p>
+<hr>
+<p> 最近撸了个java的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花<br> <img src="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG" alt=""></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/git/">git</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://tengj.github.io/2016/03/29/git6gitlab/" data-title="git干货系列：（六）公司内部搭建git服务器 | 嘟嘟独立博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/03/27/git5branch/"  title="git干货系列：（五）多人协同工作之分支管理">
+ <strong>下一篇：</strong><br/> 
+ <span>git干货系列：（五）多人协同工作之分支管理
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/03/29/git6gitlab/" data-title="git干货系列：（六）公司内部搭建git服务器" data-url="http://tengj.github.io/2016/03/29/git6gitlab/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#gitLab介绍"><span class="toc-number">2.1.</span> <span class="toc-text">gitLab介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#先连接SSH"><span class="toc-number">2.2.</span> <span class="toc-text">先连接SSH</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化root密码"><span class="toc-number">2.3.</span> <span class="toc-text">初始化root密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装gitlib整合包"><span class="toc-number">2.4.</span> <span class="toc-text">安装gitlib整合包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动命令"><span class="toc-number">2.5.</span> <span class="toc-text">启动命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#登陆系统"><span class="toc-number">2.6.</span> <span class="toc-text">登陆系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建项目前的设置"><span class="toc-number">2.7.</span> <span class="toc-text">创建项目前的设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置服务器邮件"><span class="toc-number">2.8.</span> <span class="toc-text">配置服务器邮件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建小组，添加组内成员"><span class="toc-number">2.9.</span> <span class="toc-text">创建小组，添加组内成员</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新增项目"><span class="toc-number">2.10.</span> <span class="toc-text">新增项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置SSH-key"><span class="toc-number">2.11.</span> <span class="toc-text">配置SSH key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程下载项目"><span class="toc-number">2.12.</span> <span class="toc-text">远程下载项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置权限"><span class="toc-number">2.13.</span> <span class="toc-text">配置权限</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="tengj" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/SEO/" title="SEO">SEO<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/app推荐/" title="app推荐">app推荐<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/git/" title="git">git<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/hexo/" title="hexo">hexo<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/jQuery/" title="jQuery">jQuery<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/java/" title="java">java<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/springMVC/" title="springMVC">springMVC<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
+  </div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/SEO/" style="font-size: 15px;">SEO</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/springMVC/" style="font-size: 10px;">springMVC</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://shomy.top" target="_blank" title="天空的城">天空的城</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://iamaboy.xyz" target="_blank" title="WenQiang&#39;s Notes">WenQiang&#39;s Notes</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.cocosdever.com" target="_blank" title="C的博客">C的博客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 程序员上辈子都是折翼的天使 <br/>
+			This is my blog,Try to do better.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/tengj" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Teng Jun">Teng Jun</a>
+		
+		</p>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','Ts_hz24x26ZaNWfhsYwW','2.0.0');
+</script>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  
+  var m = $('#main'),
+      a = $('#asidepart'), //侧边栏
+      c = $('.closeaside'),//隐藏侧边栏
+      o = $('.openaside'); //显示侧边栏
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    $('#toc.toc-aside').css('display', 'block').addClass('fadeIn'); //这个是我新加的，修改点
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"tengj"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257841330'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1257841330%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

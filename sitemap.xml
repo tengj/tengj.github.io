@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://tengj.github.io/2016/03/20/gitTotalMsg/</loc>
+    
+    <lastmod>2016-03-29T07:48:44.430Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tengj.github.io/2016/03/29/git6gitlab/</loc>
+    
+    <lastmod>2016-03-29T07:46:34.492Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://tengj.github.io/2016/03/27/git5branch/</loc>
     
     <lastmod>2016-03-27T09:31:10.432Z</lastmod>
@@ -89,13 +103,6 @@
     <loc>http://tengj.github.io/2016/02/22/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%80%EF%BC%89hexo+gitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2/</loc>
     
     <lastmod>2016-03-27T09:21:37.997Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tengj.github.io/2016/03/20/gitTotalMsg/</loc>
-    
-    <lastmod>2016-03-27T09:20:59.935Z</lastmod>
     
   </url>
   

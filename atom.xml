@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tengj.github.io/"/>
-  <updated>2016-03-27T09:31:10.432Z</updated>
+  <updated>2016-03-29T07:46:34.492Z</updated>
   <id>http://tengj.github.io/</id>
   
   <author>
@@ -14,6 +14,83 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git干货系列：（六）公司内部搭建git服务器</title>
+    <link href="http://tengj.github.io/2016/03/29/git6gitlab/"/>
+    <id>http://tengj.github.io/2016/03/29/git6gitlab/</id>
+    <published>2016-03-29T07:24:03.000Z</published>
+    <updated>2016-03-29T07:46:34.492Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;因为&lt;code&gt;gitHub&lt;/code&gt;上的项目是公开的，不适合公司内部项目放在上面，而私人的需要收费，这绝非是我们愿意的。所以找了个跟&lt;code&gt;gitHub&lt;/code&gt;很相似，但是又免费的&lt;code&gt;gitLab&lt;/code&gt;。现在将搭建&lt;code&gt;gitLab&lt;/code&gt;过程记录一下留作参考。&lt;/p&gt;
+&lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;h2 id=&quot;gitLab介绍&quot;&gt;&lt;a href=&quot;#gitLab介绍&quot; class=&quot;headerlink&quot; title=&quot;gitLab介绍&quot;&gt;&lt;/a&gt;gitLab介绍&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://about.gitlab.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitLab&lt;/a&gt;是利用 &lt;code&gt;Ruby on Rails&lt;/code&gt; 一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。它拥有与Github类似的功能，能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序(Wall)进行交流。它还提供一个代码片段收集功能可以轻松实现代码复用，便于日后有需要的时候进行查找。  &lt;/p&gt;
+&lt;p&gt;依赖组件：ruby 1.9.3+，MySQL，git，redis， Sidekiq。&lt;br&gt;最低配置CPU 1G，RAM 1G+swap可以支持100用户。&lt;/p&gt;
+&lt;h2 id=&quot;先连接SSH&quot;&gt;&lt;a href=&quot;#先连接SSH&quot; class=&quot;headerlink&quot; title=&quot;先连接SSH&quot;&gt;&lt;/a&gt;先连接SSH&lt;/h2&gt;&lt;p&gt;首先要确定&lt;code&gt;ubuntu&lt;/code&gt;上安装并且启动了&lt;code&gt;ssh&lt;/code&gt;服务,然后还要确保&lt;code&gt;linux&lt;/code&gt;系统上的防火墙要关闭,&lt;code&gt;win8&lt;/code&gt;的防火墙可以正常开启&lt;br&gt;&lt;code&gt;SSH&lt;/code&gt;(仿真终端工具有PUTTY，SecureCRT 以及Fterm等）可以&lt;code&gt;google&lt;/code&gt;下载的了.&lt;br&gt;步骤:&lt;br&gt;1, 有人说首先要在&lt;code&gt;Virtual Network Editor&lt;/code&gt;做&lt;code&gt;NAT&lt;/code&gt;的端口映射,其实是不需要的;&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ps &lt;span class=&quot;operator&quot;&gt;-e&lt;/span&gt;|grep ssh&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;如果结果中只有&lt;code&gt;ssh-agent&lt;/code&gt;,那说明&lt;code&gt;ssh-server&lt;/code&gt;还没有启动,一般&lt;code&gt;ubuntu&lt;/code&gt;是默认安装&lt;code&gt;ssh&lt;/code&gt;的,要是没有安装,可以通过&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install openssh-server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;安装ssh服务&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo /etc/init.d/ssh start&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;启动ssh服务&lt;/p&gt;
+&lt;h2 id=&quot;初始化root密码&quot;&gt;&lt;a href=&quot;#初始化root密码&quot; class=&quot;headerlink&quot; title=&quot;初始化root密码&quot;&gt;&lt;/a&gt;初始化root密码&lt;/h2&gt;&lt;p&gt;&lt;code&gt;ubuntn&lt;/code&gt;刚安装时候&lt;code&gt;root&lt;/code&gt;还没有密码，设置一个，使用命令&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo passwd&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;安装gitlib整合包&quot;&gt;&lt;a href=&quot;#安装gitlib整合包&quot; class=&quot;headerlink&quot; title=&quot;安装gitlib整合包&quot;&gt;&lt;/a&gt;安装gitlib整合包&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://about.gitlab.com/downloads/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方有安装包&lt;/a&gt;与脚本下载，&lt;a href=&quot;https://about.gitlab.com/installation/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方安装指南&lt;/a&gt;。同样GITHUB上有个社区非官方的&lt;a href=&quot;https://github.com/gitlabhq/gitlab-recipes&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;安装指南&lt;/a&gt;。&lt;br&gt;但这儿里推荐&lt;code&gt;bitnami&lt;/code&gt;下载打包安装版本 &lt;a href=&quot;https://bitnami.com/stack/gitlab/installer&quot; title=&quot;https://bitnami.com/stack/gitlab/installer&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://bitnami.com/stack/gitlab/installer&lt;/a&gt; ,省去很多时间。他们也提供相关&lt;a href=&quot;http://wiki.bitnami.com/Applications/BitNami_GitLab&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;WIKI&lt;/a&gt;&lt;br&gt;以&lt;a href=&quot;http://www.ubuntu.com/download/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ubuntu&lt;/a&gt;为演示环境，来安装这个包，切换到&lt;code&gt;root&lt;/code&gt;账户, 在终端运行：&lt;br&gt;如果没有权限，先授权账号：&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;chmod &lt;span class=&quot;number&quot;&gt;777&lt;/span&gt; bitnami-gitlab-&lt;span class=&quot;number&quot;&gt;8.5&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;7&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;-linux-x64-installer.run&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;然后切换&lt;code&gt;root&lt;/code&gt;用户执行：&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;./bitnami-gitlab-&lt;span class=&quot;number&quot;&gt;8.5&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;7&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;-linux-x64-installer.run&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;执行后就会弹出图形化界面，一步步确认就行，如下图&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_2.jpg&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_3.jpg&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_4.jpg&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_5.jpg&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_6.jpg&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_7.jpg&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;h2 id=&quot;启动命令&quot;&gt;&lt;a href=&quot;#启动命令&quot; class=&quot;headerlink&quot; title=&quot;启动命令&quot;&gt;&lt;/a&gt;启动命令&lt;/h2&gt;&lt;p&gt;第一次安装好了就默认启动了&lt;code&gt;gitlab&lt;/code&gt;，如果要手动启动的话有两种办法&lt;br&gt;1.找到安装好的路径&lt;code&gt;/opt/gitlab-8.5.7-0&lt;/code&gt;&lt;br&gt;需要&lt;code&gt;root&lt;/code&gt;权限执行命令：&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo ./ctlscript.sh start&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;```  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;![](http://&lt;span class=&quot;number&quot;&gt;7&lt;/span&gt;xqch5.com1.z0.glb.clouddn.com/git6_8.png)  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;.也可以查看`GUI`管理控制台，在`Manage Servers中`选择`Start All`启动所有&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;``` bash&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo ./manager-linux-x64.run&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_9.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;登陆系统&quot;&gt;&lt;a href=&quot;#登陆系统&quot; class=&quot;headerlink&quot; title=&quot;登陆系统&quot;&gt;&lt;/a&gt;登陆系统&lt;/h2&gt;&lt;p&gt;启动后，就可以访问系统页面了，这里先通过ifconfig命令获取当前的ip地址&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_10.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;我的是&lt;code&gt;192.168.153.128&lt;/code&gt;，于是就可以在外面&lt;code&gt;window&lt;/code&gt;系统浏览器访问  &lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://192.168.153.128/users/sign_in&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://192.168.153.128/users/sign_in&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_11.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;使用我之前配置的&lt;code&gt;git&lt;/code&gt;登陆,我之前安装的时候配置的管理员账号是&lt;code&gt;git&lt;/code&gt;,密码12345678，&lt;br&gt;这里我登陆后发现跳转到&lt;code&gt;404&lt;/code&gt;页面，把地址&lt;code&gt;http://192.168.153.128/users/sign_in&lt;/code&gt;&lt;br&gt;后面的&lt;code&gt;users/sign_in&lt;/code&gt;删掉回车就行,就去后界面如下：  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_12.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_13.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;创建项目前的设置&quot;&gt;&lt;a href=&quot;#创建项目前的设置&quot; class=&quot;headerlink&quot; title=&quot;创建项目前的设置&quot;&gt;&lt;/a&gt;创建项目前的设置&lt;/h2&gt;&lt;p&gt;如果你是自己一个人玩就直接创建项目即可，因为我这边是给团队使用的，所以需要创建一下用户组，以及添加组成员，配置权限等，下面来介绍这些配置&lt;/p&gt;
+&lt;h2 id=&quot;配置服务器邮件&quot;&gt;&lt;a href=&quot;#配置服务器邮件&quot; class=&quot;headerlink&quot; title=&quot;配置服务器邮件&quot;&gt;&lt;/a&gt;配置服务器邮件&lt;/h2&gt;&lt;p&gt;添加人员或者自己注册的时候需要发邮件激活，所以要先配置服务器，我在&lt;code&gt;bitnami&lt;/code&gt;提供的&lt;a href=&quot;https://wiki.bitnami.com/Applications/BitNami_GitLab#How_to_configure_the_email_settings_of_GitLab.3f&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;wiki&lt;/a&gt;里面找到了办法，原文如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt; &lt;em&gt;How to configure the email settings of GitLab?&lt;/em&gt;&lt;br&gt;You can configure the SMTP settings during the installation process. If you are using the Virtual Machine or AMI, you can configure it manually. For example, these are the options to configure it using a GMail account:&lt;br&gt;/opt/bitnami/apps/gitlab/htdocs/config/environments/production.rb&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;config.action_mailer.raise_delivery_errors = &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;config.action_mailer.delivery_method = :smtp   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;config.action_mailer.perform_deliveries = &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;config.action_mailer.smtp_settings = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;:address =&amp;gt; &lt;span class=&quot;string&quot;&gt;&quot;smtp.gmail.com&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;:port =&amp;gt; &lt;span class=&quot;number&quot;&gt;587&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;:domain =&amp;gt; &lt;span class=&quot;string&quot;&gt;&quot;gmail.com&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;:authentication =&amp;gt; :plain,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;:user_name =&amp;gt; &lt;span class=&quot;string&quot;&gt;&quot;your_account@gmail.com&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;:，password =&amp;gt; &lt;span class=&quot;string&quot;&gt;&quot;your_password&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;:&lt;span class=&quot;built_in&quot;&gt;enable&lt;/span&gt;_starttls_auto =&amp;gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;简单的说就是修改&lt;code&gt;/opt/bitnami/apps/gitlab/htdocs/config/environments/production.rb&lt;/code&gt;文件，里面的内容，&lt;code&gt;address&lt;/code&gt;，&lt;code&gt;domain&lt;/code&gt;，&lt;code&gt;user_name&lt;/code&gt;，&lt;code&gt;password&lt;/code&gt;这几个配置成你自己的邮箱，记得你的邮箱必须要支持&lt;code&gt;smtp&lt;/code&gt;。&lt;code&gt;port&lt;/code&gt;端口我默认也是587，不需要修改。&lt;br&gt;配置好了邮箱，就要测试一下，我们在&lt;code&gt;http://192.168.153.128/users/sign_in&lt;/code&gt; 首页，注册一个额用户，然后我收到邮件激活，然后就可以登陆系统了。&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_141.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_15.jpg&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_16.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;可以看到，非管理员登陆右上角就没有&lt;code&gt;Admin Area&lt;/code&gt;功能&lt;/p&gt;
+&lt;h2 id=&quot;创建小组，添加组内成员&quot;&gt;&lt;a href=&quot;#创建小组，添加组内成员&quot; class=&quot;headerlink&quot; title=&quot;创建小组，添加组内成员&quot;&gt;&lt;/a&gt;创建小组，添加组内成员&lt;/h2&gt;&lt;p&gt;让组内成员自己注册账号激活后，我们就准备创建小组了，创建小组是为了方便管理，创建项目的时候直接指定小组，这样小组内的成员都可以看到项目  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_17.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_18.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_19.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_20.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;h2 id=&quot;新增项目&quot;&gt;&lt;a href=&quot;#新增项目&quot; class=&quot;headerlink&quot; title=&quot;新增项目&quot;&gt;&lt;/a&gt;新增项目&lt;/h2&gt;&lt;p&gt;小组创建好了就可以新增一个项目了,这里创建的时候选择&lt;code&gt;edw&lt;/code&gt;这个创建好的小组，并且项目宣称&lt;code&gt;private&lt;/code&gt;私有项目。这样只有小组内的成员可以下载这个项目  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_21.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_22.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_23.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;h2 id=&quot;配置SSH-key&quot;&gt;&lt;a href=&quot;#配置SSH-key&quot; class=&quot;headerlink&quot; title=&quot;配置SSH key&quot;&gt;&lt;/a&gt;配置SSH key&lt;/h2&gt;&lt;p&gt;这里切换到&lt;code&gt;tengj&lt;/code&gt;用户登陆，发现已经有了&lt;code&gt;springmvctouchbaidu&lt;/code&gt;项目  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_24.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;但是要下载到本地还需要配置&lt;code&gt;SSH key&lt;/code&gt;,复制我们本地&lt;code&gt;\.ssh\id_rsa.pub&lt;/code&gt;的内容黏贴到下面图中指定的即可。  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_25.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;远程下载项目&quot;&gt;&lt;a href=&quot;#远程下载项目&quot; class=&quot;headerlink&quot; title=&quot;远程下载项目&quot;&gt;&lt;/a&gt;远程下载项目&lt;/h2&gt;&lt;p&gt;这里模拟&lt;code&gt;tengj&lt;/code&gt;下载远程项目，在这之前我已经用管理员账号把项目传上去了，如图  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_26.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;指定一个目录存放该项目，执行&lt;code&gt;git clone&lt;/code&gt;命令：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ git clone git@192.168.153.128:edw/springmvctouchbaidu.git&amp;#10;Cloning into &amp;#39;springmvctouchbaidu&amp;#39;...&amp;#10;The authenticity of host &amp;#39;192.168.153.128 (192.168.153.128)&amp;#39; can&amp;#39;t be established.&amp;#10;ECDSA key fingerprint is SHA256:1SgfW1DLmaZ9m/E82vVtWjBK1AaP+LMW5U4ng8nv6uE.&amp;#10;Are you sure you want to continue connecting (yes/no)? yes&amp;#10;Warning: Permanently added &amp;#39;192.168.153.128&amp;#39; (ECDSA) to the list of known hosts.&amp;#10;remote: &amp;#23545;&amp;#35937;&amp;#35745;&amp;#25968;&amp;#20013;: 339, &amp;#23436;&amp;#25104;.&amp;#10;remote: &amp;#21387;&amp;#32553;&amp;#23545;&amp;#35937;&amp;#20013;: 100% (242/242), &amp;#23436;&amp;#25104;.&amp;#10;remote: Total 339 (delta 68), reused 339 (delta 68)&amp;#10;Receiving objects: 100% (339/339), 12.97 MiB | 14.44 MiB/s, done.&amp;#10;Resolving deltas: 100% (68/68), done.&amp;#10;Checking connectivity... done.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;搞定，下载下来了。&lt;/p&gt;
+&lt;h2 id=&quot;配置权限&quot;&gt;&lt;a href=&quot;#配置权限&quot; class=&quot;headerlink&quot; title=&quot;配置权限&quot;&gt;&lt;/a&gt;配置权限&lt;/h2&gt;&lt;p&gt;前面文章也说过，一般一个实际项目中&lt;code&gt;master&lt;/code&gt;用来版本发布，一般不在这个分支上开发，所以除了&lt;code&gt;git&lt;/code&gt;管理员用户可以提交代码到&lt;code&gt;master&lt;/code&gt;外，其他组成员只能&lt;code&gt;push&lt;/code&gt;代码到&lt;code&gt;dev&lt;/code&gt;这个分支。&lt;br&gt;比如我添加&lt;code&gt;tengj&lt;/code&gt;用户的时候选择的是&lt;code&gt;Developer&lt;/code&gt;角色，只要在&lt;code&gt;Protected Branches&lt;/code&gt;中这个勾不够上就行了。这样开发人员就无法&lt;code&gt;push&lt;/code&gt;代码到&lt;code&gt;master&lt;/code&gt;分支上。&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_27.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_28.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;下面模拟一下tengj用户提交代码：  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/git6_29.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;p&gt;ok，花了三天时间终于搞定了，截图还是蛮累人的哈哈，算是比较详细的记录了我这次安装&lt;code&gt;gitlab&lt;/code&gt;的过程，个人感觉比网络上的文章调理清晰多了。一开始查资料快累死了。希望对你有所帮助。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt; 最近撸了个java的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花&lt;br&gt; &lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;因为&lt;code&gt;gitHub&lt;/code&gt;上的项目是公开的，不适合公司内部项目放在上面，而私人的需要收费，这绝非是我们愿意的。所以找了个跟&lt;
+    
+    </summary>
+    
+      <category term="git" scheme="http://tengj.github.io/categories/git/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>git干货系列：（五）多人协同工作之分支管理</title>
@@ -427,7 +504,7 @@
     <link href="http://tengj.github.io/2016/03/20/gitTotalMsg/"/>
     <id>http://tengj.github.io/2016/03/20/gitTotalMsg/</id>
     <published>2016-03-20T14:49:30.000Z</published>
-    <updated>2016-03-27T09:20:59.935Z</updated>
+    <updated>2016-03-29T07:48:44.430Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;hr&gt;
 &lt;p&gt;本人搭建独立博客的时候需要使用到&lt;code&gt;github&lt;/code&gt;，&lt;code&gt;coding&lt;/code&gt;以及&lt;code&gt;开源中国&lt;/code&gt;，发现全部使用&lt;code&gt;git&lt;/code&gt;来进行版本控制。了解之后发&lt;code&gt;现git&lt;/code&gt;很棒，所以决定学。学习过程中做了一些笔记，经过整理就有了这个系列的文章，其实是我自己的学习笔记整理，如果你也是新手就跟着我一起学习，如果你是大神，那么希望您能指出我的错误，让我学习更进一步，这也是我写这系列笔记的初衷。&lt;/p&gt;
@@ -437,7 +514,7 @@
 &lt;h2 id=&quot;书写方式&quot;&gt;&lt;a href=&quot;#书写方式&quot; class=&quot;headerlink&quot; title=&quot;书写方式&quot;&gt;&lt;/a&gt;书写方式&lt;/h2&gt;&lt;hr&gt;
 &lt;p&gt;网上&lt;code&gt;git&lt;/code&gt;教程也很多，我想记录我自己学习使用过程中的点滴，不单单是个教程，我想把它当成工具来写，根据实际使用场景来分类，这样方便以后自己快速查找。&lt;/p&gt;
 &lt;h2 id=&quot;系列博文整理&quot;&gt;&lt;a href=&quot;#系列博文整理&quot; class=&quot;headerlink&quot; title=&quot;系列博文整理&quot;&gt;&lt;/a&gt;系列博文整理&lt;/h2&gt;&lt;hr&gt;
-&lt;p&gt;整理了下git系列的文章，发现写系列博客感觉还是很棒的：&lt;br&gt;&lt;a href=&quot;http://tengj.top/2016/03/20/git1creategit/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git干货系列：（一）我是小白，我想要搭建git仓库&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://tengj.top/2016/03/23/git2konwindex/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git干货系列：（二）深入学习之前先理解git暂存区&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://tengj.top/2016/03/24/git3reset/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git干货系列：（三）我提交错了我想撤销或者回退版本&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://tengj.top/2016/03/25/git4remote/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git干货系列：（四）我要连接远程仓库（github，coding）&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://tengj.top/2016/03/27/git5branch/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git干货系列：（五）多人协同工作之分支管理&lt;/a&gt;&lt;br&gt;git干货系列：（六）公司内部搭建git服务器（待写）  &lt;/p&gt;
+&lt;p&gt;整理了下git系列的文章，发现写系列博客感觉还是很棒的：&lt;br&gt;&lt;a href=&quot;http://tengj.top/2016/03/20/git1creategit/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git干货系列：（一）我是小白，我想要搭建git仓库&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://tengj.top/2016/03/23/git2konwindex/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git干货系列：（二）深入学习之前先理解git暂存区&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://tengj.top/2016/03/24/git3reset/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git干货系列：（三）我提交错了我想撤销或者回退版本&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://tengj.top/2016/03/25/git4remote/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git干货系列：（四）我要连接远程仓库（github，coding）&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://tengj.top/2016/03/27/git5branch/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git干货系列：（五）多人协同工作之分支管理&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://tengj.top/2016/03/29/git6gitlab/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git干货系列：（六）公司内部搭建git服务器&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;所有学习git资源&quot;&gt;&lt;a href=&quot;#所有学习git资源&quot; class=&quot;headerlink&quot; title=&quot;所有学习git资源&quot;&gt;&lt;/a&gt;所有学习git资源&lt;/h2&gt;&lt;hr&gt;
 &lt;p&gt;学习过程中我参考了许许多多的教程，分享跟大家：&lt;br&gt;&lt;a href=&quot;http://www.yiibai.com/git/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git教程&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;廖雪峰git教程&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://rogerdudler.github.io/git-guide/index.zh.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git–简易指南&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://backlogtool.com/git-guide/cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;猴子都能懂的GIT入门&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://gitref.justjavac.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Git参考手册&lt;/a&gt;  &lt;/p&gt;
 &lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;hr&gt;
@@ -1118,116 +1195,6 @@ hexo deploy -g
     
     
       <category term="java" scheme="http://tengj.github.io/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo干货系列：（一）hexo+gitHub搭建个人独立博客</title>
-    <link href="http://tengj.github.io/2016/02/22/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%80%EF%BC%89hexo+gitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://tengj.github.io/2016/02/22/hexo干货系列：（一）hexo+gitHub搭建个人独立博客/</id>
-    <published>2016-02-22T08:04:09.000Z</published>
-    <updated>2016-03-27T09:21:37.997Z</updated>
-    
-    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;hr&gt;
-&lt;p&gt;一直想要一个自己的独立博客，但是觉得申请域名+服务器的太麻烦了就一直没有实现。偶然机会发现Hexo这个优秀的静态博客框架，再搭配现在流行的gitHub，简直是完美写博客的黄金搭档（免费+方便）。&lt;a id=&quot;more&quot;&gt;&lt;/a&gt; 于是就上网参考了好多教程最后磕磕碰碰的搭建了起来。但是网上的教程多多手手都有点问题，可能比较早把。就有了这个自己总结的教程，一是自己总结一下。二是给也想搭建Hexo博客的童鞋们多一点参考。&lt;br&gt;&lt;!--more--&gt;&lt;/p&gt;
-&lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;hr&gt;
-&lt;p&gt;我这个教程是基于window系统用户，Hexo3版本&lt;/p&gt;
-&lt;h2 id=&quot;安装前提软件&quot;&gt;&lt;a href=&quot;#安装前提软件&quot; class=&quot;headerlink&quot; title=&quot;安装前提软件&quot;&gt;&lt;/a&gt;安装前提软件&lt;/h2&gt;&lt;hr&gt;
-&lt;p&gt;&lt;a href=&quot;https://nodejs.org/en&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Node.js&lt;/a&gt;:&lt;br&gt;作用：node.js用来创建hexo博客框架的，我当前安装版本为：node-v5.6.0-x64   &lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://git-scm.com/download&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Git客户端&lt;/a&gt;:&lt;br&gt;作用：把本地的hexo内容提交到github上去，我当前安装的是Git-2.7.0-64-bit &lt;/p&gt;
-&lt;h2 id=&quot;安装Hexo&quot;&gt;&lt;a href=&quot;#安装Hexo&quot; class=&quot;headerlink&quot; title=&quot;安装Hexo&quot;&gt;&lt;/a&gt;安装Hexo&lt;/h2&gt;&lt;hr&gt;
-&lt;p&gt;安装前先介绍几个hexo常用的命令,#后面为注释。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;hexo g #完整命令为hexo generate,用于生成静态文件
-hexo s #完整命令为hexo server,用于启动服务器，主要用来本地预览
-hexo d #完整命令为hexo deploy,用于将本地文件发布到github上
-hexo n #完整命令为hexo new,用于新建一篇文章
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;利用 npm 命令即可安装。在任意位置点击鼠标右键，选择Git Base  &lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo1.jpg&quot; style=&quot;margin:0;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;输入安装hexo命令：  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;npm install -g hexo
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;安装完成后，在你喜爱的文件夹下（如E:\Hexo），执行以下指令(在E:\Hexo内点击鼠标右键，选择Git Bash)，Hexo 即会自动在目标文件夹建立网站所需要的所有文件。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;hexo init
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;安装依赖包：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;npm install
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;让我们看看刚刚下载的hexo文件带来了什么，在E:\hexo内执行以下命令：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;hexo g
-hexo s
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后用浏览器访问&lt;a href=&quot;http://localhost:4000，&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:4000，&lt;/a&gt;  此时，你应该看到了一个漂亮的博客了，当然这个博客只是在本地的，别人是看不到的，hexo3.0使用的默认主题是landscape。轻轻松松就看到了一点成果，是不是很激动，这就是hexo的强大之处，这个本地预览的功能，我真是爱不释手。&lt;/p&gt;
-&lt;h2 id=&quot;注册Github帐号&quot;&gt;&lt;a href=&quot;#注册Github帐号&quot; class=&quot;headerlink&quot; title=&quot;注册Github帐号&quot;&gt;&lt;/a&gt;注册Github帐号&lt;/h2&gt;&lt;hr&gt;
-&lt;p&gt;已经有Github帐号跳过此步，首先进入&lt;a href=&quot;https://github.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Github&lt;/a&gt;进行注册，用户名、邮箱和密码之后都需要用到，自己记好。&lt;/p&gt;
-&lt;h2 id=&quot;创建repository&quot;&gt;&lt;a href=&quot;#创建repository&quot; class=&quot;headerlink&quot; title=&quot;创建repository&quot;&gt;&lt;/a&gt;创建repository&lt;/h2&gt;&lt;hr&gt;
-&lt;p&gt;repository相当于一个仓库，用来放置你的代码文件。首先，登陆进入&lt;a href=&quot;https://github.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Github&lt;/a&gt;，并进入个人页面，选择&lt;code&gt;repositories&lt;/code&gt;(下图第一个红圈的地方)，然后New一个&lt;code&gt;repository&lt;/code&gt;(下图第二个红圈的地方)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo2.jpg&quot; style=&quot;margin:0;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;创建时，只需要填写Repository name即可，当然这个名字的格式必须为youname.github.io，例如我的为tengj.github.io&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo3.png&quot; style=&quot;margin:0;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;部署本地文件到github&quot;&gt;&lt;a href=&quot;#部署本地文件到github&quot; class=&quot;headerlink&quot; title=&quot;部署本地文件到github&quot;&gt;&lt;/a&gt;部署本地文件到github&lt;/h2&gt;&lt;hr&gt;
-&lt;p&gt;既然Repository已经创建了，当然是先把博客放到Github上去看看效果。编辑E：\hexo下的_config.yml文件，建议使用Notepad++。&lt;br&gt;在_config.yml最下方，添加如下配置(命令中的第一个tengj为Github的用户名,第二个tengj为之前New的Repository的名字,记得改成自己的。另外记得一点，hexo的配置文件中任何’:’后面都是带一个空格的),如果配置以下命令出现ERROR Deployer not found : github，则参考上文的解决方法&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;deploy: 
-    type: git
-    repository: https://github.com/tengj/tengj.github.io.git
-    branch: master
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;配置_config.yml并保存。如果你是第一次使用Github或者是已经使用过，但没有配置过SSH，则可能需要配置一下:&lt;/p&gt;
-&lt;p&gt;在Git Bash输入以下指令（任意位置点击鼠标右键），检查是否已经存在了SSH keys。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;ls -al ~/.ssh
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果不存在就没有关系，如果存在的话，直接删除.ssh文件夹里面所有文件：&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo4.png&quot; style=&quot;margin:0;&quot;&gt;&lt;br&gt;输入以下指令（邮箱就是你注册Github时候的邮箱）后，回车，出现提示让你输入的时候直接先回车，好像需要3次，如下图所示：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;ssh-keygen -t rsa -C &amp;quot;358593266@qq.com&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo1_5.png&quot; style=&quot;margin:0;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;然后键入以下指令：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;ssh-agent -s
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo1_6.png&quot; style=&quot;margin:0;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;继续输入指令：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;ssh-add ~/.ssh/id_rsa
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;输入之后，在我这里是出错了，不知道你的有没有出错。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo1_7.png&quot; style=&quot;margin:0;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;如果你的也是这样子出错了的话，就输入以下指令：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;eval `ssh-agent -s`
-ssh-add
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo1_8.png&quot; style=&quot;margin:0;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;到了这一步，就可以添加SSH key到你的Github账户了。键入以下指令，拷贝Key（先拷贝了，等一下可以直接粘贴，不放心的在执行下面命令后，先黏贴在记事本上）：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;clip &amp;lt; ~/.ssh/id_rsa.pub
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后到Github里面，点击右上角的设置图标Settings,找到SSH keys,Ttile随便你命名，Key就黏贴上你刚才复制的key,然后点Add SSH key，最后会让你重新输入下gitHub的密码&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo1_9.png&quot; style=&quot;margin:0;&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo1_10.png&quot; style=&quot;margin:0;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;最后还是测试一下吧，键入以下命令：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;ssh -T git@github.com
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;你可能会看到有警告，没事，输入“yes”就好&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo1_11.png&quot; style=&quot;margin:0;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;以上就表示SSH配置好了，执行以下命令部署到Github上。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;hexo g
-hexo d
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果执行hexo d命令报下名错：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo1_12.png&quot; style=&quot;margin:0;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;就先安装一下hexo-deployer-git这个模块：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;npm install hexo-deployer-git --save
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;安装好了继续执行&lt;code&gt;hexo d&lt;/code&gt;部署命令，输入gitHub的账号密码，就可以访问了。我的是： tengj.github.io&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo1_13.jpg&quot; style=&quot;margin:0;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;发表一篇文章&quot;&gt;&lt;a href=&quot;#发表一篇文章&quot; class=&quot;headerlink&quot; title=&quot;发表一篇文章&quot;&gt;&lt;/a&gt;发表一篇文章&lt;/h2&gt;&lt;hr&gt;
-&lt;p&gt;1.在Git Bash执行命令：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;hexo new &amp;quot;my new post&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;2.在E:\hexo\source_post中打开my-new-post.md，打开方式使用记事本或者其他文本工具。&lt;br&gt;hexo中写文章使用的是Markdown，这里推荐使用&lt;code&gt;markdownpad&lt;/code&gt;这个工具。 Markdown编写语法自己百度一下，不难&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;title: my new post #可以改成中文的，如“新文章”
-date: 2016-02-21 16:04:09 #发表日期，一般不改动
-categories: blog #文章文类
-tags: [文章] #文章标签，多于一项时用这种格式，只有一项时使用tags: blog
----
-#这里是正文，用markdown写，你可以选择写一段显示在首页的简介后，加上
-&amp;lt;!--more--&amp;gt;，在&amp;lt;!--more--&amp;gt;之前的内容会显示在首页，之后的内容会被隐藏，当游客点击Read more才能看到。
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;写完文章后，你可以使用1.$ hexo g生成静态文件。2.$ hexo s在本地预览效果。3.hexo d同步到github，然后使用&lt;a href=&quot;http://tengj.github.io进行访问。&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://tengj.github.io进行访问。&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;hr&gt;
-&lt;p&gt;&lt;a href=&quot;http://opiece.me/2015/04/09/hexo-guide/#参考&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;使用Hexo搭建个人博客(基于hexo3.0)&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.jianshu.com/p/465830080ea9#&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HEXO+Github,搭建属于自己的博客&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://jingyan.baidu.com/article/d8072ac47aca0fec95cefd2d.html&quot; title=&quot;史上最详细“截图”搭建Hexo博客并部署到Github&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;史上最详细“截图”搭建Hexo博客并部署到Github&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;hr&gt;
-&lt;p&gt;到这里，就算初步搭好了一个属于自己的独立博客，后续就是本地写文章然后部署最后发布就行。当然这只是最基本的流程，hexo提供了许多好看的主题，我准备下篇里面详细介绍下主题的下载以及配置。让你的博客更加的酷炫!&lt;br&gt;大家按照我这个整理的教程搭建，理论上都能搭建成功。如果过程中发现一些问题，也可以留言我们一起探讨。祝大家一次就能搭建属于自己的独立博客~撒花&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;最近撸了个java的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;hr&gt;
-&lt;p&gt;一直想要一个自己的独立博客，但是觉得申请域名+服务器的太麻烦了就一直没有实现。偶然机会发现Hexo这个优秀的静态博客框架，再搭配现在流行的gitHub，简直是完美写博客的黄金搭档（免费+方便）。
-    
-    </summary>
-    
-      <category term="hexo" scheme="http://tengj.github.io/categories/hexo/"/>
-    
-    
-      <category term="hexo" scheme="http://tengj.github.io/tags/hexo/"/>
     
   </entry>
   

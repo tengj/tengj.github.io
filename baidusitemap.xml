@@ -4,6 +4,42 @@
 
     
   <url>
+    <loc>http://tengj.top/2016/03/20/gitTotalMsg/</loc>
+    <lastmod>2016-03-29T07:48:44.430Z</lastmod>
+    <data>
+        <display>
+        <title>git干货系列：（总纲）根据使用场景介绍git</title>
+        <pubTime>2016-03-20T14:49:30.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="git" url="http://tengj.top/categories/git/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tengj.top/2016/03/29/git6gitlab/</loc>
+    <lastmod>2016-03-29T07:46:34.492Z</lastmod>
+    <data>
+        <display>
+        <title>git干货系列：（六）公司内部搭建git服务器</title>
+        <pubTime>2016-03-29T07:24:03.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="git" url="http://tengj.top/categories/git/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://tengj.top/2016/03/27/git5branch/</loc>
     <lastmod>2016-03-27T09:31:10.432Z</lastmod>
     <data>
@@ -255,24 +291,6 @@
            
              
               <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tengj.top/2016/03/20/gitTotalMsg/</loc>
-    <lastmod>2016-03-27T09:20:59.935Z</lastmod>
-    <data>
-        <display>
-        <title>git干货系列：（总纲）根据使用场景介绍git</title>
-        <pubTime>2016-03-20T14:49:30.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="git" url="http://tengj.top/categories/git/"/>
           
         </display>
     </data>
