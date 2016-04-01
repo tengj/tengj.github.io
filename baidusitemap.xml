@@ -4,17 +4,17 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/03/20/gitTotalMsg/</loc>
-    <lastmod>2016-03-29T07:48:44.430Z</lastmod>
+    <loc>http://tengj.top/2016/04/01/sjmstotal/</loc>
+    <lastmod>2016-04-01T12:43:48.886Z</lastmod>
     <data>
         <display>
-        <title>git干货系列：（总纲）根据使用场景介绍git</title>
-        <pubTime>2016-03-20T14:49:30.000Z</pubTime>
+        <title>设计模式系列：（总纲）总体介绍设计模式</title>
+        <pubTime>2016-04-01T12:23:20.000Z</pubTime>
         
          
            
              
-              <breadCrumb title="git" url="http://tengj.top/categories/git/"/>
+              <breadCrumb title="设计模式" url="http://tengj.top/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
           
         </display>
     </data>
@@ -23,7 +23,7 @@
     
   <url>
     <loc>http://tengj.top/2016/03/29/git6gitlab/</loc>
-    <lastmod>2016-03-29T07:46:34.492Z</lastmod>
+    <lastmod>2016-03-29T07:59:20.690Z</lastmod>
     <data>
         <display>
         <title>git干货系列：（六）公司内部搭建git服务器</title>
@@ -41,11 +41,29 @@
     
   <url>
     <loc>http://tengj.top/2016/03/27/git5branch/</loc>
-    <lastmod>2016-03-27T09:31:10.432Z</lastmod>
+    <lastmod>2016-03-29T07:56:56.912Z</lastmod>
     <data>
         <display>
         <title>git干货系列：（五）多人协同工作之分支管理</title>
         <pubTime>2016-03-27T09:03:56.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="git" url="http://tengj.top/categories/git/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tengj.top/2016/03/20/gitTotalMsg/</loc>
+    <lastmod>2016-03-29T07:48:44.430Z</lastmod>
+    <data>
+        <display>
+        <title>git干货系列：（总纲）根据使用场景介绍git</title>
+        <pubTime>2016-03-20T14:49:30.000Z</pubTime>
         
          
            
