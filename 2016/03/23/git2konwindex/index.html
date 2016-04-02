@@ -11,14 +11,12 @@
     
 
     
-    <meta name="description" content="前言
-暂存区（stage, index）是Git最重要的概念之一，理解了这个概念很多 Git 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。">
+    <meta name="description" content="前言暂存区（stage, index）是Git最重要的概念之一，理解了这个概念很多 Git 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git干货系列：（二）深入学习之前先理解git暂存区">
 <meta property="og:url" content="http://tengj.github.io/2016/03/23/git2konwindex/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="前言
-暂存区（stage, index）是Git最重要的概念之一，理解了这个概念很多 Git 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。">
+<meta property="og:description" content="前言暂存区（stage, index）是Git最重要的概念之一，理解了这个概念很多 Git 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_1.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_2.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_3.png">
@@ -32,11 +30,10 @@
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_11.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_12.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
-<meta property="og:updated_time" content="2016-03-27T09:19:51.103Z">
+<meta property="og:updated_time" content="2016-04-02T07:08:20.222Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git干货系列：（二）深入学习之前先理解git暂存区">
-<meta name="twitter:description" content="前言
-暂存区（stage, index）是Git最重要的概念之一，理解了这个概念很多 Git 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。">
+<meta name="twitter:description" content="前言暂存区（stage, index）是Git最重要的概念之一，理解了这个概念很多 Git 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。">
 
     
     <link rel="alternative" href="/atom.xml" title="嘟嘟独立博客" type="application/atom+xml">
@@ -118,10 +115,8 @@
 		
 		</div>
 		
-		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><hr>
-<p>暂存区<code>（stage, index）</code>是<code>Git</code>最重要的概念之一，理解了这个概念很多 <code>Git</code> 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。<br><a id="more"></a> </p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><hr>
-<p>下面这个图展示了工作区、版本库中的暂存区和版本库之间的关系。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_1.png" alt=""><br>在这个图中，我们可以看到部分 <code>Git</code>命令是如何影响工作区和暂存区<code>（stage, index）</code>的。</p>
+		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>暂存区<code>（stage, index）</code>是<code>Git</code>最重要的概念之一，理解了这个概念很多 <code>Git</code> 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。<br><a id="more"></a> </p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>下面这个图展示了工作区、版本库中的暂存区和版本库之间的关系。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_1.png" alt=""><br>在这个图中，我们可以看到部分 <code>Git</code>命令是如何影响工作区和暂存区<code>（stage, index）</code>的。</p>
 <ul>
 <li>图中左侧为工作区，右侧为版本库。在版本库中标记为 <code>index</code> 的区域是暂存区<code>（stage, index）</code>，标记为 <code>master</code> 的是 <code>master</code> 分支所代表的目录树。</li>
 <li>图中我们可以看出此时<code>HEAD</code>实际是指向<code>master</code>分支的一个“游标”。所以图示的命令中出现<code>HEAD</code>的地方可以用<code>master</code>来替换。</li>
@@ -136,14 +131,12 @@
 <li>当执行 <code>rm file</code>命令时，只会删除工作区的文件。</li>
 </ul>
 <hr>
-<h2 id="下面举例子来证明以上观点"><a href="#下面举例子来证明以上观点" class="headerlink" title="下面举例子来证明以上观点"></a>下面举例子来证明以上观点</h2><hr>
-<p>假设：<br>工作区：a<br>暂存区（index）:b<br>HEAD:C</p>
+<h2 id="下面举例子来证明以上观点"><a href="#下面举例子来证明以上观点" class="headerlink" title="下面举例子来证明以上观点"></a>下面举例子来证明以上观点</h2><p>假设：<br>工作区：a<br>暂存区（index）:b<br>HEAD:C</p>
 <p>git diff命令结论<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git diff           比较a跟b</span><br><span class="line">git diff --cached  比较b跟c</span><br><span class="line">git diff HEAD      比较a跟c</span><br></pre></td></tr></table></figure></p>
 <p>git reset跟 git checkout结论</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD              c覆盖b</span><br><span class="line">git checkout -- &lt;file&gt;      b覆盖a</span><br><span class="line">git checkout HEAD &lt;file&gt;    c覆盖a,b</span><br></pre></td></tr></table></figure>
 <p>git rm命令结论<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rm          删除a跟b</span><br><span class="line">git rm --cached 只删除b</span><br><span class="line">rm file         只删除a</span><br></pre></td></tr></table></figure></p>
-<h2 id="证明git-diff结论"><a href="#证明git-diff结论" class="headerlink" title="证明git diff结论"></a>证明git diff结论</h2><hr>
-<p>例子，默认新建一个<code>readme.txt</code>，里面输入内容<code>one</code>然后add并且<code>commit</code>一次。</p>
+<h2 id="证明git-diff结论"><a href="#证明git-diff结论" class="headerlink" title="证明git diff结论"></a>证明git diff结论</h2><p>例子，默认新建一个<code>readme.txt</code>，里面输入内容<code>one</code>然后add并且<code>commit</code>一次。</p>
 <p>1：修改<code>readme.txt</code>，新增内容<code>two</code>，这时候a内容改变了,多了<code>two</code>，而b跟c内容不变，都只有<code>one</code>。<br>执行<code>git diff readme.txt</code>查看效果  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_2.png" alt="">  </p>
 <p>结论：如图看出，内容有修改， a跟b比较了</p>
@@ -172,8 +165,7 @@
 <p>结论，如图看出，没有变化，说明a,b,c内容一样</p>
 <hr>
 <p>根据上面的实例再一次证明了如下观点：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git diff           比较工作区跟暂存区</span><br><span class="line">git diff --cached  比较暂存区跟HEAD</span><br><span class="line">git diff HEAD      比较工作区跟HEAD</span><br></pre></td></tr></table></figure></p>
-<h2 id="证明git-reset跟-git-checkout结论"><a href="#证明git-reset跟-git-checkout结论" class="headerlink" title="证明git reset跟 git checkout结论"></a>证明git reset跟 git checkout结论</h2><hr>
-<p>例子，默认新建一个<code>readme.txt</code>，里面输入内容<code>one</code>然后add并且<code>commit</code>一次，这时候a,b,c内容都是<code>one</code></p>
+<h2 id="证明git-reset跟-git-checkout结论"><a href="#证明git-reset跟-git-checkout结论" class="headerlink" title="证明git reset跟 git checkout结论"></a>证明git reset跟 git checkout结论</h2><p>例子，默认新建一个<code>readme.txt</code>，里面输入内容<code>one</code>然后add并且<code>commit</code>一次，这时候a,b,c内容都是<code>one</code></p>
 <hr>
 <p>1.修改<code>readme.txt</code>，新增内容<code>two</code>，执行<code>git add readme.txt</code>操作，这时候a ,b内容都多了<code>two</code>,c还是只有<code>one</code>.<br>执行<code>git reset HEAD -- readme.txt</code>命令后，c覆盖b,这时候b内容也变成只有<code>one</code>了，使用<code>git diff  readme.txt</code>命令可以看到，有内容修改，a跟b内容不一样。  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_9.png" alt=""></p>
@@ -186,14 +178,12 @@
 <hr>
 <p>根据上面的实例再一次证明了如下观点：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD              HEAD覆盖暂存区</span><br><span class="line">git checkout -- &lt;file&gt;      暂存区覆盖工作区</span><br><span class="line">git checkout HEAD &lt;file&gt;    HEAD覆盖暂存区和工作区</span><br></pre></td></tr></table></figure></p>
 <hr>
-<h2 id="证明git-rm-结论"><a href="#证明git-rm-结论" class="headerlink" title="证明git rm 结论"></a>证明git rm 结论</h2><hr>
-<p>默认新建一个<code>readme.txt</code>，里面输入内容<code>one</code>，然后使用<code>git add readme.txt</code>命令。<br>1.执行git rm readme.txt命令，发现文件被删除了。</p>
+<h2 id="证明git-rm-结论"><a href="#证明git-rm-结论" class="headerlink" title="证明git rm 结论"></a>证明git rm 结论</h2><p>默认新建一个<code>readme.txt</code>，里面输入内容<code>one</code>，然后使用<code>git add readme.txt</code>命令。<br>1.执行git rm readme.txt命令，发现文件被删除了。</p>
 <p>2.再新建一个一个<code>readme.txt</code>，里面输入内容 one，然后使用<code>git add readme.txt</code>命令。执行<code>git rm --cached readme.txt</code>命令，发现文件内<code>readme.txt</code>还在，然后执行<code>git status</code>命令，发现是<code>Untracked</code>状态，也就是未<code>add</code>，这就说明暂存区被删除了。  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_12.png" alt=""></p>
 <hr>
 <p>根据上面的实例再一次证明了如下观点：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rm file      会将文件从缓存区和你的硬盘中（工作区）删除</span><br><span class="line">git rm --cached  只删除暂存区，不删除工作区</span><br><span class="line">rm file          只删除工作区</span><br></pre></td></tr></table></figure></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><hr>
-<p>暂存区的原理需要大家重复的加深了解，基础打牢了后面学起来就轻松很多，上面几个例子都自己验证一遍，加深印象。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>暂存区的原理需要大家重复的加深了解，基础打牢了后面学起来就轻松很多，上面几个例子都自己验证一遍，加深印象。</p>
 <hr>
 <p>最近撸了个java的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG" alt=""></p>
   

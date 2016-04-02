@@ -11,20 +11,14 @@
     
 
     
-    <meta name="description" content="前言
-因为gitHub上的项目是公开的，不适合公司内部项目放在上面，而私人的需要收费，这绝非是我们愿意的。所以找了个跟gitHub很相似，但是又免费的gitLab。现在将搭建gitLab过程记录一下留作参考。
-正文
-gitLab介绍
-GitLab是利用 Ruby on Rails 一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。它拥有与Githu">
+    <meta name="description" content="前言因为gitHub上的项目是公开的，不适合公司内部项目放在上面，而私人的需要收费，这绝非是我们愿意的。所以找了个跟gitHub很相似，但是又免费的gitLab。现在将搭建gitLab过程记录一下留作参考。
+正文gitLab介绍GitLab是利用 Ruby on Rails 一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。它拥有与Github类似">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git干货系列：（六）公司内部搭建git服务器">
 <meta property="og:url" content="http://tengj.github.io/2016/03/29/git6gitlab/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="前言
-因为gitHub上的项目是公开的，不适合公司内部项目放在上面，而私人的需要收费，这绝非是我们愿意的。所以找了个跟gitHub很相似，但是又免费的gitLab。现在将搭建gitLab过程记录一下留作参考。
-正文
-gitLab介绍
-GitLab是利用 Ruby on Rails 一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。它拥有与Githu">
+<meta property="og:description" content="前言因为gitHub上的项目是公开的，不适合公司内部项目放在上面，而私人的需要收费，这绝非是我们愿意的。所以找了个跟gitHub很相似，但是又免费的gitLab。现在将搭建gitLab过程记录一下留作参考。
+正文gitLab介绍GitLab是利用 Ruby on Rails 一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。它拥有与Github类似">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_1.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_2.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_3.jpg">
@@ -54,14 +48,11 @@ GitLab是利用 Ruby on Rails 一个开源的版本管理系统，实现一个�
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_28.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_29.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
-<meta property="og:updated_time" content="2016-03-29T07:59:20.690Z">
+<meta property="og:updated_time" content="2016-04-02T07:05:56.319Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git干货系列：（六）公司内部搭建git服务器">
-<meta name="twitter:description" content="前言
-因为gitHub上的项目是公开的，不适合公司内部项目放在上面，而私人的需要收费，这绝非是我们愿意的。所以找了个跟gitHub很相似，但是又免费的gitLab。现在将搭建gitLab过程记录一下留作参考。
-正文
-gitLab介绍
-GitLab是利用 Ruby on Rails 一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。它拥有与Githu">
+<meta name="twitter:description" content="前言因为gitHub上的项目是公开的，不适合公司内部项目放在上面，而私人的需要收费，这绝非是我们愿意的。所以找了个跟gitHub很相似，但是又免费的gitLab。现在将搭建gitLab过程记录一下留作参考。
+正文gitLab介绍GitLab是利用 Ruby on Rails 一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。它拥有与Github类似">
 
     
     <link rel="alternative" href="/atom.xml" title="嘟嘟独立博客" type="application/atom+xml">
@@ -143,22 +134,16 @@ GitLab是利用 Ruby on Rails 一个开源的版本管理系统，实现一个�
 		
 		</div>
 		
-		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><hr>
-<p>因为<code>gitHub</code>上的项目是公开的，不适合公司内部项目放在上面，而私人的需要收费，这绝非是我们愿意的。所以找了个跟<code>gitHub</code>很相似，但是又免费的<code>gitLab</code>。现在将搭建<code>gitLab</code>过程记录一下留作参考。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><hr>
-<h2 id="gitLab介绍"><a href="#gitLab介绍" class="headerlink" title="gitLab介绍"></a>gitLab介绍</h2><hr>
-<p><a href="https://about.gitlab.com/" target="_blank" rel="external">GitLab</a>是利用 <code>Ruby on Rails</code> 一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。它拥有与Github类似的功能，能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序(Wall)进行交流。它还提供一个代码片段收集功能可以轻松实现代码复用，便于日后有需要的时候进行查找。  </p>
+		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>因为<code>gitHub</code>上的项目是公开的，不适合公司内部项目放在上面，而私人的需要收费，这绝非是我们愿意的。所以找了个跟<code>gitHub</code>很相似，但是又免费的<code>gitLab</code>。现在将搭建<code>gitLab</code>过程记录一下留作参考。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="gitLab介绍"><a href="#gitLab介绍" class="headerlink" title="gitLab介绍"></a>gitLab介绍</h2><p><a href="https://about.gitlab.com/" target="_blank" rel="external">GitLab</a>是利用 <code>Ruby on Rails</code> 一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。它拥有与Github类似的功能，能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序(Wall)进行交流。它还提供一个代码片段收集功能可以轻松实现代码复用，便于日后有需要的时候进行查找。  </p>
 <p>依赖组件：ruby 1.9.3+，MySQL，git，redis， Sidekiq。<br>最低配置CPU 1G，RAM 1G+swap可以支持100用户。</p>
-<h2 id="先连接SSH"><a href="#先连接SSH" class="headerlink" title="先连接SSH"></a>先连接SSH</h2><hr>
-<p>首先要确定<code>ubuntu</code>上安装并且启动了<code>ssh</code>服务,然后还要确保<code>linux</code>系统上的防火墙要关闭,<code>win8</code>的防火墙可以正常开启<br><code>SSH</code>(仿真终端工具有PUTTY，SecureCRT 以及Fterm等）可以<code>google</code>下载的了.<br>步骤:<br>1, 有人说首先要在<code>Virtual Network Editor</code>做<code>NAT</code>的端口映射,其实是不需要的;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps <span class="operator">-e</span>|grep ssh</span><br></pre></td></tr></table></figure></p>
+<h2 id="先连接SSH"><a href="#先连接SSH" class="headerlink" title="先连接SSH"></a>先连接SSH</h2><p>首先要确定<code>ubuntu</code>上安装并且启动了<code>ssh</code>服务,然后还要确保<code>linux</code>系统上的防火墙要关闭,<code>win8</code>的防火墙可以正常开启<br><code>SSH</code>(仿真终端工具有PUTTY，SecureCRT 以及Fterm等）可以<code>google</code>下载的了.<br>步骤:<br>1, 有人说首先要在<code>Virtual Network Editor</code>做<code>NAT</code>的端口映射,其实是不需要的;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps <span class="operator">-e</span>|grep ssh</span><br></pre></td></tr></table></figure></p>
 <p>如果结果中只有<code>ssh-agent</code>,那说明<code>ssh-server</code>还没有启动,一般<code>ubuntu</code>是默认安装<code>ssh</code>的,要是没有安装,可以通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openssh-server</span><br></pre></td></tr></table></figure></p>
 <p>安装ssh服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/ssh start</span><br></pre></td></tr></table></figure></p>
 <p>启动ssh服务</p>
-<h2 id="初始化root密码"><a href="#初始化root密码" class="headerlink" title="初始化root密码"></a>初始化root密码</h2><hr>
-<p><code>ubuntn</code>刚安装时候<code>root</code>还没有密码，设置一个，使用命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo passwd</span><br></pre></td></tr></table></figure></p>
+<h2 id="初始化root密码"><a href="#初始化root密码" class="headerlink" title="初始化root密码"></a>初始化root密码</h2><p><code>ubuntn</code>刚安装时候<code>root</code>还没有密码，设置一个，使用命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo passwd</span><br></pre></td></tr></table></figure></p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_1.png" alt=""></p>
-<h2 id="安装gitlib整合包"><a href="#安装gitlib整合包" class="headerlink" title="安装gitlib整合包"></a>安装gitlib整合包</h2><hr>
-<p><a href="https://about.gitlab.com/downloads/" target="_blank" rel="external">官方有安装包</a>与脚本下载，<a href="https://about.gitlab.com/installation/" target="_blank" rel="external">官方安装指南</a>。同样GITHUB上有个社区非官方的<a href="https://github.com/gitlabhq/gitlab-recipes" target="_blank" rel="external">安装指南</a>。<br>但这儿里推荐<code>bitnami</code>下载打包安装版本 <a href="https://bitnami.com/stack/gitlab/installer" title="https://bitnami.com/stack/gitlab/installer" target="_blank" rel="external">https://bitnami.com/stack/gitlab/installer</a> ,省去很多时间。他们也提供相关<a href="http://wiki.bitnami.com/Applications/BitNami_GitLab" target="_blank" rel="external">WIKI</a><br>以<a href="http://www.ubuntu.com/download/" target="_blank" rel="external">ubuntu</a>为演示环境，来安装这个包，切换到<code>root</code>账户, 在终端运行：<br>如果没有权限，先授权账号：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod <span class="number">777</span> bitnami-gitlab-<span class="number">8.5</span>.<span class="number">7</span>-<span class="number">0</span>-linux-x64-installer.run</span><br></pre></td></tr></table></figure></p>
+<h2 id="安装gitlib整合包"><a href="#安装gitlib整合包" class="headerlink" title="安装gitlib整合包"></a>安装gitlib整合包</h2><p><a href="https://about.gitlab.com/downloads/" target="_blank" rel="external">官方有安装包</a>与脚本下载，<a href="https://about.gitlab.com/installation/" target="_blank" rel="external">官方安装指南</a>。同样GITHUB上有个社区非官方的<a href="https://github.com/gitlabhq/gitlab-recipes" target="_blank" rel="external">安装指南</a>。<br>但这儿里推荐<code>bitnami</code>下载打包安装版本 <a href="https://bitnami.com/stack/gitlab/installer" title="https://bitnami.com/stack/gitlab/installer" target="_blank" rel="external">https://bitnami.com/stack/gitlab/installer</a> ,省去很多时间。他们也提供相关<a href="http://wiki.bitnami.com/Applications/BitNami_GitLab" target="_blank" rel="external">WIKI</a><br>以<a href="http://www.ubuntu.com/download/" target="_blank" rel="external">ubuntu</a>为演示环境，来安装这个包，切换到<code>root</code>账户, 在终端运行：<br>如果没有权限，先授权账号：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod <span class="number">777</span> bitnami-gitlab-<span class="number">8.5</span>.<span class="number">7</span>-<span class="number">0</span>-linux-x64-installer.run</span><br></pre></td></tr></table></figure></p>
 <p>然后切换<code>root</code>用户执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bitnami-gitlab-<span class="number">8.5</span>.<span class="number">7</span>-<span class="number">0</span>-linux-x64-installer.run</span><br></pre></td></tr></table></figure></p>
 <p>执行后就会弹出图形化界面，一步步确认就行，如下图<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_2.jpg" alt="">  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_3.jpg" alt="">  </p>
@@ -166,20 +151,16 @@ GitLab是利用 Ruby on Rails 一个开源的版本管理系统，实现一个�
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_5.jpg" alt="">  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_6.jpg" alt="">  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_7.jpg" alt="">  </p>
-<h2 id="启动命令"><a href="#启动命令" class="headerlink" title="启动命令"></a>启动命令</h2><hr>
-<p>第一次安装好了就默认启动了<code>gitlab</code>，如果要手动启动的话有两种办法<br>1.找到安装好的路径<code>/opt/gitlab-8.5.7-0</code><br>需要<code>root</code>权限执行命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo ./ctlscript.sh start</span><br><span class="line">```  </span><br><span class="line">![](http://<span class="number">7</span>xqch5.com1.z0.glb.clouddn.com/git6_8.png)  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">2</span>.也可以查看`GUI`管理控制台，在`Manage Servers中`选择`Start All`启动所有</span><br><span class="line">``` bash</span><br><span class="line">sudo ./manager-linux-x64.run</span><br></pre></td></tr></table></figure></p>
+<h2 id="启动命令"><a href="#启动命令" class="headerlink" title="启动命令"></a>启动命令</h2><p>第一次安装好了就默认启动了<code>gitlab</code>，如果要手动启动的话有两种办法<br>1.找到安装好的路径<code>/opt/gitlab-8.5.7-0</code><br>需要<code>root</code>权限执行命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo ./ctlscript.sh start</span><br><span class="line">```  </span><br><span class="line">![](http://<span class="number">7</span>xqch5.com1.z0.glb.clouddn.com/git6_8.png)  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">2</span>.也可以查看`GUI`管理控制台，在`Manage Servers中`选择`Start All`启动所有</span><br><span class="line">``` bash</span><br><span class="line">sudo ./manager-linux-x64.run</span><br></pre></td></tr></table></figure></p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_9.png" alt=""></p>
-<h2 id="登陆系统"><a href="#登陆系统" class="headerlink" title="登陆系统"></a>登陆系统</h2><hr>
-<p>启动后，就可以访问系统页面了，这里先通过ifconfig命令获取当前的ip地址<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_10.png" alt=""><br>我的是<code>192.168.153.128</code>，于是就可以在外面<code>window</code>系统浏览器访问  </p>
+<h2 id="登陆系统"><a href="#登陆系统" class="headerlink" title="登陆系统"></a>登陆系统</h2><p>启动后，就可以访问系统页面了，这里先通过ifconfig命令获取当前的ip地址<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_10.png" alt=""><br>我的是<code>192.168.153.128</code>，于是就可以在外面<code>window</code>系统浏览器访问  </p>
 <p><a href="http://192.168.153.128/users/sign_in" target="_blank" rel="external">http://192.168.153.128/users/sign_in</a>  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_11.png" alt="">  </p>
 <p>使用我之前配置的<code>git</code>登陆,我之前安装的时候配置的管理员账号是<code>git</code>,密码12345678，<br>这里我登陆后发现跳转到<code>404</code>页面，把地址<code>http://192.168.153.128/users/sign_in</code><br>后面的<code>users/sign_in</code>删掉回车就行,就去后界面如下：  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_12.png" alt="">  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_13.png" alt=""></p>
-<h2 id="创建项目前的设置"><a href="#创建项目前的设置" class="headerlink" title="创建项目前的设置"></a>创建项目前的设置</h2><hr>
-<p>如果你是自己一个人玩就直接创建项目即可，因为我这边是给团队使用的，所以需要创建一下用户组，以及添加组成员，配置权限等，下面来介绍这些配置</p>
-<h2 id="配置服务器邮件"><a href="#配置服务器邮件" class="headerlink" title="配置服务器邮件"></a>配置服务器邮件</h2><hr>
-<p>添加人员或者自己注册的时候需要发邮件激活，所以要先配置服务器，我在<code>bitnami</code>提供的<a href="https://wiki.bitnami.com/Applications/BitNami_GitLab#How_to_configure_the_email_settings_of_GitLab.3f" target="_blank" rel="external">wiki</a>里面找到了办法，原文如下：</p>
+<h2 id="创建项目前的设置"><a href="#创建项目前的设置" class="headerlink" title="创建项目前的设置"></a>创建项目前的设置</h2><p>如果你是自己一个人玩就直接创建项目即可，因为我这边是给团队使用的，所以需要创建一下用户组，以及添加组成员，配置权限等，下面来介绍这些配置</p>
+<h2 id="配置服务器邮件"><a href="#配置服务器邮件" class="headerlink" title="配置服务器邮件"></a>配置服务器邮件</h2><p>添加人员或者自己注册的时候需要发邮件激活，所以要先配置服务器，我在<code>bitnami</code>提供的<a href="https://wiki.bitnami.com/Applications/BitNami_GitLab#How_to_configure_the_email_settings_of_GitLab.3f" target="_blank" rel="external">wiki</a>里面找到了办法，原文如下：</p>
 <blockquote>
 <p> <em>How to configure the email settings of GitLab?</em><br>You can configure the SMTP settings during the installation process. If you are using the Virtual Machine or AMI, you can configure it manually. For example, these are the options to configure it using a GMail account:<br>/opt/bitnami/apps/gitlab/htdocs/config/environments/production.rb<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">config.action_mailer.raise_delivery_errors = <span class="literal">true</span></span><br><span class="line">config.action_mailer.delivery_method = :smtp   </span><br><span class="line">config.action_mailer.perform_deliveries = <span class="literal">true</span></span><br><span class="line">config.action_mailer.smtp_settings = &#123;</span><br><span class="line">:address =&gt; <span class="string">"smtp.gmail.com"</span>,</span><br><span class="line">:port =&gt; <span class="number">587</span>,</span><br><span class="line">:domain =&gt; <span class="string">"gmail.com"</span>,</span><br><span class="line">:authentication =&gt; :plain,</span><br><span class="line">:user_name =&gt; <span class="string">"your_account@gmail.com"</span>,</span><br><span class="line">:，password =&gt; <span class="string">"your_password"</span>,</span><br><span class="line">:<span class="built_in">enable</span>_starttls_auto =&gt; <span class="literal">true</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
@@ -187,33 +168,27 @@ GitLab是利用 Ruby on Rails 一个开源的版本管理系统，实现一个�
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_15.jpg" alt="">  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_16.png" alt="">  </p>
 <p>可以看到，非管理员登陆右上角就没有<code>Admin Area</code>功能</p>
-<h2 id="创建小组，添加组内成员"><a href="#创建小组，添加组内成员" class="headerlink" title="创建小组，添加组内成员"></a>创建小组，添加组内成员</h2><hr>
-<p>让组内成员自己注册账号激活后，我们就准备创建小组了，创建小组是为了方便管理，创建项目的时候直接指定小组，这样小组内的成员都可以看到项目  </p>
+<h2 id="创建小组，添加组内成员"><a href="#创建小组，添加组内成员" class="headerlink" title="创建小组，添加组内成员"></a>创建小组，添加组内成员</h2><p>让组内成员自己注册账号激活后，我们就准备创建小组了，创建小组是为了方便管理，创建项目的时候直接指定小组，这样小组内的成员都可以看到项目  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_17.png" alt="">  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_18.png" alt="">  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_19.png" alt="">  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_20.png" alt="">  </p>
-<h2 id="新增项目"><a href="#新增项目" class="headerlink" title="新增项目"></a>新增项目</h2><hr>
-<p>小组创建好了就可以新增一个项目了,这里创建的时候选择<code>edw</code>这个创建好的小组，并且项目宣称<code>private</code>私有项目。这样只有小组内的成员可以下载这个项目  </p>
+<h2 id="新增项目"><a href="#新增项目" class="headerlink" title="新增项目"></a>新增项目</h2><p>小组创建好了就可以新增一个项目了,这里创建的时候选择<code>edw</code>这个创建好的小组，并且项目宣称<code>private</code>私有项目。这样只有小组内的成员可以下载这个项目  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_21.png" alt="">  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_22.png" alt="">  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_23.png" alt="">  </p>
-<h2 id="配置SSH-key"><a href="#配置SSH-key" class="headerlink" title="配置SSH key"></a>配置SSH key</h2><hr>
-<p>这里切换到<code>tengj</code>用户登陆，发现已经有了<code>springmvctouchbaidu</code>项目  </p>
+<h2 id="配置SSH-key"><a href="#配置SSH-key" class="headerlink" title="配置SSH key"></a>配置SSH key</h2><p>这里切换到<code>tengj</code>用户登陆，发现已经有了<code>springmvctouchbaidu</code>项目  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_24.png" alt=""><br>但是要下载到本地还需要配置<code>SSH key</code>,复制我们本地<code>\.ssh\id_rsa.pub</code>的内容黏贴到下面图中指定的即可。  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_25.png" alt=""></p>
-<h2 id="远程下载项目"><a href="#远程下载项目" class="headerlink" title="远程下载项目"></a>远程下载项目</h2><hr>
-<p>这里模拟<code>tengj</code>下载远程项目，在这之前我已经用管理员账号把项目传上去了，如图  </p>
+<h2 id="远程下载项目"><a href="#远程下载项目" class="headerlink" title="远程下载项目"></a>远程下载项目</h2><p>这里模拟<code>tengj</code>下载远程项目，在这之前我已经用管理员账号把项目传上去了，如图  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_26.png" alt="">  </p>
 <p>指定一个目录存放该项目，执行<code>git clone</code>命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone git@192.168.153.128:edw/springmvctouchbaidu.git&#10;Cloning into &#39;springmvctouchbaidu&#39;...&#10;The authenticity of host &#39;192.168.153.128 (192.168.153.128)&#39; can&#39;t be established.&#10;ECDSA key fingerprint is SHA256:1SgfW1DLmaZ9m/E82vVtWjBK1AaP+LMW5U4ng8nv6uE.&#10;Are you sure you want to continue connecting (yes/no)? yes&#10;Warning: Permanently added &#39;192.168.153.128&#39; (ECDSA) to the list of known hosts.&#10;remote: &#23545;&#35937;&#35745;&#25968;&#20013;: 339, &#23436;&#25104;.&#10;remote: &#21387;&#32553;&#23545;&#35937;&#20013;: 100% (242/242), &#23436;&#25104;.&#10;remote: Total 339 (delta 68), reused 339 (delta 68)&#10;Receiving objects: 100% (339/339), 12.97 MiB | 14.44 MiB/s, done.&#10;Resolving deltas: 100% (68/68), done.&#10;Checking connectivity... done.</span><br></pre></td></tr></table></figure></p>
 <p>搞定，下载下来了。</p>
-<h2 id="配置权限"><a href="#配置权限" class="headerlink" title="配置权限"></a>配置权限</h2><hr>
-<p>前面文章也说过，一般一个实际项目中<code>master</code>用来版本发布，一般不在这个分支上开发，所以除了<code>git</code>管理员用户可以提交代码到<code>master</code>外，其他组成员只能<code>push</code>代码到<code>dev</code>这个分支。<br>比如我添加<code>tengj</code>用户的时候选择的是<code>Developer</code>角色，只要在<code>Protected Branches</code>中这个勾不够上就行了。这样开发人员就无法<code>push</code>代码到<code>master</code>分支上。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_27.png" alt="">  </p>
+<h2 id="配置权限"><a href="#配置权限" class="headerlink" title="配置权限"></a>配置权限</h2><p>前面文章也说过，一般一个实际项目中<code>master</code>用来版本发布，一般不在这个分支上开发，所以除了<code>git</code>管理员用户可以提交代码到<code>master</code>外，其他组成员只能<code>push</code>代码到<code>dev</code>这个分支。<br>比如我添加<code>tengj</code>用户的时候选择的是<code>Developer</code>角色，只要在<code>Protected Branches</code>中这个勾不够上就行了。这样开发人员就无法<code>push</code>代码到<code>master</code>分支上。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_27.png" alt="">  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_28.png" alt="">  </p>
 <p>下面模拟一下tengj用户提交代码：  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_29.png" alt="">  </p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><hr>
-<p>ok，花了三天时间终于搞定了，截图还是蛮累人的哈哈，算是比较详细的记录了我这次安装<code>gitlab</code>的过程，个人感觉比网络上的文章调理清晰多了。一开始查资料快累死了。希望对你有所帮助。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>ok，花了三天时间终于搞定了，截图还是蛮累人的哈哈，算是比较详细的记录了我这次安装<code>gitlab</code>的过程，个人感觉比网络上的文章调理清晰多了。一开始查资料快累死了。希望对你有所帮助。</p>
 <hr>
 <p> 最近撸了个java的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花<br> <img src="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG" alt=""></p>
   

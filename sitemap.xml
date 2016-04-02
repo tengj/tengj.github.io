@@ -2,6 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://tengj.github.io/2016/03/20/gitTotalMsg/</loc>
+    
+    <lastmod>2016-04-02T07:09:06.472Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tengj.github.io/2016/03/20/git1creategit/</loc>
+    
+    <lastmod>2016-04-02T07:08:48.568Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tengj.github.io/2016/03/23/git2konwindex/</loc>
+    
+    <lastmod>2016-04-02T07:08:20.222Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tengj.github.io/2016/03/24/git3reset/</loc>
+    
+    <lastmod>2016-04-02T07:07:53.295Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tengj.github.io/2016/03/25/git4remote/</loc>
+    
+    <lastmod>2016-04-02T07:07:25.391Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tengj.github.io/2016/03/27/git5branch/</loc>
+    
+    <lastmod>2016-04-02T07:07:01.537Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tengj.github.io/2016/03/29/git6gitlab/</loc>
+    
+    <lastmod>2016-04-02T07:05:56.319Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://tengj.github.io/2016/04/02/sjms1simpleFactory/</loc>
     
     <lastmod>2016-04-02T07:01:27.354Z</lastmod>
@@ -12,27 +61,6 @@
     <loc>http://tengj.github.io/2016/04/01/sjmstotal/</loc>
     
     <lastmod>2016-04-02T07:01:20.970Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tengj.github.io/2016/03/29/git6gitlab/</loc>
-    
-    <lastmod>2016-03-29T07:59:20.690Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tengj.github.io/2016/03/27/git5branch/</loc>
-    
-    <lastmod>2016-03-29T07:56:56.912Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tengj.github.io/2016/03/20/gitTotalMsg/</loc>
-    
-    <lastmod>2016-03-29T07:48:44.430Z</lastmod>
     
   </url>
   
@@ -117,34 +145,6 @@
     <loc>http://tengj.github.io/2016/02/22/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%80%EF%BC%89hexo+gitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2/</loc>
     
     <lastmod>2016-03-27T09:21:37.997Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tengj.github.io/2016/03/20/git1creategit/</loc>
-    
-    <lastmod>2016-03-27T09:19:59.473Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tengj.github.io/2016/03/23/git2konwindex/</loc>
-    
-    <lastmod>2016-03-27T09:19:51.103Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tengj.github.io/2016/03/24/git3reset/</loc>
-    
-    <lastmod>2016-03-27T09:19:38.919Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tengj.github.io/2016/03/25/git4remote/</loc>
-    
-    <lastmod>2016-03-27T09:19:28.160Z</lastmod>
     
   </url>
   
