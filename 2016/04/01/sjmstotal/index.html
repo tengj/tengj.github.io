@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/sjms0_3.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/sjms0_1.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/sjms0_2.jpg">
-<meta property="og:updated_time" content="2016-04-02T06:05:23.891Z">
+<meta property="og:updated_time" content="2016-04-02T06:39:32.884Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式系列：（总纲）总体介绍设计模式">
 <meta name="twitter:description" content="前言入行java几年，一直不敢尝试学习设计模式，总感觉自己能力不行，不敢接触这么高深的东西。这次难得的机会，参加了一场公司的培训，接触到设计模式，听过后发现其实设计模式也不是那样高深和难以理解，实际开发中其实都不由自主用到了。这次开篇，一是整理自己学习过程中的笔记，准备一天一个模式的分享；二是给自己压力和动力，希望自己坚持下来。后续博文皆是学习的整理笔记。没办法，人丑就要读书。
@@ -123,9 +123,277 @@
 <p>最少知道原则是指：一个实体应当尽量少地与其他实体之间发生相互作用，使得系统功能模块相对独立。</p>
 <p><strong>6、合成复用原则（Composite Reuse Principle）</strong></p>
 <p>合成复用原则是指：尽量使用合成/聚合的方式，而不是使用继承。</p>
-<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><p><img src="http://7xqch5.com1.z0.glb.clouddn.com/sjms0_1.png" alt=""></p>
-<table class="table table-bordered table-striped table-condensed"><br>   <tr><br>      <td>学习顺序</td><br>      <td>设计模式</td><br>      <td>常用程度</td><br>      <td>适用层次</td><br>      <td>引入时机</td><br>      <td>结构复杂度</td><br>      <td>变化</td><br>      <td>实现</td><br>      <td>体现的原则</td><br>   </tr><br>   <tr><br>      <td>1</td><br>      <td>工厂模式（Factory Method）</td><br>      <td>很常用</td><br>      <td>代码级</td><br>      <td>编码时</td><br>      <td>简单</td><br>      <td>子类的实例化</td><br>      <td>对象的创建工作延迟到子类</td><br>      <td>开闭原则</td><br>   </tr><br>   <tr><br>      <td>2</td><br>      <td>单例模式（Singleton）</td><br>      <td>很常用</td><br>      <td>代码级、应用级</td><br>      <td>设计时、编码时</td><br>      <td>简单</td><br>      <td>唯一实例</td><br>      <td>封装对象产生的个数</td><br>      <td> </td><br>   </tr><br>   <tr><br>      <td>3</td><br>      <td>外观模式（Facade）</td><br>      <td>很常用</td><br>      <td>应用级、构架级</td><br>      <td>设计时、编码时</td><br>      <td>简单</td><br>      <td>子系统的高层接口</td><br>      <td>封装子系统</td><br>      <td>开闭原则</td><br>   </tr><br>   <tr><br>      <td>4</td><br>      <td>模板模式（Template Method）</td><br>      <td>很常用</td><br>      <td>代码级</td><br>      <td>编码时、重构时</td><br>      <td>简单</td><br>      <td>算法子步骤的变化</td><br>      <td>封装算法结构</td><br>      <td>依赖倒置原则</td><br>   </tr><br>   <tr><br>      <td>5</td><br>      <td>抽象工厂模式（Abstract Factory）</td><br>      <td>比较常用</td><br>      <td>应用级</td><br>      <td>设计时</td><br>      <td>比较复杂</td><br>      <td>产品家族的扩展</td><br>      <td>封装产品族系列内容的创建</td><br>      <td>开闭原则</td><br>   </tr><br>   <tr><br>      <td>6</td><br>      <td>组合模式（Composite）</td><br>      <td>比较常用</td><br>      <td>代码级</td><br>      <td>编码时、重构时</td><br>      <td>比较复杂</td><br>      <td>复杂对象接口的统一</td><br>      <td>统一复杂对象的接口</td><br>      <td>里氏代换原则</td><br>   </tr><br>   <tr><br>      <td>7</td><br>      <td>代理模式（Proxy）</td><br>      <td>比较常用</td><br>      <td>应用级、构架级</td><br>      <td>设计时、编码时</td><br>      <td>简单</td><br>      <td>对象访问的变化</td><br>      <td>封装对象的访问过程</td><br>      <td>里氏代换原则</td><br>   </tr><br>   <tr><br>      <td>8</td><br>      <td>命令模式（Command）</td><br>      <td>比较常用</td><br>      <td>应用级</td><br>      <td>设计时、编码时</td><br>      <td>比较简单</td><br>      <td>请求的变化</td><br>      <td>封装行为对对象</td><br>      <td>开闭原则</td><br>   </tr><br>   <tr><br>      <td>9</td><br>      <td>观察者模式（Observer）</td><br>      <td>比较常用</td><br>      <td>应用级、构架级</td><br>      <td>设计时、编码时</td><br>      <td>比较简单</td><br>      <td>通讯对象的变化</td><br>      <td>封装对象通知</td><br>      <td>开闭原则</td><br>   </tr><br>   <tr><br>      <td>10</td><br>      <td>策略模式（Strategy）</td><br>      <td>比较常用</td><br>      <td>应用级</td><br>      <td>设计时</td><br>      <td>一般</td><br>      <td>算法的变化</td><br>      <td>封装算法</td><br>      <td>里氏代换原则</td><br>   </tr><br>   <tr><br>      <td>11</td><br>      <td>建造者模式（Builder）</td><br>      <td>一般</td><br>      <td>代码级</td><br>      <td>编码时</td><br>      <td>一般</td><br>      <td>对象组建的变化</td><br>      <td>封装对象的组建过程</td><br>      <td>开闭原则</td><br>   </tr><br>   <tr><br>      <td>12</td><br>      <td>适配器模式（Adapter）</td><br>      <td>一般</td><br>      <td>代码级</td><br>      <td>重构时</td><br>      <td>一般</td><br>      <td>对象接口的变化</td><br>      <td>接口的转换</td><br>      <td> </td><br>   </tr><br>   <tr><br>      <td>13</td><br>      <td>桥接模式（Bridge）</td><br>      <td>一般</td><br>      <td>代码级</td><br>      <td>设计时、编码时</td><br>      <td>一般</td><br>      <td>对象的多维度变化</td><br>      <td>分离接口以及实现</td><br>      <td>开闭原则</td><br>   </tr><br>   <tr><br>      <td>14</td><br>      <td>装饰器模式（Decorator）</td><br>      <td>一般</td><br>      <td>代码级</td><br>      <td>重构时</td><br>      <td>比较复杂</td><br>      <td>对象的组合职责</td><br>      <td>在稳定接口上扩展</td><br>      <td>开闭原则</td><br>   </tr><br>   <tr><br>      <td>15</td><br>      <td>迭代器模式（Iterator）</td><br>      <td>一般</td><br>      <td>代码级、应用级</td><br>      <td>编码时、重构时</td><br>      <td>比较简单</td><br>      <td>对象内部集合的变化</td><br>      <td>封装对象内部集合的使用</td><br>      <td>单一职责原则</td><br>   </tr><br>   <tr><br>      <td>16</td><br>      <td>中介者模式（Mediator）</td><br>      <td>一般</td><br>      <td>应用级、构架级</td><br>      <td>编码时、重构时</td><br>      <td>一般</td><br>      <td>对象交互的变化</td><br>      <td>封装对象间的交互</td><br>      <td>开闭原则</td><br>   </tr><br>   <tr><br>      <td>17</td><br>      <td>备忘录模式（Memento）</td><br>      <td>一般</td><br>      <td>代码级</td><br>      <td>编码时</td><br>      <td>比较简单</td><br>      <td>状态的辅助保存</td><br>      <td>封装对象状态的变化</td><br>      <td>接口隔离原则</td><br>   </tr><br>   <tr><br>      <td>18</td><br>      <td>状态模式（State）</td><br>      <td>一般</td><br>      <td>应用级</td><br>      <td>设计时、编码时</td><br>      <td>一般</td><br>      <td>对象状态的变化</td><br>      <td>封装与状态相关的行为</td><br>      <td>单一职责原则</td><br>   </tr><br>   <tr><br>      <td>19</td><br>      <td>访问者模式（Visitor）</td><br>      <td>一般</td><br>      <td>应用级</td><br>      <td>设计时</td><br>      <td>比较复杂</td><br>      <td>对象操作变化</td><br>      <td>封装对象操作变化</td><br>      <td>开闭原则</td><br>   </tr><br>   <tr><br>      <td>20</td><br>      <td>原型模式（Prototype）</td><br>      <td>不太常用</td><br>      <td>应用级</td><br>      <td>编码时、重构时</td><br>      <td>比较简单</td><br>      <td>实例化的类</td><br>      <td>封装对原型的拷贝</td><br>      <td>依赖倒置原则</td><br>   </tr><br>   <tr><br>      <td>21</td><br>      <td>享元模式（Flyweight）</td><br>      <td>不太常用</td><br>      <td>代码级、应用级</td><br>      <td>设计时</td><br>      <td>一般</td><br>      <td>系统开销的优化</td><br>      <td>封装对象的获取</td><br>      <td> </td><br>   </tr><br>   <tr><br>      <td>22</td><br>      <td>责任链模式（Chain of Resp）</td><br>      <td>不太常用</td><br>      <td>应用级、构架级</td><br>      <td>设计时、编码时</td><br>      <td>比较复杂</td><br>      <td>对象的请求过程</td><br>      <td>封装对象的责任范围</td><br>      <td> </td><br>   </tr><br>   <tr><br>      <td>23</td><br>      <td>解释器模式（Interpreter）</td><br>      <td>不太常用</td><br>      <td>应用级</td><br>      <td>设计时</td><br>      <td>比较复杂</td><br>      <td>领域问题的变化</td><br>      <td>封装特定领域的变化</td><br>      <td> </td><br>   </tr><br></table>
-
+<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><p><img src="http://7xqch5.com1.z0.glb.clouddn.com/sjms0_1.png" alt="">  </p>
+<p>学习顺序介绍：  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">学习顺序</th>
+<th style="text-align:center">设计模式</th>
+<th style="text-align:center">常用程度</th>
+<th style="text-align:center">适用层次</th>
+<th style="text-align:center">引入时机</th>
+<th style="text-align:center">结构复杂度</th>
+<th style="text-align:center">变化</th>
+<th style="text-align:center">实现</th>
+<th style="text-align:center">体现的原则</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">工厂模式（Factory Method）</td>
+<td style="text-align:center">很常用</td>
+<td style="text-align:center">代码级</td>
+<td style="text-align:center">编码时</td>
+<td style="text-align:center">简单</td>
+<td style="text-align:center">子类的实例化</td>
+<td style="text-align:center">对象的创建工作延迟到子类</td>
+<td style="text-align:center">开闭原则</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">单例模式（Singleton）</td>
+<td style="text-align:center">很常用</td>
+<td style="text-align:center">代码级、应用级</td>
+<td style="text-align:center">设计时、编码时</td>
+<td style="text-align:center">简单</td>
+<td style="text-align:center">唯一实例</td>
+<td style="text-align:center">封装对象产生的个数</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">外观模式（Facade）</td>
+<td style="text-align:center">很常用</td>
+<td style="text-align:center">应用级、构架级</td>
+<td style="text-align:center">设计时、编码时</td>
+<td style="text-align:center">简单</td>
+<td style="text-align:center">子系统的高层接口</td>
+<td style="text-align:center">封装子系统</td>
+<td style="text-align:center">开闭原则</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">模板模式（Template Method）</td>
+<td style="text-align:center">很常用</td>
+<td style="text-align:center">代码级</td>
+<td style="text-align:center">编码时、重构时</td>
+<td style="text-align:center">简单</td>
+<td style="text-align:center">算法子步骤的变化</td>
+<td style="text-align:center">封装算法结构</td>
+<td style="text-align:center">依赖倒置原则</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">抽象工厂模式（Abstract Factory）</td>
+<td style="text-align:center">比较常用</td>
+<td style="text-align:center">应用级</td>
+<td style="text-align:center">设计时</td>
+<td style="text-align:center">比较复杂</td>
+<td style="text-align:center">产品家族的扩展</td>
+<td style="text-align:center">封装产品族系列内容的创建</td>
+<td style="text-align:center">开闭原则</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">组合模式（Composite）</td>
+<td style="text-align:center">比较常用</td>
+<td style="text-align:center">代码级</td>
+<td style="text-align:center">编码时、重构时</td>
+<td style="text-align:center">比较复杂</td>
+<td style="text-align:center">复杂对象接口的统一</td>
+<td style="text-align:center">统一复杂对象的接口</td>
+<td style="text-align:center">里氏代换原则</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">代理模式（Proxy）</td>
+<td style="text-align:center">比较常用</td>
+<td style="text-align:center">应用级、构架级</td>
+<td style="text-align:center">设计时、编码时</td>
+<td style="text-align:center">简单</td>
+<td style="text-align:center">对象访问的变化</td>
+<td style="text-align:center">封装对象的访问过程</td>
+<td style="text-align:center">里氏代换原则</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">命令模式（Command）</td>
+<td style="text-align:center">比较常用</td>
+<td style="text-align:center">应用级</td>
+<td style="text-align:center">设计时、编码时</td>
+<td style="text-align:center">比较简单</td>
+<td style="text-align:center">请求的变化</td>
+<td style="text-align:center">封装行为对对象</td>
+<td style="text-align:center">开闭原则</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">观察者模式（Observer）</td>
+<td style="text-align:center">比较常用</td>
+<td style="text-align:center">应用级、构架级</td>
+<td style="text-align:center">设计时、编码时</td>
+<td style="text-align:center">比较简单</td>
+<td style="text-align:center">通讯对象的变化</td>
+<td style="text-align:center">封装对象通知</td>
+<td style="text-align:center">开闭原则</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">策略模式（Strategy）</td>
+<td style="text-align:center">比较常用</td>
+<td style="text-align:center">应用级</td>
+<td style="text-align:center">设计时</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">算法的变化</td>
+<td style="text-align:center">封装算法</td>
+<td style="text-align:center">里氏代换原则</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center">建造者模式（Builder）</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">代码级</td>
+<td style="text-align:center">编码时</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">对象组建的变化</td>
+<td style="text-align:center">封装对象的组建过程</td>
+<td style="text-align:center">开闭原则</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center">适配器模式（Adapter）</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">代码级</td>
+<td style="text-align:center">重构时</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">对象接口的变化</td>
+<td style="text-align:center">接口的转换</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">桥接模式（Bridge）</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">代码级</td>
+<td style="text-align:center">设计时、编码时</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">对象的多维度变化</td>
+<td style="text-align:center">分离接口以及实现</td>
+<td style="text-align:center">开闭原则</td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center">装饰器模式（Decorator）</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">代码级</td>
+<td style="text-align:center">重构时</td>
+<td style="text-align:center">比较复杂</td>
+<td style="text-align:center">对象的组合职责</td>
+<td style="text-align:center">在稳定接口上扩展</td>
+<td style="text-align:center">开闭原则</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center">迭代器模式（Iterator）</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">代码级、应用级</td>
+<td style="text-align:center">编码时、重构时</td>
+<td style="text-align:center">比较简单</td>
+<td style="text-align:center">对象内部集合的变化</td>
+<td style="text-align:center">封装对象内部集合的使用</td>
+<td style="text-align:center">单一职责原则</td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:center">中介者模式（Mediator）</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">应用级、构架级</td>
+<td style="text-align:center">编码时、重构时</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">对象交互的变化</td>
+<td style="text-align:center">封装对象间的交互</td>
+<td style="text-align:center">开闭原则</td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:center">备忘录模式（Memento）</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">代码级</td>
+<td style="text-align:center">编码时</td>
+<td style="text-align:center">比较简单</td>
+<td style="text-align:center">状态的辅助保存</td>
+<td style="text-align:center">封装对象状态的变化</td>
+<td style="text-align:center">接口隔离原则</td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td style="text-align:center">状态模式（State）</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">应用级</td>
+<td style="text-align:center">设计时、编码时</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">对象状态的变化</td>
+<td style="text-align:center">封装与状态相关的行为</td>
+<td style="text-align:center">单一职责原则</td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:center">访问者模式（Visitor）</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">应用级</td>
+<td style="text-align:center">设计时</td>
+<td style="text-align:center">比较复杂</td>
+<td style="text-align:center">对象操作变化</td>
+<td style="text-align:center">封装对象操作变化</td>
+<td style="text-align:center">开闭原则</td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td style="text-align:center">原型模式（Prototype）</td>
+<td style="text-align:center">不太常用</td>
+<td style="text-align:center">应用级</td>
+<td style="text-align:center">编码时、重构时</td>
+<td style="text-align:center">比较简单</td>
+<td style="text-align:center">实例化的类</td>
+<td style="text-align:center">封装对原型的拷贝</td>
+<td style="text-align:center">依赖倒置原则</td>
+</tr>
+<tr>
+<td style="text-align:center">21</td>
+<td style="text-align:center">享元模式（Flyweight）</td>
+<td style="text-align:center">不太常用</td>
+<td style="text-align:center">代码级、应用级</td>
+<td style="text-align:center">设计时</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">系统开销的优化</td>
+<td style="text-align:center">封装对象的获取</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td style="text-align:center">责任链模式（Chain of Resp）</td>
+<td style="text-align:center">不太常用</td>
+<td style="text-align:center">应用级、构架级</td>
+<td style="text-align:center">设计时、编码时</td>
+<td style="text-align:center">比较复杂</td>
+<td style="text-align:center">对象的请求过程</td>
+<td style="text-align:center">封装对象的责任范围</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td style="text-align:center">解释器模式（Interpreter）</td>
+<td style="text-align:center">不太常用</td>
+<td style="text-align:center">应用级</td>
+<td style="text-align:center">设计时</td>
+<td style="text-align:center">比较复杂</td>
+<td style="text-align:center">领域问题的变化</td>
+<td style="text-align:center">封装特定领域的变化</td>
+</tr>
+</tbody>
+</table>
 <p>下面用一个图片来整体描述一下设计模式之间的关系：<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/sjms0_2.jpg" alt="设计模式之间的关系"></p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>以上就是设计模式的大体介绍，是不是很乱，很迷糊。嘿嘿嘿嘿，我其实也不懂。但是没关系，把目标放小，一天就研究一个模式就行。顺序就按照创建模式,结构模式，行为模式学习下来，掐指一算加上现在这个开天辟地的立志贴，最后洋洋洒洒能产出24篇博文来。妈妈再也不用担心我博客内容太少了。</p>
   
