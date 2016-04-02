@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tengj.github.io/"/>
-  <updated>2016-04-02T07:01:27.354Z</updated>
+  <updated>2016-04-02T07:57:27.546Z</updated>
   <id>http://tengj.github.io/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://tengj.github.io/2016/04/02/sjms1simpleFactory/"/>
     <id>http://tengj.github.io/2016/04/02/sjms1simpleFactory/</id>
     <published>2016-04-02T06:49:47.000Z</published>
-    <updated>2016-04-02T07:01:27.354Z</updated>
+    <updated>2016-04-02T07:57:27.546Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;面对设计模式这个高大上的敌人，如何找到一个脆弱可以下手的地方尤其重要，经过参考《JAVA与模式》后发现最容易下手但又及其重要的模式，那就是简单工厂模式，书里是这么介绍的：简单工程模式是最简单的模式，有助于引出工厂方法模式，而方法工厂模式在后面的许多模式都有应用，它在模式的讨论里屡见不鲜。了解工厂方法模式是了解所有模式的起点。看了这段话，我热血澎湃，这么脆弱又及其重要的模式不打你打谁。&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;面对设计模式这个高大上的敌人，如何找到一个脆弱可以下手的地方尤其重要，经过参考《JAVA与模式》后发现最容易下手但又及其重要的模式，那就是简单工厂模式，书里是这么介绍的：简单工厂模式是最简单的模式，有助于引出工厂方法模式，而方法工厂模式在后面的许多模式都有应用，它在模式的讨论里屡见不鲜。了解工厂方法模式是了解所有模式的起点。看了这段话，我热血澎湃，这么脆弱又及其重要的模式不打你打谁。&lt;/p&gt;
 &lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;p&gt;介绍简单工厂模式之前先通过一个披萨项目的例子来引出问题，然后给出简单工厂模式这种解决方案，然后随着披萨项目的不断扩展，遇到新的问题，引出工厂方法模式，然后又遇到新的问题，引出最终解决方案，抽象工厂模式。&lt;/p&gt;
 &lt;h2 id=&quot;披萨项目介绍&quot;&gt;&lt;a href=&quot;#披萨项目介绍&quot; class=&quot;headerlink&quot; title=&quot;披萨项目介绍&quot;&gt;&lt;/a&gt;披萨项目介绍&lt;/h2&gt;&lt;p&gt;客人来披萨店点披萨，点了某种披萨，我们在后台要准备原料，烘培，切割，打包这几个步骤，最后给用户吃。&lt;br&gt;把上述这个过程抽象后，设计如下：  &lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/sjms1_1.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;

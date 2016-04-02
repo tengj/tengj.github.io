@@ -4,6 +4,24 @@
 
     
   <url>
+    <loc>http://tengj.top/2016/04/02/sjms1simpleFactory/</loc>
+    <lastmod>2016-04-02T07:57:27.546Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式干货系列：（一）简单工厂模式</title>
+        <pubTime>2016-04-02T06:49:47.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="设计模式" url="http://tengj.top/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://tengj.top/2016/03/20/gitTotalMsg/</loc>
     <lastmod>2016-04-02T07:09:06.472Z</lastmod>
     <data>
@@ -125,24 +143,6 @@
            
              
               <breadCrumb title="git" url="http://tengj.top/categories/git/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tengj.top/2016/04/02/sjms1simpleFactory/</loc>
-    <lastmod>2016-04-02T07:01:27.354Z</lastmod>
-    <data>
-        <display>
-        <title>设计模式干货系列：（一）简单工厂模式</title>
-        <pubTime>2016-04-02T06:49:47.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="设计模式" url="http://tengj.top/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
           
         </display>
     </data>
