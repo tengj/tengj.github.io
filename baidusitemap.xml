@@ -4,11 +4,29 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/04/01/sjmstotal/</loc>
-    <lastmod>2016-04-02T06:39:32.884Z</lastmod>
+    <loc>http://tengj.top/2016/04/02/sjms1simpleFactory/</loc>
+    <lastmod>2016-04-02T07:01:27.354Z</lastmod>
     <data>
         <display>
-        <title>设计模式系列：（总纲）总体介绍设计模式</title>
+        <title>设计模式干货系列：（一）简单工厂模式</title>
+        <pubTime>2016-04-02T06:49:47.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="设计模式" url="http://tengj.top/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tengj.top/2016/04/01/sjmstotal/</loc>
+    <lastmod>2016-04-02T07:01:20.970Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式干货系列：（总纲）总体介绍设计模式</title>
         <pubTime>2016-04-01T12:23:20.000Z</pubTime>
         
          
