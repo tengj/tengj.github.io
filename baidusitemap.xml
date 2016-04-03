@@ -5,11 +5,29 @@
     
   <url>
     <loc>http://tengj.top/2016/04/02/sjms1simpleFactory/</loc>
-    <lastmod>2016-04-02T17:09:50.469Z</lastmod>
+    <lastmod>2016-04-03T15:42:10.087Z</lastmod>
     <data>
         <display>
         <title>设计模式干货系列：（一）简单工厂模式</title>
         <pubTime>2016-04-02T06:49:47.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="设计模式" url="http://tengj.top/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tengj.top/2016/04/03/sjms2factorymethod/</loc>
+    <lastmod>2016-04-03T15:38:47.729Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式干货系列：（二）工厂方法模式</title>
+        <pubTime>2016-04-03T15:28:14.000Z</pubTime>
         
          
            
