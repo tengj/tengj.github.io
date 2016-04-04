@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_16.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_17.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
-<meta property="og:updated_time" content="2016-03-27T09:22:11.559Z">
+<meta property="og:updated_time" content="2016-04-04T11:30:16.800Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo干货系列：（四）将hexo博客同时托管到github和coding">
 <meta name="twitter:description" content="前言之前我们把hexo托管在github，但是毕竟github是国外的，访问速度上还是有点慢，所以想也部署一套在国内的托管平台，之前查资料听说gitcafe,但是听说gitcafe已经被coding收购了，所以就决定部署到coding。">
@@ -126,7 +126,7 @@
 <h2 id="coding上创建一个新项目"><a href="#coding上创建一个新项目" class="headerlink" title="coding上创建一个新项目"></a>coding上创建一个新项目</h2><p>这里只介绍coding上面如何创建项目，以及把本地hexo部署到coding上面，还不懂如何创建hexo的请看我之前的系类文章。首先我们创建一个项目，创建后进入项目的代码模块，获取到这个项目的ssh地址，我的是<a href="https://git.coding.net/tengj/hexoblob.git" target="_blank" rel="external">https://git.coding.net/tengj/hexoblob.git</a><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_2.png" alt="">  </p>
 <h2 id="同步本地hexo到coding上"><a href="#同步本地hexo到coding上" class="headerlink" title="同步本地hexo到coding上"></a>同步本地hexo到coding上</h2><p>把获取到了ssh配置在上面的<code>_config.yml</code>文件中的<code>deploy</code>下，如果是第一次使用coding的话，需要设置SSH公钥，生成的方法可以参考<a href="https://coding.net/help/doc/git/ssh-key.html" target="_blank" rel="external">coding帮助中心</a><br>如果你看过我第一篇文章，里面也有介绍如果如果生成，我这里直接使用之前部署github时已经生成的公钥。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_3.png" alt="">  </p>
 <p>本地打开 <code>id_rsa.pub</code> 文件，复制其中全部内容，填写到<code>SSH_RSA公钥</code>key下的一栏，公钥名称可以随意起名字。完成后点击“添加”，然后输入密码或动态码即可添加完成。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_4.png" alt="">  </p>
-<p>添加后，在<code>git bash</code>命令输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@coding.net</span><br></pre></td></tr></table></figure></p>
+<p>添加后，在<code>git bash</code>命令输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@git.coding.net</span><br></pre></td></tr></table></figure></p>
 <p>如果得到下面提示就表示公钥添加成功了：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Coding.net Tips : [Hello ! You<span class="string">'ve conected to Coding.net by SSH successfully! ]</span></span><br></pre></td></tr></table></figure></p>
 <p>最后使用部署命令就能把博客同步到coding上面：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy -g</span><br></pre></td></tr></table></figure></p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_5.png" alt="">  </p>
