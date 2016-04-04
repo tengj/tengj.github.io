@@ -24,7 +24,7 @@
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/sjms3_3.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/sjms3_4.jpg">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1637925-19aec6a2c2b59fb6.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2016-04-04T10:04:53.645Z">
+<meta property="og:updated_time" content="2016-04-04T10:13:42.710Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式干货系列：（三）抽象工厂模式">
 <meta name="twitter:description" content="前言接着上一篇工厂方法模式说，现在披萨店生意很好，除了卖披萨，又卖汉堡，并且为了适用不同的客户群体，增加了单人套餐和家庭套餐。这种情况下多了一个产品汉堡，已经不适合用工厂方法模式了，这时候就要用到更加抽象化的抽象工厂模式来满足这个系统。
@@ -106,7 +106,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#抽象工厂模式概念"><span class="toc-number">2.1.</span> <span class="toc-text">抽象工厂模式概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#抽象工厂模式的结构"><span class="toc-number">2.2.</span> <span class="toc-text">抽象工厂模式的结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码示例讲解"><span class="toc-number">2.3.</span> <span class="toc-text">代码示例讲解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实际常见的应用"><span class="toc-number">2.4.</span> <span class="toc-text">实际常见的应用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#欢迎来访-嘟嘟独立博客"><span class="toc-number">3.1.</span> <span class="toc-text">欢迎来访:嘟嘟独立博客</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#抽象工厂模式概念"><span class="toc-number">2.1.</span> <span class="toc-text">抽象工厂模式概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#抽象工厂模式的结构"><span class="toc-number">2.2.</span> <span class="toc-text">抽象工厂模式的结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码示例讲解"><span class="toc-number">2.3.</span> <span class="toc-text">代码示例讲解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实际常见的应用"><span class="toc-number">2.4.</span> <span class="toc-text">实际常见的应用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#更多教程可以来我嘟嘟独立博客里面看到-欢迎来访-嘟嘟独立博客"><span class="toc-number">3.1.</span> <span class="toc-text">更多教程可以来我嘟嘟独立博客里面看到  欢迎来访:嘟嘟独立博客</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -151,10 +151,7 @@
 <li>更好的理解面向对象的原则，面向接口编程，而不要面向实现编程。</li>
 </ul>
 <hr>
-<p>更多教程可以来我嘟嘟独立博客里面看到<br>欢迎来访：<a href="http://tengj.top" target="_blank" rel="external">嘟嘟独立博客</a></p>
-<hr>
-<p>更多教程可以来我嘟嘟独立博客里面看到</p>
-<h2 id="欢迎来访-嘟嘟独立博客"><a href="#欢迎来访-嘟嘟独立博客" class="headerlink" title="欢迎来访:嘟嘟独立博客"></a>欢迎来访:<a href="http://tengj.top" target="_blank" rel="external">嘟嘟独立博客</a></h2><p>最近撸了个java的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花<br><img src="http://upload-images.jianshu.io/upload_images/1637925-19aec6a2c2b59fb6.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="更多教程可以来我嘟嘟独立博客里面看到-欢迎来访-嘟嘟独立博客"><a href="#更多教程可以来我嘟嘟独立博客里面看到-欢迎来访-嘟嘟独立博客" class="headerlink" title="更多教程可以来我嘟嘟独立博客里面看到  欢迎来访:嘟嘟独立博客"></a>更多教程可以来我嘟嘟独立博客里面看到  欢迎来访:<a href="http://tengj.top" target="_blank" rel="external">嘟嘟独立博客</a></h2><p>最近撸了个java的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花<br><img src="http://upload-images.jianshu.io/upload_images/1637925-19aec6a2c2b59fb6.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -208,7 +205,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#抽象工厂模式概念"><span class="toc-number">2.1.</span> <span class="toc-text">抽象工厂模式概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#抽象工厂模式的结构"><span class="toc-number">2.2.</span> <span class="toc-text">抽象工厂模式的结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码示例讲解"><span class="toc-number">2.3.</span> <span class="toc-text">代码示例讲解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实际常见的应用"><span class="toc-number">2.4.</span> <span class="toc-text">实际常见的应用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#欢迎来访-嘟嘟独立博客"><span class="toc-number">3.1.</span> <span class="toc-text">欢迎来访:嘟嘟独立博客</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#抽象工厂模式概念"><span class="toc-number">2.1.</span> <span class="toc-text">抽象工厂模式概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#抽象工厂模式的结构"><span class="toc-number">2.2.</span> <span class="toc-text">抽象工厂模式的结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码示例讲解"><span class="toc-number">2.3.</span> <span class="toc-text">代码示例讲解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实际常见的应用"><span class="toc-number">2.4.</span> <span class="toc-text">实际常见的应用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#更多教程可以来我嘟嘟独立博客里面看到-欢迎来访-嘟嘟独立博客"><span class="toc-number">3.1.</span> <span class="toc-text">更多教程可以来我嘟嘟独立博客里面看到  欢迎来访:嘟嘟独立博客</span></a></li></ol></li></ol>
  
   </div>
 
