@@ -4,6 +4,44 @@
 
     
   <url>
+    <loc>http://tengj.top/2016/04/04/sjms3abstractfactory/</loc>
+    <lastmod>2016-04-04T10:04:53.645Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式干货系列：（三）抽象工厂模式</title>
+        <pubTime>2016-04-04T09:56:14.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="设计模式" url="http://tengj.top/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tengj.top/2016/03/06/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%89%EF%BC%89hexo%E7%9A%84Jacman%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</loc>
+    <lastmod>2016-04-03T16:10:42.260Z</lastmod>
+    <data>
+        <display>
+        <title>hexo干货系列：（三）hexo的Jacman主题优化</title>
+        <pubTime>2016-03-06T14:14:54.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://tengj.top/2016/04/02/sjms1simpleFactory/</loc>
     <lastmod>2016-04-03T15:42:10.087Z</lastmod>
     <data>
@@ -352,26 +390,6 @@
         <display>
         <title>hexo干货系列：（四）将hexo博客同时托管到github和coding</title>
         <pubTime>2016-03-06T15:48:57.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tengj.top/2016/03/06/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%89%EF%BC%89hexo%E7%9A%84Jacman%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</loc>
-    <lastmod>2016-03-27T09:22:00.240Z</lastmod>
-    <data>
-        <display>
-        <title>hexo干货系列：（三）hexo的Jacman主题优化</title>
-        <pubTime>2016-03-06T14:14:54.000Z</pubTime>
         
         <tag>hexo</tag>
          
