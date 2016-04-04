@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tengj.github.io/"/>
-  <updated>2016-04-04T10:13:42.710Z</updated>
+  <updated>2016-04-04T10:15:25.428Z</updated>
   <id>http://tengj.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://tengj.github.io/2016/04/04/sjms3abstractfactory/"/>
     <id>http://tengj.github.io/2016/04/04/sjms3abstractfactory/</id>
     <published>2016-04-04T09:56:14.000Z</published>
-    <updated>2016-04-04T10:13:42.710Z</updated>
+    <updated>2016-04-04T10:15:25.428Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;接着上一篇工厂方法模式说，现在披萨店生意很好，除了卖披萨，又卖汉堡，并且为了适用不同的客户群体，增加了&lt;code&gt;单人套餐&lt;/code&gt;和&lt;code&gt;家庭套餐&lt;/code&gt;。这种情况下多了一个产品汉堡，已经不适合用工厂方法模式了，这时候就要用到更加抽象化的抽象工厂模式来满足这个系统。&lt;/p&gt;
 &lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;h2 id=&quot;抽象工厂模式概念&quot;&gt;&lt;a href=&quot;#抽象工厂模式概念&quot; class=&quot;headerlink&quot; title=&quot;抽象工厂模式概念&quot;&gt;&lt;/a&gt;抽象工厂模式概念&lt;/h2&gt;&lt;p&gt;&lt;code&gt;抽象工厂模式&lt;/code&gt;是所有形态的工厂模式中最为抽象和最具一般性的一种形态。&lt;code&gt;抽象工厂模式&lt;/code&gt;可以向客户端提供一个接口，使得客户端在不必指定产品的具体类型的情况下，创建多个产品族中的产品对象。这就是抽象工厂的用意。&lt;/p&gt;
@@ -63,7 +63,7 @@
 &lt;li&gt;更好的理解面向对象的原则，面向接口编程，而不要面向实现编程。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id=&quot;更多教程可以来我嘟嘟独立博客里面看到-欢迎来访-嘟嘟独立博客&quot;&gt;&lt;a href=&quot;#更多教程可以来我嘟嘟独立博客里面看到-欢迎来访-嘟嘟独立博客&quot; class=&quot;headerlink&quot; title=&quot;更多教程可以来我嘟嘟独立博客里面看到  欢迎来访:嘟嘟独立博客&quot;&gt;&lt;/a&gt;更多教程可以来我嘟嘟独立博客里面看到  欢迎来访:&lt;a href=&quot;http://tengj.top&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;嘟嘟独立博客&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;最近撸了个java的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1637925-19aec6a2c2b59fb6.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;最近撸了个java的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1637925-19aec6a2c2b59fb6.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
