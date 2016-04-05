@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tengj.github.io/"/>
-  <updated>2016-04-05T03:44:26.465Z</updated>
+  <updated>2016-04-05T22:29:10.143Z</updated>
   <id>http://tengj.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://tengj.github.io/2016/04/04/sjms3abstractfactory/"/>
     <id>http://tengj.github.io/2016/04/04/sjms3abstractfactory/</id>
     <published>2016-04-04T09:56:14.000Z</published>
-    <updated>2016-04-05T03:44:26.465Z</updated>
+    <updated>2016-04-05T22:29:10.143Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;接着上一篇工厂方法模式说，现在披萨店生意很好，除了卖披萨，又卖汉堡，并且为了适用不同的客户群体，增加了&lt;code&gt;单人套餐&lt;/code&gt;和&lt;code&gt;家庭套餐&lt;/code&gt;。这种情况下多了一个产品汉堡，已经不适合用工厂方法模式了，这时候就要用到更加抽象化的抽象工厂模式来满足这个系统。&lt;/p&gt;
 &lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;h2 id=&quot;抽象工厂模式概念&quot;&gt;&lt;a href=&quot;#抽象工厂模式概念&quot; class=&quot;headerlink&quot; title=&quot;抽象工厂模式概念&quot;&gt;&lt;/a&gt;抽象工厂模式概念&lt;/h2&gt;&lt;p&gt;&lt;code&gt;抽象工厂模式&lt;/code&gt;是所有形态的工厂模式中最为抽象和最具一般性的一种形态。&lt;code&gt;抽象工厂模式&lt;/code&gt;可以向客户端提供一个接口，使得客户端在不必指定产品的具体类型的情况下，创建多个产品族中的产品对象。这就是抽象工厂的用意。&lt;/p&gt;
@@ -32,9 +32,11 @@
 &lt;li&gt;抽象产品角色：工厂方法模式所创建的对象的超类型，也就是产品对象的共同父类或共同拥有的接口。&lt;/li&gt;
 &lt;li&gt;具体产品角色：这个角色实现了抽象产品角色所申明的接口。工厂方法模式所创建的每一个对象都是某个具体产品角色的实例。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;角色上跟&lt;code&gt;工厂方法模式&lt;/code&gt;差不多。只是比之前多了一个产品汉堡，并且具体工厂类划分是按照产品族来划分的，这里划分为单人套餐（&lt;code&gt;SingleFactory&lt;/code&gt;）以及家庭套餐（&lt;code&gt;FamilyFactory&lt;/code&gt;）,单人套餐工厂类可以生产单人套餐披萨和单人套餐汉堡。家庭套餐工厂类可以生产家庭套餐披萨和家庭套餐汉堡。  &lt;/p&gt;
-&lt;p&gt;下图所示是这个系统的产品角色的相图：  &lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/sjms3_2.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;为了更好地理解抽象工厂模式，我们先引入两个概念：&lt;br&gt;&lt;strong&gt;(1) 产品等级结构&lt;/strong&gt;：产品等级结构即产品的继承结构，如一个抽象类是电视机，其子类有海尔电视机、海信电视机、TCL电视机，则抽象电视机与具体品牌的电视机之间构成了一个产品等级结构，抽象电视机是父类，而具体品牌的电视机是其子类。  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;(2) 产品族&lt;/strong&gt;：在抽象工厂模式中，产品族是指由同一个工厂生产的，位于不同产品等级结构中的一组产品，如海尔电器工厂生产的海尔电视机、海尔电冰箱，海尔电视机位于电视机产品等级结构中，海尔电冰箱位于电冰箱产品等级结构中，海尔电视机、海尔电冰箱构成了一个产品族。  &lt;/p&gt;
+&lt;p&gt;角色上跟&lt;code&gt;工厂方法模式&lt;/code&gt;差不多。只是比之前多了一个产品汉堡，并且具体工厂类划分是按照&lt;code&gt;产品族&lt;/code&gt;来划分的，这里划分为单人套餐（&lt;code&gt;SingleFactory&lt;/code&gt;）以及家庭套餐（&lt;code&gt;FamilyFactory&lt;/code&gt;）,单人套餐工厂类可以生产单人套餐披萨和单人套餐汉堡。家庭套餐工厂类可以生产家庭套餐披萨和家庭套餐汉堡。  &lt;/p&gt;
+&lt;p&gt;下图所示是这个系统的产品等级结构与产品族示意图如图：  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/sjms3_21.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
 &lt;p&gt;附上代码前先来看看完整的类图：  &lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/sjms3_3.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;代码示例讲解&quot;&gt;&lt;a href=&quot;#代码示例讲解&quot; class=&quot;headerlink&quot; title=&quot;代码示例讲解&quot;&gt;&lt;/a&gt;代码示例讲解&lt;/h2&gt;&lt;p&gt;下面是抽象产品的角色&lt;code&gt;Pizza&lt;/code&gt;的源代码：&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Pizza&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
