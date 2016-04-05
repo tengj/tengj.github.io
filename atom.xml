@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tengj.github.io/"/>
-  <updated>2016-04-04T10:15:25.428Z</updated>
+  <updated>2016-04-05T03:44:26.465Z</updated>
   <id>http://tengj.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://tengj.github.io/2016/04/04/sjms3abstractfactory/"/>
     <id>http://tengj.github.io/2016/04/04/sjms3abstractfactory/</id>
     <published>2016-04-04T09:56:14.000Z</published>
-    <updated>2016-04-04T10:15:25.428Z</updated>
+    <updated>2016-04-05T03:44:26.465Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;接着上一篇工厂方法模式说，现在披萨店生意很好，除了卖披萨，又卖汉堡，并且为了适用不同的客户群体，增加了&lt;code&gt;单人套餐&lt;/code&gt;和&lt;code&gt;家庭套餐&lt;/code&gt;。这种情况下多了一个产品汉堡，已经不适合用工厂方法模式了，这时候就要用到更加抽象化的抽象工厂模式来满足这个系统。&lt;/p&gt;
 &lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;h2 id=&quot;抽象工厂模式概念&quot;&gt;&lt;a href=&quot;#抽象工厂模式概念&quot; class=&quot;headerlink&quot; title=&quot;抽象工厂模式概念&quot;&gt;&lt;/a&gt;抽象工厂模式概念&lt;/h2&gt;&lt;p&gt;&lt;code&gt;抽象工厂模式&lt;/code&gt;是所有形态的工厂模式中最为抽象和最具一般性的一种形态。&lt;code&gt;抽象工厂模式&lt;/code&gt;可以向客户端提供一个接口，使得客户端在不必指定产品的具体类型的情况下，创建多个产品族中的产品对象。这就是抽象工厂的用意。&lt;/p&gt;
@@ -63,6 +63,8 @@
 &lt;li&gt;更好的理解面向对象的原则，面向接口编程，而不要面向实现编程。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
+&lt;p&gt;源码放百度网盘，有需要自己取，对应目录如下&lt;br&gt;simplefactory：简单工厂模式&lt;br&gt;methodFactory：工厂方法模式&lt;br&gt;AbstractFactory：抽象工厂模式&lt;br&gt;链接：&lt;a href=&quot;http://pan.baidu.com/s/1kUNygBl&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://pan.baidu.com/s/1kUNygBl&lt;/a&gt;&lt;br&gt;密码：vc9f&lt;/p&gt;
+&lt;hr&gt;
 &lt;p&gt;最近撸了个java的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1637925-19aec6a2c2b59fb6.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </content>
     
@@ -82,7 +84,7 @@
     <link href="http://tengj.github.io/2016/04/03/sjms2factorymethod/"/>
     <id>http://tengj.github.io/2016/04/03/sjms2factorymethod/</id>
     <published>2016-04-03T15:28:14.000Z</published>
-    <updated>2016-04-03T15:38:47.729Z</updated>
+    <updated>2016-04-05T03:44:22.525Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;上一篇介绍&lt;code&gt;简单工厂模式&lt;/code&gt;的时候提到它对&lt;code&gt;开闭原则&lt;/code&gt;支持的不够，因为如果有新的产品加入到系统中去，就需要修改工厂类，就违反了&lt;code&gt;开闭原则&lt;/code&gt;了，这次介绍的工厂方法模式在保持简单工厂模式优点的前提下，还满足了开闭原则，关键在于它的多态性。&lt;/p&gt;
 &lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;h2 id=&quot;工厂方法模式概念&quot;&gt;&lt;a href=&quot;#工厂方法模式概念&quot; class=&quot;headerlink&quot; title=&quot;工厂方法模式概念&quot;&gt;&lt;/a&gt;工厂方法模式概念&lt;/h2&gt;&lt;p&gt;工厂方法模式是类的创建模式，又叫做虚拟构造子(Cirtual Constructor)模式或者多态工厂（Polymorphic Factory）模式。  &lt;/p&gt;
@@ -116,6 +118,8 @@
 &lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;工厂方法模式和简单工厂模式比较&lt;/strong&gt;：&lt;br&gt;工厂方法模式跟简单工厂模式在结构上的不同是很明显的，工厂方法模式的核心是一个抽象工厂类，而简单工厂模式的核心在一个具体类。显而易见工厂方法模式这种结构更好扩展，权力下发，分布式比集中式更具优势。  &lt;/p&gt;
 &lt;p&gt;如果系统需要加入一个新的产品，那么所需要的就是向系统中加入一个这个产品类以及它所对应的工厂类。没有必要修改客户端，也没有必要修改抽象工厂角色或者其他已有的具体工厂角色。对于增加新的产品类而言，这个系统完全支持开闭原则。&lt;/p&gt;
 &lt;hr&gt;
+&lt;p&gt;源码放百度网盘，有需要自己取，对应目录如下&lt;br&gt;simplefactory：简单工厂模式&lt;br&gt;methodFactory：工厂方法模式&lt;br&gt;AbstractFactory：抽象工厂模式&lt;br&gt;链接：&lt;a href=&quot;http://pan.baidu.com/s/1kUNygBl&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://pan.baidu.com/s/1kUNygBl&lt;/a&gt;&lt;br&gt;密码：vc9f&lt;/p&gt;
+&lt;hr&gt;
 &lt;p&gt;最近撸了个java的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </content>
     
@@ -135,7 +139,7 @@
     <link href="http://tengj.github.io/2016/04/02/sjms1simpleFactory/"/>
     <id>http://tengj.github.io/2016/04/02/sjms1simpleFactory/</id>
     <published>2016-04-02T06:49:47.000Z</published>
-    <updated>2016-04-03T15:42:10.087Z</updated>
+    <updated>2016-04-05T07:52:53.781Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;面对设计模式这个高大上的敌人，如何找到一个脆弱可以下手的地方尤其重要，经过参考《JAVA与模式》后发现最容易下手但又及其重要的模式，那就是&lt;code&gt;简单工厂模式&lt;/code&gt;，书里是这么介绍的：&lt;code&gt;简单工厂模式&lt;/code&gt;是最简单的模式，有助于引出&lt;code&gt;工厂方法模式&lt;/code&gt;，而&lt;code&gt;工厂方法模式&lt;/code&gt;在后面的许多模式都有应用，它在模式的讨论里屡见不鲜。了解&lt;code&gt;工厂方法模式&lt;/code&gt;是了解所有模式的起点。看了这段话，我热血澎湃，这么脆弱又及其重要的模式不打你打谁。&lt;/p&gt;
 &lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;p&gt;介绍简单工厂模式之前先通过一个披萨项目的例子来引出问题，然后给出简单工厂模式这种解决方案，然后随着披萨项目的不断扩展，遇到新的问题，引出工厂方法模式，然后又遇到新的问题，引出最终解决方案，抽象工厂模式。&lt;/p&gt;
@@ -160,7 +164,14 @@
 &lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;try&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Pizza pizza;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pizza=SimplePizzaFactory.CreatePizza(&lt;span class=&quot;string&quot;&gt;&quot;cheese&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pizza=SimplePizzaFactory.CreatePizza(&lt;span class=&quot;string&quot;&gt;&quot;greek&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;span class=&quot;keyword&quot;&gt;catch&lt;/span&gt;(Exception e)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;这样设计后，店长就轻松多了，只要负责告诉工厂类（厨师）需要什么类型的披萨就可以，终于不要担心搞错了而负责任。&lt;/p&gt;
 &lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;p&gt;上面用披萨项目的列子来讲解了简单工厂模式的使用，总结下优缺点：&lt;br&gt;&lt;strong&gt; 简单工厂模式的优点：&lt;/strong&gt;&lt;br&gt;模式的核心是工厂类。这个类含有必要的判断逻辑，可以决定在什么时候创建哪一个产品类的实例。而客户端则可以免除直接创建对象的责任（比如那个服务员）。简单工厂模式通过这种做法实现了对责任的分割。  &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt; 简单工厂模式的缺点：&lt;/strong&gt;&lt;br&gt;这个工厂类集中了所以的创建逻辑，当有复杂的多层次等级结构时，所有的业务逻辑都在这个工厂类中实现。什么时候它不能工作了，整个系统都会受到影响。并且简单工厂模式违背了&lt;strong&gt;开闭原则&lt;/strong&gt;（对扩展的开放，对修改的关闭）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt; 简单工厂模式的缺点：&lt;/strong&gt;&lt;br&gt;这个工厂类集中了所以的创建逻辑，当有复杂的多层次等级结构时，所有的业务逻辑都在这个工厂类中实现。什么时候它不能工作了，整个系统都会受到影响。并且简单工厂模式违背了&lt;strong&gt;开闭原则&lt;/strong&gt;（对扩展的开放，对修改的关闭）。  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt; 适用场景：&lt;/strong&gt;&lt;br&gt; 在以下情况下可以考虑使用简单工厂模式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;工厂类负责创建的对象比较少，由于创建的对象较少，不会造成工厂方法中的业务逻辑太过复杂。&lt;/li&gt;
+&lt;li&gt;客户端只知道传入工厂类的参数，对于如何创建对象并不关心。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;源码放百度网盘，有需要自己取，对应目录如下&lt;br&gt;simplefactory：简单工厂模式&lt;br&gt;methodFactory：工厂方法模式&lt;br&gt;AbstractFactory：抽象工厂模式&lt;br&gt;链接：&lt;a href=&quot;http://pan.baidu.com/s/1kUNygBl&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://pan.baidu.com/s/1kUNygBl&lt;/a&gt;&lt;br&gt;密码：vc9f&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;最近撸了个java的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </content>
@@ -1292,14 +1303,11 @@
     <link href="http://tengj.github.io/2016/03/11/hexo5Swiftype/"/>
     <id>http://tengj.github.io/2016/03/11/hexo5Swiftype/</id>
     <published>2016-03-10T17:16:43.000Z</published>
-    <updated>2016-03-27T09:22:22.852Z</updated>
+    <updated>2016-04-05T02:33:09.151Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;hr&gt;
-&lt;p&gt;本来想用百度站内搜索，但是没成功，所以改用swiftype，用起来还是很棒的，这里分享一下我的安装步骤&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;本来想用百度站内搜索，但是没成功，所以改用swiftype，用起来还是很棒的，这里分享一下我的安装步骤&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt; 
-&lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;hr&gt;
-&lt;h2 id=&quot;注册&quot;&gt;&lt;a href=&quot;#注册&quot; class=&quot;headerlink&quot; title=&quot;注册&quot;&gt;&lt;/a&gt;注册&lt;/h2&gt;&lt;hr&gt;
-&lt;p&gt;去swiftype&lt;a href=&quot;https://swiftype.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官网&lt;/a&gt;注册个账号，然后登陆，对了不要去在意30天试用，30天过了还能继续使用，网站给的是30天高级账户的使用（那种有可以建立多个搜索引擎、多账户共同管理、一个引擎index多个域名的功能的账户），降级成为免费的账户类型，但是还能使用。&lt;/p&gt;
+&lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;h2 id=&quot;注册&quot;&gt;&lt;a href=&quot;#注册&quot; class=&quot;headerlink&quot; title=&quot;注册&quot;&gt;&lt;/a&gt;注册&lt;/h2&gt;&lt;p&gt;去swiftype&lt;a href=&quot;https://swiftype.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官网&lt;/a&gt;注册个账号，然后登陆，对了不要去在意30天试用，30天过了还能继续使用，网站给的是30天高级账户的使用（那种有可以建立多个搜索引擎、多账户共同管理、一个引擎index多个域名的功能的账户），降级成为免费的账户类型，但是还能使用。&lt;/p&gt;
 &lt;h2 id=&quot;Create-an-engine&quot;&gt;&lt;a href=&quot;#Create-an-engine&quot; class=&quot;headerlink&quot; title=&quot;Create an engine&quot;&gt;&lt;/a&gt;Create an engine&lt;/h2&gt;&lt;p&gt;登陆后选择开始开干，步骤大概如下&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;点击Create an engine  &lt;/li&gt;
@@ -1309,23 +1317,19 @@
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo5_1.png&quot; alt=&quot;&quot; title=&quot;点击Create an engine&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo5_2.png&quot; alt=&quot;&quot; title=&quot;给你的网站建立一个索引&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo5_3.png&quot; alt=&quot;3&quot; title=&quot;输入你的网址&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo5_4.png&quot; alt=&quot;&quot; title=&quot;起个名字&quot;&gt;&lt;/p&gt;
 &lt;p&gt;上面配置好后开始抓取你网站的数据，大概等了几分钟后，查看Manage下面的Content，就能看到抓取的一些目录和tag数据过来，如果你不想要的话可以手动删除。&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo5_5.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
-&lt;h2 id=&quot;install-Search&quot;&gt;&lt;a href=&quot;#install-Search&quot; class=&quot;headerlink&quot; title=&quot;install Search&quot;&gt;&lt;/a&gt;install Search&lt;/h2&gt;&lt;hr&gt;
-&lt;p&gt;接下来就是重头戏，如何安装插件，首先点击左下方的&lt;code&gt;install Search&lt;/code&gt;，就会弹出插件的代码，先复制一下。这个就是一会要用到的插件代码。  &lt;/p&gt;
+&lt;h2 id=&quot;install-Search&quot;&gt;&lt;a href=&quot;#install-Search&quot; class=&quot;headerlink&quot; title=&quot;install Search&quot;&gt;&lt;/a&gt;install Search&lt;/h2&gt;&lt;p&gt;接下来就是重头戏，如何安装插件，首先点击左下方的&lt;code&gt;install Search&lt;/code&gt;，就会弹出插件的代码，先复制一下。这个就是一会要用到的插件代码。  &lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;说明一下，&lt;code&gt;swiftype&lt;/code&gt;提供两种方式，一种是弹出的方式，一种是新开一个页面的方式。前者默认就行，后者还要配置另外一推东西。我之前也按照网上别人帖子参考的写，结果一直不行。干脆不用了，用默认简单方便。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo5_6.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;hexo的Pacman主题配置&quot;&gt;&lt;a href=&quot;#hexo的Pacman主题配置&quot; class=&quot;headerlink&quot; title=&quot;hexo的Pacman主题配置&quot;&gt;&lt;/a&gt;hexo的Pacman主题配置&lt;/h2&gt;&lt;hr&gt;
-&lt;p&gt;接下来都是hexo这边配置，首先打开pacman主题下的_config.yml文件在末尾添加如下代码&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;swift_search:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;enable&lt;/span&gt;:  &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&quot;hexo的Pacman主题配置&quot;&gt;&lt;a href=&quot;#hexo的Pacman主题配置&quot; class=&quot;headerlink&quot; title=&quot;hexo的Pacman主题配置&quot;&gt;&lt;/a&gt;hexo的Pacman主题配置&lt;/h2&gt;&lt;p&gt;接下来都是hexo这边配置，首先打开pacman主题下的_config.yml文件在末尾添加如下代码&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;swift_search:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;enable&lt;/span&gt;:  &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;然后再切换的到\themes\jacman\layout_partial目录下，最后需要做的收尾工作全部都在这个目录下。&lt;br&gt;先打开header.ejs，找到&lt;br&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;%  &amp;#125;  else  if(theme.baidu_search.enable)&amp;#123; %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;form class=&quot;search&quot; action=&quot;&amp;lt;%- theme.baidu_search.site %&amp;gt;&quot; target=&quot;_blank&quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;label&amp;gt;Search&amp;lt;/label&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;input name=&quot;s&quot; type=&quot;hidden&quot; value= &amp;lt;%= theme.baidu_search.id %&amp;gt; &amp;gt;&amp;lt;input type=&quot;text&quot; name=&quot;q&quot; size=&quot;30&quot; placeholder=&quot;&amp;lt;%= __(&#39;search&#39;) %&amp;gt;&quot;&amp;gt;&amp;lt;br&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;直接替换成&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;%&lt;/span&gt; &amp;#125; &lt;span class=&quot;attribute&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;if&lt;/span&gt;(&lt;span class=&quot;attribute&quot;&gt;theme.swift_search.enable&lt;/span&gt;)&amp;#123; %&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;form&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;search&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;action&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;&amp;lt;%- config.root %&amp;gt;search/index.html&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;method&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;get&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;accept-charset&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;label&lt;/span&gt;&amp;gt;&lt;/span&gt;Search&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;label&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;search&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;st-default-search-input&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;maxlength&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;20&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;placeholder&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;Search&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;form&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;反正我也不会用baidu_search，所以直接替换无所谓，你要是还想保留，就直接添加else判断吧。&lt;br&gt;最后打开footer.ejs（其实header也行，随便你），在最后一个&lt;code&gt;div&lt;/code&gt;标签之前添加一开始拷贝的那段js代码，我的是：&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script type=&lt;span class=&quot;string&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  (&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;w,d,t,u,n,s,e&lt;/span&gt;)&lt;/span&gt;&amp;#123;w[&lt;span class=&quot;string&quot;&gt;&#39;SwiftypeObject&#39;&lt;/span&gt;]=n;w[n]=w[n]||&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  (w[n].q=w[n].q||[]).push(&lt;span class=&quot;built_in&quot;&gt;arguments&lt;/span&gt;);&amp;#125;;s=d.createElement(t);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  e=d.getElementsByTagName(t)[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;];s.async=&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;s.src=u;e.parentNode.insertBefore(s,e);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;)(&lt;span class=&quot;built_in&quot;&gt;window&lt;/span&gt;,&lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;script&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;//s.swiftypecdn.com/install/v2/st.js&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;_st&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  _st(&lt;span class=&quot;string&quot;&gt;&#39;install&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;Ts_hz24x26ZaNWfhsYwW&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;2.0.0&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;大功告成，来看看什么效果吧，自己发布后打开&lt;a href=&quot;http://tengj.top&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;博客&lt;/a&gt;,查询一个博客文章中出现的内容，效果如下：&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/hexo5_7.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;上面查询的列表其实是之前在swiftype那边解析的文章列表，如果Content那边没有东西。那你这边查询不会有用的。  &lt;/p&gt;
-&lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;hr&gt;
-&lt;p&gt;好了，站内搜索搞定了，要不要使用你们自己决定。希望这篇文章对你有帮助~下篇计划写个网站统计插件的教程，我用的CNZZ。写完这篇已经凌晨1点了，明天还要上班，洗洗睡。  &lt;/p&gt;
-&lt;h1 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h1&gt;&lt;hr&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.jerryfu.net/post/search-engine-for-hexo-with-swiftype-v2.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;利用swiftype为hexo添加站内搜索v2.0&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;p&gt;好了，站内搜索搞定了，要不要使用你们自己决定。希望这篇文章对你有帮助~下篇计划写个网站统计插件的教程，我用的CNZZ。写完这篇已经凌晨1点了，明天还要上班，洗洗睡。  &lt;/p&gt;
+&lt;h1 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://www.jerryfu.net/post/search-engine-for-hexo-with-swiftype-v2.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;利用swiftype为hexo添加站内搜索v2.0&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;我是嘟嘟MD，我为这篇文章代言。  &lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;欢迎转载，但希望您能注明出处，毕竟没啥人气囧&lt;/p&gt;
@@ -1336,8 +1340,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;hr&gt;
-&lt;p&gt;本来想用百度站内搜索，但是没成功，所以改用swiftype，用起来还是很棒的，这里分享一下我的安装步骤&lt;/p&gt;
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;本来想用百度站内搜索，但是没成功，所以改用swiftype，用起来还是很棒的，这里分享一下我的安装步骤&lt;/p&gt;
     
     </summary>
     

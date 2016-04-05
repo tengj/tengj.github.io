@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/sjms2_1.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/sjms2_2.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
-<meta property="og:updated_time" content="2016-04-03T15:38:47.729Z">
+<meta property="og:updated_time" content="2016-04-05T03:44:22.525Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式干货系列：（二）工厂方法模式">
 <meta name="twitter:description" content="前言上一篇介绍简单工厂模式的时候提到它对开闭原则支持的不够，因为如果有新的产品加入到系统中去，就需要修改工厂类，就违反了开闭原则了，这次介绍的工厂方法模式在保持简单工厂模式优点的前提下，还满足了开闭原则，关键在于它的多态性。
@@ -139,6 +139,8 @@
 <p> <strong>工厂等级结构</strong>：<br> 工厂对象应当有一个抽象的超类型。换言之，应当有数个具体工厂类作为一个抽象超类型的具体子类存在于工厂等级结构中。如果等级结构中只有一个具体工程类的话，那么抽象工厂角色也可以省略，这时候，工厂方法模式就发生了退化，这一退化表现为针对工厂角色的多态性的丧失。</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><strong>工厂方法模式和简单工厂模式比较</strong>：<br>工厂方法模式跟简单工厂模式在结构上的不同是很明显的，工厂方法模式的核心是一个抽象工厂类，而简单工厂模式的核心在一个具体类。显而易见工厂方法模式这种结构更好扩展，权力下发，分布式比集中式更具优势。  </p>
 <p>如果系统需要加入一个新的产品，那么所需要的就是向系统中加入一个这个产品类以及它所对应的工厂类。没有必要修改客户端，也没有必要修改抽象工厂角色或者其他已有的具体工厂角色。对于增加新的产品类而言，这个系统完全支持开闭原则。</p>
+<hr>
+<p>源码放百度网盘，有需要自己取，对应目录如下<br>simplefactory：简单工厂模式<br>methodFactory：工厂方法模式<br>AbstractFactory：抽象工厂模式<br>链接：<a href="http://pan.baidu.com/s/1kUNygBl" target="_blank" rel="external">http://pan.baidu.com/s/1kUNygBl</a><br>密码：vc9f</p>
 <hr>
 <p>最近撸了个java的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG" alt=""></p>
   
