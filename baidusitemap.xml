@@ -4,8 +4,26 @@
 
     
   <url>
+    <loc>http://tengj.top/2016/04/06/sjms4singleton/</loc>
+    <lastmod>2016-04-06T14:00:18.303Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式干货系列：（四）单例模式</title>
+        <pubTime>2016-04-06T13:48:55.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="设计模式" url="http://tengj.top/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://tengj.top/2016/04/04/sjms3abstractfactory/</loc>
-    <lastmod>2016-04-05T22:29:10.143Z</lastmod>
+    <lastmod>2016-04-06T13:59:49.981Z</lastmod>
     <data>
         <display>
         <title>设计模式干货系列：（三）抽象工厂模式</title>
@@ -15,6 +33,26 @@
            
              
               <breadCrumb title="设计模式" url="http://tengj.top/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tengj.top/2016/03/14/hexo6seo/</loc>
+    <lastmod>2016-04-06T01:16:35.919Z</lastmod>
+    <data>
+        <display>
+        <title>hexo干货系列：（六）hexo提交搜索引擎（百度+谷歌）</title>
+        <pubTime>2016-03-14T14:23:39.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
           
         </display>
     </data>
@@ -370,26 +408,6 @@
         <display>
         <title>hexo干货系列：（七）hexo安装统计插件</title>
         <pubTime>2016-03-17T13:22:58.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tengj.top/2016/03/14/hexo6seo/</loc>
-    <lastmod>2016-03-27T09:22:32.983Z</lastmod>
-    <data>
-        <display>
-        <title>hexo干货系列：（六）hexo提交搜索引擎（百度+谷歌）</title>
-        <pubTime>2016-03-14T14:23:39.000Z</pubTime>
         
         <tag>hexo</tag>
          
