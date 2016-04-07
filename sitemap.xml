@@ -2,23 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://tengj.github.io/2016/04/07/sjms5prototype/</loc>
+    <loc>http://tengj.github.io/2016/04/03/sjms2factorymethod/</loc>
     
-    <lastmod>2016-04-07T10:04:18.127Z</lastmod>
+    <lastmod>2016-04-07T11:50:48.346Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tengj.github.io/2016/04/02/sjms1simpleFactory/</loc>
+    
+    <lastmod>2016-04-07T11:50:37.787Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://tengj.github.io/2016/04/06/sjms4singleton/</loc>
     
-    <lastmod>2016-04-06T15:14:31.738Z</lastmod>
+    <lastmod>2016-04-07T11:50:11.074Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://tengj.github.io/2016/04/04/sjms3abstractfactory/</loc>
     
-    <lastmod>2016-04-06T13:59:49.981Z</lastmod>
+    <lastmod>2016-04-07T11:50:00.464Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tengj.github.io/2016/04/07/sjms5prototype/</loc>
+    
+    <lastmod>2016-04-07T11:47:21.642Z</lastmod>
     
   </url>
   
@@ -26,20 +40,6 @@
     <loc>http://tengj.github.io/2016/03/14/hexo6seo/</loc>
     
     <lastmod>2016-04-06T01:16:35.919Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tengj.github.io/2016/04/02/sjms1simpleFactory/</loc>
-    
-    <lastmod>2016-04-05T07:52:53.781Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tengj.github.io/2016/04/03/sjms2factorymethod/</loc>
-    
-    <lastmod>2016-04-05T03:44:22.525Z</lastmod>
     
   </url>
   

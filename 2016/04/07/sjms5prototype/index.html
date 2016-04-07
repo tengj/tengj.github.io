@@ -22,7 +22,8 @@
 正文原型模式概念原型模式(Prototype Pattern)：使用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。原型模式是一种对象创建型模式。  
 该接口用于创建当前对象的克隆。当直接创建对象的代价比较大时，则采用这种模式。例如，一个对象需要在一">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/sjms5_1.jpg">
-<meta property="og:updated_time" content="2016-04-07T10:04:18.127Z">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
+<meta property="og:updated_time" content="2016-04-07T11:47:21.642Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式干货系列：（五）原型模式【学习难度：★★★☆☆，使用频率：★★★☆☆】">
 <meta name="twitter:description" content="前言今天介绍原型模式，我自己偷偷给它命名为克隆模式。因为原型模式的意图是通过复制一个现有的对象来生成新的对象，而不是通过实例化的方式。
@@ -105,7 +106,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#原型模式概念"><span class="toc-number">2.1.</span> <span class="toc-text">原型模式概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型模式结构图"><span class="toc-number">2.2.</span> <span class="toc-text">原型模式结构图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浅克隆"><span class="toc-number">2.3.</span> <span class="toc-text">浅克隆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#深克隆"><span class="toc-number">2.4.</span> <span class="toc-text">深克隆</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#原型模式概念"><span class="toc-number">2.1.</span> <span class="toc-text">原型模式概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型模式结构图"><span class="toc-number">2.2.</span> <span class="toc-text">原型模式结构图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浅克隆"><span class="toc-number">2.3.</span> <span class="toc-text">浅克隆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#深克隆"><span class="toc-number">2.4.</span> <span class="toc-text">深克隆</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#如果对你有所帮助-●ˇ∀ˇ●-点个赞吧。被接收是对我最大的鼓励。"><span class="toc-number">3.1.</span> <span class="toc-text">如果对你有所帮助(●ˇ∀ˇ●)点个赞吧。被接收是对我最大的鼓励。</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -151,7 +152,7 @@
 <li>需要避免使用分层次的工厂类来创建分层次的对象，并且类的实例对象只有一个或很少的几个组合状态，通过复制原型对象得到新实例可能比使用构造函数创建一个新实例更加方便。</li>
 </ul>
 <hr>
-<p>如果对你有所帮助(●ˇ∀ˇ●)<code>点个赞</code>吧。被接收是对我最大的鼓励。</p>
+<h2 id="如果对你有所帮助-●ˇ∀ˇ●-点个赞吧。被接收是对我最大的鼓励。"><a href="#如果对你有所帮助-●ˇ∀ˇ●-点个赞吧。被接收是对我最大的鼓励。" class="headerlink" title="如果对你有所帮助(●ˇ∀ˇ●)点个赞吧。被接收是对我最大的鼓励。"></a>如果对你有所帮助(●ˇ∀ˇ●)<code>点个赞</code>吧。被接收是对我最大的鼓励。</h2><p>最近撸了个java的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -184,9 +185,9 @@
  
 
 <div class="next">
-<a href="/2016/04/06/sjms4singleton/"  title="设计模式干货系列：（四）单例模式">
+<a href="/2016/04/06/sjms4singleton/"  title="设计模式干货系列：（四）单例模式【学习难度：★☆☆☆☆，使用频率：★★★★☆】">
  <strong>下一篇：</strong><br/> 
- <span>设计模式干货系列：（四）单例模式
+ <span>设计模式干货系列：（四）单例模式【学习难度：★☆☆☆☆，使用频率：★★★★☆】
 </span>
 </a>
 </div>
@@ -205,7 +206,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#原型模式概念"><span class="toc-number">2.1.</span> <span class="toc-text">原型模式概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型模式结构图"><span class="toc-number">2.2.</span> <span class="toc-text">原型模式结构图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浅克隆"><span class="toc-number">2.3.</span> <span class="toc-text">浅克隆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#深克隆"><span class="toc-number">2.4.</span> <span class="toc-text">深克隆</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#原型模式概念"><span class="toc-number">2.1.</span> <span class="toc-text">原型模式概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型模式结构图"><span class="toc-number">2.2.</span> <span class="toc-text">原型模式结构图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浅克隆"><span class="toc-number">2.3.</span> <span class="toc-text">浅克隆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#深克隆"><span class="toc-number">2.4.</span> <span class="toc-text">深克隆</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#如果对你有所帮助-●ˇ∀ˇ●-点个赞吧。被接收是对我最大的鼓励。"><span class="toc-number">3.1.</span> <span class="toc-text">如果对你有所帮助(●ˇ∀ˇ●)点个赞吧。被接收是对我最大的鼓励。</span></a></li></ol></li></ol>
  
   </div>
 
