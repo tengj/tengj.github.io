@@ -4,8 +4,26 @@
 
     
   <url>
+    <loc>http://tengj.top/2016/04/07/sjms5prototype/</loc>
+    <lastmod>2016-04-07T10:04:18.127Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式干货系列：（五）原型模式【学习难度：★★★☆☆，使用频率：★★★☆☆】</title>
+        <pubTime>2016-04-07T09:59:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="设计模式" url="http://tengj.top/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://tengj.top/2016/04/06/sjms4singleton/</loc>
-    <lastmod>2016-04-06T14:00:18.303Z</lastmod>
+    <lastmod>2016-04-06T15:14:31.738Z</lastmod>
     <data>
         <display>
         <title>设计模式干货系列：（四）单例模式</title>
