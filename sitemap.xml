@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://tengj.github.io/2016/04/09/sjms6builder/</loc>
+    
+    <lastmod>2016-04-09T15:20:52.557Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tengj.github.io/2016/03/17/hexo7count/</loc>
+    
+    <lastmod>2016-04-07T13:00:59.283Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://tengj.github.io/2016/04/03/sjms2factorymethod/</loc>
     
     <lastmod>2016-04-07T11:50:48.346Z</lastmod>
@@ -152,13 +166,6 @@
     <loc>http://tengj.github.io/2016/03/20/hexo8hidewidgets/</loc>
     
     <lastmod>2016-03-27T09:22:49.184Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tengj.github.io/2016/03/17/hexo7count/</loc>
-    
-    <lastmod>2016-03-27T09:22:41.382Z</lastmod>
     
   </url>
   
