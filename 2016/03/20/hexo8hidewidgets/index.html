@@ -11,44 +11,35 @@
     
 
     
-    <meta name="description" content="前言
-使用Jacman主题的时候发现打开具体文章后，侧边栏还是会展示，我想要的效果是自动隐藏侧边栏，并且展示目录。但是当我修改了主题配置文件里面close_aside属性为true的时候，发现侧边栏隐藏了，但是目录没出来。于是就有了这篇文章，让我带你一步步明白原理并解决问题~
-正文
-侧边栏的代码结构
-  
+    <meta name="description" content="前言使用Jacman主题的时候发现打开具体文章后，侧边栏还是会展示，我想要的效果是自动隐藏侧边栏，并且展示目录。但是当我修改了主题配置文件里面close_aside属性为true的时候，发现侧边栏隐藏了，但是目录没出来。于是就有了这篇文章，让我带你一步步明白原理并解决问题~
+正文侧边栏的代码结构  
 如图：
 
 为显示侧边栏按钮,对应的是openaside，默认隐藏
-为文章目录,对应的是to和">
+为文章目录,对应的是to和toc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo干货系列：（八）hexo文章自动隐藏侧边栏">
 <meta property="og:url" content="http://tengj.github.io/2016/03/20/hexo8hidewidgets/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="前言
-使用Jacman主题的时候发现打开具体文章后，侧边栏还是会展示，我想要的效果是自动隐藏侧边栏，并且展示目录。但是当我修改了主题配置文件里面close_aside属性为true的时候，发现侧边栏隐藏了，但是目录没出来。于是就有了这篇文章，让我带你一步步明白原理并解决问题~
-正文
-侧边栏的代码结构
-  
+<meta property="og:description" content="前言使用Jacman主题的时候发现打开具体文章后，侧边栏还是会展示，我想要的效果是自动隐藏侧边栏，并且展示目录。但是当我修改了主题配置文件里面close_aside属性为true的时候，发现侧边栏隐藏了，但是目录没出来。于是就有了这篇文章，让我带你一步步明白原理并解决问题~
+正文侧边栏的代码结构  
 如图：
 
 为显示侧边栏按钮,对应的是openaside，默认隐藏
-为文章目录,对应的是to和">
+为文章目录,对应的是to和toc">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo8_1.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo8_2.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo8_3.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
-<meta property="og:updated_time" content="2016-03-27T09:22:49.184Z">
+<meta property="og:updated_time" content="2016-04-09T15:40:51.923Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo干货系列：（八）hexo文章自动隐藏侧边栏">
-<meta name="twitter:description" content="前言
-使用Jacman主题的时候发现打开具体文章后，侧边栏还是会展示，我想要的效果是自动隐藏侧边栏，并且展示目录。但是当我修改了主题配置文件里面close_aside属性为true的时候，发现侧边栏隐藏了，但是目录没出来。于是就有了这篇文章，让我带你一步步明白原理并解决问题~
-正文
-侧边栏的代码结构
-  
+<meta name="twitter:description" content="前言使用Jacman主题的时候发现打开具体文章后，侧边栏还是会展示，我想要的效果是自动隐藏侧边栏，并且展示目录。但是当我修改了主题配置文件里面close_aside属性为true的时候，发现侧边栏隐藏了，但是目录没出来。于是就有了这篇文章，让我带你一步步明白原理并解决问题~
+正文侧边栏的代码结构  
 如图：
 
 为显示侧边栏按钮,对应的是openaside，默认隐藏
-为文章目录,对应的是to和">
+为文章目录,对应的是to和toc">
 
     
     <link rel="alternative" href="/atom.xml" title="嘟嘟独立博客" type="application/atom+xml">
@@ -130,26 +121,21 @@
 		
 		</div>
 		
-		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><hr>
-<p>使用Jacman主题的时候发现打开具体文章后，侧边栏还是会展示，我想要的效果是自动隐藏侧边栏，并且展示目录。但是当我修改了主题配置文件里面<code>close_aside</code>属性为<code>true</code>的时候，发现侧边栏隐藏了，但是目录没出来。于是就有了这篇文章，让我带你一步步明白原理并解决问题~</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><hr>
-<h2 id="侧边栏的代码结构"><a href="#侧边栏的代码结构" class="headerlink" title="侧边栏的代码结构"></a>侧边栏的代码结构</h2><hr>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo8_1.jpg" alt=""><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo8_2.png" alt="">  </p>
+		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>使用Jacman主题的时候发现打开具体文章后，侧边栏还是会展示，我想要的效果是自动隐藏侧边栏，并且展示目录。但是当我修改了主题配置文件里面<code>close_aside</code>属性为<code>true</code>的时候，发现侧边栏隐藏了，但是目录没出来。于是就有了这篇文章，让我带你一步步明白原理并解决问题~</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="侧边栏的代码结构"><a href="#侧边栏的代码结构" class="headerlink" title="侧边栏的代码结构"></a>侧边栏的代码结构</h2><p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo8_1.jpg" alt=""><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo8_2.png" alt="">  </p>
 <p>如图：</p>
 <ol>
 <li>为显示侧边栏按钮,对应的是openaside，默认隐藏</li>
 <li>为文章目录,对应的是to和toc-aside，默认隐藏</li>
 <li>为侧边栏,对应的是asidepart，默认是展示</li>
 </ol>
-<h2 id="实现自动隐藏侧边栏"><a href="#实现自动隐藏侧边栏" class="headerlink" title="实现自动隐藏侧边栏"></a>实现自动隐藏侧边栏</h2><hr>
-<p>那我们现在要做得就是打算一打开具体文章，默认先显示成文字目录，而不是侧边栏<br>要实现这个就要通过js来改变，我查找了对应的文件，发现在  <code>\themes\jacman\layout\_partial\after_footer.ejs</code>这里有相关代码：</p>
+<h2 id="实现自动隐藏侧边栏"><a href="#实现自动隐藏侧边栏" class="headerlink" title="实现自动隐藏侧边栏"></a>实现自动隐藏侧边栏</h2><p>那我们现在要做得就是打算一打开具体文章，默认先显示成文字目录，而不是侧边栏<br>要实现这个就要通过js来改变，我查找了对应的文件，发现在  <code>\themes\jacman\layout\_partial\after_footer.ejs</code>这里有相关代码：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> m = $(<span class="string">'#main'</span>),</span><br><span class="line">    a = $(<span class="string">'#asidepart'</span>), <span class="comment">//侧边栏</span></span><br><span class="line">    c = $(<span class="string">'.closeaside'</span>),<span class="comment">//隐藏侧边栏</span></span><br><span class="line">    o = $(<span class="string">'.openaside'</span>); <span class="comment">//显示侧边栏</span></span><br><span class="line">c.click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  a.addClass(<span class="string">'fadeOut'</span>).css(<span class="string">'display'</span>, <span class="string">'none'</span>);</span><br><span class="line">  o.css(<span class="string">'display'</span>, <span class="string">'block'</span>).addClass(<span class="string">'fadeIn'</span>);</span><br><span class="line">  m.addClass(<span class="string">'moveMain'</span>);</span><br><span class="line">&#125;);  </span><br><span class="line"><span class="comment">//*******************************</span></span><br><span class="line"> 中间还有一些代码。。这里不展示</span><br><span class="line"> <span class="comment">//******************************</span></span><br><span class="line">&lt;% <span class="keyword">if</span> (is_post() &amp;&amp; theme.close_aside) &#123; %&gt;</span><br><span class="line">      getSize();</span><br><span class="line">      <span class="keyword">if</span> (myWidth &gt;= <span class="number">1024</span>) &#123;</span><br><span class="line">        c.click();</span><br><span class="line">      &#125;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
 <p>上面代码可以看出来<br><code>is_post()</code>用来判断当前是否post布局，大家记住我们博文详情页默认是<code>post</code>布局，所以为<code>true</code>.<br><code>theme.close_aside</code>这个是在主题配置文件<code>_config.yml</code>下面对应的配置：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">close_aside: <span class="literal">true</span>  <span class="comment">#close sidebar in post page if true</span></span><br><span class="line">mathjax: <span class="literal">false</span>      <span class="comment">#enable mathjax if true</span></span><br></pre></td></tr></table></figure></p>
 <p>我这边<code>close_aside</code>就设置了<code>true</code>，在<code>post</code>布局里面默认关闭侧边栏<br>如果页面宽度大于1024就触发<code>c.click()</code>，也就是触发了隐藏侧边栏的方法。<br>原本的代码<code>c.click(function(){})</code>里面只是简单的隐藏和显示了图标，最关键的目录对应的<code>&lt;div id=&quot;toc&quot; class=&quot;toc-aside&quot;&gt;</code>没有显示，因为默认隐藏的。<br><strong>没错，这就是问题的关键所在</strong>，所以我这里添加上了显示这个<code>div</code>的代码，正确代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> m = $(<span class="string">'#main'</span>),</span><br><span class="line">    a = $(<span class="string">'#asidepart'</span>), <span class="comment">//侧边栏</span></span><br><span class="line">    c = $(<span class="string">'.closeaside'</span>),<span class="comment">//隐藏侧边栏</span></span><br><span class="line">    o = $(<span class="string">'.openaside'</span>); <span class="comment">//显示侧边栏</span></span><br><span class="line">c.click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  a.addClass(<span class="string">'fadeOut'</span>).css(<span class="string">'display'</span>, <span class="string">'none'</span>);</span><br><span class="line">  o.css(<span class="string">'display'</span>, <span class="string">'block'</span>).addClass(<span class="string">'fadeIn'</span>);</span><br><span class="line">   <span class="keyword">var</span> m = $(<span class="string">'#main'</span>),</span><br><span class="line">    a = $(<span class="string">'#asidepart'</span>), <span class="comment">//侧边栏</span></span><br><span class="line">    c = $(<span class="string">'.closeaside'</span>),<span class="comment">//隐藏侧边栏</span></span><br><span class="line">    o = $(<span class="string">'.openaside'</span>); <span class="comment">//显示侧边栏</span></span><br><span class="line">c.click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  a.addClass(<span class="string">'fadeOut'</span>).css(<span class="string">'display'</span>, <span class="string">'none'</span>);</span><br><span class="line">  o.css(<span class="string">'display'</span>, <span class="string">'block'</span>).addClass(<span class="string">'fadeIn'</span>);</span><br><span class="line">  $(<span class="string">'#toc.toc-aside'</span>).css(<span class="string">'display'</span>, <span class="string">'block'</span>).addClass(<span class="string">'fadeIn'</span>); <span class="comment">//这个是我新加的，修改点</span></span><br><span class="line">  m.addClass(<span class="string">'moveMain'</span>);</span><br><span class="line">&#125;);  </span><br><span class="line"><span class="comment">//*******************************</span></span><br><span class="line"> 中间还有一些代码。。这里不展示</span><br><span class="line"> <span class="comment">//******************************</span></span><br><span class="line">&lt;% <span class="keyword">if</span> (is_post() &amp;&amp; theme.close_aside) &#123; %&gt;</span><br><span class="line">      getSize();</span><br><span class="line">      <span class="keyword">if</span> (myWidth &gt;= <span class="number">1024</span>) &#123;</span><br><span class="line">        c.click();</span><br><span class="line">      &#125;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure></p>
 <p>好了搞定,默认打开文章的效果如下：  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo8_3.jpg" alt=""></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><hr>
-<p>如果你没看懂的话也没关系，概括起来就修改两个地方</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>如果你没看懂的话也没关系，概括起来就修改两个地方</p>
 <ol>
 <li><code>\themes\jacman\_config.yml</code>里面修改<code>close_aside</code>属性为<code>true</code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">close_aside: <span class="literal">true</span>  <span class="comment">#close sidebar in post page if true</span></span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"><span class="number">2</span>. `\themes\jacman\layout\_partial\after_footer.ejs`里面添加下面的代码，具体添加在哪里，看看文章里面有提到</span><br><span class="line">``` bash</span><br><span class="line"> $(<span class="string">'#toc.toc-aside'</span>).css(<span class="string">'display'</span>, <span class="string">'block'</span>).addClass(<span class="string">'fadeIn'</span>); //这个是我新加的，修改点</span><br></pre></td></tr></table></figure>
 </li>
@@ -246,6 +232,10 @@
 		<ul>
 		
 		  
+			<li><a href="/categories/Java集合干货系列/" title="Java集合干货系列">Java集合干货系列<sup>1</sup></a></li>
+		  
+		
+		  
 			<li><a href="/categories/SEO/" title="SEO">SEO<sup>2</sup></a></li>
 		  
 		
@@ -284,7 +274,7 @@
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
   </div>
 
 

@@ -4,6 +4,44 @@
 
     
   <url>
+    <loc>http://tengj.top/2016/04/12/javajhtotal/</loc>
+    <lastmod>2016-04-12T02:25:21.303Z</lastmod>
+    <data>
+        <display>
+        <title>Java集合干货系列-集合总体大纲</title>
+        <pubTime>2016-04-12T02:23:48.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Java集合干货系列" url="http://tengj.top/categories/Java%E9%9B%86%E5%90%88%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tengj.top/2016/03/20/hexo8hidewidgets/</loc>
+    <lastmod>2016-04-09T15:40:51.923Z</lastmod>
+    <data>
+        <display>
+        <title>hexo干货系列：（八）hexo文章自动隐藏侧边栏</title>
+        <pubTime>2016-03-20T06:54:21.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://tengj.top/2016/04/09/sjms6builder/</loc>
     <lastmod>2016-04-09T15:20:52.557Z</lastmod>
     <data>
@@ -431,26 +469,6 @@
            
              
               <breadCrumb title="springMVC" url="http://tengj.top/categories/springMVC/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tengj.top/2016/03/20/hexo8hidewidgets/</loc>
-    <lastmod>2016-03-27T09:22:49.184Z</lastmod>
-    <data>
-        <display>
-        <title>hexo干货系列：（八）hexo文章自动隐藏侧边栏</title>
-        <pubTime>2016-03-20T06:54:21.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
           
         </display>
     </data>

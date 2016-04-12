@@ -1,0 +1,611 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Java集合干货系列-集合总体大纲 | 嘟嘟独立博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Teng Jun">
+    
+
+    
+    <meta name="description" content="前言Java集合是java提供的工具包，包含了常用的数据结构：集合、链表、队列、栈、数组、映射等。Java集合工具包位置是java.util.*Java集合主要可以划分为4个部分：List列表、Set集合、Map映射、工具类(Iterator迭代器、Enumeration枚举类、Arrays和Collections)、。Java集合工具包框架图(如下)：
+
+正文看上面的框架图，先抓住它的主干，即C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java集合干货系列-集合总体大纲">
+<meta property="og:url" content="http://tengj.github.io/2016/04/12/javajhtotal/index.html">
+<meta property="og:site_name" content="嘟嘟独立博客">
+<meta property="og:description" content="前言Java集合是java提供的工具包，包含了常用的数据结构：集合、链表、队列、栈、数组、映射等。Java集合工具包位置是java.util.*Java集合主要可以划分为4个部分：List列表、Set集合、Map映射、工具类(Iterator迭代器、Enumeration枚举类、Arrays和Collections)、。Java集合工具包框架图(如下)：
+
+正文看上面的框架图，先抓住它的主干，即C">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/jhtotal02.jpg">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/jhtotal.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/jhtotal_3.jpg">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/jhtotal_4.jpg">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/jhtotal_5.jpg">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/jhswdt.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
+<meta property="og:updated_time" content="2016-04-12T02:25:21.303Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java集合干货系列-集合总体大纲">
+<meta name="twitter:description" content="前言Java集合是java提供的工具包，包含了常用的数据结构：集合、链表、队列、栈、数组、映射等。Java集合工具包位置是java.util.*Java集合主要可以划分为4个部分：List列表、Set集合、Map映射、工具类(Iterator迭代器、Enumeration枚举类、Arrays和Collections)、。Java集合工具包框架图(如下)：
+
+正文看上面的框架图，先抓住它的主干，即C">
+
+    
+    <link rel="alternative" href="/atom.xml" title="嘟嘟独立博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/dudu.gif" alt="嘟嘟独立博客" title="嘟嘟独立博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="嘟嘟独立博客">嘟嘟独立博客</a></h1>
+				<h2 class="blog-motto">爱生活爱编码</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/timeline">时光机</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" class="st-default-search-input" maxlength="20" placeholder="Search" />
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/04/12/javajhtotal/" title="Java集合干货系列-集合总体大纲" itemprop="url">Java集合干货系列-集合总体大纲</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Teng Jun" target="_blank" itemprop="author">Teng Jun</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-12T02:23:48.000Z" itemprop="datePublished"> 发表于 2016-04-12</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number"></span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Collection接口、子接口以及实现类"><span class="toc-number">1.</span> <span class="toc-text">Collection接口、子接口以及实现类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#List接口"><span class="toc-number">2.</span> <span class="toc-text">List接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Set接口"><span class="toc-number">3.</span> <span class="toc-text">Set接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Map和HashMap"><span class="toc-number">4.</span> <span class="toc-text">Map和HashMap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Comparable和Comparator"><span class="toc-number">5.</span> <span class="toc-text">Comparable和Comparator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Iterator接口"><span class="toc-number">6.</span> <span class="toc-text">Iterator接口</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number"></span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#集合的作用"><span class="toc-number">1.</span> <span class="toc-text">集合的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#与数组的对比—————为何选择集合而不是数组"><span class="toc-number">2.</span> <span class="toc-text">与数组的对比—————为何选择集合而不是数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#整理的集合框架思维导图"><span class="toc-number">3.</span> <span class="toc-text">整理的集合框架思维导图</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Java集合是java提供的工具包，包含了常用的数据结构：集合、链表、队列、栈、数组、映射等。Java集合工具包位置是java.util.*<br>Java集合主要可以划分为4个部分：List列表、Set集合、Map映射、工具类(Iterator迭代器、Enumeration枚举类、Arrays和Collections)、。<br>Java集合工具包框架图(如下)：</p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/jhtotal02.jpg" alt=""></p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>看上面的框架图，先抓住它的主干，即Collection和Map。</p>
+<h2 id="Collection接口、子接口以及实现类"><a href="#Collection接口、子接口以及实现类" class="headerlink" title="Collection接口、子接口以及实现类"></a>Collection接口、子接口以及实现类</h2><p>Collection接口</p>
+<ul>
+<li>是List、Set和Queue接口的父接口</li>
+<li>定义了可用于操作List、Set和Queue的方法-增删改查</li>
+</ul>
+<p>Collection接口<a href="http://www.yq1012.com/api/" target="_blank" rel="external">API</a>中定义的方法如下：<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/jhtotal.png" alt="">  </p>
+<h2 id="List接口"><a href="#List接口" class="headerlink" title="List接口"></a>List接口</h2><ul>
+<li>List是元素有序并且可以重复的集合，被称为序列</li>
+<li>List可以精确的控制每个元素的插入位置，或删除某个位置元素</li>
+<li>List接口的常用子类：<br>ArrayList<br>LinkedList<br>Vector<br>Stack<br>下图是List的JDK源码UML图。  </li>
+</ul>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/jhtotal_3.jpg" alt=""></p>
+<h2 id="Set接口"><a href="#Set接口" class="headerlink" title="Set接口"></a>Set接口</h2><ul>
+<li>Set接口中不能加入重复元素，无序</li>
+<li>Set接口常用子类：<br>  散列存放：HashSet<br>  有序存放：TreeSet<br>下图是Set的JDK源码UML图。  </li>
+</ul>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/jhtotal_4.jpg" alt=""></p>
+<h2 id="Map和HashMap"><a href="#Map和HashMap" class="headerlink" title="Map和HashMap"></a>Map和HashMap</h2><p><strong>Map接口</strong></p>
+<ul>
+<li>Map提供了一种映射关系，其中的元素是以键值对（key-value）的形式存储的，能够实现根据key快速查找value</li>
+<li>Map中的键值对以Entry类型的对象实例形式存在</li>
+<li>键（key值）不可重复，value值可以</li>
+<li>每个建最多只能映射到一个值</li>
+<li>Map接口提供了分别返回key值集合、value值集合以及Entry（键值对）集合的方法</li>
+<li>Map支持泛型，形式如：Map<k,v></k,v></li>
+</ul>
+<p><strong>HashMap类</strong></p>
+<ul>
+<li>HashMap是Map的一个重要实现类，也是最常用，基于哈希表实现</li>
+<li>HashMap中的Entry对象是无序排列的</li>
+<li>Key值和Value值都可以为null,但是一个HashMap只能有一个key值为null的映射（key值不可重复）</li>
+</ul>
+<p>下图是Map的JDK源码UML图  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/jhtotal_5.jpg" alt=""></p>
+<h2 id="Comparable和Comparator"><a href="#Comparable和Comparator" class="headerlink" title="Comparable和Comparator"></a>Comparable和Comparator</h2><p><strong>Comparable接口——可比较的</strong></p>
+<ul>
+<li>实现该接口表示：这个类的实例可以比较大小，可以进行自然排序</li>
+<li>定义了默认的比较规则</li>
+<li>其实现类需要实现compareTo()方法</li>
+<li>compareTo()方法返回正数表示大，负数表示小0表示相等</li>
+</ul>
+<p><strong>Comparator</strong>接口——比较工具接口</p>
+<ul>
+<li>用于定义临时比较规则，而不是默认比较规则</li>
+<li>其实现类需要实现compare()方法</li>
+<li>Comparable和Comparator都是Java集合框架的成员</li>
+</ul>
+<h2 id="Iterator接口"><a href="#Iterator接口" class="headerlink" title="Iterator接口"></a>Iterator接口</h2><ol>
+<li>集合输出的标注你操作<br> 标准做法，使用Iterator接口</li>
+<li>操作原理：<br> Iterator是专门的迭代输出接口，迭代输出就是将元素一个个进行判断，判断其是否有内容，如果有内容则把内容取出。</li>
+</ol>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="集合的作用"><a href="#集合的作用" class="headerlink" title="集合的作用"></a>集合的作用</h2><ul>
+<li>在类的内部，对数据进行组织；</li>
+<li>简单而快速的搜索大数量的条目；</li>
+<li>有的集合接口，提供了一系列排列有序的元素，并且可以在序列中间快速的插入或者删除有关元素；</li>
+<li>有的集合接口，提供了映射关系，可以通过关键字（key）去快速查找对应的唯一对象，而这个关键字额可以是任意类型。</li>
+</ul>
+<h2 id="与数组的对比—————为何选择集合而不是数组"><a href="#与数组的对比—————为何选择集合而不是数组" class="headerlink" title="与数组的对比—————为何选择集合而不是数组"></a>与数组的对比—————为何选择集合而不是数组</h2><ul>
+<li>数组的长度固定，集合长度可变</li>
+<li>数组只能通过下标访问元素，类型固定，而有的集合可以通过任意类型查找所映射的具体对象。</li>
+</ul>
+<h2 id="整理的集合框架思维导图"><a href="#整理的集合框架思维导图" class="headerlink" title="整理的集合框架思维导图"></a>整理的集合框架思维导图</h2><p>个人整理的Java集合框架思维导图，动态维护。导出的图片无法查看备注的一些信息，所以需要源文件的童鞋可以关注我个人的公众号，回复<strong>Java集合框架</strong>即可获取源文件。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/jhswdt.png" alt=""></p>
+<hr>
+<p>如果对你有所帮助(●ˇ∀ˇ●)<code>点个赞</code>或者<code>关注下</code>吧,没准还能打赏下(/▽＼=)。你的鼓励将是博主继续写下去的动力，生活不易，且行且珍惜。</p>
+<hr>
+<p>博主弄了个java学习资源的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG" alt=""></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Java集合干货系列/">Java集合干货系列</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://tengj.github.io/2016/04/12/javajhtotal/" data-title="Java集合干货系列-集合总体大纲 | 嘟嘟独立博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/04/09/sjms6builder/"  title="设计模式干货系列：（六）建造者模式【学习难度：★★★★☆，使用频率：★★☆☆☆】">
+ <strong>下一篇：</strong><br/> 
+ <span>设计模式干货系列：（六）建造者模式【学习难度：★★★★☆，使用频率：★★☆☆☆】
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/04/12/javajhtotal/" data-title="Java集合干货系列-集合总体大纲" data-url="http://tengj.github.io/2016/04/12/javajhtotal/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number"></span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Collection接口、子接口以及实现类"><span class="toc-number">1.</span> <span class="toc-text">Collection接口、子接口以及实现类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#List接口"><span class="toc-number">2.</span> <span class="toc-text">List接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Set接口"><span class="toc-number">3.</span> <span class="toc-text">Set接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Map和HashMap"><span class="toc-number">4.</span> <span class="toc-text">Map和HashMap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Comparable和Comparator"><span class="toc-number">5.</span> <span class="toc-text">Comparable和Comparator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Iterator接口"><span class="toc-number">6.</span> <span class="toc-text">Iterator接口</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number"></span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#集合的作用"><span class="toc-number">1.</span> <span class="toc-text">集合的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#与数组的对比—————为何选择集合而不是数组"><span class="toc-number">2.</span> <span class="toc-text">与数组的对比—————为何选择集合而不是数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#整理的集合框架思维导图"><span class="toc-number">3.</span> <span class="toc-text">整理的集合框架思维导图</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="tengj" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Java集合干货系列/" title="Java集合干货系列">Java集合干货系列<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/SEO/" title="SEO">SEO<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/app推荐/" title="app推荐">app推荐<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/git/" title="git">git<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/hexo/" title="hexo">hexo<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/jQuery/" title="jQuery">jQuery<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/java/" title="java">java<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/springMVC/" title="springMVC">springMVC<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/设计模式/" title="设计模式">设计模式<sup>7</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
+  </div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/SEO/" style="font-size: 15px;">SEO</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/springMVC/" style="font-size: 10px;">springMVC</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://shomy.top" target="_blank" title="天空的城">天空的城</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://iamaboy.xyz" target="_blank" title="WenQiang&#39;s Notes">WenQiang&#39;s Notes</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.cocosdever.com" target="_blank" title="C的博客">C的博客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 程序员上辈子都是折翼的天使 <br/>
+			This is my blog,Try to do better.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/tengj" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Teng Jun">Teng Jun</a>
+		
+		</p>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','Ts_hz24x26ZaNWfhsYwW','2.0.0');
+</script>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  
+  var m = $('#main'),
+      a = $('#asidepart'), //侧边栏
+      c = $('.closeaside'),//隐藏侧边栏
+      o = $('.openaside'); //显示侧边栏
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    $('#toc.toc-aside').css('display', 'block').addClass('fadeIn'); //这个是我新加的，修改点
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"tengj"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257841330'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1257841330%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
