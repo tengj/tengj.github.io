@@ -1,0 +1,602 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Java集合干货系列-ArrayList源码解析 | 嘟嘟独立博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Teng Jun">
+    
+
+    
+    <meta name="description" content="前言今天来介绍下ArrayList，在集合框架整体框架一章中，我们介绍了List接口，ArrayList继承了AbstractList，实现了List。ArrayList在工作中经常用到，所以要弄懂这个类是极其重要的。构造图如下:蓝色线条：继承绿色线条：接口实现
+正文ArrayList简介ArrayList定义1public class ArrayList&amp;lt;E&amp;gt; extends Abs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java集合干货系列-ArrayList源码解析">
+<meta property="og:url" content="http://tengj.github.io/2016/04/13/javajh1arraylist/index.html">
+<meta property="og:site_name" content="嘟嘟独立博客">
+<meta property="og:description" content="前言今天来介绍下ArrayList，在集合框架整体框架一章中，我们介绍了List接口，ArrayList继承了AbstractList，实现了List。ArrayList在工作中经常用到，所以要弄懂这个类是极其重要的。构造图如下:蓝色线条：继承绿色线条：接口实现
+正文ArrayList简介ArrayList定义1public class ArrayList&amp;lt;E&amp;gt; extends Abs">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/jh1_1.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/jh1_2.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/jh1_3.jpg">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/jh1_4.jpg">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/jhswdt.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
+<meta property="og:updated_time" content="2016-04-13T02:52:08.764Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java集合干货系列-ArrayList源码解析">
+<meta name="twitter:description" content="前言今天来介绍下ArrayList，在集合框架整体框架一章中，我们介绍了List接口，ArrayList继承了AbstractList，实现了List。ArrayList在工作中经常用到，所以要弄懂这个类是极其重要的。构造图如下:蓝色线条：继承绿色线条：接口实现
+正文ArrayList简介ArrayList定义1public class ArrayList&amp;lt;E&amp;gt; extends Abs">
+
+    
+    <link rel="alternative" href="/atom.xml" title="嘟嘟独立博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/dudu.gif" alt="嘟嘟独立博客" title="嘟嘟独立博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="嘟嘟独立博客">嘟嘟独立博客</a></h1>
+				<h2 class="blog-motto">爱生活爱编码</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/timeline">时光机</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" class="st-default-search-input" maxlength="20" placeholder="Search" />
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/04/13/javajh1arraylist/" title="Java集合干货系列-ArrayList源码解析" itemprop="url">Java集合干货系列-ArrayList源码解析</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Teng Jun" target="_blank" itemprop="author">Teng Jun</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-13T02:19:29.000Z" itemprop="datePublished"> 发表于 2016-04-13</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ArrayList简介"><span class="toc-number">2.1.</span> <span class="toc-text">ArrayList简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ArrayList定义"><span class="toc-number">2.1.1.</span> <span class="toc-text">ArrayList定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ArrayList属性"><span class="toc-number">2.1.2.</span> <span class="toc-text">ArrayList属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ArrayList构造函数"><span class="toc-number">2.1.3.</span> <span class="toc-text">ArrayList构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#API方法摘要"><span class="toc-number">2.1.4.</span> <span class="toc-text">API方法摘要</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ArrayList源码解析-基于JDK1-6-0-45"><span class="toc-number">2.2.</span> <span class="toc-text">ArrayList源码解析(基于JDK1.6.0_45)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#增加"><span class="toc-number">2.2.1.</span> <span class="toc-text">增加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除"><span class="toc-number">2.2.2.</span> <span class="toc-text">删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新"><span class="toc-number">2.2.3.</span> <span class="toc-text">更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查找"><span class="toc-number">2.2.4.</span> <span class="toc-text">查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#是否包含"><span class="toc-number">2.2.5.</span> <span class="toc-text">是否包含</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#容量判断"><span class="toc-number">2.2.6.</span> <span class="toc-text">容量判断</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ArrayList遍历方式"><span class="toc-number">2.3.</span> <span class="toc-text">ArrayList遍历方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ArrayList示例"><span class="toc-number">2.4.</span> <span class="toc-text">ArrayList示例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ArrayList和LinkedList的区别"><span class="toc-number">3.1.</span> <span class="toc-text">ArrayList和LinkedList的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ArrayList和Vector的区别"><span class="toc-number">3.2.</span> <span class="toc-text">ArrayList和Vector的区别</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#整理的集合框架思维导图"><span class="toc-number">5.</span> <span class="toc-text">整理的集合框架思维导图</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天来介绍下ArrayList，在集合框架整体框架一章中，我们介绍了List接口，ArrayList继承了AbstractList，实现了List。ArrayList在工作中经常用到，所以要弄懂这个类是极其重要的。<br>构造图如下:<br>蓝色线条：继承<br>绿色线条：接口实现<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/jh1_1.png" alt=""></p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="ArrayList简介"><a href="#ArrayList简介" class="headerlink" title="ArrayList简介"></a>ArrayList简介</h2><h3 id="ArrayList定义"><a href="#ArrayList定义" class="headerlink" title="ArrayList定义"></a>ArrayList定义</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br></pre></td></tr></table></figure>
+<p>ArrayList 是一个<strong>数组队列</strong>，相当于 <strong>动态数组</strong>。与Java中的数组相比，它的容量能动态增长。它继承于AbstractList，实现了List, RandomAccess, Cloneable, java.io.Serializable这些接口。</p>
+<p>ArrayList 继承了AbstractList，实现了List。它是一个数组队列，提供了相关的添加、删除、修改、遍历等功能。<br>ArrayList 实现了RandmoAccess接口，即提供了随机访问功能。RandmoAccess是java中用来被List实现，为List提供快速访问功能的。在ArrayList中，我们即可以通过元素的序号快速获取元素对象；这就是快速随机访问。稍后，我们会比较List的“快速随机访问”和“通过Iterator迭代器访问”的效率。</p>
+<p>ArrayList 实现了Cloneable接口，即覆盖了函数clone()，能被克隆。</p>
+<p>ArrayList 实现java.io.Serializable接口，这意味着ArrayList支持序列化，能通过序列化去传输。</p>
+<p>和Vector不同，<strong>ArrayList中的操作不是线程安全的</strong>！所以，建议在单线程中才使用ArrayList，而在多线程中可以选择Vector或者CopyOnWriteArrayList。</p>
+<hr>
+<h3 id="ArrayList属性"><a href="#ArrayList属性" class="headerlink" title="ArrayList属性"></a>ArrayList属性</h3><p>顾名思义哈，ArrayList就是用数组实现的List容器，既然是用数组实现，当然底层用数组来保存数据啦<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 保存ArrayList中数据的数组</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">transient</span> Object[] elementData;</span><br><span class="line"><span class="comment">// ArrayList中实际数据的数量</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> size;</span><br></pre></td></tr></table></figure></p>
+<p>ArrayList包含了两个重要的对象：elementData 和 size。</p>
+<p>(1) elementData 是”Object[]类型的数组”，它保存了添加到ArrayList中的元素。实际上，elementData是个动态数组，我们能通过构造函数 ArrayList(int initialCapacity)来执行它的初始容量为initialCapacity；如果通过不含参数的构造函数ArrayList()来创建ArrayList，则elementData的容量默认是10。elementData数组的大小会根据ArrayList容量的增长而动态的增长，具体的增长方式，请参考源码分析中的ensureCapacity()函数。</p>
+<p>(2) size 则是动态数组的实际大小。</p>
+<hr>
+<h3 id="ArrayList构造函数"><a href="#ArrayList构造函数" class="headerlink" title="ArrayList构造函数"></a>ArrayList构造函数</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ArrayList带容量大小的构造函数。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">(<span class="keyword">int</span> initialCapacity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">    <span class="keyword">if</span> (initialCapacity &lt; <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Illegal Capacity: "</span>+initialCapacity);</span><br><span class="line">    <span class="comment">// 新建一个数组</span></span><br><span class="line">    <span class="keyword">this</span>.elementData = <span class="keyword">new</span> Object[initialCapacity];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ArrayList构造函数。默认容量是10。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>(<span class="number">10</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 构造一个包含指定元素的list，这些元素的是按照Collection的迭代器返回的顺序排列的</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">(Collection&lt;? extends E&gt; c)</span> </span>&#123;</span><br><span class="line">    elementData = c.toArray();</span><br><span class="line">    size = elementData.length;</span><br><span class="line">    <span class="keyword">if</span> (elementData.getClass() != Object[].class)</span><br><span class="line">        elementData = Arrays.copyOf(elementData, size, Object[].class);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第一个构造方法使用提供的initialCapacity来初始化elementData数组的大小。</li>
+<li>第二个构造方法调用第一个构造方法并传入参数10，即默认elementData数组的大小为10。</li>
+<li>第三个构造方法则将提供的集合转成数组返回给elementData（返回若不是Object[]将调用Arrays.copyOf方法将其转为Object[]）。</li>
+</ul>
+<h3 id="API方法摘要"><a href="#API方法摘要" class="headerlink" title="API方法摘要"></a>API方法摘要</h3><p><img src="http://7xqch5.com1.z0.glb.clouddn.com/jh1_2.png" alt=""></p>
+<h2 id="ArrayList源码解析-基于JDK1-6-0-45"><a href="#ArrayList源码解析-基于JDK1-6-0-45" class="headerlink" title="ArrayList源码解析(基于JDK1.6.0_45)"></a>ArrayList源码解析(基于JDK1.6.0_45)</h2><h3 id="增加"><a href="#增加" class="headerlink" title="增加"></a>增加</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">     * 添加一个元素</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line">       <span class="comment">// 进行扩容检查</span></span><br><span class="line">       ensureCapacity( size + <span class="number">1</span>);  <span class="comment">// Increments modCount</span></span><br><span class="line">       <span class="comment">// 将e增加至list的数据尾部，容量+1</span></span><br><span class="line">        elementData[size ++] = e;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 在指定位置添加一个元素</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index, E element)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 判断索引是否越界，这里会抛出多么熟悉的异常。。。</span></span><br><span class="line">        <span class="keyword">if</span> (index &gt; size || index &lt; <span class="number">0</span>)</span><br><span class="line">           <span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfBoundsException(</span><br><span class="line">               <span class="string">"Index: "</span>+index+<span class="string">", Size: "</span> +size);</span><br><span class="line"></span><br><span class="line">       <span class="comment">// 进行扩容检查</span></span><br><span class="line">       ensureCapacity( size+<span class="number">1</span>);  <span class="comment">// Increments modCount  </span></span><br><span class="line">       <span class="comment">// 对数组进行复制处理，目的就是空出index的位置插入element，并将index后的元素位移一个位置</span></span><br><span class="line">       System. arraycopy(elementData, index, elementData, index + <span class="number">1</span>,</span><br><span class="line">                      size - index);</span><br><span class="line">       <span class="comment">// 将指定的index位置赋值为element</span></span><br><span class="line">        elementData[index] = element;</span><br><span class="line">       <span class="comment">// list容量+1</span></span><br><span class="line">        size++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 增加一个集合元素</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(Collection&lt;? extends E&gt; c)</span> </span>&#123;</span><br><span class="line">       <span class="comment">//将c转换为数组</span></span><br><span class="line">       Object[] a = c.toArray();</span><br><span class="line">        <span class="keyword">int</span> numNew = a.length ;</span><br><span class="line">       <span class="comment">//扩容检查</span></span><br><span class="line">       ensureCapacity( size + numNew);  <span class="comment">// Increments modCount</span></span><br><span class="line">       <span class="comment">//将c添加至list的数据尾部</span></span><br><span class="line">        System. arraycopy(a, <span class="number">0</span>, elementData, size, numNew);</span><br><span class="line">       <span class="comment">//更新当前容器大小</span></span><br><span class="line">        size += numNew;</span><br><span class="line">        <span class="keyword">return</span> numNew != <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 在指定位置，增加一个集合元素</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(<span class="keyword">int</span> index, Collection&lt;? extends E&gt; c)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (index &gt; size || index &lt; <span class="number">0</span>)</span><br><span class="line">           <span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfBoundsException(</span><br><span class="line">               <span class="string">"Index: "</span> + index + <span class="string">", Size: "</span> + size);</span><br><span class="line"></span><br><span class="line">       Object[] a = c.toArray();</span><br><span class="line">        <span class="keyword">int</span> numNew = a.length ;</span><br><span class="line">       ensureCapacity( size + numNew);  <span class="comment">// Increments modCount</span></span><br><span class="line"></span><br><span class="line">       <span class="comment">// 计算需要移动的长度（index之后的元素个数）</span></span><br><span class="line">        <span class="keyword">int</span> numMoved = size - index;</span><br><span class="line">       <span class="comment">// 数组复制，空出第index到index+numNum的位置，即将数组index后的元素向右移动numNum个位置</span></span><br><span class="line">        <span class="keyword">if</span> (numMoved &gt; <span class="number">0</span>)</span><br><span class="line">           System. arraycopy(elementData, index, elementData, index + numNew,</span><br><span class="line">                          numMoved);</span><br><span class="line"></span><br><span class="line">       <span class="comment">// 将要插入的集合元素复制到数组空出的位置中</span></span><br><span class="line">        System. arraycopy(a, <span class="number">0</span>, elementData, index, numNew);</span><br><span class="line">        size += numNew;</span><br><span class="line">        <span class="keyword">return</span> numNew != <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 数组容量检查，不够时则进行扩容</span><br><span class="line">     */</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ensureCapacity</span><span class="params">( <span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">        modCount++;</span><br><span class="line">       <span class="comment">// 当前数组的长度</span></span><br><span class="line">        <span class="keyword">int</span> oldCapacity = elementData .length;</span><br><span class="line">       <span class="comment">// 最小需要的容量大于当前数组的长度则进行扩容</span></span><br><span class="line">        <span class="keyword">if</span> (minCapacity &gt; oldCapacity) &#123;</span><br><span class="line">           Object oldData[] = elementData;</span><br><span class="line">          <span class="comment">// 新扩容的数组长度为旧容量的1.5倍+1</span></span><br><span class="line">           <span class="keyword">int</span> newCapacity = (oldCapacity * <span class="number">3</span>)/<span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">          <span class="comment">// 如果新扩容的数组长度还是比最小需要的容量小，则以最小需要的容量为长度进行扩容</span></span><br><span class="line">           <span class="keyword">if</span> (newCapacity &lt; minCapacity)</span><br><span class="line">              newCapacity = minCapacity;</span><br><span class="line">            <span class="comment">// minCapacity is usually close to size, so this is a win:</span></span><br><span class="line">            <span class="comment">// 进行数据拷贝，Arrays.copyOf底层实现是System.arrayCopy()</span></span><br><span class="line">            elementData = Arrays.copyOf( elementData, newCapacity);</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">     * 根据索引位置删除元素</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> E <span class="title">remove</span><span class="params">( <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">      <span class="comment">// 数组越界检查</span></span><br><span class="line">       RangeCheck(index);</span><br><span class="line"></span><br><span class="line">        modCount++;</span><br><span class="line">      <span class="comment">// 取出要删除位置的元素，供返回使用</span></span><br><span class="line">       E oldValue = (E) elementData[index];</span><br><span class="line">       <span class="comment">// 计算数组要复制的数量</span></span><br><span class="line">        <span class="keyword">int</span> numMoved = size - index - <span class="number">1</span>;</span><br><span class="line">       <span class="comment">// 数组复制，就是将index之后的元素往前移动一个位置</span></span><br><span class="line">        <span class="keyword">if</span> (numMoved &gt; <span class="number">0</span>)</span><br><span class="line">           System. arraycopy(elementData, index+<span class="number">1</span>, elementData, index,</span><br><span class="line">                          numMoved);</span><br><span class="line">       <span class="comment">// 将数组最后一个元素置空（因为删除了一个元素，然后index后面的元素都向前移动了，所以最后一个就没用了），好让gc尽快回收</span></span><br><span class="line">       <span class="comment">// 不要忘了size减一</span></span><br><span class="line">        elementData[--size ] = <span class="keyword">null</span>; <span class="comment">// Let gc do its work</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> oldValue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 根据元素内容删除，只删除匹配的第一个</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">       <span class="comment">// 对要删除的元素进行null判断</span></span><br><span class="line">       <span class="comment">// 对数据元素进行遍历查找，知道找到第一个要删除的元素，删除后进行返回，如果要删除的元素正好是最后一个那就惨了，时间复杂度可达O(n) 。。。</span></span><br><span class="line">        <span class="keyword">if</span> (o == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; size; index++)</span><br><span class="line">              <span class="comment">// null值要用==比较</span></span><br><span class="line">               <span class="keyword">if</span> (elementData [index] == <span class="keyword">null</span>) &#123;</span><br><span class="line">                  fastRemove(index);</span><br><span class="line">                  <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">              &#125;</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; size; index++)</span><br><span class="line">              <span class="comment">// 非null当然是用equals比较了</span></span><br><span class="line">               <span class="keyword">if</span> (o.equals(elementData [index])) &#123;</span><br><span class="line">                  fastRemove(index);</span><br><span class="line">                  <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">              &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span><br><span class="line">     * Private remove method that skips bounds checking and does not</span><br><span class="line">     * return the value removed.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">fastRemove</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        modCount++;</span><br><span class="line">       <span class="comment">// 原理和之前的add一样，还是进行数组复制，将index后的元素向前移动一个位置，不细解释了，</span></span><br><span class="line">        <span class="keyword">int</span> numMoved = size - index - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (numMoved &gt; <span class="number">0</span>)</span><br><span class="line">            System. arraycopy(elementData, index+<span class="number">1</span>, elementData, index,</span><br><span class="line">                             numMoved);</span><br><span class="line">        elementData[--size ] = <span class="keyword">null</span>; <span class="comment">// Let gc do its work</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 数组越界检查</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">RangeCheck</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (index &gt;= size )</span><br><span class="line">           <span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfBoundsException(</span><br><span class="line">               <span class="string">"Index: "</span>+index+<span class="string">", Size: "</span> +size);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>增加和删除方法到这里就解释完了，代码是很简单，主要需要特别关心的就两个地方：1.数组扩容，2.数组复制，这两个操作都是极费效率的，最惨的情况下(添加到list第一个位置，删除list最后一个元素或删除list第一个索引位置的元素)时间复杂度可达O(n)。</p>
+<p>还记得上面那个坑吗（为什么提供一个可以指定容量大小的构造方法 ）？看到这里是不是有点明白了呢，简单解释下：如果数组初试容量过小，假设默认的10个大小，而我们使用ArrayList的主要操作时增加元素，不断的增加，一直增加，不停的增加，会出现上面后果？那就是数组容量不断的受挑衅，数组需要不断的进行扩容，扩容的过程就是数组拷贝System.arraycopy的过程，每一次扩容就会开辟一块新的内存空间和数据的复制移动，这样势必对性能造成影响。那么在这种以写为主（写会扩容，删不会缩容）场景下，提前预知性的设置一个大容量，便可减少扩容的次数，提高了性能。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/jh1_3.jpg" alt=""><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/jh1_4.jpg" alt=""><br>上面两张图分别是数组扩容和数组复制的过程，需要注意的是，数组扩容伴随着开辟新建的内存空间以创建新数组然后进行数据复制，而数组复制不需要开辟新内存空间，只需将数据进行复制。</p>
+<p>上面讲增加元素可能会进行扩容，而删除元素却不会进行缩容，如果在已删除为主的场景下使用list，一直不停的删除而很少进行增加，那么会出现什么情况？再或者数组进行一次大扩容后，我们后续只使用了几个空间，会出现上面情况？当然是空间浪费啦啦啦，怎么办呢？<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">     * 将底层数组的容量调整为当前实际元素的大小，来释放空间。</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">trimToSize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        modCount++;</span><br><span class="line">       <span class="comment">// 当前数组的容量</span></span><br><span class="line">        <span class="keyword">int</span> oldCapacity = elementData .length;</span><br><span class="line">       <span class="comment">// 如果当前实际元素大小 小于 当前数组的容量，则进行缩容</span></span><br><span class="line">        <span class="keyword">if</span> (size &lt; oldCapacity) &#123;</span><br><span class="line">            elementData = Arrays.copyOf( elementData, size );</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">     * 将指定位置的元素更新为新元素</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> E <span class="title">set</span><span class="params">( <span class="keyword">int</span> index, E element)</span> </span>&#123;</span><br><span class="line">       <span class="comment">// 数组越界检查</span></span><br><span class="line">       RangeCheck(index);</span><br><span class="line"> </span><br><span class="line">       <span class="comment">// 取出要更新位置的元素，供返回使用</span></span><br><span class="line">       E oldValue = (E) elementData[index];</span><br><span class="line">       <span class="comment">// 将该位置赋值为行的元素</span></span><br><span class="line">        elementData[index] = element;</span><br><span class="line">       <span class="comment">// 返回旧元素</span></span><br><span class="line">        <span class="keyword">return</span> oldValue;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">     * 查找指定位置上的元素</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> E <span class="title">get</span><span class="params">( <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">       RangeCheck(index);</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">return</span> (E) elementData [index];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="是否包含"><a href="#是否包含" class="headerlink" title="是否包含"></a>是否包含</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">     * Returns &lt;tt&gt;true&lt;/tt&gt; if this list contains the specified element.</span><br><span class="line">     * More formally, returns &lt;tt&gt;true&lt;/tt&gt; if and only if this list contains</span><br><span class="line">     * at least one element &lt;tt&gt;e&lt;/tt&gt; such that</span><br><span class="line">     * &lt;tt&gt;(o==null&amp;nbsp;?&amp;nbsp;e==null&amp;nbsp;:&amp;nbsp;o.equals(e))&lt;/tt&gt;.</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> o element whose presence in this list is to be tested</span><br><span class="line">     * <span class="doctag">@return</span> &lt;tt&gt; true&lt;/tt&gt; if this list contains the specified element</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> indexOf(o) &gt;= <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * Returns the index of the first occurrence of the specified element</span><br><span class="line">     * in this list, or -1 if this list does not contain the element.</span><br><span class="line">     * More formally, returns the lowest index &lt;tt&gt;i&lt;/tt&gt; such that</span><br><span class="line">     * &lt;tt&gt;(o==null&amp;nbsp;?&amp;nbsp;get(i)==null&amp;nbsp;:&amp;nbsp;o.equals(get(i)))&lt;/tt&gt;,</span><br><span class="line">     * or -1 if there is no such index.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (o == <span class="keyword">null</span>) &#123;</span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++)</span><br><span class="line">               <span class="keyword">if</span> (elementData [i]==<span class="keyword">null</span>)</span><br><span class="line">                  <span class="keyword">return</span> i;</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++)</span><br><span class="line">               <span class="keyword">if</span> (o.equals(elementData [i]))</span><br><span class="line">                  <span class="keyword">return</span> i;</span><br><span class="line">       &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * Returns the index of the last occurrence of the specified element</span><br><span class="line">     * in this list, or -1 if this list does not contain the element.</span><br><span class="line">     * More formally, returns the highest index &lt;tt&gt;i&lt;/tt&gt; such that</span><br><span class="line">     * &lt;tt&gt;(o==null&amp;nbsp;?&amp;nbsp;get(i)==null&amp;nbsp;:&amp;nbsp;o.equals(get(i)))&lt;/tt&gt;,</span><br><span class="line">     * or -1 if there is no such index.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lastIndexOf</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (o == <span class="keyword">null</span>) &#123;</span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">int</span> i = size-<span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">               <span class="keyword">if</span> (elementData [i]==<span class="keyword">null</span>)</span><br><span class="line">                  <span class="keyword">return</span> i;</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">int</span> i = size-<span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">               <span class="keyword">if</span> (o.equals(elementData [i]))</span><br><span class="line">                  <span class="keyword">return</span> i;</span><br><span class="line">       &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>contains主要是检查indexOf，也就是元素在list中出现的索引位置也就是数组下标，再看indexOf和lastIndexOf代码是不是很熟悉，没错，和<strong>public</strong> <strong>boolean</strong> remove(Object o) 的代码一样，都是元素null判断，都是循环比较，不多说了。。。但是要知道，最差的情况（要找的元素是最后一个）也是很惨的。。。</p>
+<h3 id="容量判断"><a href="#容量判断" class="headerlink" title="容量判断"></a>容量判断</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">     * Returns the number of elements in this list.</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@return</span> the number of elements in this list</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> size ;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * Returns &lt;tt&gt;true&lt;/tt&gt; if this list contains no elements.</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@return</span> &lt;tt&gt; true&lt;/tt&gt; if this list contains no elements</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> size == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>由于使用了size进行计数，发现list大小获取和判断真的好容易。</p>
+<p><strong>总结</strong>：<br>(01) ArrayList 实际上是<strong>通过一个数组去保存数据的</strong>。当我们构造ArrayList时；若使用默认构造函数，则ArrayList的<strong>默认容量大小是10</strong>。<br>(02) 当ArrayList容量不足以容纳全部元素时，ArrayList会重新设置容量：<strong>新的容量=“(原始容量x3)/2 + 1”</strong>。<br>(03) ArrayList的克隆函数，即是将全部元素克隆到一个数组中。<br>(04) ArrayList实现java.io.Serializable的方式。当写入到输出流时，先写入“容量”，再依次写入“每一个元素”；当读出输入流时，先读取“容量”，再依次读取“每一个元素”。</p>
+<h2 id="ArrayList遍历方式"><a href="#ArrayList遍历方式" class="headerlink" title="ArrayList遍历方式"></a>ArrayList遍历方式</h2><p><strong>ArrayList支持3种遍历方式</strong><br>(01) 第一种，<strong>通过迭代器遍历</strong>。即通过Iterator去遍历。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Integer value = <span class="keyword">null</span>;</span><br><span class="line">Iterator iter = list.iterator();</span><br><span class="line"><span class="keyword">while</span> (iter.hasNext()) &#123;</span><br><span class="line">    value = (Integer)iter.next();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>(02) 第二种，<strong>随机访问，通过索引值去遍历。</strong><br>由于ArrayList实现了RandomAccess接口，它支持通过索引值去随机访问元素。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Integer value = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">int</span> size = list.size();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;size; i++) &#123;</span><br><span class="line">    value = (Integer)list.get(i);        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>(03) 第三种，<strong>for循环遍历</strong>。如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Integer value = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">for</span> (Integer integ:list) &#123;</span><br><span class="line">    value = integ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>下面通过一个实例，<strong>比较这3种方式的效率</strong>，实例代码(ArrayListRandomAccessTest.java)如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span><br><span class="line"> * @desc ArrayList遍历方式和效率的测试程序。</span><br><span class="line"> *</span><br><span class="line"> * @author skywang</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayListRandomAccessTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List list = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">100000</span>; i++)</span><br><span class="line">            list.add(i);</span><br><span class="line">        <span class="comment">//isRandomAccessSupported(list);</span></span><br><span class="line">        iteratorThroughRandomAccess(list) ;</span><br><span class="line">        iteratorThroughIterator(list) ;</span><br><span class="line">        iteratorThroughFor2(list) ;</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">isRandomAccessSupported</span><span class="params">(List list)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (list <span class="keyword">instanceof</span> RandomAccess) &#123;</span><br><span class="line">            System.out.println(<span class="string">"RandomAccess implemented!"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"RandomAccess not implemented!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">iteratorThroughRandomAccess</span><span class="params">(List list)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> startTime;</span><br><span class="line">        <span class="keyword">long</span> endTime;</span><br><span class="line">        startTime = System.currentTimeMillis();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;list.size(); i++) &#123;</span><br><span class="line">            list.get(i);</span><br><span class="line">        &#125;</span><br><span class="line">        endTime = System.currentTimeMillis();</span><br><span class="line">        <span class="keyword">long</span> interval = endTime - startTime;</span><br><span class="line">        System.out.println(<span class="string">"iteratorThroughRandomAccess："</span> + interval+<span class="string">" ms"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">iteratorThroughIterator</span><span class="params">(List list)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> startTime;</span><br><span class="line">        <span class="keyword">long</span> endTime;</span><br><span class="line">        startTime = System.currentTimeMillis();</span><br><span class="line">        <span class="keyword">for</span>(Iterator iter = list.iterator(); iter.hasNext(); ) &#123;</span><br><span class="line">            iter.next();</span><br><span class="line">        &#125;</span><br><span class="line">        endTime = System.currentTimeMillis();</span><br><span class="line">        <span class="keyword">long</span> interval = endTime - startTime;</span><br><span class="line">        System.out.println(<span class="string">"iteratorThroughIterator："</span> + interval+<span class="string">" ms"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">iteratorThroughFor2</span><span class="params">(List list)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> startTime;</span><br><span class="line">        <span class="keyword">long</span> endTime;</span><br><span class="line">        startTime = System.currentTimeMillis();</span><br><span class="line">        <span class="keyword">for</span>(Object obj:list)</span><br><span class="line">            ;</span><br><span class="line">        endTime = System.currentTimeMillis();</span><br><span class="line">        <span class="keyword">long</span> interval = endTime - startTime;</span><br><span class="line">        System.out.println(<span class="string">"iteratorThroughFor2："</span> + interval+<span class="string">" ms"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>运行结果</strong>：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iteratorThroughRandomAccess：<span class="number">3</span> ms</span><br><span class="line">iteratorThroughIterator：<span class="number">8</span> ms</span><br><span class="line">iteratorThroughFor2：<span class="number">5</span> ms</span><br></pre></td></tr></table></figure></p>
+<p>由此可见，<strong>遍历ArrayList时，使用随机访问(即，通过索引序号访问)效率最高，而使用迭代器的效率最低！</strong></p>
+<h2 id="ArrayList示例"><a href="#ArrayList示例" class="headerlink" title="ArrayList示例"></a>ArrayList示例</h2><p>本文通过一个实例(ArrayListTest.java)，介绍 ArrayList 中常用API的用法。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span><br><span class="line"> * @desc ArrayList常用API的测试程序</span><br><span class="line"> * @author skywang </span><br><span class="line"> * @email kuiwu-wang@163.com</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayListTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 创建ArrayList</span></span><br><span class="line">        ArrayList list = <span class="keyword">new</span> ArrayList();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 将“”</span></span><br><span class="line">        list.add(<span class="string">"1"</span>);</span><br><span class="line">        list.add(<span class="string">"2"</span>);</span><br><span class="line">        list.add(<span class="string">"3"</span>);</span><br><span class="line">        list.add(<span class="string">"4"</span>);</span><br><span class="line">        <span class="comment">// 将下面的元素添加到第1个位置</span></span><br><span class="line">        list.add(<span class="number">0</span>, <span class="string">"5"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取第1个元素</span></span><br><span class="line">        System.out.println(<span class="string">"the first element is: "</span>+ list.get(<span class="number">0</span>));</span><br><span class="line">        <span class="comment">// 删除“3”</span></span><br><span class="line">        list.remove(<span class="string">"3"</span>);</span><br><span class="line">        <span class="comment">// 获取ArrayList的大小</span></span><br><span class="line">        System.out.println(<span class="string">"Arraylist size=: "</span>+ list.size());</span><br><span class="line">        <span class="comment">// 判断list中是否包含"3"</span></span><br><span class="line">        System.out.println(<span class="string">"ArrayList contains 3 is: "</span>+ list.contains(<span class="number">3</span>));</span><br><span class="line">        <span class="comment">// 设置第2个元素为10</span></span><br><span class="line">        list.set(<span class="number">1</span>, <span class="string">"10"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 通过Iterator遍历ArrayList</span></span><br><span class="line">        <span class="keyword">for</span>(Iterator iter = list.iterator(); iter.hasNext(); ) &#123;</span><br><span class="line">            System.out.println(<span class="string">"next is: "</span>+ iter.next());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 将ArrayList转换为数组</span></span><br><span class="line">        String[] arr = (String[])list.toArray(<span class="keyword">new</span> String[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">for</span> (String str:arr)</span><br><span class="line">            System.out.println(<span class="string">"str: "</span>+ str);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 清空ArrayList</span></span><br><span class="line">        list.clear();</span><br><span class="line">        <span class="comment">// 判断ArrayList是否为空</span></span><br><span class="line">        System.out.println(<span class="string">"ArrayList is empty: "</span>+ list.isEmpty());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>运行结果</strong>：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">the first element is: <span class="number">5</span></span><br><span class="line">Arraylist size=: <span class="number">4</span></span><br><span class="line">ArrayList contains <span class="number">3</span> is: <span class="keyword">false</span></span><br><span class="line">next is: <span class="number">5</span></span><br><span class="line">next is: <span class="number">10</span></span><br><span class="line">next is: <span class="number">2</span></span><br><span class="line">next is: <span class="number">4</span></span><br><span class="line">str: <span class="number">5</span></span><br><span class="line">str: <span class="number">10</span></span><br><span class="line">str: <span class="number">2</span></span><br><span class="line">str: <span class="number">4</span></span><br><span class="line">ArrayList is empty: <span class="keyword">true</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="ArrayList和LinkedList的区别"><a href="#ArrayList和LinkedList的区别" class="headerlink" title="ArrayList和LinkedList的区别"></a>ArrayList和LinkedList的区别</h2><ol>
+<li>ArrayList是实现了基于动态数组的数据结构，LinkedList基于链表的数据结构。</li>
+<li>对于随机访问get和set，ArrayList觉得优于LinkedList，因为LinkedList要移动指针。</li>
+<li>对于新增和删除操作add和remove，LinkedList比较占优势，因为ArrayList要移动数据。</li>
+</ol>
+<h2 id="ArrayList和Vector的区别"><a href="#ArrayList和Vector的区别" class="headerlink" title="ArrayList和Vector的区别"></a>ArrayList和Vector的区别</h2><ol>
+<li>Vector和ArrayList几乎是完全相同的,唯一的区别在于Vector是同步类(synchronized)，属于强同步类。因此开销就比ArrayList要大，访问要慢。正常情况下,大多数的Java程序员使用ArrayList而不是Vector,因为同步完全可以由程序员自己来控制。</li>
+<li>Vector每次扩容请求其大小的2倍空间，而ArrayList是1.5倍。</li>
+<li>Vector还有一个子类Stack.</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>该文为本人学习的笔记，参考网上各大帖子，取其精华整合自己的理解而成。集合框架源码面试经常会问，所以解读源码十分必要,希望对你有用。<br><a href="http://blog.csdn.net/u013256816/article/details/50916648" target="_blank" rel="external"><a href="http://blog.csdn.net/u013256816/article/details/50916648" target="_blank" rel="external">Java集合框架：ArrayList</a></a><br><a href="http://www.cnblogs.com/skywang12345/p/3308556.html" target="_blank" rel="external"><a href="http://www.cnblogs.com/skywang12345/p/3308556.html" target="_blank" rel="external">Java 集合系列03之 ArrayList详细介绍(源码解析)和使用示例</a></a><br><a href="http://www.cnblogs.com/tstd/p/5042087.html" target="_blank" rel="external">给jdk写注释系列之jdk1.6容器(1)-ArrayList源码解析</a><br><a href="http://www.thinksaas.cn/group/topic/101585/" target="_blank" rel="external">java容器类源码分析——ArrayList</a></p>
+<h1 id="整理的集合框架思维导图"><a href="#整理的集合框架思维导图" class="headerlink" title="整理的集合框架思维导图"></a>整理的集合框架思维导图</h1><p>个人整理的Java集合框架思维导图，动态维护。导出的图片无法查看备注的一些信息，所以需要源文件的童鞋可以关注我个人主页上的公众号，回复<strong>Java集合框架</strong>即可获取源文件。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/jhswdt.png" alt=""></p>
+<hr>
+<p>如果对你有所帮助(●ˇ∀ˇ●)<code>点个赞</code>或者<code>关注下</code>吧,没准还能打赏下(/▽＼=)。你的鼓励将是博主继续写下去的动力，生活不易，且行且珍惜。</p>
+<hr>
+<p> 博主弄了个java学习资源的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花<br> <img src="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG" alt=""></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Java集合干货系列/">Java集合干货系列</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://tengj.github.io/2016/04/13/javajh1arraylist/" data-title="Java集合干货系列-ArrayList源码解析 | 嘟嘟独立博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/04/13/javajh2linklist/" title="Java集合干货系列-LinkedList源码解析">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Java集合干货系列-LinkedList源码解析</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/04/12/javajhtotal/"  title="Java集合干货系列-集合总体大纲">
+ <strong>下一篇：</strong><br/> 
+ <span>Java集合干货系列-集合总体大纲
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/04/13/javajh1arraylist/" data-title="Java集合干货系列-ArrayList源码解析" data-url="http://tengj.github.io/2016/04/13/javajh1arraylist/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ArrayList简介"><span class="toc-number">2.1.</span> <span class="toc-text">ArrayList简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ArrayList定义"><span class="toc-number">2.1.1.</span> <span class="toc-text">ArrayList定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ArrayList属性"><span class="toc-number">2.1.2.</span> <span class="toc-text">ArrayList属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ArrayList构造函数"><span class="toc-number">2.1.3.</span> <span class="toc-text">ArrayList构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#API方法摘要"><span class="toc-number">2.1.4.</span> <span class="toc-text">API方法摘要</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ArrayList源码解析-基于JDK1-6-0-45"><span class="toc-number">2.2.</span> <span class="toc-text">ArrayList源码解析(基于JDK1.6.0_45)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#增加"><span class="toc-number">2.2.1.</span> <span class="toc-text">增加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除"><span class="toc-number">2.2.2.</span> <span class="toc-text">删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新"><span class="toc-number">2.2.3.</span> <span class="toc-text">更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查找"><span class="toc-number">2.2.4.</span> <span class="toc-text">查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#是否包含"><span class="toc-number">2.2.5.</span> <span class="toc-text">是否包含</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#容量判断"><span class="toc-number">2.2.6.</span> <span class="toc-text">容量判断</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ArrayList遍历方式"><span class="toc-number">2.3.</span> <span class="toc-text">ArrayList遍历方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ArrayList示例"><span class="toc-number">2.4.</span> <span class="toc-text">ArrayList示例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ArrayList和LinkedList的区别"><span class="toc-number">3.1.</span> <span class="toc-text">ArrayList和LinkedList的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ArrayList和Vector的区别"><span class="toc-number">3.2.</span> <span class="toc-text">ArrayList和Vector的区别</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#整理的集合框架思维导图"><span class="toc-number">5.</span> <span class="toc-text">整理的集合框架思维导图</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="tengj" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Java集合干货系列/" title="Java集合干货系列">Java集合干货系列<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/SEO/" title="SEO">SEO<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/app推荐/" title="app推荐">app推荐<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/git/" title="git">git<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/hexo/" title="hexo">hexo<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/jQuery/" title="jQuery">jQuery<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/java/" title="java">java<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/springMVC/" title="springMVC">springMVC<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/设计模式/" title="设计模式">设计模式<sup>7</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
+  </div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/SEO/" style="font-size: 15px;">SEO</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/springMVC/" style="font-size: 10px;">springMVC</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://shomy.top" target="_blank" title="天空的城">天空的城</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://iamaboy.xyz" target="_blank" title="WenQiang&#39;s Notes">WenQiang&#39;s Notes</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.cocosdever.com" target="_blank" title="C的博客">C的博客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 程序员上辈子都是折翼的天使 <br/>
+			This is my blog,Try to do better.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/tengj" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Teng Jun">Teng Jun</a>
+		
+		</p>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','Ts_hz24x26ZaNWfhsYwW','2.0.0');
+</script>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  
+  var m = $('#main'),
+      a = $('#asidepart'), //侧边栏
+      c = $('.closeaside'),//隐藏侧边栏
+      o = $('.openaside'); //显示侧边栏
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    $('#toc.toc-aside').css('display', 'block').addClass('fadeIn'); //这个是我新加的，修改点
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"tengj"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257841330'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1257841330%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
