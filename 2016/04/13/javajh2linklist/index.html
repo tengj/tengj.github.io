@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Java集合干货系列-LinkedList源码解析 | 嘟嘟独立博客</title>
+    <title>Java集合干货系列-（二）LinkedList源码解析 | 嘟嘟独立博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Teng Jun">
@@ -13,7 +13,7 @@
     
     <meta name="description" content="前言今天来介绍下ArrayList，在集合框架整体框架一章中，我们介绍了List接口，LinkedList与ArrayList一样实现List接口，只是ArrayList是List接口的大小可变数组的实现，LinkedList是List接口链表的实现。基于链表实现的方式使得LinkedList在插入和删除时更优于ArrayList，而随机访问则比ArrayList逊色些。构造图如下:蓝色线条：继承">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java集合干货系列-LinkedList源码解析">
+<meta property="og:title" content="Java集合干货系列-（二）LinkedList源码解析">
 <meta property="og:url" content="http://tengj.github.io/2016/04/13/javajh2linklist/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
 <meta property="og:description" content="前言今天来介绍下ArrayList，在集合框架整体框架一章中，我们介绍了List接口，LinkedList与ArrayList一样实现List接口，只是ArrayList是List接口的大小可变数组的实现，LinkedList是List接口链表的实现。基于链表实现的方式使得LinkedList在插入和删除时更优于ArrayList，而随机访问则比ArrayList逊色些。构造图如下:蓝色线条：继承">
@@ -28,9 +28,9 @@
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/jh2_9.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/jhswdt.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
-<meta property="og:updated_time" content="2016-04-13T02:52:24.295Z">
+<meta property="og:updated_time" content="2016-04-15T01:11:22.295Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java集合干货系列-LinkedList源码解析">
+<meta name="twitter:title" content="Java集合干货系列-（二）LinkedList源码解析">
 <meta name="twitter:description" content="前言今天来介绍下ArrayList，在集合框架整体框架一章中，我们介绍了List接口，LinkedList与ArrayList一样实现List接口，只是ArrayList是List接口的大小可变数组的实现，LinkedList是List接口链表的实现。基于链表实现的方式使得LinkedList在插入和删除时更优于ArrayList，而随机访问则比ArrayList逊色些。构造图如下:蓝色线条：继承">
 
     
@@ -93,7 +93,7 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/04/13/javajh2linklist/" title="Java集合干货系列-LinkedList源码解析" itemprop="url">Java集合干货系列-LinkedList源码解析</a>
+      <a href="/2016/04/13/javajh2linklist/" title="Java集合干货系列-（二）LinkedList源码解析" itemprop="url">Java集合干货系列-（二）LinkedList源码解析</a>
   </h1>
   <p class="article-author">By
        
@@ -190,7 +190,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://tengj.github.io/2016/04/13/javajh2linklist/" data-title="Java集合干货系列-LinkedList源码解析 | 嘟嘟独立博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://tengj.github.io/2016/04/13/javajh2linklist/" data-title="Java集合干货系列-（二）LinkedList源码解析 | 嘟嘟独立博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -203,11 +203,19 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2016/04/15/javajh3hashmap/" title="Java集合干货系列-（三）HashMap源码解析">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Java集合干货系列-（三）HashMap源码解析</span>
+</a>
+</div>
+
 
 <div class="next">
-<a href="/2016/04/13/javajh1arraylist/"  title="Java集合干货系列-ArrayList源码解析">
+<a href="/2016/04/13/javajh1arraylist/"  title="Java集合干货系列-（一）ArrayList源码解析">
  <strong>下一篇：</strong><br/> 
- <span>Java集合干货系列-ArrayList源码解析
+ <span>Java集合干货系列-（一）ArrayList源码解析
 </span>
 </a>
 </div>
@@ -216,7 +224,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/04/13/javajh2linklist/" data-title="Java集合干货系列-LinkedList源码解析" data-url="http://tengj.github.io/2016/04/13/javajh2linklist/"></div>
+	<div class="ds-thread" data-thread-key="2016/04/13/javajh2linklist/" data-title="Java集合干货系列-（二）LinkedList源码解析" data-url="http://tengj.github.io/2016/04/13/javajh2linklist/"></div>
 </section>
 
 
@@ -250,7 +258,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/Java集合干货系列/" title="Java集合干货系列">Java集合干货系列<sup>3</sup></a></li>
+			<li><a href="/categories/Java集合干货系列/" title="Java集合干货系列">Java集合干货系列<sup>6</sup></a></li>
 		  
 		
 		  
@@ -292,7 +300,7 @@
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
   </div>
 
 

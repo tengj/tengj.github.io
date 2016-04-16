@@ -80,9 +80,75 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2016/04/13/javajh2linklist/" title="Java集合干货系列-LinkedList源码解析" itemprop="url">
+    <a href="/2016/04/16/javajh5hashset/" title="Java集合干货系列-（五）HashSet源码解析" itemprop="url">
   
-    <h1 itemprop="name">Java集合干货系列-LinkedList源码解析</h1>
+    <h1 itemprop="name">Java集合干货系列-（五）HashSet源码解析</h1>
+    
+     
+           <p itemprop="description" >前言今天来介绍下HashSet。前面，我们已经系统的对List和Map进行了学习。接下来，我们开始可以学习Set。相信经过Map的了解之后，学习Set会容易很多。毕竟，Set的实现类都是基于Map来实现的(HashSet是通过HashMap实现的)。构造图如下:蓝色线条：继承绿色</p>
+        
+    
+    <time datetime="2016-04-16T09:39:33.000Z" itemprop="datePublished">2016-04-16</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/16/javajh4treemap/" title="Java集合干货系列-（四）TreeMap源码解析" itemprop="url">
+  
+    <h1 itemprop="name">Java集合干货系列-（四）TreeMap源码解析</h1>
+    
+     
+           <p itemprop="description" >前言今天来介绍下TreeMap,TreeMap是基于红黑树结构实现的一种Map，要分析TreeMap的实现首先就要对红黑树有所了解。构造图如下:蓝色线条：继承绿色线条：接口实现
+正文TreeMap底层是基于红黑树（Red-Black tree）实现，所以在学习TreeMap之前我</p>
+        
+    
+    <time datetime="2016-04-16T09:39:18.000Z" itemprop="datePublished">2016-04-16</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/15/javajh3hashmap/" title="Java集合干货系列-（三）HashMap源码解析" itemprop="url">
+  
+    <h1 itemprop="name">Java集合干货系列-（三）HashMap源码解析</h1>
+    
+     
+           <p itemprop="description" >前言今天来介绍下HashMap，之前的List，讲了ArrayList、LinkedList，就前两者而言，反映的是两种思想：
+
+ArrayList以数组形式实现，顺序插入、查找快，插入、删除较慢
+LinkedList以链表形式实现，顺序插入、查找较慢，插入、删除方便
+
+那么是否</p>
+        
+    
+    <time datetime="2016-04-15T01:09:14.000Z" itemprop="datePublished">2016-04-15</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/13/javajh2linklist/" title="Java集合干货系列-（二）LinkedList源码解析" itemprop="url">
+  
+    <h1 itemprop="name">Java集合干货系列-（二）LinkedList源码解析</h1>
     
      
            <p itemprop="description" >前言今天来介绍下ArrayList，在集合框架整体框架一章中，我们介绍了List接口，LinkedList与ArrayList一样实现List接口，只是ArrayList是List接口的大小可变数组的实现，LinkedList是List接口链表的实现。基于链表实现的方式使得Lin</p>
@@ -100,9 +166,9 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2016/04/13/javajh1arraylist/" title="Java集合干货系列-ArrayList源码解析" itemprop="url">
+    <a href="/2016/04/13/javajh1arraylist/" title="Java集合干货系列-（一）ArrayList源码解析" itemprop="url">
   
-    <h1 itemprop="name">Java集合干货系列-ArrayList源码解析</h1>
+    <h1 itemprop="name">Java集合干货系列-（一）ArrayList源码解析</h1>
     
      
            <p itemprop="description" >前言今天来介绍下ArrayList，在集合框架整体框架一章中，我们介绍了List接口，ArrayList继承了AbstractList，实现了List。ArrayList在工作中经常用到，所以要弄懂这个类是极其重要的。构造图如下:蓝色线条：继承绿色线条：接口实现
@@ -222,67 +288,6 @@
 
 
 
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/04/03/sjms2factorymethod/" title="设计模式干货系列：（二）工厂方法模式【学习难度：★★☆☆☆，使用频率：★★★★★】" itemprop="url">
-  
-    <h1 itemprop="name">设计模式干货系列：（二）工厂方法模式【学习难度：★★☆☆☆，使用频率：★★★★★】</h1>
-    
-     
-           <p itemprop="description" >前言上一篇介绍简单工厂模式的时候提到它对开闭原则支持的不够，因为如果有新的产品加入到系统中去，就需要修改工厂类，就违反了开闭原则了，这次介绍的工厂方法模式在保持简单工厂模式优点的前提下，还满足了开闭原则，关键在于它的多态性。
-正文工厂方法模式概念工厂方法模式是类的创建模式，又叫做</p>
-        
-    
-    <time datetime="2016-04-03T15:28:14.000Z" itemprop="datePublished">2016-04-03</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/04/02/sjms1simpleFactory/" title="设计模式干货系列：（一）简单工厂模式【学习难度：★★☆☆☆，使用频率：★★★☆☆】" itemprop="url">
-  
-    <h1 itemprop="name">设计模式干货系列：（一）简单工厂模式【学习难度：★★☆☆☆，使用频率：★★★☆☆】</h1>
-    
-     
-           <p itemprop="description" >前言面对设计模式这个高大上的敌人，如何找到一个脆弱可以下手的地方尤其重要，经过参考《JAVA与模式》后发现最容易下手但又及其重要的模式，那就是简单工厂模式，书里是这么介绍的：简单工厂模式是最简单的模式，有助于引出工厂方法模式，而工厂方法模式在后面的许多模式都有应用，它在模式的讨论</p>
-        
-    
-    <time datetime="2016-04-02T06:49:47.000Z" itemprop="datePublished">2016-04-02</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/04/01/sjmstotal/" title="设计模式干货系列：（总纲）总体介绍设计模式" itemprop="url">
-  
-    <h1 itemprop="name">设计模式干货系列：（总纲）总体介绍设计模式</h1>
-    
-     
-           <p itemprop="description" >前言入行java几年，一直不敢尝试学习设计模式，总感觉自己能力不行，不敢接触这么高深的东西。这次难得的机会，参加了一场公司的培训，接触到设计模式，听过后发现其实设计模式也不是那样高深和难以理解，实际开发中其实都不由自主用到了。这次开篇，一是整理自己学习过程中的笔记，准备一天一个模</p>
-        
-    
-    <time datetime="2016-04-01T12:23:20.000Z" itemprop="datePublished">2016-04-01</time>
-  </a>
-</section>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix unexpand">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -311,7 +316,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/Java集合干货系列/" title="Java集合干货系列">Java集合干货系列<sup>3</sup></a></li>
+			<li><a href="/categories/Java集合干货系列/" title="Java集合干货系列">Java集合干货系列<sup>6</sup></a></li>
 		  
 		
 		  
@@ -353,7 +358,7 @@
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
   </div>
 
 
