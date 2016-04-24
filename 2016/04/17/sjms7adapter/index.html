@@ -11,14 +11,14 @@
     
 
     
-    <meta name="description" content="前言今天介绍适配器模式，举个生活中的例子，我们笔记本的用到充电器其实就是个适配器，笔记本电脑的工作电压是20V，而我国的家庭用电是220V，如何让20V的笔记本电脑能够在220V的电压下工作？就是靠这个充电器搞定的。
+    <meta name="description" content="前言今天介绍适配器模式，举个生活中的例子，我们笔记本用到的充电器其实就是个适配器，笔记本电脑的工作电压是20V，而我国的家庭用电是220V，如何让20V的笔记本电脑能够在220V的电压下工作？就是靠这个充电器搞定的。
 在软件开发中，有时也存在类似这种不兼容的情况，我们也可以像引入一个电源适配器一样引入一个称之为适配器的角色来协调这些存在不兼容的结构，这种设计方案即为适配器模式。
 正文适配器模式概念">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式干货系列：（七）适配器模式【学习难度：★★☆☆☆，使用频率：★★★★☆】">
 <meta property="og:url" content="http://tengj.github.io/2016/04/17/sjms7adapter/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="前言今天介绍适配器模式，举个生活中的例子，我们笔记本的用到充电器其实就是个适配器，笔记本电脑的工作电压是20V，而我国的家庭用电是220V，如何让20V的笔记本电脑能够在220V的电压下工作？就是靠这个充电器搞定的。
+<meta property="og:description" content="前言今天介绍适配器模式，举个生活中的例子，我们笔记本用到的充电器其实就是个适配器，笔记本电脑的工作电压是20V，而我国的家庭用电是220V，如何让20V的笔记本电脑能够在220V的电压下工作？就是靠这个充电器搞定的。
 在软件开发中，有时也存在类似这种不兼容的情况，我们也可以像引入一个电源适配器一样引入一个称之为适配器的角色来协调这些存在不兼容的结构，这种设计方案即为适配器模式。
 正文适配器模式概念">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/sjms7_1.png">
@@ -26,10 +26,10 @@
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/sjms7_3.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/adpater.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
-<meta property="og:updated_time" content="2016-04-17T06:51:37.477Z">
+<meta property="og:updated_time" content="2016-04-17T06:59:06.536Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式干货系列：（七）适配器模式【学习难度：★★☆☆☆，使用频率：★★★★☆】">
-<meta name="twitter:description" content="前言今天介绍适配器模式，举个生活中的例子，我们笔记本的用到充电器其实就是个适配器，笔记本电脑的工作电压是20V，而我国的家庭用电是220V，如何让20V的笔记本电脑能够在220V的电压下工作？就是靠这个充电器搞定的。
+<meta name="twitter:description" content="前言今天介绍适配器模式，举个生活中的例子，我们笔记本用到的充电器其实就是个适配器，笔记本电脑的工作电压是20V，而我国的家庭用电是220V，如何让20V的笔记本电脑能够在220V的电压下工作？就是靠这个充电器搞定的。
 在软件开发中，有时也存在类似这种不兼容的情况，我们也可以像引入一个电源适配器一样引入一个称之为适配器的角色来协调这些存在不兼容的结构，这种设计方案即为适配器模式。
 正文适配器模式概念">
 
@@ -113,11 +113,11 @@
 		
 		</div>
 		
-		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天介绍适配器模式，举个生活中的例子，我们笔记本的用到充电器其实就是个适配器，笔记本电脑的工作电压是20V，而我国的家庭用电是220V，如何让20V的笔记本电脑能够在220V的电压下工作？就是靠这个充电器搞定的。</p>
+		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天介绍适配器模式，举个生活中的例子，我们笔记本用到的充电器其实就是个适配器，笔记本电脑的工作电压是20V，而我国的家庭用电是220V，如何让20V的笔记本电脑能够在220V的电压下工作？就是靠这个充电器搞定的。</p>
 <p>在软件开发中，有时也存在类似这种不兼容的情况，我们也可以像引入一个电源适配器一样引入一个称之为适配器的角色来协调这些存在不兼容的结构，这种设计方案即为适配器模式。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="适配器模式概念"><a href="#适配器模式概念" class="headerlink" title="适配器模式概念"></a>适配器模式概念</h2><p>适配器模式(Adapter Pattern)：将一个接口转换成客户希望的另一个接口，使接口不兼容的那些类可以一起工作，其别名为包装器(Wrapper)。适配器模式既可以作为类结构型模式，也可以作为对象结构型模式。</p>
 <h2 id="适配器模式结构图"><a href="#适配器模式结构图" class="headerlink" title="适配器模式结构图"></a>适配器模式结构图</h2><p>适配器模式有类适配器模式和对象的适配器模式两种不同的形式。如下图所示，左边是的类的适配器模式（继承），右边是对象的适配器模式（引用）。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/sjms7_1.png" alt=""></p>
-<h3 id="类的适配器模式"><a href="#类的适配器模式" class="headerlink" title="类的适配器模式"></a>类的适配器模式</h3><p>类的适配器模式把被适配的类的API转换成目标类的API，其静态结构图如下所示。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/sjms7_2.png" alt=""><br>在上图中可以看出，Adaptee类并没有simpleOperation2方法，而客户端则期待这个方法。为使客户端能够使用Adaptee类，提供一个中间环节，即类Adapter，把Adaptee的API与Target类的API衔接起来。Adapter与Adaptee是继承关系，这决定了这个适配器模式是类的。</p>
+<h3 id="类的适配器模式"><a href="#类的适配器模式" class="headerlink" title="类的适配器模式"></a>类的适配器模式</h3><p>类的适配器模式把被适配的类的API转换成目标类的API，其静态结构图如下所示。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/sjms7_2.png" alt=""><br>在上图中可以看出，Adaptee类并没有simpleOperation2()方法，而客户端则期待这个方法。为使客户端能够使用Adaptee类，提供一个中间环节，即类Adapter，把Adaptee的API与Target类的API衔接起来。Adapter与Adaptee是继承关系，这决定了这个适配器模式是类的。</p>
 <p>模式所涉及的角色有：</p>
 <ul>
 <li>目标（Target）角色：这就是所期待得到的接口。注意，由于这里讨论的是类适配器模式，因此目标不可以是类。</li>
@@ -179,7 +179,7 @@
 <li>想创建一个可以重复使用的类，用于与一些彼此之间没有太大关联的一些类，包括一些可能在将来引进的类一起工作。</li>
 <li>（对对象的适配器模式而言）在设计里，需要改变多个已有的子类的接口，如果使用类的适配器模式，就要针对每一个子类做一个适配器类，而这不太实际。</li>
 </ul>
-<h1 id="整理的适配器模式思维导图"><a href="#整理的适配器模式思维导图" class="headerlink" title="整理的适配器模式思维导图"></a>整理的适配器模式思维导图</h1><p>用思维导图画了份总结，懒得看文章的也可以直接看图片，另外需要源文件的童鞋可以关注我个人主页上的公众号，回复<strong>适配器模式</strong>即可获取源文件。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/adpater.png" alt=""></p>
+<h1 id="整理的适配器模式思维导图"><a href="#整理的适配器模式思维导图" class="headerlink" title="整理的适配器模式思维导图"></a>整理的适配器模式思维导图</h1><p>用思维导图画了份总结，懒得看文章的也可以直接看图片，另外需要源文件的童鞋可以关注我个人主页上的公众号，回复<strong>适配器模式</strong>即可获取源文件网盘地址。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/adpater.png" alt=""></p>
 <hr>
 <p>博主弄了个java学习资源的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花<br>  <img src="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG" alt=""></p>
   
@@ -212,6 +212,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2016/04/24/thread1/" title="Java多线程干货系列—（一）Java多线程基础">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Java多线程干货系列—（一）Java多线程基础</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2016/04/16/javajh5hashset/"  title="Java集合干货系列-（五）HashSet源码解析">
@@ -259,6 +267,10 @@
 		<ul>
 		
 		  
+			<li><a href="/categories/Java多线程/" title="Java多线程">Java多线程<sup>1</sup></a></li>
+		  
+		
+		  
 			<li><a href="/categories/Java集合干货系列/" title="Java集合干货系列">Java集合干货系列<sup>6</sup></a></li>
 		  
 		
@@ -301,7 +313,7 @@
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
   </div>
 
 
