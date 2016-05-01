@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://tengj.github.io/2016/05/02/springmvcyuanli/</loc>
+    
+    <lastmod>2016-05-01T23:19:54.459Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tengj.github.io/2016/03/13/springmvcseries1/</loc>
+    
+    <lastmod>2016-05-01T22:39:53.133Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://tengj.github.io/2016/04/28/javareflect/</loc>
     
     <lastmod>2016-04-28T12:07:17.506Z</lastmod>
@@ -229,13 +243,6 @@
     <loc>http://tengj.github.io/2016/03/12/hightsearchline/</loc>
     
     <lastmod>2016-03-27T09:23:22.414Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tengj.github.io/2016/03/13/springmvcseries1/</loc>
-    
-    <lastmod>2016-03-27T09:23:07.607Z</lastmod>
     
   </url>
   

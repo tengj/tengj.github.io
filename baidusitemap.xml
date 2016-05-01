@@ -4,6 +4,42 @@
 
     
   <url>
+    <loc>http://tengj.top/2016/05/02/springmvcyuanli/</loc>
+    <lastmod>2016-05-01T23:19:54.459Z</lastmod>
+    <data>
+        <display>
+        <title>springMVC干货系列：从零搭建springMVC+mybatis（二）：springMVC原理解析</title>
+        <pubTime>2016-05-01T22:38:27.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="springMVC" url="http://tengj.top/categories/springMVC/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tengj.top/2016/03/13/springmvcseries1/</loc>
+    <lastmod>2016-05-01T22:39:53.133Z</lastmod>
+    <data>
+        <display>
+        <title>springMVC干货系列：从零搭建springMVC+mybatis（一）：maven WEB项目的搭建</title>
+        <pubTime>2016-03-13T06:21:40.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="springMVC" url="http://tengj.top/categories/springMVC/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://tengj.top/2016/04/28/javareflect/</loc>
     <lastmod>2016-04-28T12:07:17.506Z</lastmod>
     <data>
@@ -613,26 +649,6 @@
            
              
               <breadCrumb title="SEO" url="http://tengj.top/categories/SEO/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tengj.top/2016/03/13/springmvcseries1/</loc>
-    <lastmod>2016-03-27T09:23:07.607Z</lastmod>
-    <data>
-        <display>
-        <title>springMVC干货系列：从零搭建springMVC+mybatis（一）：maven WEB项目的搭建</title>
-        <pubTime>2016-03-13T06:21:40.000Z</pubTime>
-        
-        <tag>springMVC</tag>
-         
-         
-           
-             
-              <breadCrumb title="springMVC" url="http://tengj.top/categories/springMVC/"/>
           
         </display>
     </data>
