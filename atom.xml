@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tengj.github.io/"/>
-  <updated>2016-05-01T23:19:54.459Z</updated>
+  <updated>2016-05-01T23:23:33.833Z</updated>
   <id>http://tengj.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>springMVC干货系列：从零搭建springMVC+mybatis（二）：springMVC原理解析</title>
+    <title>springMVC干货系列：从零搭建springMVC+mybatis（二）：springMVC原理解析及常用注解</title>
     <link href="http://tengj.github.io/2016/05/02/springmvcyuanli/"/>
     <id>http://tengj.github.io/2016/05/02/springmvcyuanli/</id>
     <published>2016-05-01T22:38:27.000Z</published>
-    <updated>2016-05-01T23:19:54.459Z</updated>
+    <updated>2016-05-01T23:23:33.833Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;上篇文章介绍了maven WEB 项目的搭建，基本的配置文件也都贴出来了，今天就来介绍下SpringMVC的工作原理以及工作中常用的注解。为以后开发打下坚实的基础。&lt;/p&gt;
 &lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;h2 id=&quot;SpringMVC框架介绍&quot;&gt;&lt;a href=&quot;#SpringMVC框架介绍&quot; class=&quot;headerlink&quot; title=&quot;SpringMVC框架介绍&quot;&gt;&lt;/a&gt;SpringMVC框架介绍&lt;/h2&gt;&lt;p&gt;SpringMVC就是通过DispatcherServlet将一堆组件串联起来的Web框架。&lt;/p&gt;
