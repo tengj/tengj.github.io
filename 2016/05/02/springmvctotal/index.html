@@ -4,28 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>myeclipse中tomcat内存溢出完美解决方案 | 嘟嘟独立博客</title>
+    <title>springMVC干货系列：从零搭建springMVC+mybatis（总纲） | 嘟嘟独立博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Teng Jun">
     
 
     
-    <meta name="description" content="前言今天工作启动项目的时候发现报了内存溢出的错误，java.lang.OutOfMemoryError: PermGen space">
+    <meta name="description" content="首页最近一段时间有个公司项目需求调研后，项目组决定使用springMVC+mybatis3+bootstrap来实现。于是总结一下最近使用的心得，以及开发过程中遇到的问题。
+正文SpringMVC是Java开发人员必须要掌握的一个框架，掌握它能令你工作上如鱼得水。本系列会从零开始教你如何搭建springMVC的项目，包含spring注解，mybatis,日志系统，事务，多数据源，单元测试等居多功能">
 <meta property="og:type" content="article">
-<meta property="og:title" content="myeclipse中tomcat内存溢出完美解决方案">
-<meta property="og:url" content="http://tengj.github.io/2016/02/25/myeclipse中tomcat内存溢出完美解决方案/index.html">
+<meta property="og:title" content="springMVC干货系列：从零搭建springMVC+mybatis（总纲）">
+<meta property="og:url" content="http://tengj.github.io/2016/05/02/springmvctotal/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="前言今天工作启动项目的时候发现报了内存溢出的错误，java.lang.OutOfMemoryError: PermGen space">
-<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javavm0.png">
-<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javavm1.png">
-<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javavm4.png">
-<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javavm2.png">
-<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
-<meta property="og:updated_time" content="2016-03-27T09:23:32.667Z">
+<meta property="og:description" content="首页最近一段时间有个公司项目需求调研后，项目组决定使用springMVC+mybatis3+bootstrap来实现。于是总结一下最近使用的心得，以及开发过程中遇到的问题。
+正文SpringMVC是Java开发人员必须要掌握的一个框架，掌握它能令你工作上如鱼得水。本系列会从零开始教你如何搭建springMVC的项目，包含spring注解，mybatis,日志系统，事务，多数据源，单元测试等居多功能">
+<meta property="og:updated_time" content="2016-05-02T10:33:07.143Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="myeclipse中tomcat内存溢出完美解决方案">
-<meta name="twitter:description" content="前言今天工作启动项目的时候发现报了内存溢出的错误，java.lang.OutOfMemoryError: PermGen space">
+<meta name="twitter:title" content="springMVC干货系列：从零搭建springMVC+mybatis（总纲）">
+<meta name="twitter:description" content="首页最近一段时间有个公司项目需求调研后，项目组决定使用springMVC+mybatis3+bootstrap来实现。于是总结一下最近使用的心得，以及开发过程中遇到的问题。
+正文SpringMVC是Java开发人员必须要掌握的一个框架，掌握它能令你工作上如鱼得水。本系列会从零开始教你如何搭建springMVC的项目，包含spring注解，mybatis,日志系统，事务，多数据源，单元测试等居多功能">
 
     
     <link rel="alternative" href="/atom.xml" title="嘟嘟独立博客" type="application/atom+xml">
@@ -87,14 +85,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/02/25/myeclipse中tomcat内存溢出完美解决方案/" title="myeclipse中tomcat内存溢出完美解决方案" itemprop="url">myeclipse中tomcat内存溢出完美解决方案</a>
+      <a href="/2016/05/02/springmvctotal/" title="springMVC干货系列：从零搭建springMVC+mybatis（总纲）" itemprop="url">springMVC干货系列：从零搭建springMVC+mybatis（总纲）</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Teng Jun" target="_blank" itemprop="author">Teng Jun</a>
 		
   <p class="article-time">
-    <time datetime="2016-02-24T16:26:06.000Z" itemprop="datePublished"> 发表于 2016-02-25</time>
+    <time datetime="2016-05-02T10:31:57.000Z" itemprop="datePublished"> 发表于 2016-05-02</time>
     
   </p>
 </header>
@@ -103,30 +101,14 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#启动jvisualvm"><span class="toc-number">2.1.</span> <span class="toc-text">启动jvisualvm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改MaxPermSize参数"><span class="toc-number">2.2.</span> <span class="toc-text">修改MaxPermSize参数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#堆-Heap-和非堆-Non-heap-内存"><span class="toc-number">3.1.</span> <span class="toc-text">堆(Heap)和非堆(Non-heap)内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#堆内存分配"><span class="toc-number">3.2.</span> <span class="toc-text">堆内存分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非堆内存分配"><span class="toc-number">3.3.</span> <span class="toc-text">非堆内存分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM内存限制-最大值"><span class="toc-number">3.4.</span> <span class="toc-text">JVM内存限制(最大值)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#首页"><span class="toc-number">1.</span> <span class="toc-text">首页</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#后期该系列博文目录如下"><span class="toc-number">2.1.</span> <span class="toc-text">后期该系列博文目录如下</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天工作启动项目的时候发现报了内存溢出的错误，java.lang.OutOfMemoryError: PermGen space<br><a id="more"></a><br>网上百度了许多，各种解决方案，有的说修改tomcat下面的catalina.bat,有的说修改myeclipse.ini，把我弄得晕头转向。后来发现一个个人认为最好的解决方案，就是使用jdk自带的jvisualvm.exe来监控，特此来总结一下，希望对大家有帮助。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>动手前先了解这几个参数的意思：  </p>
-<pre><code>-Xms128m JVM初始分配的堆内存
--Xmx512m JVM最大允许分配的堆内存，按需分配  
--XX:PermSize=64M JVM初始分配的非堆内存  
--XX:MaxPermSize=128M JVM最大允许分配的非堆内存，按需分配  
-</code></pre><h2 id="启动jvisualvm"><a href="#启动jvisualvm" class="headerlink" title="启动jvisualvm"></a>启动jvisualvm</h2><p><code>jvisualvm.exe</code>在jdk的bin路径下，我的路径是\jdk1.6.0_45\bin，<code>jvisualvm.exe</code>启动后的界面如下，顺便简单说明下几个地方：  </p>
-<ol>
-<li>这里是有使用到java的地方，这边的tomcat就是你启动后的web项目（部署到tomcat服务器的）</li>
-<li>这里是我们最关心的地方，有两个tab项，一个是堆，另外一个是PermGen（简称非堆，内存溢出问题大多出在这个地方）<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/javavm0.png" style="margin:0;"><br>下图是我项目启动报 PermGen space错的时候PermGen的使用情况，大家可以看到这边已使用的已经达到了最大值，所以就报错了，要解决这个问题，就是要加大这个PermGen的最大值，也就是上次我提到的参数<code>MaxPermSize</code><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/javavm1.png" style="margin:0;"><h2 id="修改MaxPermSize参数"><a href="#修改MaxPermSize参数" class="headerlink" title="修改MaxPermSize参数"></a>修改MaxPermSize参数</h2>我是用myeclipse来运行项目的，用到的是tomcat6,所以要这样修改就行：<br>Window-&gt;Preferences-&gt;Myeclipse-&gt;Services-&gt;Tomcat-&gt;Tomcat 6.x-&gt;JDK<br>在Optional Java VM arguments:下边的输入框里输入:<br><code>-Xms512m -Xmx512m -XX:PermSize=256m -XX:MaxPermSize=256m</code><br>这个大小可以根据上面监控里面已使用的最大值来调整，合适的就行!<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/javavm4.png" style="margin:0;"></li>
-</ol>
-<p>修改完后，重启下项目再看看监控，发现已使用的不会超过最大值了，就不会再出现内存溢出问题了。如图：<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/javavm2.png" style="margin:0;"></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>问题解决了，还有时间就顺便了解一下JVM内存管理的机制</p>
-<h2 id="堆-Heap-和非堆-Non-heap-内存"><a href="#堆-Heap-和非堆-Non-heap-内存" class="headerlink" title="堆(Heap)和非堆(Non-heap)内存"></a>堆(Heap)和非堆(Non-heap)内存</h2><p>按照官方的说法：“Java 虚拟机具有一个堆，堆是运行时数据区域，所有类实例和数组的内存均从此处分配。堆是在 Java 虚拟机启动时创建的。”“在JVM中堆之外的内存称为非堆内存(Non-heap memory)”。可以看出JVM主要管理两种类型的内存：<code>堆和非堆</code>。简单来说堆就是Java代码可及的内存，是留给开发人员使用的；非堆就是JVM留给自己用的，所以方法区、JVM内部处理或优化所需的内存(如JIT编译后的代码缓存)、每个类结构(如运行时常数池、字段和方法数据)以及方法和构造方法的代码都在非堆内存中。 </p>
-<h2 id="堆内存分配"><a href="#堆内存分配" class="headerlink" title="堆内存分配"></a>堆内存分配</h2><p>JVM初始分配的堆内存由-Xms指定，默认是物理内存的1/64；JVM最大分配的堆内存由-Xmx指定，默认是物理内存的1/4。默认空余堆内存小于40%时，JVM就会增大堆直到-Xmx的最大限制；<br>空余堆内存大于70%时，JVM会减少堆直到-Xms的最小限制。<code>因此服务器一般设置-Xms、-Xmx 相等以避免在每次GC后调整堆的大小</code>。<br>说明：如果-Xmx 不指定或者指定偏小，应用可能会导致java.lang.OutOfMemory错误，此错误来自JVM，不是Throwable的，无法用try…catch捕捉。</p>
-<h2 id="非堆内存分配"><a href="#非堆内存分配" class="headerlink" title="非堆内存分配"></a>非堆内存分配</h2><p> JVM使用<code>-XX:PermSize</code>设置非堆内存初始值，默认是物理内存的1/64；由<code>XX:MaxPermSize</code>设置最大非堆内存的大小，默认是物理内存的1/4。（还有一说：<code>MaxPermSize</code>缺省值和-server -client选项相关， -server选项下默认<code>MaxPermSize</code>为64m，-client选项下默认<code>MaxPermSize</code>为32m。这个我没有实验。）<br>上面错误信息中的PermGen space的全称是Permanent Generation space，是指内存的永久保存区域。还没有弄明白PermGen space是属于非堆内存，还是就是非堆内存，但至少是属于了。<br><code>XX:MaxPermSize</code>设置过小会导致java.lang.OutOfMemoryError: PermGen space 就是内存益出。<br>说说为什么会内存益出：<br>（1）这一部分内存用于存放Class和Meta的信息，Class在被 Load的时候被放入PermGen space区域，它和存放Instance的Heap区域不同<br>（2）GC(Garbage Collection)不会在主程序运行期对PermGen space进行清理，所以如果你的APP会LOAD很多CLASS 的话,就很可能出现PermGen space错误。<br>这种错误常见在web服务器对JSP进行pre compile的时候。  </p>
-<h2 id="JVM内存限制-最大值"><a href="#JVM内存限制-最大值" class="headerlink" title="JVM内存限制(最大值)"></a>JVM内存限制(最大值)</h2><p> 首先JVM内存限制于实际的最大物理内存，假设物理内存无限大的话，JVM内存的最大值跟操作系统有很大的关系。简单的说就32位处理器虽然可控内存空间有4GB,但是具体的操作系统会给一个限制， 这个限制一般是2GB-3GB（一般来说Windows系统下为1.5G-2G，Linux系统下为2G-3G），而64bit以上的处理器就不会有限制了。  </p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.cnblogs.com/mingforyou/archive/2012/03/03/2378143.html" target="_blank" rel="external">Xms Xmx PermSize MaxPermSize 区别</a><br><a href="http://blog.csdn.net/communicate_/article/details/8979588" target="_blank" rel="external">jvm 内存溢出 在myeclipse中加大tomcat的jvm内存</a></p>
-<hr>
-<p>最近撸了个java的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG" alt=""></p>
+		<h1 id="首页"><a href="#首页" class="headerlink" title="首页"></a>首页</h1><p>最近一段时间有个公司项目需求调研后，项目组决定使用springMVC+mybatis3+bootstrap来实现。<br>于是总结一下最近使用的心得，以及开发过程中遇到的问题。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>SpringMVC是Java开发人员必须要掌握的一个框架，掌握它能令你工作上如鱼得水。<br>本系列会从零开始教你如何搭建springMVC的项目，包含spring注解，mybatis,日志系统，事务，多数据源，单元测试等居多功能。<br>让新手也能一步到位：搭建起来现在比较流行的框架<br>开发环境：<br>IED:myeclipse2014<br>jdk:1.7<br>tomcat:7<br>springmvc:4<br>mybatis: 3.3<br>junit: 4.11</p>
+<h2 id="后期该系列博文目录如下"><a href="#后期该系列博文目录如下" class="headerlink" title="后期该系列博文目录如下"></a>后期该系列博文目录如下</h2><p>从零搭建SpringMVC+mybatis（一）：maven WEB 项目的搭建<br>从零搭建SpringMVC+mybatis（二）：SpringMVC原理解析及常用注解<br>从零搭建SpringMVC+mybatis（三）：Spring两大核心之IOC/DI学习<br>从零搭建SpringMVC+mybatis（四）：Spring两大核心之AOP学习<br>从零搭建SpringMVC+mybatis（五）：SpringMVC整合mybatis<br>从零搭建SpringMVC+mybatis（六）：SpringMVC中日志系统log4j的配置<br>从零搭建SpringMVC+mybatis（七）：基于注解的事务配置，多数据源切换<br>从零搭建SpringMVC+mybatis（八）：SpringMVC使用Junit4单元测试<br>从零搭建SpringMVC+mybatis（九）：SpringMVC中定时任务的配置 (Quartz &amp; spring-task)<br>从零搭建SpringMVC+mybatis（十）： SpringMVC中 安全机制<br>从零搭建SpringMVC+mybatis（十一）： SpringMVC中 缓存实现方式  </p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>希望自己能坚持写下去，整理出一套入门简单的教程。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -134,14 +116,9 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/java/">java</a>
+  <a class="article-category-link" href="/categories/springMVC/">springMVC</a>
 </div>
 
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/java/">java</a>
-  </div>
 
 </div>
 
@@ -149,7 +126,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://tengj.github.io/2016/02/25/myeclipse中tomcat内存溢出完美解决方案/" data-title="myeclipse中tomcat内存溢出完美解决方案 | 嘟嘟独立博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://tengj.github.io/2016/05/02/springmvctotal/" data-title="springMVC干货系列：从零搭建springMVC+mybatis（总纲） | 嘟嘟独立博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -162,19 +139,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/02/26/hexo干货系列：（二）hexo主题下载及配置/" title="hexo干货系列：（二）hexo主题下载及配置">
-  <strong>上一篇：</strong><br/>
-  <span>
-  hexo干货系列：（二）hexo主题下载及配置</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/02/22/hexo干货系列：（一）hexo+gitHub搭建个人独立博客/"  title="hexo干货系列：（一）hexo+gitHub搭建个人独立博客">
+<a href="/2016/05/02/springmvc3iocdi/"  title="springMVC干货系列：从零搭建springMVC+mybatis（三）：spring两大核心之IOC/DI学习">
  <strong>下一篇：</strong><br/> 
- <span>hexo干货系列：（一）hexo+gitHub搭建个人独立博客
+ <span>springMVC干货系列：从零搭建springMVC+mybatis（三）：spring两大核心之IOC/DI学习
 </span>
 </a>
 </div>
@@ -183,7 +152,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/02/25/myeclipse中tomcat内存溢出完美解决方案/" data-title="myeclipse中tomcat内存溢出完美解决方案" data-url="http://tengj.github.io/2016/02/25/myeclipse中tomcat内存溢出完美解决方案/"></div>
+	<div class="ds-thread" data-thread-key="2016/05/02/springmvctotal/" data-title="springMVC干货系列：从零搭建springMVC+mybatis（总纲）" data-url="http://tengj.github.io/2016/05/02/springmvctotal/"></div>
 </section>
 
 
@@ -193,7 +162,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#启动jvisualvm"><span class="toc-number">2.1.</span> <span class="toc-text">启动jvisualvm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改MaxPermSize参数"><span class="toc-number">2.2.</span> <span class="toc-text">修改MaxPermSize参数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#堆-Heap-和非堆-Non-heap-内存"><span class="toc-number">3.1.</span> <span class="toc-text">堆(Heap)和非堆(Non-heap)内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#堆内存分配"><span class="toc-number">3.2.</span> <span class="toc-text">堆内存分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非堆内存分配"><span class="toc-number">3.3.</span> <span class="toc-text">非堆内存分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM内存限制-最大值"><span class="toc-number">3.4.</span> <span class="toc-text">JVM内存限制(最大值)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#首页"><span class="toc-number">1.</span> <span class="toc-text">首页</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#后期该系列博文目录如下"><span class="toc-number">2.1.</span> <span class="toc-text">后期该系列博文目录如下</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
  
   </div>
 

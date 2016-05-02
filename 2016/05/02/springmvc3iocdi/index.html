@@ -1,0 +1,616 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>springMVC干货系列：从零搭建springMVC+mybatis（三）：spring两大核心之IOC/DI学习 | 嘟嘟独立博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Teng Jun">
+    
+
+    
+    <meta name="description" content="前言上篇讲了SpringMVC的实现原理以及常用的注解，其实里面都用到的spring的核心概念，那就是IOC/DI，今天给大家介绍下这核心概念IOC/DI。
+正文分享Iteye的开涛这位技术牛人对Spring框架的IOC的理解,写得非常通俗易懂。
+IoC是什么Ioc—Inversion of Control，即“控制反转”，不是什么技术，而是一种设计思想。在Java开发中，Ioc意味着将你设计好的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="springMVC干货系列：从零搭建springMVC+mybatis（三）：spring两大核心之IOC/DI学习">
+<meta property="og:url" content="http://tengj.github.io/2016/05/02/springmvc3iocdi/index.html">
+<meta property="og:site_name" content="嘟嘟独立博客">
+<meta property="og:description" content="前言上篇讲了SpringMVC的实现原理以及常用的注解，其实里面都用到的spring的核心概念，那就是IOC/DI，今天给大家介绍下这核心概念IOC/DI。
+正文分享Iteye的开涛这位技术牛人对Spring框架的IOC的理解,写得非常通俗易懂。
+IoC是什么Ioc—Inversion of Control，即“控制反转”，不是什么技术，而是一种设计思想。在Java开发中，Ioc意味着将你设计好的">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/springmvc3_2.jpg">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/springmvc3_3.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/springmvc3_1.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
+<meta property="og:updated_time" content="2016-05-02T11:57:22.354Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="springMVC干货系列：从零搭建springMVC+mybatis（三）：spring两大核心之IOC/DI学习">
+<meta name="twitter:description" content="前言上篇讲了SpringMVC的实现原理以及常用的注解，其实里面都用到的spring的核心概念，那就是IOC/DI，今天给大家介绍下这核心概念IOC/DI。
+正文分享Iteye的开涛这位技术牛人对Spring框架的IOC的理解,写得非常通俗易懂。
+IoC是什么Ioc—Inversion of Control，即“控制反转”，不是什么技术，而是一种设计思想。在Java开发中，Ioc意味着将你设计好的">
+
+    
+    <link rel="alternative" href="/atom.xml" title="嘟嘟独立博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/dudu.gif" alt="嘟嘟独立博客" title="嘟嘟独立博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="嘟嘟独立博客">嘟嘟独立博客</a></h1>
+				<h2 class="blog-motto">爱生活爱编码</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/timeline">时光机</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" class="st-default-search-input" maxlength="20" placeholder="Search" />
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/05/02/springmvc3iocdi/" title="springMVC干货系列：从零搭建springMVC+mybatis（三）：spring两大核心之IOC/DI学习" itemprop="url">springMVC干货系列：从零搭建springMVC+mybatis（三）：spring两大核心之IOC/DI学习</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Teng Jun" target="_blank" itemprop="author">Teng Jun</a>
+		
+  <p class="article-time">
+    <time datetime="2016-05-02T10:21:16.000Z" itemprop="datePublished"> 发表于 2016-05-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#IoC是什么"><span class="toc-number">2.1.</span> <span class="toc-text">IoC是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IoC能做什么"><span class="toc-number">2.2.</span> <span class="toc-text">IoC能做什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IoC和DI"><span class="toc-number">2.3.</span> <span class="toc-text">IoC和DI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring配置的可选方案"><span class="toc-number">2.4.</span> <span class="toc-text">Spring配置的可选方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动化装配bean"><span class="toc-number">2.5.</span> <span class="toc-text">自动化装配bean</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上篇讲了SpringMVC的实现原理以及常用的注解，其实里面都用到的spring的核心概念，那就是IOC/DI，今天给大家介绍下这核心概念IOC/DI。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>分享Iteye的开涛这位技术牛人对Spring框架的IOC的理解,写得非常通俗易懂。</p>
+<h2 id="IoC是什么"><a href="#IoC是什么" class="headerlink" title="IoC是什么"></a>IoC是什么</h2><p>Ioc—Inversion of Control，即“控制反转”，不是什么技术，而是一种设计思想。在Java开发中，Ioc意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部直接控制。如何理解好Ioc呢？理解好Ioc的关键是要明确“谁控制谁，控制什么，为何是反转（有反转就应该有正转了），哪些方面反转了”，那我们来深入分析一下：</p>
+<ul>
+<li><p>谁控制谁，控制什么：传统Java SE程序设计，我们直接在对象内部通过new进行创建对象，是程序主动去创建依赖对象；而IoC是有专门一个容器来创建这些对象，即由Ioc容器来控制对 象的创建；谁控制谁？当然是IoC 容器控制了对象；控制什么？那就是主要控制了外部资源获取（不只是对象包括比如文件等）。</p>
+</li>
+<li><p>为何是反转，哪些方面反转了：有反转就有正转，传统应用程序是由我们自己在对象中主动控制去直接获取依赖对象，也就是正转；而反转则是由容器来帮忙创建及注入依赖对象；为何是反转？因为由容器帮我们查找及注入依赖对象，对象只是被动的接受依赖对象，所以是反转；哪些方面反转了？依赖对象的获取被反转了。</p>
+</li>
+</ul>
+<p>用图例说明一下，传统程序设计如图2-1，都是主动去创建相关对象然后再组合起来：<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/springmvc3_2.jpg" alt=""></p>
+<p>当有了IoC/DI的容器后，在客户端类中不再主动去创建这些对象了，如图所示:<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/springmvc3_3.png" alt="">  </p>
+<h2 id="IoC能做什么"><a href="#IoC能做什么" class="headerlink" title="IoC能做什么"></a>IoC能做什么</h2><p>IoC 不是一种技术，只是一种思想，一个重要的面向对象编程的法则，它能指导我们如何设计出松耦合、更优良的程序。传统应用程序都是由我们在类内部主动创建依赖对象，从而导致类与类之间高耦合，难于测试；有了IoC容器后，把创建和查找依赖对象的控制权交给了容器，由容器进行注入组合对象，所以对象与对象之间是 松散耦合，这样也方便测试，利于功能复用，更重要的是使得程序的整个体系结构变得非常灵活。</p>
+<p>其实IoC对编程带来的最大改变不是从代码上，而是从思想上，发生了“主从换位”的变化。应用程序原本是老大，要获取什么资源都是主动出击，但是在IoC/DI思想中，应用程序就变成被动的了，被动的等待IoC容器来创建并注入它所需要的资源了。</p>
+<p>IoC很好的体现了面向对象设计法则之一—— 好莱坞法则：“别找我们，我们找你”；即由IoC容器帮对象找相应的依赖对象并注入，而不是由对象主动去找。</p>
+<h2 id="IoC和DI"><a href="#IoC和DI" class="headerlink" title="IoC和DI"></a>IoC和DI</h2><p> DI—Dependency Injection，即“依赖注入”：组件之间依赖关系由容器在运行期决定，形象的说，即由容器动态的将某个依赖关系注入到组件之中。依赖注入的目的并非为软件系统带来更多功能，而是为了提升组件重用的频率，并为系统搭建一个灵活、可扩展的平台。通过依赖注入机制，我们只需要通过简单的配置，而无需任何代码就可指定目标需要的资源，完成自身的业务逻辑，而不需要关心具体的资源来自何处，由谁实现。</p>
+<p>理解DI的关键是：“谁依赖谁，为什么需要依赖，谁注入谁，注入了什么”，那我们来深入分析一下：</p>
+<ul>
+<li><p>谁依赖于谁：当然是应用程序依赖于IoC容器；</p>
+</li>
+<li><p>为什么需要依赖：应用程序需要IoC容器来提供对象需要的外部资源；</p>
+</li>
+<li><p>谁注入谁：很明显是IoC容器注入应用程序某个对象，应用程序依赖的对象；</p>
+</li>
+<li><p>注入了什么：就是注入某个对象所需要的外部资源（包括对象、资源、常量数据）。</p>
+</li>
+</ul>
+<p>IoC和DI由什么关系呢？其实它们是同一个概念的不同角度描述，由于控制反转概念比较含糊（可能只是理解为容器控制对象这一个层面，很难让人想到谁来维护对象关系），所以2004年大师级人物Martin Fowler又给出了一个新的名字：“依赖注入”，相对IoC 而言，“依赖注入”明确描述了“被注入对象依赖IoC容器配置依赖对象”。</p>
+<p>看过很多对Spring的Ioc理解的文章，好多人对Ioc和DI的解释都晦涩难懂，反正就是一种说不清，道不明的感觉，读完之后依然是一头雾水，感觉就是开涛这位技术牛人写得特别通俗易懂，他清楚地解释了IoC(控制反转) 和DI(依赖注入)中的每一个字，读完之后给人一种豁然开朗的感觉。我相信对于初学Spring框架的人对Ioc的理解应该是有很大帮助的。</p>
+<h2 id="Spring配置的可选方案"><a href="#Spring配置的可选方案" class="headerlink" title="Spring配置的可选方案"></a>Spring配置的可选方案</h2><p>上面介绍了IOC跟DI的概念，接着，我将归纳一下使用Spring装备bean的基础知识，因为DI是Spring的最基本要素。所以在开发的基于Spring的应用时，我们随时都在使用这些技术。<br>当描述bean如何进行装配时，Spring具有非常大的灵活性，它提供了三种主要的装配机制：  </p>
+<ul>
+<li>在XML中进行显示配置</li>
+<li>在Java中进行显示配置</li>
+<li>隐式的bean发现机制和自动装配</li>
+</ul>
+<p>虽然看上去提供三种可选的配置方案会使Spring变得复杂。其实，你可以根据实际项目选择，对了，上面这三种其实可以混合搭配，目前博主使用的就是自动装配（也就是注解）+XML混合使用。这也是目前比较流行的方式。</p>
+<p>下面将主要介绍自动化装备Bean+XML的混合搭配</p>
+<h2 id="自动化装配bean"><a href="#自动化装配bean" class="headerlink" title="自动化装配bean"></a>自动化装配bean</h2><p>当前来说，相比较前面两种显示配置，从便利性方面来看，最强大的还是Spring的自动化配置。<br>Spring从两个角度来实现自动化装配：  </p>
+<ul>
+<li>组件扫描（component scanning）:Spring会自动发现应用上下文中所创建的bean</li>
+<li>自动装配（autowiring）：Spring自动满足bean之间的依赖</li>
+</ul>
+<p>组件扫描和自动装配组合在一起就能发挥出强大的威力，他们能够将你的显示配置降低到最少。</p>
+<p>这里组件扫描我们通过在XML里面使用Spring context命名空间的<context:component-scan>元素来启用。<br>配置如下：  </context:component-scan></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 加了下面2局就可以直接使用spring注解 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 自动扫描的包名 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">context:component-scan</span> <span class="attribute">base-package</span>=<span class="value">"com.tengj.demo"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 默认的注解映射的支持 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">mvc:annotation-driven</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>context:component-scan里面的 base-package指明了被扫描的包的路径是在com.tengj.demo下面的所有类  </p>
+<p>其中mvc:annotation-driven 是开启默认的注解映射的支持，这样就能认到被使用的注解。<br>我们在com.tengj.demo下面创建一个UserController控制类：  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span></span>&#123;</span><br><span class="line">    <span class="annotation">@Autowired</span></span><br><span class="line">	UserService userService;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>UserService是我们的一个接口，代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserService</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addUser</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>UserServiceImpl是UserService的实现类：  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Service</span>(<span class="string">"userService"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserServiceImpl</span> <span class="keyword">implements</span> <span class="title">UserService</span></span>&#123;</span><br><span class="line"><span class="annotation">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addUser</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"新增用户"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>写个单元测试类来验证这个userService是否已经自动注入了  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@RunWith</span>(SpringJUnit4ClassRunner.class)</span><br><span class="line"><span class="annotation">@ContextConfiguration</span>(&#123;<span class="string">"classpath:spring/applicationContext.xml"</span>&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserConTrollerTest</span> </span>&#123;</span><br><span class="line">	<span class="annotation">@Autowired</span></span><br><span class="line">	UserService userService;</span><br><span class="line">	</span><br><span class="line">	<span class="annotation">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkServiceIsNull</span><span class="params">()</span></span>&#123;</span><br><span class="line">		Assert.assertNotNull(userService);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>UserConTrollerTest使用了Spring的SpringJUnit4ClassRunner，以便在测试开始的时候自动创建Spring的应用上下文，注解@ContextConfiguration会告诉它需要在UserConTrollerTest中加载配置。所以读取applicationContext.xml配置文件，配置文件里面有<context:component-scan base-package="com.tengj.demo">这个启用自动扫描的元素。  </context:component-scan></p>
+<p>为了证明这一点，在测试代码中有一个UserService类型的属性，并且这个属性带有@Autowired注解，以便于将UserService bean注入到测试代码之中。最后，会有一个简单的测试方法断言userService属性不为null。如果它不为null的话，就意味着Spring能够发现UserService类，自动在Spring上下文中将其创建为bean并将其注入到测试代码之中。  </p>
+<p>在代码中右键执行Junit Test，如果执行如下是绿色的就表示成功。  </p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/springmvc3_1.png" alt=""></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这就是一个简单的DI注入测试，是不是觉得很方便，要注入什么属性只要定义一下属性。剩下都交给Spring容器来搞定。Junit单元测试写法后续会专门写一篇来介绍，这也是非常重要的一个验证自己所写代码是否正确的手段。</p>
+<hr>
+<p>一直觉得自己写的不是技术，而是情怀，一篇篇文章是自己这一路走来的痕迹。靠专业技能的成功是最具可复制性的，希望我的这条路能让你少走弯路，希望我能帮你抹去知识的蒙尘，希望我能帮你理清知识的脉络，希望未来技术之巅上有你也有我。</p>
+<hr>
+<p> 博主弄了个java学习资源的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花<br> <img src="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG" alt=""></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/springMVC/">springMVC</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://tengj.github.io/2016/05/02/springmvc3iocdi/" data-title="springMVC干货系列：从零搭建springMVC+mybatis（三）：spring两大核心之IOC/DI学习 | 嘟嘟独立博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/05/02/springmvctotal/" title="springMVC干货系列：从零搭建springMVC+mybatis（总纲）">
+  <strong>上一篇：</strong><br/>
+  <span>
+  springMVC干货系列：从零搭建springMVC+mybatis（总纲）</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/05/02/springmvcyuanli/"  title="springMVC干货系列：从零搭建springMVC+mybatis（二）：springMVC原理解析及常用注解">
+ <strong>下一篇：</strong><br/> 
+ <span>springMVC干货系列：从零搭建springMVC+mybatis（二）：springMVC原理解析及常用注解
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/05/02/springmvc3iocdi/" data-title="springMVC干货系列：从零搭建springMVC+mybatis（三）：spring两大核心之IOC/DI学习" data-url="http://tengj.github.io/2016/05/02/springmvc3iocdi/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#IoC是什么"><span class="toc-number">2.1.</span> <span class="toc-text">IoC是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IoC能做什么"><span class="toc-number">2.2.</span> <span class="toc-text">IoC能做什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IoC和DI"><span class="toc-number">2.3.</span> <span class="toc-text">IoC和DI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring配置的可选方案"><span class="toc-number">2.4.</span> <span class="toc-text">Spring配置的可选方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动化装配bean"><span class="toc-number">2.5.</span> <span class="toc-text">自动化装配bean</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="tengj" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Java基础与提高干货系列/" title="Java基础与提高干货系列">Java基础与提高干货系列<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Java多线程/" title="Java多线程">Java多线程<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Java集合干货系列/" title="Java集合干货系列">Java集合干货系列<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/SEO/" title="SEO">SEO<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/app推荐/" title="app推荐">app推荐<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/git/" title="git">git<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/hexo/" title="hexo">hexo<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/jQuery/" title="jQuery">jQuery<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/java/" title="java">java<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/springMVC/" title="springMVC">springMVC<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/设计模式/" title="设计模式">设计模式<sup>8</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
+  </div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/SEO/" style="font-size: 15px;">SEO</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/java/" style="font-size: 10px;">java</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://shomy.top" target="_blank" title="天空的城">天空的城</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://iamaboy.xyz" target="_blank" title="WenQiang&#39;s Notes">WenQiang&#39;s Notes</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.cocosdever.com" target="_blank" title="C的博客">C的博客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 程序员上辈子都是折翼的天使 <br/>
+			This is my blog,Try to do better.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/tengj" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Teng Jun">Teng Jun</a>
+		
+		</p>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','Ts_hz24x26ZaNWfhsYwW','2.0.0');
+</script>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  
+  var m = $('#main'),
+      a = $('#asidepart'), //侧边栏
+      c = $('.closeaside'),//隐藏侧边栏
+      o = $('.openaside'); //显示侧边栏
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    $('#toc.toc-aside').css('display', 'block').addClass('fadeIn'); //这个是我新加的，修改点
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"tengj"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257841330'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1257841330%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

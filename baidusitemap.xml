@@ -4,6 +4,42 @@
 
     
   <url>
+    <loc>http://tengj.top/2016/05/02/springmvc3iocdi/</loc>
+    <lastmod>2016-05-02T11:57:22.354Z</lastmod>
+    <data>
+        <display>
+        <title>springMVC干货系列：从零搭建springMVC+mybatis（三）：spring两大核心之IOC/DI学习</title>
+        <pubTime>2016-05-02T10:21:16.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="springMVC" url="http://tengj.top/categories/springMVC/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tengj.top/2016/05/02/springmvctotal/</loc>
+    <lastmod>2016-05-02T10:33:07.143Z</lastmod>
+    <data>
+        <display>
+        <title>springMVC干货系列：从零搭建springMVC+mybatis（总纲）</title>
+        <pubTime>2016-05-02T10:31:57.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="springMVC" url="http://tengj.top/categories/springMVC/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://tengj.top/2016/05/02/springmvcyuanli/</loc>
     <lastmod>2016-05-01T23:38:07.811Z</lastmod>
     <data>
