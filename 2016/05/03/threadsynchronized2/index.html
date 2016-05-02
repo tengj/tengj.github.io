@@ -1,0 +1,597 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Java多线程干货系列—（二）synchronized | 嘟嘟独立博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Teng Jun">
+    
+
+    
+    <meta name="description" content="前言本篇主要介绍Java多线程中的同步，也就是如何在Java语言中写出线程安全的程序，如何在Java语言中解决非线程安全的相关问题。没错就是使用synchronized。
+正文如何解决线程安全问题？那么一般来说，是如何解决线程安全问题的呢？
+基本上所有的并发模式在解决线程安全问题时，都采用“序列化访问临界资源”的方案，即在同一时刻，只能有一个线程访问临界资源，也称作同步互斥访问。
+通常来说，是在访">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java多线程干货系列—（二）synchronized">
+<meta property="og:url" content="http://tengj.github.io/2016/05/03/threadsynchronized2/index.html">
+<meta property="og:site_name" content="嘟嘟独立博客">
+<meta property="og:description" content="前言本篇主要介绍Java多线程中的同步，也就是如何在Java语言中写出线程安全的程序，如何在Java语言中解决非线程安全的相关问题。没错就是使用synchronized。
+正文如何解决线程安全问题？那么一般来说，是如何解决线程安全问题的呢？
+基本上所有的并发模式在解决线程安全问题时，都采用“序列化访问临界资源”的方案，即在同一时刻，只能有一个线程访问临界资源，也称作同步互斥访问。
+通常来说，是在访">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
+<meta property="og:updated_time" content="2016-05-02T23:01:57.836Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java多线程干货系列—（二）synchronized">
+<meta name="twitter:description" content="前言本篇主要介绍Java多线程中的同步，也就是如何在Java语言中写出线程安全的程序，如何在Java语言中解决非线程安全的相关问题。没错就是使用synchronized。
+正文如何解决线程安全问题？那么一般来说，是如何解决线程安全问题的呢？
+基本上所有的并发模式在解决线程安全问题时，都采用“序列化访问临界资源”的方案，即在同一时刻，只能有一个线程访问临界资源，也称作同步互斥访问。
+通常来说，是在访">
+
+    
+    <link rel="alternative" href="/atom.xml" title="嘟嘟独立博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/dudu.gif" alt="嘟嘟独立博客" title="嘟嘟独立博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="嘟嘟独立博客">嘟嘟独立博客</a></h1>
+				<h2 class="blog-motto">爱生活爱编码</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/timeline">时光机</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" class="st-default-search-input" maxlength="20" placeholder="Search" />
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/05/03/threadsynchronized2/" title="Java多线程干货系列—（二）synchronized" itemprop="url">Java多线程干货系列—（二）synchronized</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Teng Jun" target="_blank" itemprop="author">Teng Jun</a>
+		
+  <p class="article-time">
+    <time datetime="2016-05-02T22:59:54.000Z" itemprop="datePublished"> 发表于 2016-05-03</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何解决线程安全问题？"><span class="toc-number">2.1.</span> <span class="toc-text">如何解决线程安全问题？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#synchronized同步方法"><span class="toc-number">2.2.</span> <span class="toc-text">synchronized同步方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized的使用"><span class="toc-number">2.2.1.</span> <span class="toc-text">synchronized的使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#synchronized注意事项"><span class="toc-number">3.</span> <span class="toc-text">synchronized注意事项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面试题"><span class="toc-number">4.</span> <span class="toc-text">面试题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本篇主要介绍Java多线程中的同步，也就是如何在Java语言中写出线程安全的程序，如何在Java语言中解决非线程安全的相关问题。没错就是使用synchronized。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="如何解决线程安全问题？"><a href="#如何解决线程安全问题？" class="headerlink" title="如何解决线程安全问题？"></a>如何解决线程安全问题？</h2><p>那么一般来说，是如何解决线程安全问题的呢？</p>
+<p>基本上所有的并发模式在解决线程安全问题时，都采用“序列化访问临界资源”的方案，即在同一时刻，只能有一个线程访问临界资源，也称作同步互斥访问。</p>
+<p>通常来说，是在访问临界资源的代码前面加上一个锁，当访问完临界资源后释放锁，让其他线程继续访问。</p>
+<p>在Java中，提供了两种方式来实现同步互斥访问：synchronized和Lock。</p>
+<p>本文主要讲述synchronized的使用方法，Lock的使用方法在下一篇博文中讲述。</p>
+<h2 id="synchronized同步方法"><a href="#synchronized同步方法" class="headerlink" title="synchronized同步方法"></a>synchronized同步方法</h2><p>synchronized是Java语言的关键字，当它用来修饰一个方法或者一个代码块的时候，能够保证在同一时刻最多只有一个线程执行该段代码。在了解synchronized关键字的使用方法之前，我们先来看一个概念：互斥锁，顾名思义：能到达到互斥访问目的的锁。</p>
+<p>举个简单的例子：如果对临界资源加上互斥锁，当一个线程在访问该临界资源时，其他线程便只能等待。</p>
+<p>在Java中，每一个对象都拥有一个锁标记（monitor），也称为监视器，多线程同时访问某个对象时，线程只有获取了该对象的锁才能访问。</p>
+<p>在Java中，可以使用synchronized关键字来标记一个方法或者代码块，当某个线程调用该对象的synchronized方法或者访问synchronized代码块时，这个线程便获得了该对象的锁，其他线程暂时无法访问这个方法，只有等待这个方法执行完毕或者代码块执行完毕，这个线程才会释放该对象的锁，其他线程才能执行这个方法或者代码块。</p>
+<h3 id="synchronized的使用"><a href="#synchronized的使用" class="headerlink" title="synchronized的使用"></a>synchronized的使用</h3><ul>
+<li><p>synchronized代码块，被修饰的代码成为同步语句块，其作用的范围是调用这个代码块的对象，我们在用synchronized关键字的时候，能缩小代码段的范围就尽量缩小，能在代码段上加同步就不要再整个方法上加同步。这叫减小锁的粒度，使代码更大程度的并发。</p>
+</li>
+<li><p>synchronized方法，被修饰的方法成为同步方法，其作用范围是整个方法，作用对象是调用这个方法的对象。</p>
+</li>
+<li><p>synchronized静态方法，修饰一个static静态方法，其作用范围是整个静态方法，作用对象是这个类的所有对象。</p>
+</li>
+<li><p>synchronized类，其作用范围是Synchronized后面括号括起来的部分synchronized(className.class)，作用的对象是这个类的所有对象。</p>
+</li>
+<li><p>synchronized()，()中是锁住的对象， synchronized(this)锁住的只是对象本身，同一个类的不同对象调用的synchronized方法并不会被锁住，而synchronized(className.class)实现了全局锁的功能，所有这个类的对象调用这个方法都受到锁的影响，此外()中还可以添加一个具体的对象，实现给具体对象加锁。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span> (object) &#123;</span><br><span class="line">  <span class="comment">//在同步代码块中对对象进行操作</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="synchronized注意事项"><a href="#synchronized注意事项" class="headerlink" title="synchronized注意事项"></a>synchronized注意事项</h1><ul>
+<li><p>当两个并发线程访问同一个对象中的<code>synchronized</code>代码块时，在同一时刻只能有一个线程得到执行，另一个线程受阻塞，必须等待当前线程执行完这个代码块以后才能执行该代码块。两个线程间是互斥的，因为在执行<code>synchronized</code>代码块时会锁定当前的对象，只有执行完该代码块才能释放该对象锁，下一个线程才能执行并锁定该对象。</p>
+</li>
+<li><p>当一个线程访问<code>object</code>的一个<code>synchronized(this)</code>同步代码块时，另一个线程仍然可以访问该<code>object</code>中的非<code>synchronized(this)</code>同步代码块。(两个线程使用的是同一个对象)</p>
+</li>
+<li>当一个线程访问<code>object</code>的一个<code>synchronized(this)</code>同步代码块时，其他线程对<code>object</code>中所有其它<code>synchronized(this)</code>同步代码块的访问将被阻塞(同上，两个线程使用的是同一个对象)。</li>
+</ul>
+<p>下面通过代码来实现：</p>
+<p>1）当两个并发线程访问同一个对象object中的这个synchronized(this)同步代码块时，一个时间内只能有一个线程得到执行。另一个线程必须等待当前线程执行完这个代码块以后才能执行该代码块。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> ths;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Thread1</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;  </span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">          <span class="keyword">synchronized</span>(<span class="keyword">this</span>) &#123;  </span><br><span class="line">               <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;  </span><br><span class="line">                    System.out.println(Thread.currentThread().getName() + <span class="string">" synchronized loop "</span> + i);  </span><br><span class="line">               &#125;  </span><br><span class="line">          &#125;  </span><br><span class="line">     &#125;  </span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;  </span><br><span class="line">          Thread1 t1 = <span class="keyword">new</span> Thread1();  </span><br><span class="line">          Thread ta = <span class="keyword">new</span> Thread(t1, <span class="string">"A"</span>);  </span><br><span class="line">          Thread tb = <span class="keyword">new</span> Thread(t1, <span class="string">"B"</span>);  </span><br><span class="line">          ta.start();  </span><br><span class="line">          tb.start();  </span><br><span class="line">     &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出结果：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">A <span class="keyword">synchronized</span> loop <span class="number">0</span>  </span><br><span class="line">A <span class="keyword">synchronized</span> loop <span class="number">1</span>  </span><br><span class="line">A <span class="keyword">synchronized</span> loop <span class="number">2</span>  </span><br><span class="line">A <span class="keyword">synchronized</span> loop <span class="number">3</span>  </span><br><span class="line">A <span class="keyword">synchronized</span> loop <span class="number">4</span>  </span><br><span class="line">B <span class="keyword">synchronized</span> loop <span class="number">0</span>  </span><br><span class="line">B <span class="keyword">synchronized</span> loop <span class="number">1</span>  </span><br><span class="line">B <span class="keyword">synchronized</span> loop <span class="number">2</span>  </span><br><span class="line">B <span class="keyword">synchronized</span> loop <span class="number">3</span>  </span><br><span class="line">B <span class="keyword">synchronized</span> loop <span class="number">4</span></span><br></pre></td></tr></table></figure></p>
+<p>2）然而，当一个线程访问object的一个synchronized(this)同步代码块时，另一个线程仍然可以访问该object中的非synchronized(this)同步代码块。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> ths;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Thread2</span> </span>&#123;  </span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">m4t1</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">          <span class="keyword">synchronized</span>(<span class="keyword">this</span>) &#123;  </span><br><span class="line">               <span class="keyword">int</span> i = <span class="number">5</span>;  </span><br><span class="line">               <span class="keyword">while</span>( i-- &gt; <span class="number">0</span>) &#123;  </span><br><span class="line">                    System.out.println(Thread.currentThread().getName() + <span class="string">" : "</span> + i);  </span><br><span class="line">                    <span class="keyword">try</span> &#123;  </span><br><span class="line">                         Thread.sleep(<span class="number">500</span>);  </span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException ie) &#123;  </span><br><span class="line">                    &#125;  </span><br><span class="line">               &#125;  </span><br><span class="line">          &#125;  </span><br><span class="line">     &#125;  </span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">m4t2</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">          <span class="keyword">int</span> i = <span class="number">5</span>;  </span><br><span class="line">          <span class="keyword">while</span>( i-- &gt; <span class="number">0</span>) &#123;  </span><br><span class="line">               System.out.println(Thread.currentThread().getName() + <span class="string">" : "</span> + i);  </span><br><span class="line">               <span class="keyword">try</span> &#123;  </span><br><span class="line">                    Thread.sleep(<span class="number">500</span>);  </span><br><span class="line">               &#125; <span class="keyword">catch</span> (InterruptedException ie) &#123;  </span><br><span class="line">               &#125;  </span><br><span class="line">          &#125;  </span><br><span class="line">     &#125;  </span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;  </span><br><span class="line">          <span class="keyword">final</span> Thread2 myt2 = <span class="keyword">new</span> Thread2();  </span><br><span class="line">          Thread t1 = <span class="keyword">new</span> Thread(  <span class="keyword">new</span> Runnable() &#123;  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;  myt2.m4t1();  &#125;  &#125;, <span class="string">"t1"</span>  );  </span><br><span class="line">          Thread t2 = <span class="keyword">new</span> Thread(  <span class="keyword">new</span> Runnable() &#123;  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123; myt2.m4t2();   &#125;  &#125;, <span class="string">"t2"</span>  );  </span><br><span class="line">          t1.start();  </span><br><span class="line">          t2.start();  </span><br><span class="line">     &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出结果：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">t1 : <span class="number">4</span>  </span><br><span class="line">t2 : <span class="number">4</span>  </span><br><span class="line">t1 : <span class="number">3</span>  </span><br><span class="line">t2 : <span class="number">3</span>  </span><br><span class="line">t1 : <span class="number">2</span>  </span><br><span class="line">t2 : <span class="number">2</span>  </span><br><span class="line">t1 : <span class="number">1</span>  </span><br><span class="line">t2 : <span class="number">1</span>  </span><br><span class="line">t1 : <span class="number">0</span>  </span><br><span class="line">t2 : <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<p>3)尤其关键的是，当一个线程访问object的一个synchronized(this)同步代码块时，其他线程对object中所有其它synchronized(this)同步代码块的访问将被阻塞。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//修改Thread2.m4t2()方法：  </span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">m4t2</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">          <span class="keyword">synchronized</span>(<span class="keyword">this</span>) &#123;  </span><br><span class="line">               <span class="keyword">int</span> i = <span class="number">5</span>;  </span><br><span class="line">               <span class="keyword">while</span>( i-- &gt; <span class="number">0</span>) &#123;  </span><br><span class="line">                    System.out.println(Thread.currentThread().getName() + <span class="string">" : "</span> + i);  </span><br><span class="line">                    <span class="keyword">try</span> &#123;  </span><br><span class="line">                         Thread.sleep(<span class="number">500</span>);  </span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException ie) &#123;  </span><br><span class="line">                    &#125;  </span><br><span class="line">               &#125;  </span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出结果:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">t1 : <span class="number">4</span>  </span><br><span class="line">t1 : <span class="number">3</span>  </span><br><span class="line">t1 : <span class="number">2</span>  </span><br><span class="line">t1 : <span class="number">1</span>  </span><br><span class="line">t1 : <span class="number">0</span>  </span><br><span class="line">t2 : <span class="number">4</span>  </span><br><span class="line">t2 : <span class="number">3</span>  </span><br><span class="line">t2 : <span class="number">2</span>  </span><br><span class="line">t2 : <span class="number">1</span>  </span><br><span class="line">t2 : <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<p>4)第三个例子同样适用其它同步代码块。也就是说，当一个线程访问object的一个synchronized(this)同步代码块时，它就获得了这个object的对象锁。结果，其它线程对该object对象所有同步代码部分的访问都被暂时阻塞。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//修改Thread2.m4t2()方法如下：</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">m4t2</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">         <span class="keyword">int</span> i = <span class="number">5</span>;  </span><br><span class="line">         <span class="keyword">while</span>( i-- &gt; <span class="number">0</span>) &#123;  </span><br><span class="line">              System.out.println(Thread.currentThread().getName() + <span class="string">" : "</span> + i);  </span><br><span class="line">              <span class="keyword">try</span> &#123;  </span><br><span class="line">                   Thread.sleep(<span class="number">500</span>);  </span><br><span class="line">              &#125; <span class="keyword">catch</span> (InterruptedException ie) &#123;  </span><br><span class="line">              &#125;  </span><br><span class="line">         &#125;  </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出结果：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">t1 : <span class="number">4</span>  </span><br><span class="line">t1 : <span class="number">3</span>  </span><br><span class="line">t1 : <span class="number">2</span>  </span><br><span class="line">t1 : <span class="number">1</span>  </span><br><span class="line">t1 : <span class="number">0</span>  </span><br><span class="line">t2 : <span class="number">4</span>  </span><br><span class="line">t2 : <span class="number">3</span>  </span><br><span class="line">t2 : <span class="number">2</span>  </span><br><span class="line">t2 : <span class="number">1</span>  </span><br><span class="line">t2 : <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<p>5)每个类也会有一个锁，它可以用来控制对static数据成员的并发访问。<br>并且如果一个线程执行一个对象的非static synchronized方法，另外一个线程需要执行这个对象所属类的static synchronized方法，此时不会发生互斥现象，因为访问static synchronized方法占用的是类锁，而访问非static synchronized方法占用的是对象锁，所以不存在互斥现象。<br>代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span>  </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> InsertData insertData = <span class="keyword">new</span> InsertData();</span><br><span class="line">        <span class="keyword">new</span> Thread()&#123;</span><br><span class="line">            <span class="annotation">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                insertData.insert();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;.start(); </span><br><span class="line">        <span class="keyword">new</span> Thread()&#123;</span><br><span class="line">            <span class="annotation">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                insertData.insert1();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;.start();</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">InsertData</span> </span>&#123; </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"执行insert"</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"执行insert完毕"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">insert1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"执行insert1"</span>);</span><br><span class="line">        System.out.println(<span class="string">"执行insert1完毕"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出结果：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">执行insert</span><br><span class="line">执行insert1</span><br><span class="line">执行insert1完毕</span><br><span class="line">执行insert完毕</span><br></pre></td></tr></table></figure></p>
+<p>第一个线程里面执行的是insert方法，不会导致第二个线程执行insert1方法发生阻塞现象。</p>
+<h1 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h1><p><strong>当一个线程进入一个对象的synchronized方法A之后，其它线程是否可进入此对象的synchronized方法B？</strong><br>答：不能。其它线程只能访问该对象的非同步方法，同步方法则不能进入。因为非静态方法上的synchronized修饰符要求执行方法时要获得对象的锁，如果已经进入A方法说明对象锁已经被取走，那么试图进入B方法的线程就只能在等锁池（<strong>注意不是等待池哦</strong>）中等待对象的锁。</p>
+<p><strong>synchronized关键字的用法？</strong><br>答：synchronized关键字可以将对象或者方法标记为同步，以实现对对象和方法的互斥访问，可以用synchronized(对象) { … }定义同步代码块，或者在声明方法时将synchronized作为方法的修饰符。</p>
+<p><strong>简述synchronized 和java.util.concurrent.locks.Lock的异同？</strong><br>答：Lock是Java 5以后引入的新的API，和关键字synchronized相比主要相同点：Lock 能完成synchronized所实现的所有功能；主要不同点：Lock有比synchronized更精确的线程语义和更好的性能，而且不强制性的要求一定要获得锁。synchronized会自动释放锁，而Lock一定要求程序员手工释放，并且最好在finally 块中释放（这是释放外部资源的最好的地方）</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>以上就是<strong>synchronized</strong>的概念和基本使用用法，下一篇博文中将介绍Lock，希望对你有所帮助。</p>
+<hr>
+<p>一直觉得自己写的不是技术，而是情怀，一篇篇文章是自己这一路走来的痕迹。靠专业技能的成功是最具可复制性的，希望我的这条路能让你少走弯路，希望我能帮你抹去知识的蒙尘，希望我能帮你理清知识的脉络，希望未来技术之巅上有你也有我。</p>
+<hr>
+<p> 博主弄了个java学习资源的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花<br> <img src="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG" alt=""></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Java多线程/">Java多线程</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://tengj.github.io/2016/05/03/threadsynchronized2/" data-title="Java多线程干货系列—（二）synchronized | 嘟嘟独立博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/05/02/springmvctotal/"  title="springMVC干货系列：从零搭建springMVC+mybatis（总纲）">
+ <strong>下一篇：</strong><br/> 
+ <span>springMVC干货系列：从零搭建springMVC+mybatis（总纲）
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/05/03/threadsynchronized2/" data-title="Java多线程干货系列—（二）synchronized" data-url="http://tengj.github.io/2016/05/03/threadsynchronized2/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何解决线程安全问题？"><span class="toc-number">2.1.</span> <span class="toc-text">如何解决线程安全问题？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#synchronized同步方法"><span class="toc-number">2.2.</span> <span class="toc-text">synchronized同步方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized的使用"><span class="toc-number">2.2.1.</span> <span class="toc-text">synchronized的使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#synchronized注意事项"><span class="toc-number">3.</span> <span class="toc-text">synchronized注意事项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面试题"><span class="toc-number">4.</span> <span class="toc-text">面试题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="tengj" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Java基础与提高干货系列/" title="Java基础与提高干货系列">Java基础与提高干货系列<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Java多线程/" title="Java多线程">Java多线程<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Java集合干货系列/" title="Java集合干货系列">Java集合干货系列<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/SEO/" title="SEO">SEO<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/app推荐/" title="app推荐">app推荐<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/git/" title="git">git<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/hexo/" title="hexo">hexo<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/jQuery/" title="jQuery">jQuery<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/java/" title="java">java<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/springMVC/" title="springMVC">springMVC<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/设计模式/" title="设计模式">设计模式<sup>8</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
+  </div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/SEO/" style="font-size: 15px;">SEO</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/java/" style="font-size: 10px;">java</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://shomy.top" target="_blank" title="天空的城">天空的城</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://iamaboy.xyz" target="_blank" title="WenQiang&#39;s Notes">WenQiang&#39;s Notes</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.cocosdever.com" target="_blank" title="C的博客">C的博客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 程序员上辈子都是折翼的天使 <br/>
+			This is my blog,Try to do better.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/tengj" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Teng Jun">Teng Jun</a>
+		
+		</p>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','Ts_hz24x26ZaNWfhsYwW','2.0.0');
+</script>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  
+  var m = $('#main'),
+      a = $('#asidepart'), //侧边栏
+      c = $('.closeaside'),//隐藏侧边栏
+      o = $('.openaside'); //显示侧边栏
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    $('#toc.toc-aside').css('display', 'block').addClass('fadeIn'); //这个是我新加的，修改点
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"tengj"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257841330'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1257841330%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
