@@ -4,6 +4,44 @@
 
     
   <url>
+    <loc>http://tengj.top/2016/05/02/springmvctotal/</loc>
+    <lastmod>2016-05-04T23:34:47.180Z</lastmod>
+    <data>
+        <display>
+        <title>springMVC干货系列：从零搭建springMVC+mybatis（总纲）</title>
+        <pubTime>2016-05-02T10:31:57.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="springMVC" url="http://tengj.top/categories/springMVC/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tengj.top/2016/02/22/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%80%EF%BC%89hexo+gitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2016-05-03T08:52:01.917Z</lastmod>
+    <data>
+        <display>
+        <title>hexo干货系列：（一）hexo+gitHub搭建个人独立博客</title>
+        <pubTime>2016-02-22T08:04:09.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://tengj.top/2016/05/03/threadsynchronized2/</loc>
     <lastmod>2016-05-02T23:01:57.836Z</lastmod>
     <data>
@@ -46,24 +84,6 @@
         <display>
         <title>springMVC干货系列：从零搭建springMVC+mybatis（三）：spring两大核心之IOC/DI学习</title>
         <pubTime>2016-05-02T10:21:16.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="springMVC" url="http://tengj.top/categories/springMVC/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tengj.top/2016/05/02/springmvctotal/</loc>
-    <lastmod>2016-05-02T10:33:07.143Z</lastmod>
-    <data>
-        <display>
-        <title>springMVC干货系列：从零搭建springMVC+mybatis（总纲）</title>
-        <pubTime>2016-05-02T10:31:57.000Z</pubTime>
         
          
            
@@ -141,26 +161,6 @@
            
              
               <breadCrumb title="Java多线程" url="http://tengj.top/categories/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tengj.top/2016/02/22/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%80%EF%BC%89hexo+gitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2016-04-20T14:20:07.383Z</lastmod>
-    <data>
-        <display>
-        <title>hexo干货系列：（一）hexo+gitHub搭建个人独立博客</title>
-        <pubTime>2016-02-22T08:04:09.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
           
         </display>
     </data>
