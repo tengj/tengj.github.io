@@ -4,6 +4,42 @@
 
     
   <url>
+    <loc>http://tengj.top/2016/05/06/threadvolatile4/</loc>
+    <lastmod>2016-05-06T14:59:36.541Z</lastmod>
+    <data>
+        <display>
+        <title>Java多线程干货系列—（四）volatile关键字</title>
+        <pubTime>2016-05-06T14:56:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Java多线程" url="http://tengj.top/categories/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tengj.top/2016/05/03/threadsynchronized2/</loc>
+    <lastmod>2016-05-06T14:59:06.178Z</lastmod>
+    <data>
+        <display>
+        <title>Java多线程干货系列—（二）synchronized</title>
+        <pubTime>2016-05-02T22:59:54.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Java多线程" url="http://tengj.top/categories/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://tengj.top/2016/05/02/springmvctotal/</loc>
     <lastmod>2016-05-04T23:34:47.180Z</lastmod>
     <data>
@@ -35,24 +71,6 @@
            
              
               <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tengj.top/2016/05/03/threadsynchronized2/</loc>
-    <lastmod>2016-05-02T23:01:57.836Z</lastmod>
-    <data>
-        <display>
-        <title>Java多线程干货系列—（二）synchronized</title>
-        <pubTime>2016-05-02T22:59:54.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Java多线程" url="http://tengj.top/categories/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
           
         </display>
     </data>
