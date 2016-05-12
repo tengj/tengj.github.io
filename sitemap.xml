@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://tengj.github.io/2016/05/12/springmvc4aop/</loc>
+    
+    <lastmod>2016-05-12T02:17:26.911Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://tengj.github.io/2016/05/06/threadvolatile4/</loc>
     
     <lastmod>2016-05-06T14:59:36.541Z</lastmod>
