@@ -19,7 +19,8 @@
 <meta property="og:site_name" content="嘟嘟独立博客">
 <meta property="og:description" content="首页最近一段时间有个公司项目需求调研后，项目组决定使用springMVC+mybatis3+bootstrap来实现。于是总结一下最近使用的心得，以及开发过程中遇到的问题。
 正文SpringMVC是Java开发人员必须要掌握的一个框架，掌握它能令你工作上如鱼得水。本系列会从零开始教你如何搭建springMVC的项目，包含spring注解，mybatis,日志系统，事务，多数据源，单元测试等居多功能">
-<meta property="og:updated_time" content="2016-05-04T23:34:47.180Z">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
+<meta property="og:updated_time" content="2016-05-12T03:04:26.597Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springMVC干货系列：从零搭建springMVC+mybatis（总纲）">
 <meta name="twitter:description" content="首页最近一段时间有个公司项目需求调研后，项目组决定使用springMVC+mybatis3+bootstrap来实现。于是总结一下最近使用的心得，以及开发过程中遇到的问题。
@@ -107,8 +108,10 @@
 		
 		<h1 id="首页"><a href="#首页" class="headerlink" title="首页"></a>首页</h1><p>最近一段时间有个公司项目需求调研后，项目组决定使用springMVC+mybatis3+bootstrap来实现。<br>于是总结一下最近使用的心得，以及开发过程中遇到的问题。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>SpringMVC是Java开发人员必须要掌握的一个框架，掌握它能令你工作上如鱼得水。<br>本系列会从零开始教你如何搭建springMVC的项目，包含spring注解，mybatis,日志系统，事务，多数据源，单元测试等居多功能。<br>让新手也能一步到位：搭建起来现在比较流行的框架<br>开发环境：<br>IED:myeclipse2014<br>jdk:1.7<br>tomcat:7<br>springmvc:4<br>mybatis: 3.3<br>junit: 4.11</p>
-<h2 id="后期该系列博文目录如下"><a href="#后期该系列博文目录如下" class="headerlink" title="后期该系列博文目录如下"></a>后期该系列博文目录如下</h2><p><a href="http://tengj.top/2016/03/13/springmvcseries1/" target="_blank" rel="external">从零搭建SpringMVC+mybatis（一）：maven WEB 项目的搭建</a><br><a href="http://tengj.top/2016/05/02/springmvcyuanli/" target="_blank" rel="external">从零搭建SpringMVC+mybatis（二）：SpringMVC原理解析及常用注解</a><br><a href="http://tengj.top/2016/05/02/springmvc3iocdi/" target="_blank" rel="external">从零搭建SpringMVC+mybatis（三）：Spring两大核心之IOC/DI学习</a><br>从零搭建SpringMVC+mybatis（四）：Spring两大核心之AOP学习<br>从零搭建SpringMVC+mybatis（五）：SpringMVC整合mybatis<br>从零搭建SpringMVC+mybatis（六）：SpringMVC中日志系统log4j的配置<br>从零搭建SpringMVC+mybatis（七）：基于注解的事务配置，多数据源切换<br>从零搭建SpringMVC+mybatis（八）：SpringMVC使用Junit4单元测试<br>从零搭建SpringMVC+mybatis（九）：SpringMVC中定时任务的配置 (Quartz &amp; spring-task)<br>从零搭建SpringMVC+mybatis（十）： SpringMVC中 安全机制<br>从零搭建SpringMVC+mybatis（十一）： SpringMVC中 缓存实现方式  </p>
+<h2 id="后期该系列博文目录如下"><a href="#后期该系列博文目录如下" class="headerlink" title="后期该系列博文目录如下"></a>后期该系列博文目录如下</h2><p><a href="http://tengj.top/2016/03/13/springmvcseries1/" target="_blank" rel="external">从零搭建SpringMVC+mybatis（一）：maven WEB 项目的搭建</a><br><a href="http://tengj.top/2016/05/02/springmvcyuanli/" target="_blank" rel="external">从零搭建SpringMVC+mybatis（二）：SpringMVC原理解析及常用注解</a><br><a href="http://tengj.top/2016/05/02/springmvc3iocdi/" target="_blank" rel="external">从零搭建SpringMVC+mybatis（三）：Spring两大核心之IOC/DI学习</a><br><a href="http://tengj.top/2016/05/12/springmvc4aop/" target="_blank" rel="external">从零搭建SpringMVC+mybatis（四）：Spring两大核心之AOP学习</a><br>从零搭建SpringMVC+mybatis（五）：SpringMVC整合mybatis<br>从零搭建SpringMVC+mybatis（六）：SpringMVC中日志系统log4j的配置<br>从零搭建SpringMVC+mybatis（七）：基于注解的事务配置，多数据源切换<br>从零搭建SpringMVC+mybatis（八）：SpringMVC使用Junit4单元测试<br>从零搭建SpringMVC+mybatis（九）：SpringMVC中定时任务的配置 (Quartz &amp; spring-task)<br>从零搭建SpringMVC+mybatis（十）： SpringMVC中 安全机制<br>从零搭建SpringMVC+mybatis（十一）： SpringMVC中 缓存实现方式  </p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>希望自己能坚持写下去，整理出一套入门简单的教程。</p>
+<hr>
+<p> 博主弄了个java学习资源的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花<br> <img src="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -234,6 +237,10 @@
 		  
 		
 		  
+			<li><a href="/categories/微课系列/" title="微课系列">微课系列<sup>1</sup></a></li>
+		  
+		
+		  
 			<li><a href="/categories/设计模式/" title="设计模式">设计模式<sup>8</sup></a></li>
 		  
 		
@@ -244,7 +251,7 @@
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
   </div>
 
 

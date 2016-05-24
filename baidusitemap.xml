@@ -4,6 +4,42 @@
 
     
   <url>
+    <loc>http://tengj.top/2016/05/24/wk01/</loc>
+    <lastmod>2016-05-24T08:28:54.252Z</lastmod>
+    <data>
+        <display>
+        <title>如何制作微课系列——（第一天）微课选题怎么玩？</title>
+        <pubTime>2016-05-24T08:20:48.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="微课系列" url="http://tengj.top/categories/%E5%BE%AE%E8%AF%BE%E7%B3%BB%E5%88%97/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tengj.top/2016/05/02/springmvctotal/</loc>
+    <lastmod>2016-05-12T03:04:26.597Z</lastmod>
+    <data>
+        <display>
+        <title>springMVC干货系列：从零搭建springMVC+mybatis（总纲）</title>
+        <pubTime>2016-05-02T10:31:57.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="springMVC" url="http://tengj.top/categories/springMVC/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://tengj.top/2016/05/12/springmvc4aop/</loc>
     <lastmod>2016-05-12T02:17:26.911Z</lastmod>
     <data>
@@ -51,24 +87,6 @@
            
              
               <breadCrumb title="Java多线程" url="http://tengj.top/categories/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tengj.top/2016/05/02/springmvctotal/</loc>
-    <lastmod>2016-05-04T23:34:47.180Z</lastmod>
-    <data>
-        <display>
-        <title>springMVC干货系列：从零搭建springMVC+mybatis（总纲）</title>
-        <pubTime>2016-05-02T10:31:57.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="springMVC" url="http://tengj.top/categories/springMVC/"/>
           
         </display>
     </data>
