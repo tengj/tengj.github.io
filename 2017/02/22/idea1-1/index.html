@@ -1,0 +1,600 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Java人员正确使用 IntelliJ IDEA的方式 | 嘟嘟独立博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Teng Jun">
+    
+
+    
+    <meta name="description" content="前言博主是Java开发人员，以前一直都用myeclipse来开发的，说实话感觉myeclipse毫无美感可言，后来经过同事介绍，认识了IDEA，一眼就相中了IDEA黑色的主题风格，自此就抛弃了旧爱myeclipse。当时还不懂IDEA功能上比myeclipse好在哪里，只是单纯的爱上了黑色的主题。后来用了一段时间，事实证明还真的更好用。下文我将介绍一下正确的使用IDEA的方式。
+正文Intelli">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java人员正确使用 IntelliJ IDEA的方式">
+<meta property="og:url" content="http://tengj.github.io/2017/02/22/idea1-1/index.html">
+<meta property="og:site_name" content="嘟嘟独立博客">
+<meta property="og:description" content="前言博主是Java开发人员，以前一直都用myeclipse来开发的，说实话感觉myeclipse毫无美感可言，后来经过同事介绍，认识了IDEA，一眼就相中了IDEA黑色的主题风格，自此就抛弃了旧爱myeclipse。当时还不懂IDEA功能上比myeclipse好在哪里，只是单纯的爱上了黑色的主题。后来用了一段时间，事实证明还真的更好用。下文我将介绍一下正确的使用IDEA的方式。
+正文Intelli">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/idea1_1.jpg">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/idea1_2.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/idea1_3.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/idea1_4.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/idea1_5.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/idea1_6.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/idea1_7.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/idea1_8.png">
+<meta property="og:image" content="https://github.com/tengj/IntelliJ-IDEA-Tutorial/raw/newMaster/images/xx-b-plugins-install-1.gif">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/idea1_9.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/idea1_10.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/idea1_11.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/idea1_12.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/idea1_13.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/idea1_14.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/idea1_15.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/idea1_16.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/idea1_17.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/idea1_18.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/idea1_19.png">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
+<meta property="og:updated_time" content="2017-02-21T22:46:22.633Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java人员正确使用 IntelliJ IDEA的方式">
+<meta name="twitter:description" content="前言博主是Java开发人员，以前一直都用myeclipse来开发的，说实话感觉myeclipse毫无美感可言，后来经过同事介绍，认识了IDEA，一眼就相中了IDEA黑色的主题风格，自此就抛弃了旧爱myeclipse。当时还不懂IDEA功能上比myeclipse好在哪里，只是单纯的爱上了黑色的主题。后来用了一段时间，事实证明还真的更好用。下文我将介绍一下正确的使用IDEA的方式。
+正文Intelli">
+
+    
+    <link rel="alternative" href="/atom.xml" title="嘟嘟独立博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/dudu.gif" alt="嘟嘟独立博客" title="嘟嘟独立博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="嘟嘟独立博客">嘟嘟独立博客</a></h1>
+				<h2 class="blog-motto">爱生活爱编码</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/timeline">时光机</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" class="st-default-search-input" maxlength="20" placeholder="Search" />
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/02/22/idea1-1/" title="Java人员正确使用 IntelliJ IDEA的方式" itemprop="url">Java人员正确使用 IntelliJ IDEA的方式</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Teng Jun" target="_blank" itemprop="author">Teng Jun</a>
+		
+  <p class="article-time">
+    <time datetime="2017-02-21T22:40:11.000Z" itemprop="datePublished"> 发表于 2017-02-22</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">2.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插件安装"><span class="toc-number">2.2.</span> <span class="toc-text">插件安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图片背景插件background-Image-Plus"><span class="toc-number">2.2.1.</span> <span class="toc-text">图片背景插件background Image Plus</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#翻译插件Translation"><span class="toc-number">2.2.2.</span> <span class="toc-text">翻译插件Translation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CodeGlance"><span class="toc-number">2.2.3.</span> <span class="toc-text">CodeGlance</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Grep-Console"><span class="toc-number">2.2.4.</span> <span class="toc-text">Grep Console</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结束"><span class="toc-number">3.</span> <span class="toc-text">结束</span></a></li></ol>
+		
+		</div>
+		
+		<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/idea1_1.jpg" alt=""></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>博主是Java开发人员，以前一直都用myeclipse来开发的，说实话感觉myeclipse毫无美感可言，后来经过同事介绍，认识了IDEA，一眼就相中了IDEA黑色的主题风格，自此就抛弃了旧爱myeclipse。当时还不懂IDEA功能上比myeclipse好在哪里，只是单纯的爱上了黑色的主题。后来用了一段时间，事实证明还真的更好用。下文我将介绍一下正确的使用IDEA的方式。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>IntelliJ IDEA 主要用于支持 Java、Scala、Groovy 等语言的开发工具，同时具备支持目前主流的技术和框架，擅长于企业应用、移动应用和 Web 应用的开发。</p>
+<p>IntelliJ IDEA 对自己的定义是很清晰的，对于新人来讲可能还不太理解，可能还会有误会，认为它博而不精，但是对于老用户来讲应该是非常认可上面这句话的。通过下面功能表格，新人对于 IntelliJ IDEA 所具备的功能会有一个新的认识。</p>
+<p>如果用一句话来形容 IntelliJ IDEA，我会说：<strong>IntelliJ IDEA 是目前所有 IDE 中最具备沉浸式的 IDE，没有之一</strong>。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>一般人安装直接去官网找到对应的安装版本下载安装，之前我也是这样，这样的结果就是版本不好控制，有新版本更新了我都不知道，每次想换版本还要重新下载安装。后来经别人提点才发现JetBrains官网本身就提供了一个管理所有JetBrains旗下所有的产品软件的工具，那就是toolbox，如图，官网首页IDEs右下角菜单就是入口<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/idea1_2.png" alt=""></p>
+<p>进去后点击下载即可<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/idea1_3.png" alt=""></p>
+<p>安装完的效果如下图</p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/idea1_4.png" alt=""></p>
+<p>这边列出了所有JetBrains旗下的产品，想怎么用就怎么用，选择对应的版本安装即可，用toolbox的好处就是如果使用的软件有个更新，在这个工具上就有提醒，几点更新即可。<br>更方便的是toolbox还提供历史项目的检索，很方便打开历史的项目。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/idea1_5.png" alt=""></p>
+<p>如果你想修改项目内存，可以打开已经安装的对应的项目的settings,修改对应的内存大小即可。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/idea1_6.png" alt=""></p>
+<p>注意：小编自己安装的时候好像toolbox被默认安装到C盘了，如果你也不小心，可以修改下对应的安装路径，这样后续安装的IDEA软件就会安装到指定路径。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/idea1_7.png" alt=""></p>
+<h2 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h2><p>好了，用正确的方式安装IDEA后，小编这里推荐几款平时比较实用的插件，这里抛砖引玉，只介绍个人使用比较多的。<br>IDEA下面安装插件是在File下面的setting中设置，如图：<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/idea1_8.png" alt=""><br><img src="https://github.com/tengj/IntelliJ-IDEA-Tutorial/raw/newMaster/images/xx-b-plugins-install-1.gif" alt="插件的安装"></p>
+<h3 id="图片背景插件background-Image-Plus"><a href="#图片背景插件background-Image-Plus" class="headerlink" title="图片背景插件background Image Plus"></a>图片背景插件background Image Plus</h3><p>插件名称叫background Image Plus，在插件里面搜索安装即可，如下图<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/idea1_9.png" alt=""></p>
+<p>安装完重启后可以在菜单View下面的Set Background Image里面设置，选好本地一张图片设置下亮度和模式即可，这里小编推荐尽量用深色一点的图片，视觉效果相对好点。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/idea1_10.png" alt=""></p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/idea1_11.png" alt=""></p>
+<p>最终展示效果如图：<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/idea1_12.png" alt=""></p>
+<h3 id="翻译插件Translation"><a href="#翻译插件Translation" class="headerlink" title="翻译插件Translation"></a>翻译插件Translation</h3><p>开发的时候经常会遇到看不懂的英语单词，再去百度多麻烦，这里推荐这款翻译插件，插件名称叫做，安装后选中单词按下快捷键ALT+1即可。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/idea1_13.png" alt=""></p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/idea1_14.png" alt=""></p>
+<h3 id="CodeGlance"><a href="#CodeGlance" class="headerlink" title="CodeGlance"></a>CodeGlance</h3><p>在编辑代码最右侧，显示一块代码小地图 这款插件使用效果图如下，个人感觉还是有点用处，滚动条太小，有这个地图，拖动起来更加方便一点<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/idea1_15.png" alt=""></p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/idea1_16.png" alt=""></p>
+<h3 id="Grep-Console"><a href="#Grep-Console" class="headerlink" title="Grep Console"></a>Grep Console</h3><p>Grep Console 自定义设置控制台输出颜色，这样控制台就能比较明显的看到警告或者错误的信息，方便查找问题。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/idea1_17.png" alt=""></p>
+<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/idea1_18.png" alt=""></p>
+<h1 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h1><p>以上就是博主自己使用IDEA的经验心得，如果你看了心动了但是还担心IDEA复杂不好入门，嘿嘿，别担心博主手里还有大招，在此奉献出IDEA官方教程中文版一套，让你无缝切换随心所欲的玩耍起来。教程地址如下：<a href="https://github.com/tengj/IntelliJ-IDEA-Tutorial" target="_blank" rel="external">https://github.com/tengj/IntelliJ-IDEA-Tutorial</a><br>讲真，博主觉得这个教程就值的一波赞了。对了，我还提供了IDEA的激活码，如果你需要可关注我的微信公众号，回复激活码即可获取。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/idea1_19.png" alt=""></p>
+<hr>
+<p> 博主弄了个java学习资源的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花<br> <img src="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG" alt=""></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/IDEA大汇总/">IDEA大汇总</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/IDEA/">IDEA</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://tengj.github.io/2017/02/22/idea1-1/" data-title="Java人员正确使用 IntelliJ IDEA的方式 | 嘟嘟独立博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/05/24/wk01/"  title="如何制作微课系列——（第一天）微课选题怎么玩？">
+ <strong>下一篇：</strong><br/> 
+ <span>如何制作微课系列——（第一天）微课选题怎么玩？
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2017/02/22/idea1-1/" data-title="Java人员正确使用 IntelliJ IDEA的方式" data-url="http://tengj.github.io/2017/02/22/idea1-1/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">2.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插件安装"><span class="toc-number">2.2.</span> <span class="toc-text">插件安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图片背景插件background-Image-Plus"><span class="toc-number">2.2.1.</span> <span class="toc-text">图片背景插件background Image Plus</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#翻译插件Translation"><span class="toc-number">2.2.2.</span> <span class="toc-text">翻译插件Translation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CodeGlance"><span class="toc-number">2.2.3.</span> <span class="toc-text">CodeGlance</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Grep-Console"><span class="toc-number">2.2.4.</span> <span class="toc-text">Grep Console</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结束"><span class="toc-number">3.</span> <span class="toc-text">结束</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="tengj" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/IDEA大汇总/" title="IDEA大汇总">IDEA大汇总<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Java基础与提高干货系列/" title="Java基础与提高干货系列">Java基础与提高干货系列<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Java多线程/" title="Java多线程">Java多线程<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Java集合干货系列/" title="Java集合干货系列">Java集合干货系列<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/SEO/" title="SEO">SEO<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/app推荐/" title="app推荐">app推荐<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/git/" title="git">git<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/hexo/" title="hexo">hexo<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/jQuery/" title="jQuery">jQuery<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/java/" title="java">java<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/springMVC/" title="springMVC">springMVC<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/微课系列/" title="微课系列">微课系列<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/设计模式/" title="设计模式">设计模式<sup>8</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li></ul>
+  </div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/SEO/" style="font-size: 15px;">SEO</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/java/" style="font-size: 10px;">java</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://shomy.top" target="_blank" title="天空的城">天空的城</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://iamaboy.xyz" target="_blank" title="WenQiang&#39;s Notes">WenQiang&#39;s Notes</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.cocosdever.com" target="_blank" title="C的博客">C的博客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 程序员上辈子都是折翼的天使 <br/>
+			This is my blog,Try to do better.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/tengj" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="Teng Jun">Teng Jun</a>
+		
+		</p>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','Ts_hz24x26ZaNWfhsYwW','2.0.0');
+</script>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  
+  var m = $('#main'),
+      a = $('#asidepart'), //侧边栏
+      c = $('.closeaside'),//隐藏侧边栏
+      o = $('.openaside'); //显示侧边栏
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    $('#toc.toc-aside').css('display', 'block').addClass('fadeIn'); //这个是我新加的，修改点
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"tengj"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257841330'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1257841330%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
