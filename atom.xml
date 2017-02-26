@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tengj.github.io/"/>
-  <updated>2017-02-26T03:18:45.980Z</updated>
+  <updated>2017-02-26T03:32:52.880Z</updated>
   <id>http://tengj.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://tengj.github.io/2017/02/26/springboot1/"/>
     <id>http://tengj.github.io/2017/02/26/springboot1/</id>
     <published>2017-02-25T16:35:30.000Z</published>
-    <updated>2017-02-26T03:18:45.980Z</updated>
+    <updated>2017-02-26T03:32:52.880Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;Spring一直是很火的一个开源框架，在过去的一段时间里，Spring Boot在社区中热度一直很高，所以决定花时间来了解和学习，为自己做技术储备。&lt;/p&gt;
 &lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;p&gt;首先声明，Spring Boot不是一门新技术，所以不用紧张。从本质上来说，Spring Boot就是Spring,它做了那些没有它你也会去做的Spring Bean配置。它使用“习惯优于配置”（项目中存在大量的配置，此外还内置了一个习惯性的配置，让你无需手动进行配置）的理念让你的项目快速运行起来。使用Spring Boot很容易创建一个独立运行（运行jar,内嵌Servlet容器）、准生产级别的基于Spring框架的项目，使用Spring Boot你可以不用或者只需要很少的Spring配置。&lt;/p&gt;
@@ -113,6 +113,9 @@
 &lt;p&gt;最后希望你玩的开心~&lt;/p&gt;
 &lt;h1 id=&quot;源码下载&quot;&gt;&lt;a href=&quot;#源码下载&quot; class=&quot;headerlink&quot; title=&quot;源码下载&quot;&gt;&lt;/a&gt;源码下载&lt;/h1&gt;&lt;p&gt;(￣︶￣)↗[&lt;a href=&quot;https://github.com/tengj/SpringBootDemo/tree/master&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;相关示例完整代码&lt;/a&gt;]&lt;/p&gt;
 &lt;p&gt;我手里有几本Spring Boot的中文电子书资料，有需要的可以关注博主微信公众号（嘟爷java超神学堂），自行前往下载【开发工具-&amp;gt;java电子书籍】&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/springboot1-12.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;a href=&quot;http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;如果你认同博主的辛苦，并感觉真的对你有所帮助，不凡打赏一下嘿嘿&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/zhifubao.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -133,7 +136,7 @@
     <link href="http://tengj.github.io/2017/02/22/idea1-1/"/>
     <id>http://tengj.github.io/2017/02/22/idea1-1/</id>
     <published>2017-02-21T22:40:11.000Z</published>
-    <updated>2017-02-21T22:46:22.633Z</updated>
+    <updated>2017-02-26T03:32:42.801Z</updated>
     
     <content type="html">&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/idea1_1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;博主是Java开发人员，以前一直都用myeclipse来开发的，说实话感觉myeclipse毫无美感可言，后来经过同事介绍，认识了IDEA，一眼就相中了IDEA黑色的主题风格，自此就抛弃了旧爱myeclipse。当时还不懂IDEA功能上比myeclipse好在哪里，只是单纯的爱上了黑色的主题。后来用了一段时间，事实证明还真的更好用。下文我将介绍一下正确的使用IDEA的方式。&lt;/p&gt;
@@ -161,6 +164,9 @@
 &lt;h1 id=&quot;结束&quot;&gt;&lt;a href=&quot;#结束&quot; class=&quot;headerlink&quot; title=&quot;结束&quot;&gt;&lt;/a&gt;结束&lt;/h1&gt;&lt;p&gt;以上就是博主自己使用IDEA的经验心得，如果你看了心动了但是还担心IDEA复杂不好入门，嘿嘿，别担心博主手里还有大招，在此奉献出IDEA官方教程中文版一套，让你无缝切换随心所欲的玩耍起来。教程地址如下：&lt;a href=&quot;https://github.com/tengj/IntelliJ-IDEA-Tutorial&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/tengj/IntelliJ-IDEA-Tutorial&lt;/a&gt;&lt;br&gt;讲真，博主觉得这个教程就值的一波赞了。对了，我还提供了IDEA的激活码，如果你需要可关注我的微信公众号，回复激活码即可获取。&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/idea1_19.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt; 博主弄了个java学习资源的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花&lt;br&gt; &lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;如果你认同博主的辛苦，并感觉真的对你有所帮助，不凡打赏一下嘿嘿&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/zhifubao.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">

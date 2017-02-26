@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://tengj.github.io/2017/02/26/springboot1/</loc>
-    <lastmod>2017-02-26T03:18:45.980Z</lastmod>
+    <lastmod>2017-02-26T03:32:52.880Z</lastmod>
     <data>
         <display>
         <title>Spring Boot干货系列：（一）优雅的入门篇</title>
@@ -24,26 +24,8 @@
 
     
   <url>
-    <loc>http://tengj.github.io/2016/04/06/sjms4singleton/</loc>
-    <lastmod>2017-02-22T09:14:46.733Z</lastmod>
-    <data>
-        <display>
-        <title>设计模式干货系列：（四）单例模式【学习难度：★☆☆☆☆，使用频率：★★★★☆】</title>
-        <pubTime>2016-04-06T13:48:55.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="设计模式" url="http://tengj.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://tengj.github.io/2017/02/22/idea1-1/</loc>
-    <lastmod>2017-02-21T22:46:22.633Z</lastmod>
+    <lastmod>2017-02-26T03:32:42.801Z</lastmod>
     <data>
         <display>
         <title>Java人员正确使用 IntelliJ IDEA的方式</title>
@@ -55,6 +37,24 @@
            
              
               <breadCrumb title="IDEA大汇总" url="http://tengj.github.io/categories/IDEA%E5%A4%A7%E6%B1%87%E6%80%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tengj.github.io/2016/04/06/sjms4singleton/</loc>
+    <lastmod>2017-02-22T09:14:46.733Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式干货系列：（四）单例模式【学习难度：★☆☆☆☆，使用频率：★★★★☆】</title>
+        <pubTime>2016-04-06T13:48:55.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="设计模式" url="http://tengj.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
           
         </display>
     </data>
