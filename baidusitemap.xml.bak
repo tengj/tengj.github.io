@@ -4,7 +4,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2017/02/26/springboot1/</loc>
+    <loc>http://tengj.github.io/2017/02/26/springboot1/</loc>
     <lastmod>2017-02-25T16:53:37.039Z</lastmod>
     <data>
         <display>
@@ -16,7 +16,7 @@
          
            
              
-              <breadCrumb title="Spring Boot" url="http://tengj.top/categories/Spring-Boot/"/>
+              <breadCrumb title="Spring Boot" url="http://tengj.github.io/categories/Spring-Boot/"/>
           
         </display>
     </data>
@@ -24,7 +24,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/04/06/sjms4singleton/</loc>
+    <loc>http://tengj.github.io/2016/04/06/sjms4singleton/</loc>
     <lastmod>2017-02-22T09:14:46.733Z</lastmod>
     <data>
         <display>
@@ -34,7 +34,7 @@
          
            
              
-              <breadCrumb title="设计模式" url="http://tengj.top/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+              <breadCrumb title="设计模式" url="http://tengj.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
           
         </display>
     </data>
@@ -42,7 +42,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2017/02/22/idea1-1/</loc>
+    <loc>http://tengj.github.io/2017/02/22/idea1-1/</loc>
     <lastmod>2017-02-21T22:46:22.633Z</lastmod>
     <data>
         <display>
@@ -54,7 +54,7 @@
          
            
              
-              <breadCrumb title="IDEA大汇总" url="http://tengj.top/categories/IDEA%E5%A4%A7%E6%B1%87%E6%80%BB/"/>
+              <breadCrumb title="IDEA大汇总" url="http://tengj.github.io/categories/IDEA%E5%A4%A7%E6%B1%87%E6%80%BB/"/>
           
         </display>
     </data>
@@ -62,7 +62,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/05/24/wk01/</loc>
+    <loc>http://tengj.github.io/2016/05/24/wk01/</loc>
     <lastmod>2016-05-24T08:28:54.252Z</lastmod>
     <data>
         <display>
@@ -72,7 +72,7 @@
          
            
              
-              <breadCrumb title="微课系列" url="http://tengj.top/categories/%E5%BE%AE%E8%AF%BE%E7%B3%BB%E5%88%97/"/>
+              <breadCrumb title="微课系列" url="http://tengj.github.io/categories/%E5%BE%AE%E8%AF%BE%E7%B3%BB%E5%88%97/"/>
           
         </display>
     </data>
@@ -80,7 +80,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/05/02/springmvctotal/</loc>
+    <loc>http://tengj.github.io/2016/05/02/springmvctotal/</loc>
     <lastmod>2016-05-12T03:04:26.597Z</lastmod>
     <data>
         <display>
@@ -90,7 +90,7 @@
          
            
              
-              <breadCrumb title="springMVC" url="http://tengj.top/categories/springMVC/"/>
+              <breadCrumb title="springMVC" url="http://tengj.github.io/categories/springMVC/"/>
           
         </display>
     </data>
@@ -98,7 +98,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/05/12/springmvc4aop/</loc>
+    <loc>http://tengj.github.io/2016/05/12/springmvc4aop/</loc>
     <lastmod>2016-05-12T02:17:26.911Z</lastmod>
     <data>
         <display>
@@ -108,7 +108,7 @@
          
            
              
-              <breadCrumb title="springMVC" url="http://tengj.top/categories/springMVC/"/>
+              <breadCrumb title="springMVC" url="http://tengj.github.io/categories/springMVC/"/>
           
         </display>
     </data>
@@ -116,7 +116,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/05/06/threadvolatile4/</loc>
+    <loc>http://tengj.github.io/2016/05/06/threadvolatile4/</loc>
     <lastmod>2016-05-06T14:59:36.541Z</lastmod>
     <data>
         <display>
@@ -126,7 +126,7 @@
          
            
              
-              <breadCrumb title="Java多线程" url="http://tengj.top/categories/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+              <breadCrumb title="Java多线程" url="http://tengj.github.io/categories/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
           
         </display>
     </data>
@@ -134,7 +134,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/05/03/threadsynchronized2/</loc>
+    <loc>http://tengj.github.io/2016/05/03/threadsynchronized2/</loc>
     <lastmod>2016-05-06T14:59:06.178Z</lastmod>
     <data>
         <display>
@@ -144,7 +144,7 @@
          
            
              
-              <breadCrumb title="Java多线程" url="http://tengj.top/categories/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+              <breadCrumb title="Java多线程" url="http://tengj.github.io/categories/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
           
         </display>
     </data>
@@ -152,7 +152,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/02/22/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%80%EF%BC%89hexo+gitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>http://tengj.github.io/2016/02/22/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%80%EF%BC%89hexo+gitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2016-05-03T08:52:01.917Z</lastmod>
     <data>
         <display>
@@ -164,7 +164,7 @@
          
            
              
-              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
+              <breadCrumb title="hexo" url="http://tengj.github.io/categories/hexo/"/>
           
         </display>
     </data>
@@ -172,7 +172,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/04/12/javajhtotal/</loc>
+    <loc>http://tengj.github.io/2016/04/12/javajhtotal/</loc>
     <lastmod>2016-05-02T12:43:06.833Z</lastmod>
     <data>
         <display>
@@ -182,7 +182,7 @@
          
            
              
-              <breadCrumb title="Java集合干货系列" url="http://tengj.top/categories/Java%E9%9B%86%E5%90%88%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97/"/>
+              <breadCrumb title="Java集合干货系列" url="http://tengj.github.io/categories/Java%E9%9B%86%E5%90%88%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97/"/>
           
         </display>
     </data>
@@ -190,7 +190,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/05/02/springmvc3iocdi/</loc>
+    <loc>http://tengj.github.io/2016/05/02/springmvc3iocdi/</loc>
     <lastmod>2016-05-02T11:57:22.354Z</lastmod>
     <data>
         <display>
@@ -200,7 +200,7 @@
          
            
              
-              <breadCrumb title="springMVC" url="http://tengj.top/categories/springMVC/"/>
+              <breadCrumb title="springMVC" url="http://tengj.github.io/categories/springMVC/"/>
           
         </display>
     </data>
@@ -208,7 +208,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/05/02/springmvcyuanli/</loc>
+    <loc>http://tengj.github.io/2016/05/02/springmvcyuanli/</loc>
     <lastmod>2016-05-01T23:38:07.811Z</lastmod>
     <data>
         <display>
@@ -218,7 +218,7 @@
          
            
              
-              <breadCrumb title="springMVC" url="http://tengj.top/categories/springMVC/"/>
+              <breadCrumb title="springMVC" url="http://tengj.github.io/categories/springMVC/"/>
           
         </display>
     </data>
@@ -226,7 +226,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/03/13/springmvcseries1/</loc>
+    <loc>http://tengj.github.io/2016/03/13/springmvcseries1/</loc>
     <lastmod>2016-05-01T22:39:53.133Z</lastmod>
     <data>
         <display>
@@ -236,7 +236,7 @@
          
            
              
-              <breadCrumb title="springMVC" url="http://tengj.top/categories/springMVC/"/>
+              <breadCrumb title="springMVC" url="http://tengj.github.io/categories/springMVC/"/>
           
         </display>
     </data>
@@ -244,7 +244,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/04/28/javareflect/</loc>
+    <loc>http://tengj.github.io/2016/04/28/javareflect/</loc>
     <lastmod>2016-04-28T12:07:17.506Z</lastmod>
     <data>
         <display>
@@ -254,7 +254,7 @@
          
            
              
-              <breadCrumb title="Java基础与提高干货系列" url="http://tengj.top/categories/Java%E5%9F%BA%E7%A1%80%E4%B8%8E%E6%8F%90%E9%AB%98%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97/"/>
+              <breadCrumb title="Java基础与提高干货系列" url="http://tengj.github.io/categories/Java%E5%9F%BA%E7%A1%80%E4%B8%8E%E6%8F%90%E9%AB%98%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97/"/>
           
         </display>
     </data>
@@ -262,7 +262,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/04/24/thread1/</loc>
+    <loc>http://tengj.github.io/2016/04/24/thread1/</loc>
     <lastmod>2016-04-24T02:35:36.572Z</lastmod>
     <data>
         <display>
@@ -272,7 +272,7 @@
          
            
              
-              <breadCrumb title="Java多线程" url="http://tengj.top/categories/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+              <breadCrumb title="Java多线程" url="http://tengj.github.io/categories/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
           
         </display>
     </data>
@@ -280,7 +280,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/04/17/sjms7adapter/</loc>
+    <loc>http://tengj.github.io/2016/04/17/sjms7adapter/</loc>
     <lastmod>2016-04-17T06:59:06.536Z</lastmod>
     <data>
         <display>
@@ -290,7 +290,7 @@
          
            
              
-              <breadCrumb title="设计模式" url="http://tengj.top/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+              <breadCrumb title="设计模式" url="http://tengj.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
           
         </display>
     </data>
@@ -298,7 +298,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/04/16/javajh5hashset/</loc>
+    <loc>http://tengj.github.io/2016/04/16/javajh5hashset/</loc>
     <lastmod>2016-04-16T09:42:25.031Z</lastmod>
     <data>
         <display>
@@ -308,7 +308,7 @@
          
            
              
-              <breadCrumb title="Java集合干货系列" url="http://tengj.top/categories/Java%E9%9B%86%E5%90%88%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97/"/>
+              <breadCrumb title="Java集合干货系列" url="http://tengj.github.io/categories/Java%E9%9B%86%E5%90%88%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97/"/>
           
         </display>
     </data>
@@ -316,7 +316,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/04/16/javajh4treemap/</loc>
+    <loc>http://tengj.github.io/2016/04/16/javajh4treemap/</loc>
     <lastmod>2016-04-16T09:41:27.776Z</lastmod>
     <data>
         <display>
@@ -326,7 +326,7 @@
          
            
              
-              <breadCrumb title="Java集合干货系列" url="http://tengj.top/categories/Java%E9%9B%86%E5%90%88%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97/"/>
+              <breadCrumb title="Java集合干货系列" url="http://tengj.github.io/categories/Java%E9%9B%86%E5%90%88%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97/"/>
           
         </display>
     </data>
@@ -334,7 +334,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/04/15/javajh3hashmap/</loc>
+    <loc>http://tengj.github.io/2016/04/15/javajh3hashmap/</loc>
     <lastmod>2016-04-15T02:34:01.572Z</lastmod>
     <data>
         <display>
@@ -344,7 +344,7 @@
          
            
              
-              <breadCrumb title="Java集合干货系列" url="http://tengj.top/categories/Java%E9%9B%86%E5%90%88%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97/"/>
+              <breadCrumb title="Java集合干货系列" url="http://tengj.github.io/categories/Java%E9%9B%86%E5%90%88%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97/"/>
           
         </display>
     </data>
@@ -352,7 +352,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/04/13/javajh1arraylist/</loc>
+    <loc>http://tengj.github.io/2016/04/13/javajh1arraylist/</loc>
     <lastmod>2016-04-15T01:11:34.029Z</lastmod>
     <data>
         <display>
@@ -362,7 +362,7 @@
          
            
              
-              <breadCrumb title="Java集合干货系列" url="http://tengj.top/categories/Java%E9%9B%86%E5%90%88%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97/"/>
+              <breadCrumb title="Java集合干货系列" url="http://tengj.github.io/categories/Java%E9%9B%86%E5%90%88%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97/"/>
           
         </display>
     </data>
@@ -370,7 +370,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/04/13/javajh2linklist/</loc>
+    <loc>http://tengj.github.io/2016/04/13/javajh2linklist/</loc>
     <lastmod>2016-04-15T01:11:22.295Z</lastmod>
     <data>
         <display>
@@ -380,7 +380,7 @@
          
            
              
-              <breadCrumb title="Java集合干货系列" url="http://tengj.top/categories/Java%E9%9B%86%E5%90%88%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97/"/>
+              <breadCrumb title="Java集合干货系列" url="http://tengj.github.io/categories/Java%E9%9B%86%E5%90%88%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97/"/>
           
         </display>
     </data>
@@ -388,7 +388,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/03/20/hexo8hidewidgets/</loc>
+    <loc>http://tengj.github.io/2016/03/20/hexo8hidewidgets/</loc>
     <lastmod>2016-04-09T15:40:51.923Z</lastmod>
     <data>
         <display>
@@ -400,7 +400,7 @@
          
            
              
-              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
+              <breadCrumb title="hexo" url="http://tengj.github.io/categories/hexo/"/>
           
         </display>
     </data>
@@ -408,7 +408,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/04/09/sjms6builder/</loc>
+    <loc>http://tengj.github.io/2016/04/09/sjms6builder/</loc>
     <lastmod>2016-04-09T15:20:52.557Z</lastmod>
     <data>
         <display>
@@ -418,7 +418,7 @@
          
            
              
-              <breadCrumb title="设计模式" url="http://tengj.top/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+              <breadCrumb title="设计模式" url="http://tengj.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
           
         </display>
     </data>
@@ -426,7 +426,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/03/17/hexo7count/</loc>
+    <loc>http://tengj.github.io/2016/03/17/hexo7count/</loc>
     <lastmod>2016-04-07T13:00:59.283Z</lastmod>
     <data>
         <display>
@@ -438,7 +438,7 @@
          
            
              
-              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
+              <breadCrumb title="hexo" url="http://tengj.github.io/categories/hexo/"/>
           
         </display>
     </data>
@@ -446,7 +446,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/04/03/sjms2factorymethod/</loc>
+    <loc>http://tengj.github.io/2016/04/03/sjms2factorymethod/</loc>
     <lastmod>2016-04-07T11:50:48.346Z</lastmod>
     <data>
         <display>
@@ -456,7 +456,7 @@
          
            
              
-              <breadCrumb title="设计模式" url="http://tengj.top/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+              <breadCrumb title="设计模式" url="http://tengj.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
           
         </display>
     </data>
@@ -464,7 +464,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/04/02/sjms1simpleFactory/</loc>
+    <loc>http://tengj.github.io/2016/04/02/sjms1simpleFactory/</loc>
     <lastmod>2016-04-07T11:50:37.787Z</lastmod>
     <data>
         <display>
@@ -474,7 +474,7 @@
          
            
              
-              <breadCrumb title="设计模式" url="http://tengj.top/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+              <breadCrumb title="设计模式" url="http://tengj.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
           
         </display>
     </data>
@@ -482,7 +482,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/04/04/sjms3abstractfactory/</loc>
+    <loc>http://tengj.github.io/2016/04/04/sjms3abstractfactory/</loc>
     <lastmod>2016-04-07T11:50:00.464Z</lastmod>
     <data>
         <display>
@@ -492,7 +492,7 @@
          
            
              
-              <breadCrumb title="设计模式" url="http://tengj.top/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+              <breadCrumb title="设计模式" url="http://tengj.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
           
         </display>
     </data>
@@ -500,7 +500,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/04/07/sjms5prototype/</loc>
+    <loc>http://tengj.github.io/2016/04/07/sjms5prototype/</loc>
     <lastmod>2016-04-07T11:47:21.642Z</lastmod>
     <data>
         <display>
@@ -510,7 +510,7 @@
          
            
              
-              <breadCrumb title="设计模式" url="http://tengj.top/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+              <breadCrumb title="设计模式" url="http://tengj.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
           
         </display>
     </data>
@@ -518,7 +518,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/03/14/hexo6seo/</loc>
+    <loc>http://tengj.github.io/2016/03/14/hexo6seo/</loc>
     <lastmod>2016-04-06T01:16:35.919Z</lastmod>
     <data>
         <display>
@@ -530,7 +530,7 @@
          
            
              
-              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
+              <breadCrumb title="hexo" url="http://tengj.github.io/categories/hexo/"/>
           
         </display>
     </data>
@@ -538,7 +538,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/03/11/hexo5Swiftype/</loc>
+    <loc>http://tengj.github.io/2016/03/11/hexo5Swiftype/</loc>
     <lastmod>2016-04-05T02:33:09.151Z</lastmod>
     <data>
         <display>
@@ -550,7 +550,7 @@
          
            
              
-              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
+              <breadCrumb title="hexo" url="http://tengj.github.io/categories/hexo/"/>
           
         </display>
     </data>
@@ -558,7 +558,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/03/06/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E5%9B%9B%EF%BC%89%E5%B0%86hexo%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%97%B6%E6%89%98%E7%AE%A1%E5%88%B0github%E5%92%8Ccoding/</loc>
+    <loc>http://tengj.github.io/2016/03/06/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E5%9B%9B%EF%BC%89%E5%B0%86hexo%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%97%B6%E6%89%98%E7%AE%A1%E5%88%B0github%E5%92%8Ccoding/</loc>
     <lastmod>2016-04-04T11:30:16.800Z</lastmod>
     <data>
         <display>
@@ -570,7 +570,7 @@
          
            
              
-              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
+              <breadCrumb title="hexo" url="http://tengj.github.io/categories/hexo/"/>
           
         </display>
     </data>
@@ -578,7 +578,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/03/06/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%89%EF%BC%89hexo%E7%9A%84Jacman%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</loc>
+    <loc>http://tengj.github.io/2016/03/06/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%89%EF%BC%89hexo%E7%9A%84Jacman%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</loc>
     <lastmod>2016-04-03T16:10:42.260Z</lastmod>
     <data>
         <display>
@@ -590,7 +590,7 @@
          
            
              
-              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
+              <breadCrumb title="hexo" url="http://tengj.github.io/categories/hexo/"/>
           
         </display>
     </data>
@@ -598,7 +598,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/03/20/gitTotalMsg/</loc>
+    <loc>http://tengj.github.io/2016/03/20/gitTotalMsg/</loc>
     <lastmod>2016-04-02T07:09:06.472Z</lastmod>
     <data>
         <display>
@@ -608,7 +608,7 @@
          
            
              
-              <breadCrumb title="git" url="http://tengj.top/categories/git/"/>
+              <breadCrumb title="git" url="http://tengj.github.io/categories/git/"/>
           
         </display>
     </data>
@@ -616,7 +616,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/03/20/git1creategit/</loc>
+    <loc>http://tengj.github.io/2016/03/20/git1creategit/</loc>
     <lastmod>2016-04-02T07:08:48.568Z</lastmod>
     <data>
         <display>
@@ -626,7 +626,7 @@
          
            
              
-              <breadCrumb title="git" url="http://tengj.top/categories/git/"/>
+              <breadCrumb title="git" url="http://tengj.github.io/categories/git/"/>
           
         </display>
     </data>
@@ -634,7 +634,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/03/23/git2konwindex/</loc>
+    <loc>http://tengj.github.io/2016/03/23/git2konwindex/</loc>
     <lastmod>2016-04-02T07:08:20.222Z</lastmod>
     <data>
         <display>
@@ -644,7 +644,7 @@
          
            
              
-              <breadCrumb title="git" url="http://tengj.top/categories/git/"/>
+              <breadCrumb title="git" url="http://tengj.github.io/categories/git/"/>
           
         </display>
     </data>
@@ -652,7 +652,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/03/24/git3reset/</loc>
+    <loc>http://tengj.github.io/2016/03/24/git3reset/</loc>
     <lastmod>2016-04-02T07:07:53.295Z</lastmod>
     <data>
         <display>
@@ -664,7 +664,7 @@
          
            
              
-              <breadCrumb title="git" url="http://tengj.top/categories/git/"/>
+              <breadCrumb title="git" url="http://tengj.github.io/categories/git/"/>
           
         </display>
     </data>
@@ -672,7 +672,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/03/25/git4remote/</loc>
+    <loc>http://tengj.github.io/2016/03/25/git4remote/</loc>
     <lastmod>2016-04-02T07:07:25.391Z</lastmod>
     <data>
         <display>
@@ -682,7 +682,7 @@
          
            
              
-              <breadCrumb title="git" url="http://tengj.top/categories/git/"/>
+              <breadCrumb title="git" url="http://tengj.github.io/categories/git/"/>
           
         </display>
     </data>
@@ -690,7 +690,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/03/27/git5branch/</loc>
+    <loc>http://tengj.github.io/2016/03/27/git5branch/</loc>
     <lastmod>2016-04-02T07:07:01.537Z</lastmod>
     <data>
         <display>
@@ -700,7 +700,7 @@
          
            
              
-              <breadCrumb title="git" url="http://tengj.top/categories/git/"/>
+              <breadCrumb title="git" url="http://tengj.github.io/categories/git/"/>
           
         </display>
     </data>
@@ -708,7 +708,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/03/29/git6gitlab/</loc>
+    <loc>http://tengj.github.io/2016/03/29/git6gitlab/</loc>
     <lastmod>2016-04-02T07:05:56.319Z</lastmod>
     <data>
         <display>
@@ -718,7 +718,7 @@
          
            
              
-              <breadCrumb title="git" url="http://tengj.top/categories/git/"/>
+              <breadCrumb title="git" url="http://tengj.github.io/categories/git/"/>
           
         </display>
     </data>
@@ -726,7 +726,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/04/01/sjmstotal/</loc>
+    <loc>http://tengj.github.io/2016/04/01/sjmstotal/</loc>
     <lastmod>2016-04-02T07:01:20.970Z</lastmod>
     <data>
         <display>
@@ -736,7 +736,7 @@
          
            
              
-              <breadCrumb title="设计模式" url="http://tengj.top/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+              <breadCrumb title="设计模式" url="http://tengj.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
           
         </display>
     </data>
@@ -744,7 +744,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/03/14/baidunoshouluresson/</loc>
+    <loc>http://tengj.github.io/2016/03/14/baidunoshouluresson/</loc>
     <lastmod>2016-03-27T09:23:44.251Z</lastmod>
     <data>
         <display>
@@ -756,7 +756,7 @@
          
            
              
-              <breadCrumb title="SEO" url="http://tengj.top/categories/SEO/"/>
+              <breadCrumb title="SEO" url="http://tengj.github.io/categories/SEO/"/>
           
         </display>
     </data>
@@ -764,7 +764,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/02/25/myeclipse%E4%B8%ADtomcat%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%AE%8C%E7%BE%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
+    <loc>http://tengj.github.io/2016/02/25/myeclipse%E4%B8%ADtomcat%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%AE%8C%E7%BE%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
     <lastmod>2016-03-27T09:23:32.667Z</lastmod>
     <data>
         <display>
@@ -776,7 +776,7 @@
          
            
              
-              <breadCrumb title="java" url="http://tengj.top/categories/java/"/>
+              <breadCrumb title="java" url="http://tengj.github.io/categories/java/"/>
           
         </display>
     </data>
@@ -784,7 +784,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/03/12/hightsearchline/</loc>
+    <loc>http://tengj.github.io/2016/03/12/hightsearchline/</loc>
     <lastmod>2016-03-27T09:23:22.414Z</lastmod>
     <data>
         <display>
@@ -796,7 +796,7 @@
          
            
              
-              <breadCrumb title="SEO" url="http://tengj.top/categories/SEO/"/>
+              <breadCrumb title="SEO" url="http://tengj.github.io/categories/SEO/"/>
           
         </display>
     </data>
@@ -804,7 +804,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/02/26/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%BA%8C%EF%BC%89hexo%E4%B8%BB%E9%A2%98%E4%B8%8B%E8%BD%BD%E5%8F%8A%E9%85%8D%E7%BD%AE/</loc>
+    <loc>http://tengj.github.io/2016/02/26/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%BA%8C%EF%BC%89hexo%E4%B8%BB%E9%A2%98%E4%B8%8B%E8%BD%BD%E5%8F%8A%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2016-03-27T09:21:49.424Z</lastmod>
     <data>
         <display>
@@ -816,7 +816,7 @@
          
            
              
-              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
+              <breadCrumb title="hexo" url="http://tengj.github.io/categories/hexo/"/>
           
         </display>
     </data>
@@ -824,7 +824,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/03/22/apprecommend1/</loc>
+    <loc>http://tengj.github.io/2016/03/22/apprecommend1/</loc>
     <lastmod>2016-03-22T10:52:31.993Z</lastmod>
     <data>
         <display>
@@ -834,7 +834,7 @@
          
            
              
-              <breadCrumb title="app推荐" url="http://tengj.top/categories/app%E6%8E%A8%E8%8D%90/"/>
+              <breadCrumb title="app推荐" url="http://tengj.github.io/categories/app%E6%8E%A8%E8%8D%90/"/>
           
         </display>
     </data>
@@ -842,7 +842,7 @@
 
     
   <url>
-    <loc>http://tengj.top/2016/02/20/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E6%80%BB%E7%BA%B2%EF%BC%89%E6%90%AD%E5%BB%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2%E5%88%9D%E8%A1%B7/</loc>
+    <loc>http://tengj.github.io/2016/02/20/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E6%80%BB%E7%BA%B2%EF%BC%89%E6%90%AD%E5%BB%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2%E5%88%9D%E8%A1%B7/</loc>
     <lastmod>2016-03-20T07:39:40.065Z</lastmod>
     <data>
         <display>
@@ -854,7 +854,7 @@
          
            
              
-              <breadCrumb title="hexo" url="http://tengj.top/categories/hexo/"/>
+              <breadCrumb title="hexo" url="http://tengj.github.io/categories/hexo/"/>
           
         </display>
     </data>
@@ -863,7 +863,7 @@
     
     
   <url>
-    <loc>http://tengj.top/2016/03/10/jqueryLoading/</loc>
+    <loc>http://tengj.github.io/2016/03/10/jqueryLoading/</loc>
     <lastmod>2016-03-10T17:31:57.574Z</lastmod>
     <data>
         <display>
@@ -875,7 +875,7 @@
          
            
              
-              <breadCrumb title="jQuery" url="http://tengj.top/categories/jQuery/"/>
+              <breadCrumb title="jQuery" url="http://tengj.github.io/categories/jQuery/"/>
           
         </display>
     </data>
