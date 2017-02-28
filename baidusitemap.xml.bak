@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>http://tengj.github.io/2017/02/28/springbootconfig/</loc>
+    <lastmod>2017-02-28T08:23:55.909Z</lastmod>
+    <data>
+        <display>
+        <title>Spring Boot干货系列：常用应用程序属性</title>
+        <pubTime>2017-02-28T08:15:44.000Z</pubTime>
+        
+        <tag>Spring Boot</tag>
+         
+         
+           
+             
+              <breadCrumb title="Spring Boot" url="http://tengj.github.io/categories/Spring-Boot/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://tengj.github.io/2017/02/26/springboot1/</loc>
-    <lastmod>2017-02-26T03:32:52.880Z</lastmod>
+    <lastmod>2017-02-28T08:14:50.141Z</lastmod>
     <data>
         <display>
         <title>Spring Boot干货系列：（一）优雅的入门篇</title>
@@ -25,7 +45,7 @@
     
   <url>
     <loc>http://tengj.github.io/2017/02/22/idea1-1/</loc>
-    <lastmod>2017-02-26T03:32:42.801Z</lastmod>
+    <lastmod>2017-02-28T08:14:45.673Z</lastmod>
     <data>
         <display>
         <title>Java人员正确使用 IntelliJ IDEA的方式</title>

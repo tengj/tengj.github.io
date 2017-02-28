@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://tengj.github.io/2017/02/28/springbootconfig/</loc>
+    
+    <lastmod>2017-02-28T08:23:55.909Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://tengj.github.io/2017/02/26/springboot1/</loc>
     
-    <lastmod>2017-02-26T03:32:52.880Z</lastmod>
+    <lastmod>2017-02-28T08:14:50.141Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://tengj.github.io/2017/02/22/idea1-1/</loc>
     
-    <lastmod>2017-02-26T03:32:42.801Z</lastmod>
+    <lastmod>2017-02-28T08:14:45.673Z</lastmod>
     
   </url>
   
