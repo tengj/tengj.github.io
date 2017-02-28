@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tengj.github.io/"/>
-  <updated>2017-02-28T13:20:30.955Z</updated>
+  <updated>2017-02-28T13:31:36.424Z</updated>
   <id>http://tengj.github.io/</id>
   
   <author>
@@ -20,9 +20,10 @@
     <link href="http://tengj.github.io/2017/02/28/springboot2/"/>
     <id>http://tengj.github.io/2017/02/28/springboot2/</id>
     <published>2017-02-28T13:14:01.000Z</published>
-    <updated>2017-02-28T13:20:30.955Z</updated>
+    <updated>2017-02-28T13:31:36.424Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;上一篇介绍了Spring Boot的入门，知道了Spring Boot使用“习惯优于配置”（项目中存在大量的配置，此外还内置了一个习惯性的配置，让你无需手动进行配置）的理念让你的项目快速运行起来。所以，我们要想把Spring Boot玩的溜，就要懂得如何开启各个功能模块的默认配置，这就需要了解Spring Boot的配置文件application.properties。&lt;/p&gt;
+    <content type="html">&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/spring.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;上一篇介绍了Spring Boot的入门，知道了Spring Boot使用“习惯优于配置”（项目中存在大量的配置，此外还内置了一个习惯性的配置，让你无需手动进行配置）的理念让你的项目快速运行起来。所以，我们要想把Spring Boot玩的溜，就要懂得如何开启各个功能模块的默认配置，这就需要了解Spring Boot的配置文件application.properties。&lt;/p&gt;
 &lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;p&gt;Spring Boot使用了一个全局的配置文件application.properties，放在src/main/resources目录下或者类路径的/config下。Sping Boot的全局配置文件的作用是对一些默认配置的配置值进行修改。&lt;/p&gt;
 &lt;p&gt;接下来，让我们一起来解开配置文件的面纱。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -108,7 +109,8 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;上一篇介绍了Spring Boot的入门，知道了Spring Boot使用“习惯优于配置”（项目中存在大量的配置，此外还内置了一个习惯性的配
+      &lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/spring.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h
     
     </summary>
     
@@ -155,9 +157,10 @@
     <link href="http://tengj.github.io/2017/02/26/springboot1/"/>
     <id>http://tengj.github.io/2017/02/26/springboot1/</id>
     <published>2017-02-25T16:35:30.000Z</published>
-    <updated>2017-02-28T08:14:50.141Z</updated>
+    <updated>2017-02-28T13:33:38.056Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;Spring一直是很火的一个开源框架，在过去的一段时间里，Spring Boot在社区中热度一直很高，所以决定花时间来了解和学习，为自己做技术储备。&lt;/p&gt;
+    <content type="html">&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/spring.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;Spring一直是很火的一个开源框架，在过去的一段时间里，Spring Boot在社区中热度一直很高，所以决定花时间来了解和学习，为自己做技术储备。&lt;/p&gt;
 &lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;p&gt;首先声明，Spring Boot不是一门新技术，所以不用紧张。从本质上来说，Spring Boot就是Spring,它做了那些没有它你也会去做的Spring Bean配置。它使用“习惯优于配置”（项目中存在大量的配置，此外还内置了一个习惯性的配置，让你无需手动进行配置）的理念让你的项目快速运行起来。使用Spring Boot很容易创建一个独立运行（运行jar,内嵌Servlet容器）、准生产级别的基于Spring框架的项目，使用Spring Boot你可以不用或者只需要很少的Spring配置。&lt;/p&gt;
 &lt;h2 id=&quot;Spring-Boot精要&quot;&gt;&lt;a href=&quot;#Spring-Boot精要&quot; class=&quot;headerlink&quot; title=&quot;Spring Boot精要&quot;&gt;&lt;/a&gt;Spring Boot精要&lt;/h2&gt;&lt;p&gt;Spring将很多魔法带入了Spring应用程序的开发之中，其中最重要的是以下四个核心。&lt;/p&gt;
 &lt;ul&gt;
@@ -255,7 +258,8 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;Spring一直是很火的一个开源框架，在过去的一段时间里，Spring Boot在社区中热度一直很高，所以决定花时间来了解和学习，为自己做技
+      &lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/spring.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h
     
     </summary>
     

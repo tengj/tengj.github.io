@@ -19,11 +19,12 @@
 <meta property="og:site_name" content="嘟嘟独立博客">
 <meta property="og:description" content="前言上一篇介绍了Spring Boot的入门，知道了Spring Boot使用“习惯优于配置”（项目中存在大量的配置，此外还内置了一个习惯性的配置，让你无需手动进行配置）的理念让你的项目快速运行起来。所以，我们要想把Spring Boot玩的溜，就要懂得如何开启各个功能模块的默认配置，这就需要了解Spring Boot的配置文件application.properties。
 正文Spring Bo">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/spring.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/springboot2-1.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/springboot1-12.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/zhifubao.png">
-<meta property="og:updated_time" content="2017-02-28T13:20:30.955Z">
+<meta property="og:updated_time" content="2017-02-28T13:31:36.424Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Boot干货系列：（二）配置文件解析">
 <meta name="twitter:description" content="前言上一篇介绍了Spring Boot的入门，知道了Spring Boot使用“习惯优于配置”（项目中存在大量的配置，此外还内置了一个习惯性的配置，让你无需手动进行配置）的理念让你的项目快速运行起来。所以，我们要想把Spring Boot玩的溜，就要懂得如何开启各个功能模块的默认配置，这就需要了解Spring Boot的配置文件application.properties。
@@ -109,7 +110,8 @@
 		
 		</div>
 		
-		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇介绍了Spring Boot的入门，知道了Spring Boot使用“习惯优于配置”（项目中存在大量的配置，此外还内置了一个习惯性的配置，让你无需手动进行配置）的理念让你的项目快速运行起来。所以，我们要想把Spring Boot玩的溜，就要懂得如何开启各个功能模块的默认配置，这就需要了解Spring Boot的配置文件application.properties。</p>
+		<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/spring.jpg" alt=""></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇介绍了Spring Boot的入门，知道了Spring Boot使用“习惯优于配置”（项目中存在大量的配置，此外还内置了一个习惯性的配置，让你无需手动进行配置）的理念让你的项目快速运行起来。所以，我们要想把Spring Boot玩的溜，就要懂得如何开启各个功能模块的默认配置，这就需要了解Spring Boot的配置文件application.properties。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>Spring Boot使用了一个全局的配置文件application.properties，放在src/main/resources目录下或者类路径的/config下。Sping Boot的全局配置文件的作用是对一些默认配置的配置值进行修改。</p>
 <p>接下来，让我们一起来解开配置文件的面纱。</p>
 <blockquote>

@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>http://tengj.github.io/2017/02/26/springboot1/</loc>
+    <lastmod>2017-02-28T13:33:38.056Z</lastmod>
+    <data>
+        <display>
+        <title>Spring Boot干货系列：（一）优雅的入门篇</title>
+        <pubTime>2017-02-25T16:35:30.000Z</pubTime>
+        
+        <tag>Spring Boot</tag>
+         
+         
+           
+             
+              <breadCrumb title="Spring Boot" url="http://tengj.github.io/categories/Spring-Boot/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://tengj.github.io/2017/02/28/springboot2/</loc>
-    <lastmod>2017-02-28T13:20:30.955Z</lastmod>
+    <lastmod>2017-02-28T13:31:36.424Z</lastmod>
     <data>
         <display>
         <title>Spring Boot干货系列：（二）配置文件解析</title>
@@ -30,26 +50,6 @@
         <display>
         <title>Spring Boot干货系列：常用属性汇总</title>
         <pubTime>2017-02-28T08:15:44.000Z</pubTime>
-        
-        <tag>Spring Boot</tag>
-         
-         
-           
-             
-              <breadCrumb title="Spring Boot" url="http://tengj.github.io/categories/Spring-Boot/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tengj.github.io/2017/02/26/springboot1/</loc>
-    <lastmod>2017-02-28T08:14:50.141Z</lastmod>
-    <data>
-        <display>
-        <title>Spring Boot干货系列：（一）优雅的入门篇</title>
-        <pubTime>2017-02-25T16:35:30.000Z</pubTime>
         
         <tag>Spring Boot</tag>
          
