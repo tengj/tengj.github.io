@@ -33,8 +33,7 @@
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/springboot1-11.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/springboot1-12.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
-<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/zhifubao.png">
-<meta property="og:updated_time" content="2017-02-28T13:33:38.056Z">
+<meta property="og:updated_time" content="2017-03-04T04:12:37.774Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Boot干货系列：（一）优雅的入门篇">
 <meta name="twitter:description" content="前言Spring一直是很火的一个开源框架，在过去的一段时间里，Spring Boot在社区中热度一直很高，所以决定花时间来了解和学习，为自己做技术储备。
@@ -213,10 +212,101 @@
 <h1 id="源码下载"><a href="#源码下载" class="headerlink" title="源码下载"></a>源码下载</h1><p>(￣︶￣)↗[<a href="https://github.com/tengj/SpringBootDemo/tree/master" target="_blank" rel="external">相关示例完整代码</a>]</p>
 <p>我手里有几本Spring Boot的中文电子书资料，有需要的可以关注博主微信公众号（嘟爷java超神学堂），自行前往下载【开发工具-&gt;java电子书籍】<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/springboot1-12.png" alt=""><br><a href="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG" target="_blank" rel="external"><img src="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG" alt=""></a></p>
 <hr>
-<p>讲真，留着下面支付宝二维码并不是为了钱，只是怕你看到好文章感动到不行的时候有个宣泄的地方而已<br>换位思考，如果有人肯为你写的文章打赏，这算不算莫大的自豪</p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/zhifubao.png" alt=""></p>
   
 	</div>
+		
+	<!-- css -->
+	<style type="text/css">
+	    .center {
+	        text-align: center;
+	    }
+	    .hidden {
+	        display: none;
+	    }
+		.donate_bar a.btn_donate{
+			display: inline-block;
+			width: 82px;
+			height: 82px;
+			background: url("http://7xsl28.com1.z0.glb.clouddn.com/btn_reward.gif") no-repeat;
+			_background: url("http://7xsl28.com1.z0.glb.clouddn.com/btn_reward.gif") no-repeat;
+			<!-- http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif
+			     ��Ϊ�� hexo ���ɵĲ������õ� theme �� a:hover ������Ч����
+				 Ϊ�����ô��Ͱ�ť��ʾЧ������ �� ���������¼��� css��
+				 Ƕ����������ʱ��һ��Ҫ���ǡ� -->
+			-webkit-transition: background 0s;
+			-moz-transition: background 0s;
+			-o-transition: background 0s;
+			-ms-transition: background 0s;
+			transition: background 0s;
+			<!-- /�ô��Ͱ�ť��Ч����ʾ���� �� ���ӵļ��� css ���˽��� -->
+		}
+		.donate_bar a.btn_donate:hover{ background-position: 0px -82px;}
+		.donate_bar .donate_txt {
+			display: block;
+			color: #9d9d9d;
+			font: 14px/2 "Microsoft Yahei";
+		}
+		.bold{ font-weight: bold; }
+	</style>
+	<!-- /css -->
+    <!-- Donate Module -->
+    <div id="donate_module">
+	<!-- btn_donate & tips -->
+	<div id="donate_board" class="donate_bar center">
+	    <br>
+	   
+		<a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate ����"></a>
+		<span class="donate_txt">
+			随手扫一扫，我会开心一整天~
+		</span>
+			
+		
+	</div>
+	<!-- /btn_donate & tips -->
+	<!-- donate guide -->
+    
+	<div id="donate_guide" class="donate_bar center hidden">
+        <br>
+	    
+	    <div width="100%" align="center"><div name="dashmain" id="dash-main-id-879089" class="dash-main-3 879089-1"></div></div>
+		<script type="text/javascript" charset="utf-8" src="https://www.dashangcloud.com/static/ds-2.0.js"></script>
+		
+		<a href="http://7xqch5.com1.z0.glb.clouddn.com/wexin_1.jpg" class="fancybox" rel="article0">
+			<img src="http://7xqch5.com1.z0.glb.clouddn.com/wexin_1.jpg"  height="190px" width="auto"/>
+		</a>
+        
+        &nbsp;&nbsp;
+		<a href="http://7xqch5.com1.z0.glb.clouddn.com/zhifubao-1.png" class="fancybox" rel="article0">
+			<img src="http://7xqch5.com1.z0.glb.clouddn.com/zhifubao-1.png" height="190px" width="auto"/>
+		</a>
+		<span class="donate_txt">
+			随手扫一扫，我会开心一整天~
+		</span>
+	</div>
+	<!-- /donate guide -->
+	<!-- donate script -->
+	<script type="text/javascript">
+		document.getElementById('btn_donate').onclick = function() {
+			$('#donate_board').addClass('hidden');
+	    $('#donate_guide').removeClass('hidden');
+		}
+		function donate_on_web(){
+			$('#donate').submit();
+        }
+		var original_window_onload = window.onload;
+        window.onload = function () {
+            if (original_window_onload) {
+                original_window_onload();
+            }
+            document.getElementById('donate_board_wdg').className = 'hidden';
+		}
+	</script>
+	<!-- /donate script -->
+</div>
+<!-- /Donate Module -->
+   
+
+
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 

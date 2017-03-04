@@ -109,6 +109,99 @@
 <h1 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h1><p>2016年才知道有hexo这个东西，真希望早两年有人告诉我可以这样搭博客~~<br>hexo系列的学的差不多了，个人博客也搭建好了，后续就是用来记录自己工作以及生活上的点点滴滴。也会顺便把这几年学习的心得一片片写出来跟大家分享。<br>有分享才有进度，期待与你的碰撞！</p>
   
 	</div>
+		
+	<!-- css -->
+	<style type="text/css">
+	    .center {
+	        text-align: center;
+	    }
+	    .hidden {
+	        display: none;
+	    }
+		.donate_bar a.btn_donate{
+			display: inline-block;
+			width: 82px;
+			height: 82px;
+			background: url("http://7xsl28.com1.z0.glb.clouddn.com/btn_reward.gif") no-repeat;
+			_background: url("http://7xsl28.com1.z0.glb.clouddn.com/btn_reward.gif") no-repeat;
+			<!-- http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif
+			     ��Ϊ�� hexo ���ɵĲ������õ� theme �� a:hover ������Ч����
+				 Ϊ�����ô��Ͱ�ť��ʾЧ������ �� ���������¼��� css��
+				 Ƕ����������ʱ��һ��Ҫ���ǡ� -->
+			-webkit-transition: background 0s;
+			-moz-transition: background 0s;
+			-o-transition: background 0s;
+			-ms-transition: background 0s;
+			transition: background 0s;
+			<!-- /�ô��Ͱ�ť��Ч����ʾ���� �� ���ӵļ��� css ���˽��� -->
+		}
+		.donate_bar a.btn_donate:hover{ background-position: 0px -82px;}
+		.donate_bar .donate_txt {
+			display: block;
+			color: #9d9d9d;
+			font: 14px/2 "Microsoft Yahei";
+		}
+		.bold{ font-weight: bold; }
+	</style>
+	<!-- /css -->
+    <!-- Donate Module -->
+    <div id="donate_module">
+	<!-- btn_donate & tips -->
+	<div id="donate_board" class="donate_bar center">
+	    <br>
+	   
+		<a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate ����"></a>
+		<span class="donate_txt">
+			随手扫一扫，我会开心一整天~
+		</span>
+			
+		
+	</div>
+	<!-- /btn_donate & tips -->
+	<!-- donate guide -->
+    
+	<div id="donate_guide" class="donate_bar center hidden">
+        <br>
+	    
+	    <div width="100%" align="center"><div name="dashmain" id="dash-main-id-879089" class="dash-main-3 879089-1"></div></div>
+		<script type="text/javascript" charset="utf-8" src="https://www.dashangcloud.com/static/ds-2.0.js"></script>
+		
+		<a href="http://7xqch5.com1.z0.glb.clouddn.com/wexin_1.jpg" class="fancybox" rel="article0">
+			<img src="http://7xqch5.com1.z0.glb.clouddn.com/wexin_1.jpg"  height="190px" width="auto"/>
+		</a>
+        
+        &nbsp;&nbsp;
+		<a href="http://7xqch5.com1.z0.glb.clouddn.com/zhifubao-1.png" class="fancybox" rel="article0">
+			<img src="http://7xqch5.com1.z0.glb.clouddn.com/zhifubao-1.png" height="190px" width="auto"/>
+		</a>
+		<span class="donate_txt">
+			随手扫一扫，我会开心一整天~
+		</span>
+	</div>
+	<!-- /donate guide -->
+	<!-- donate script -->
+	<script type="text/javascript">
+		document.getElementById('btn_donate').onclick = function() {
+			$('#donate_board').addClass('hidden');
+	    $('#donate_guide').removeClass('hidden');
+		}
+		function donate_on_web(){
+			$('#donate').submit();
+        }
+		var original_window_onload = window.onload;
+        window.onload = function () {
+            if (original_window_onload) {
+                original_window_onload();
+            }
+            document.getElementById('donate_board_wdg').className = 'hidden';
+		}
+	</script>
+	<!-- /donate script -->
+</div>
+<!-- /Donate Module -->
+   
+
+
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
