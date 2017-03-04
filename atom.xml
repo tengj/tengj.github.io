@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tengj.github.io/"/>
-  <updated>2017-02-28T13:31:36.424Z</updated>
+  <updated>2017-03-04T04:22:43.444Z</updated>
   <id>http://tengj.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://tengj.github.io/2017/02/28/springboot2/"/>
     <id>http://tengj.github.io/2017/02/28/springboot2/</id>
     <published>2017-02-28T13:14:01.000Z</published>
-    <updated>2017-02-28T13:31:36.424Z</updated>
+    <updated>2017-03-04T04:22:43.444Z</updated>
     
     <content type="html">&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/spring.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;上一篇介绍了Spring Boot的入门，知道了Spring Boot使用“习惯优于配置”（项目中存在大量的配置，此外还内置了一个习惯性的配置，让你无需手动进行配置）的理念让你的项目快速运行起来。所以，我们要想把Spring Boot玩的溜，就要懂得如何开启各个功能模块的默认配置，这就需要了解Spring Boot的配置文件application.properties。&lt;/p&gt;
@@ -103,9 +103,7 @@
 &lt;h1 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://blog.didispace.com/springbootproperties/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Spring Boot属性配置文件详解&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://blog.csdn.net/yingxiake/article/details/51263679&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;spring boot 使用profile来分区配置&lt;/a&gt;&lt;br&gt;Spring Boot实战&lt;br&gt;JavaEE开发的颠覆者Spring Boot实战&lt;/p&gt;
 &lt;h1 id=&quot;源码下载&quot;&gt;&lt;a href=&quot;#源码下载&quot; class=&quot;headerlink&quot; title=&quot;源码下载&quot;&gt;&lt;/a&gt;源码下载&lt;/h1&gt;&lt;p&gt;(￣︶￣)↗[&lt;a href=&quot;https://github.com/tengj/SpringBootDemo/tree/master&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;相关示例完整代码&lt;/a&gt;]&lt;/p&gt;
 &lt;p&gt;我手里有几本Spring Boot的中文电子书资料，有需要的可以关注博主微信公众号（嘟爷java超神学堂），自行前往下载【开发工具-&amp;gt;java电子书籍】&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/springboot1-12.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;讲真，留着下面支付宝二维码并不是为了钱，只是怕你看到好文章感动到不行的时候有个宣泄的地方而已&lt;br&gt; 换位思考，如果有人肯为你写的文章打赏，这算不算莫大的自豪&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/zhifubao.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-</content>
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/h2&gt;</content>
     
     <summary type="html">
     
