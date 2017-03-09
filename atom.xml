@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tengj.github.io/"/>
-  <updated>2017-03-04T04:24:51.944Z</updated>
+  <updated>2017-03-09T13:26:45.481Z</updated>
   <id>http://tengj.github.io/</id>
   
   <author>
@@ -14,6 +14,104 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring Boot干货系列：（三）启动原理解析</title>
+    <link href="http://tengj.github.io/2017/03/09/springboot3/"/>
+    <id>http://tengj.github.io/2017/03/09/springboot3/</id>
+    <published>2017-03-09T13:08:22.000Z</published>
+    <updated>2017-03-09T13:26:45.481Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/spring.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;前面几章我们见识了SpringBoot为我们做的自动配置，确实方便快捷，但是对于新手来说，如果不大懂SpringBoot内部启动原理，以后难免会吃亏。所以这次博主就跟你们一起一步步揭开SpringBoot的神秘面纱，让它不在神秘。&lt;/p&gt;
+&lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;p&gt;我们开发任何一个Spring Boot项目，都会用到如下的启动类&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;annotation&quot;&gt;@SpringBootApplication&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Application&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String[] args)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        SpringApplication.run(Application.class, args);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;从上面代码可以看出，Annotation定义（@SpringBootApplication）和类定义（SpringApplication.run）最为耀眼，所以要揭开SpringBoot的神秘面纱，我们要从这两位开始就可以了。&lt;/p&gt;
+&lt;h2 id=&quot;SpringBootApplication背后的秘密&quot;&gt;&lt;a href=&quot;#SpringBootApplication背后的秘密&quot; class=&quot;headerlink&quot; title=&quot;SpringBootApplication背后的秘密&quot;&gt;&lt;/a&gt;SpringBootApplication背后的秘密&lt;/h2&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;annotation&quot;&gt;@Target&lt;/span&gt;(ElementType.TYPE)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;annotation&quot;&gt;@Retention&lt;/span&gt;(RetentionPolicy.RUNTIME)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;annotation&quot;&gt;@Documented&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;annotation&quot;&gt;@Inherited&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;annotation&quot;&gt;@SpringBootConfiguration&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;annotation&quot;&gt;@EnableAutoConfiguration&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;annotation&quot;&gt;@ComponentScan&lt;/span&gt;(excludeFilters = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;annotation&quot;&gt;@Filter&lt;/span&gt;(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;annotation&quot;&gt;@Filter&lt;/span&gt;(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;annotation&quot;&gt;@interface&lt;/span&gt; SpringBootApplication &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;虽然定义使用了多个Annotation进行了原信息标注，但实际上重要的只有三个Annotation：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;@Configuration（@SpringBootConfiguration点开查看发现里面还是应用了@Configuration）&lt;/li&gt;
+&lt;li&gt;@EnableAutoConfiguration&lt;/li&gt;
+&lt;li&gt;@ComponentScan&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以，如果我们使用如下的SpringBoot启动类，整个SpringBoot应用依然可以与之前的启动类功能对等：&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;annotation&quot;&gt;@Configuration&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;annotation&quot;&gt;@EnableAutoConfiguration&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;annotation&quot;&gt;@ComponentScan&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Application&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String[] args)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        SpringApplication.run(Application.class, args);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;每次写这3个比较累，所以写一个@SpringBootApplication方便点。接下来分别介绍这3个Annotation。&lt;/p&gt;
+&lt;h2 id=&quot;Configuration&quot;&gt;&lt;a href=&quot;#Configuration&quot; class=&quot;headerlink&quot; title=&quot;@Configuration&quot;&gt;&lt;/a&gt;@Configuration&lt;/h2&gt;&lt;p&gt;这里的@Configuration对我们来说不陌生，它就是JavaConfig形式的Spring Ioc容器的配置类使用的那个@Configuration，SpringBoot社区推荐使用基于JavaConfig的配置形式，所以，这里的启动类标注了@Configuration之后，本身其实也是一个IoC容器的配置类。&lt;br&gt;举几个简单例子回顾下，XML跟config配置方式的区别：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;表达形式层面&lt;br&gt;基于XML配置的方式是这样：&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;pi&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;beans&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;xmlns&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;http://www.springframework.org/schema/beans&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;attribute&quot;&gt;xmlns:xsi&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;attribute&quot;&gt;xsi:schemaLocation&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;attribute&quot;&gt;default-lazy-init&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;true&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;&amp;lt;!--bean定义--&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;beans&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;而基于JavaConfig的配置方式是这样：&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;annotation&quot;&gt;@Configuration&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;MockConfiguration&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//bean定义&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;任何一个标注了@Configuration的Java类定义都是一个JavaConfig配置类。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;注册bean定义层面&lt;br&gt;基于XML的配置形式是这样：&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;bean&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;mockService&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;..MockServiceImpl&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;bean&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;而基于JavaConfig的配置形式是这样的：&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;annotation&quot;&gt;@Configuration&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;MockConfiguration&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;annotation&quot;&gt;@Bean&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; MockService &lt;span class=&quot;title&quot;&gt;mockService&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; MockServiceImpl();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;任何一个标注了@Bean的方法，其返回值将作为一个bean定义注册到Spring的IoC容器，方法名将默认成该bean定义的id。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;表达依赖注入关系层面&lt;br&gt;为了表达bean与bean之间的依赖关系，在XML形式中一般是这样：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;bean&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;mockService&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;..MockServiceImpl&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;propery&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;name&lt;/span&gt; =&lt;span class=&quot;value&quot;&gt;&quot;dependencyService&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;ref&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;dependencyService&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;bean&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;bean&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;dependencyService&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;DependencyServiceImpl&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;bean&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;而基于JavaConfig的配置形式是这样的：&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;annotation&quot;&gt;@Configuration&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;MockConfiguration&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;annotation&quot;&gt;@Bean&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; MockService &lt;span class=&quot;title&quot;&gt;mockService&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; MockServiceImpl(dependencyService());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;annotation&quot;&gt;@Bean&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; DependencyService &lt;span class=&quot;title&quot;&gt;dependencyService&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DependencyServiceImpl();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;如果一个bean的定义依赖其他bean,则直接调用对应的JavaConfig类中依赖bean的创建方法就可以了。&lt;/p&gt;
+&lt;h2 id=&quot;ComponentScan&quot;&gt;&lt;a href=&quot;#ComponentScan&quot; class=&quot;headerlink&quot; title=&quot;@ComponentScan&quot;&gt;&lt;/a&gt;@ComponentScan&lt;/h2&gt;&lt;p&gt;@ComponentScan这个注解在Spring中很重要，它对应XML配置中的&lt;context:component-scan&gt;元素，@ComponentScan的功能其实就是自动扫描并加载符合条件的组件（比如@Component和@Repository等）或者bean定义，最终将这些bean定义加载到IoC容器中。&lt;/context:component-scan&gt;&lt;/p&gt;
+&lt;p&gt;我们可以通过basePackages等属性来细粒度的定制@ComponentScan自动扫描的范围，如果不指定，则默认Spring框架实现会从声明@ComponentScan所在类的package进行扫描。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注：所以SpringBoot的启动类最好是放在root package下，因为默认不指定basePackages。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;EnableAutoConfiguration&quot;&gt;&lt;a href=&quot;#EnableAutoConfiguration&quot; class=&quot;headerlink&quot; title=&quot;@EnableAutoConfiguration&quot;&gt;&lt;/a&gt;@EnableAutoConfiguration&lt;/h2&gt;&lt;p&gt;个人感觉@EnableAutoConfiguration这个Annotation最为重要，所以放在最后来解读，大家是否还记得Spring框架提供的各种名字为@Enable开头的Annotation定义？比如@EnableScheduling、@EnableCaching、@EnableMBeanExport等，@EnableAutoConfiguration的理念和做事方式其实一脉相承，简单概括一下就是，&lt;strong&gt;借助@Import的支持，收集和注册特定场景相关的bean定义&lt;/strong&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;@EnableScheduling是通过@Import将Spring调度框架相关的bean定义都加载到IoC容器。&lt;/li&gt;
+&lt;li&gt;@EnableMBeanExport是通过@Import将JMX相关的bean定义加载到IoC容器。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;而@EnableAutoConfiguration也是借助@Import的帮助，将所有符合自动配置条件的bean定义加载到IoC容器，仅此而已！&lt;/p&gt;
+&lt;p&gt;@EnableAutoConfiguration作为一个复合Annotation,其自身定义关键信息如下：&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;annotation&quot;&gt;@SuppressWarnings&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;deprecation&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;annotation&quot;&gt;@Target&lt;/span&gt;(ElementType.TYPE)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;annotation&quot;&gt;@Retention&lt;/span&gt;(RetentionPolicy.RUNTIME)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;annotation&quot;&gt;@Documented&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;annotation&quot;&gt;@Inherited&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;annotation&quot;&gt;@AutoConfigurationPackage&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;annotation&quot;&gt;@Import&lt;/span&gt;(EnableAutoConfigurationImportSelector.class)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;annotation&quot;&gt;@interface&lt;/span&gt; EnableAutoConfiguration &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;其中，最关键的要属@Import(EnableAutoConfigurationImportSelector.class)，借助EnableAutoConfigurationImportSelector，@EnableAutoConfiguration可以帮助SpringBoot应用将所有符合条件的@Configuration配置都加载到当前SpringBoot创建并使用的IoC容器。就像一只“八爪鱼”一样&lt;/p&gt;
+&lt;p&gt;借助于Spring框架原有的一个工具类：SpringFactoriesLoader的支持，@EnableAutoConfiguration可以智能的自动配置功效才得以大功告成！&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/springboot3-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;自动配置幕后英雄：SpringFactoriesLoader详解&lt;/strong&gt;&lt;br&gt;SpringFactoriesLoader属于Spring框架私有的一种扩展方案，其主要功能就是从指定的配置文件META-INF/spring.factories加载配置。&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;SpringFactoriesLoader&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &amp;lt;T&amp;gt; &lt;span class=&quot;function&quot;&gt;List&amp;lt;T&amp;gt; &lt;span class=&quot;title&quot;&gt;loadFactories&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(Class&amp;lt;T&amp;gt; factoryClass, ClassLoader classLoader)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; List&amp;lt;String&amp;gt; &lt;span class=&quot;title&quot;&gt;loadFactoryNames&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(Class&amp;lt;?&amp;gt; factoryClass, ClassLoader classLoader)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        ....&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;配合@EnableAutoConfiguration使用的话，它更多是提供一种配置查找的功能支持，即根据@EnableAutoConfiguration的完整类名org.springframework.boot.autoconfigure.EnableAutoConfiguration作为查找的Key,获取对应的一组@Configuration类&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/springboot3-2.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;上图就是从SpringBoot的autoconfigure依赖包中的META-INF/spring.factories配置文件中摘录的一段内容，可以很好地说明问题。&lt;/p&gt;
+&lt;p&gt;所以，@EnableAutoConfiguration自动配置的魔法骑士就变成了：&lt;strong&gt;从classpath中搜寻所有的META-INF/spring.factories配置文件，并将其中org.springframework.boot.autoconfigure.EnableutoConfiguration对应的配置项通过反射（Java Refletion）实例化为对应的标注了@Configuration的JavaConfig形式的IoC容器配置类，然后汇总为一个并加载到IoC容器。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;深入探索SpringApplication执行流程&quot;&gt;&lt;a href=&quot;#深入探索SpringApplication执行流程&quot; class=&quot;headerlink&quot; title=&quot;深入探索SpringApplication执行流程&quot;&gt;&lt;/a&gt;深入探索SpringApplication执行流程&lt;/h2&gt;&lt;p&gt;SpringApplication的run方法的实现是我们本次旅程的主要线路，该方法的主要流程大体可以归纳如下：&lt;/p&gt;
+&lt;p&gt;1） 如果我们使用的是SpringApplication的静态run方法，那么，这个方法里面首先要创建一个SpringApplication对象实例，然后调用这个创建好的SpringApplication的实例方法。在SpringApplication实例初始化的时候，它会提前做几件事情：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;根据classpath里面是否存在某个特征类（org.springframework.web.context.ConfigurableWebApplicationContext）来决定是否应该创建一个为Web应用使用的ApplicationContext类型。&lt;/li&gt;
+&lt;li&gt;使用SpringFactoriesLoader在应用的classpath中查找并加载所有可用的ApplicationContextInitializer。&lt;/li&gt;
+&lt;li&gt;使用SpringFactoriesLoader在应用的classpath中查找并加载所有可用的ApplicationListener。&lt;/li&gt;
+&lt;li&gt;推断并设置main方法的定义类。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;2） SpringApplication实例初始化完成并且完成设置后，就开始执行run方法的逻辑了，方法执行伊始，首先遍历执行所有通过SpringFactoriesLoader可以查找到并加载的SpringApplicationRunListener。调用它们的started()方法，告诉这些SpringApplicationRunListener，“嘿，SpringBoot应用要开始执行咯！”。&lt;/p&gt;
+&lt;p&gt;3） 创建并配置当前Spring Boot应用将要使用的Environment（包括配置要使用的PropertySource以及Profile）。&lt;/p&gt;
+&lt;p&gt;4） 遍历调用所有SpringApplicationRunListener的environmentPrepared()的方法，告诉他们：“当前SpringBoot应用使用的Environment准备好了咯！”。&lt;/p&gt;
+&lt;p&gt;5） 如果SpringApplication的showBanner属性被设置为true，则打印banner。&lt;/p&gt;
+&lt;p&gt;6） 根据用户是否明确设置了applicationContextClass类型以及初始化阶段的推断结果，决定该为当前SpringBoot应用创建什么类型的ApplicationContext并创建完成，然后根据条件决定是否添加ShutdownHook，决定是否使用自定义的BeanNameGenerator，决定是否使用自定义的ResourceLoader，当然，最重要的，将之前准备好的Environment设置给创建好的ApplicationContext使用。&lt;/p&gt;
+&lt;p&gt;7） ApplicationContext创建好之后，SpringApplication会再次借助Spring-FactoriesLoader，查找并加载classpath中所有可用的ApplicationContext-Initializer，然后遍历调用这些ApplicationContextInitializer的initialize（applicationContext）方法来对已经创建好的ApplicationContext进行进一步的处理。&lt;/p&gt;
+&lt;p&gt;8） 遍历调用所有SpringApplicationRunListener的contextPrepared()方法。&lt;/p&gt;
+&lt;p&gt;9） 最核心的一步，将之前通过@EnableAutoConfiguration获取的所有配置以及其他形式的IoC容器配置加载到已经准备完毕的ApplicationContext。&lt;/p&gt;
+&lt;p&gt;10） 遍历调用所有SpringApplicationRunListener的contextLoaded()方法。&lt;/p&gt;
+&lt;p&gt;11） 调用ApplicationContext的refresh()方法，完成IoC容器可用的最后一道工序。&lt;/p&gt;
+&lt;p&gt;12） 查找当前ApplicationContext中是否注册有CommandLineRunner，如果有，则遍历执行它们。&lt;/p&gt;
+&lt;p&gt;13） 正常情况下，遍历执行SpringApplicationRunListener的finished()方法、（如果整个过程出现异常，则依然调用所有SpringApplicationRunListener的finished()方法，只不过这种情况下会将异常信息一并传入处理）&lt;br&gt;去除事件通知点后，整个流程如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/springboot3-3.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;p&gt;到此，SpringBoot的核心组件完成了基本的解析，综合来看，大部分都是Spring框架背后的一些概念和实践方式，SpringBoot只是在这些概念和实践上对特定的场景事先进行了固化和升华，而也恰恰是这些固化让我们开发基于Sping框架的应用更加方便高效。&lt;/p&gt;
+&lt;h1 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h1&gt;&lt;p&gt;本章节大部分参考了《SpringBoot揭秘快速构建为服务体系》这本书的第三章，个人看过的几本书就感觉这本书介绍原理的章节最为透彻，本章也算这本书最精华的部分。所以我没忍住就分享出来给大家学习。当然主要是我也没有这本书的电子版，无法分享给大家了，深表遗憾(。・＿・。)ﾉ&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;我手里有几本Spring Boot的中文电子书资料，有需要的可以关注博主微信公众号（嘟爷java超神学堂），自行前往下载【开发工具-&amp;gt;java电子书籍】&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/springboot1-12.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;a href=&quot;http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/spring.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h
+    
+    </summary>
+    
+      <category term="Spring Boot" scheme="http://tengj.github.io/categories/Spring-Boot/"/>
+    
+    
+      <category term="Spring Boot" scheme="http://tengj.github.io/tags/Spring-Boot/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring Boot干货系列：（二）配置文件解析</title>
@@ -1822,95 +1920,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;今天来介绍下ArrayList，在集合框架整体框架一章中，我们介绍了List接口，ArrayList继承了AbstractList，实现了L
-    
-    </summary>
-    
-      <category term="Java集合干货系列" scheme="http://tengj.github.io/categories/Java%E9%9B%86%E5%90%88%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Java集合干货系列-集合总体大纲</title>
-    <link href="http://tengj.github.io/2016/04/12/javajhtotal/"/>
-    <id>http://tengj.github.io/2016/04/12/javajhtotal/</id>
-    <published>2016-04-12T02:23:48.000Z</published>
-    <updated>2016-05-02T12:43:06.833Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;Java集合是java提供的工具包，包含了常用的数据结构：集合、链表、队列、栈、数组、映射等。Java集合工具包位置是java.util.*&lt;br&gt;Java集合主要可以划分为4个部分：List列表、Set集合、Map映射、工具类(Iterator迭代器、Enumeration枚举类、Arrays和Collections)&lt;br&gt;Java集合工具包框架图(如下)：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/jhtotal02.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;p&gt;看上面的框架图，先抓住它的主干，即Collection和Map。&lt;/p&gt;
-&lt;h2 id=&quot;Collection接口、子接口以及实现类&quot;&gt;&lt;a href=&quot;#Collection接口、子接口以及实现类&quot; class=&quot;headerlink&quot; title=&quot;Collection接口、子接口以及实现类&quot;&gt;&lt;/a&gt;Collection接口、子接口以及实现类&lt;/h2&gt;&lt;p&gt;Collection接口&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;是List、Set和Queue接口的父接口&lt;/li&gt;
-&lt;li&gt;定义了可用于操作List、Set和Queue的方法-增删改查&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Collection接口&lt;a href=&quot;http://www.yq1012.com/api/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;API&lt;/a&gt;中定义的方法如下：&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/jhtotal.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
-&lt;h2 id=&quot;List接口&quot;&gt;&lt;a href=&quot;#List接口&quot; class=&quot;headerlink&quot; title=&quot;List接口&quot;&gt;&lt;/a&gt;List接口&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;List是元素有序并且可以重复的集合，被称为序列&lt;/li&gt;
-&lt;li&gt;List可以精确的控制每个元素的插入位置，或删除某个位置元素&lt;/li&gt;
-&lt;li&gt;List接口的常用子类：&lt;br&gt;ArrayList&lt;br&gt;LinkedList&lt;br&gt;Vector&lt;br&gt;Stack&lt;br&gt;下图是List的JDK源码UML图。  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/jhtotal_3.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Set接口&quot;&gt;&lt;a href=&quot;#Set接口&quot; class=&quot;headerlink&quot; title=&quot;Set接口&quot;&gt;&lt;/a&gt;Set接口&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;Set接口中不能加入重复元素，无序&lt;/li&gt;
-&lt;li&gt;Set接口常用子类：&lt;br&gt;  散列存放：HashSet&lt;br&gt;  有序存放：TreeSet&lt;br&gt;下图是Set的JDK源码UML图。  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/jhtotal_4.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Map和HashMap&quot;&gt;&lt;a href=&quot;#Map和HashMap&quot; class=&quot;headerlink&quot; title=&quot;Map和HashMap&quot;&gt;&lt;/a&gt;Map和HashMap&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Map接口&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Map提供了一种映射关系，其中的元素是以键值对（key-value）的形式存储的，能够实现根据key快速查找value&lt;/li&gt;
-&lt;li&gt;Map中的键值对以Entry类型的对象实例形式存在&lt;/li&gt;
-&lt;li&gt;键（key值）不可重复，value值可以&lt;/li&gt;
-&lt;li&gt;每个建最多只能映射到一个值&lt;/li&gt;
-&lt;li&gt;Map接口提供了分别返回key值集合、value值集合以及Entry（键值对）集合的方法&lt;/li&gt;
-&lt;li&gt;Map支持泛型，形式如：Map&lt;k,v&gt;&lt;/k,v&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;HashMap类&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;HashMap是Map的一个重要实现类，也是最常用，基于哈希表实现&lt;/li&gt;
-&lt;li&gt;HashMap中的Entry对象是无序排列的&lt;/li&gt;
-&lt;li&gt;Key值和Value值都可以为null,但是一个HashMap只能有一个key值为null的映射（key值不可重复）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;下图是Map的JDK源码UML图  &lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/jhtotal_5.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Comparable和Comparator&quot;&gt;&lt;a href=&quot;#Comparable和Comparator&quot; class=&quot;headerlink&quot; title=&quot;Comparable和Comparator&quot;&gt;&lt;/a&gt;Comparable和Comparator&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Comparable接口——可比较的&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;实现该接口表示：这个类的实例可以比较大小，可以进行自然排序&lt;/li&gt;
-&lt;li&gt;定义了默认的比较规则&lt;/li&gt;
-&lt;li&gt;其实现类需要实现compareTo()方法&lt;/li&gt;
-&lt;li&gt;compareTo()方法返回正数表示大，负数表示小0表示相等&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Comparator&lt;/strong&gt;接口——比较工具接口&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;用于定义临时比较规则，而不是默认比较规则&lt;/li&gt;
-&lt;li&gt;其实现类需要实现compare()方法&lt;/li&gt;
-&lt;li&gt;Comparable和Comparator都是Java集合框架的成员&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;Iterator接口&quot;&gt;&lt;a href=&quot;#Iterator接口&quot; class=&quot;headerlink&quot; title=&quot;Iterator接口&quot;&gt;&lt;/a&gt;Iterator接口&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;集合输出的标准操作&lt;br&gt; 标准做法，使用Iterator接口&lt;/li&gt;
-&lt;li&gt;操作原理：&lt;br&gt; Iterator是专门的迭代输出接口，迭代输出就是将元素一个个进行判断，判断其是否有内容，如果有内容则把内容取出。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;h2 id=&quot;集合的作用&quot;&gt;&lt;a href=&quot;#集合的作用&quot; class=&quot;headerlink&quot; title=&quot;集合的作用&quot;&gt;&lt;/a&gt;集合的作用&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;在类的内部，对数据进行组织；&lt;/li&gt;
-&lt;li&gt;简单而快速的搜索大数量的条目；&lt;/li&gt;
-&lt;li&gt;有的集合接口，提供了一系列排列有序的元素，并且可以在序列中间快速的插入或者删除有关元素；&lt;/li&gt;
-&lt;li&gt;有的集合接口，提供了映射关系，可以通过关键字（key）去快速查找对应的唯一对象，而这个关键字额可以是任意类型。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;与数组的对比—————为何选择集合而不是数组&quot;&gt;&lt;a href=&quot;#与数组的对比—————为何选择集合而不是数组&quot; class=&quot;headerlink&quot; title=&quot;与数组的对比—————为何选择集合而不是数组&quot;&gt;&lt;/a&gt;与数组的对比—————为何选择集合而不是数组&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;数组的长度固定，集合长度可变&lt;/li&gt;
-&lt;li&gt;数组只能通过下标访问元素，类型固定，而有的集合可以通过任意类型查找所映射的具体对象。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;整理的集合框架思维导图&quot;&gt;&lt;a href=&quot;#整理的集合框架思维导图&quot; class=&quot;headerlink&quot; title=&quot;整理的集合框架思维导图&quot;&gt;&lt;/a&gt;整理的集合框架思维导图&lt;/h2&gt;&lt;p&gt;个人整理的Java集合框架思维导图，动态维护。导出的图片无法查看备注的一些信息，所以需要源文件的童鞋可以关注我个人的公众号，回复&lt;strong&gt;Java集合框架&lt;/strong&gt;即可获取源文件。&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/jhswdt.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;如果对你有所帮助(●ˇ∀ˇ●)&lt;code&gt;点个赞&lt;/code&gt;或者&lt;code&gt;关注下&lt;/code&gt;吧,没准还能打赏下(/▽＼=)。你的鼓励将是博主继续写下去的动力，生活不易，且行且珍惜。&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;博主弄了个java学习资源的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;Java集合是java提供的工具包，包含了常用的数据结构：集合、链表、队列、栈、数组、映射等。Java集合工具包位置是java.util.*
     
     </summary>
     
