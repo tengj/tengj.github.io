@@ -103,7 +103,7 @@
     <link href="http://tengj.github.io/2017/03/13/springboot4/"/>
     <id>http://tengj.github.io/2017/03/13/springboot4/</id>
     <published>2017-03-12T17:11:52.000Z</published>
-    <updated>2017-03-12T23:07:46.619Z</updated>
+    <updated>2017-03-12T23:23:56.088Z</updated>
     
     <content type="html">&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/spring.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;Web开发是我们平时开发中至关重要的，这里就来介绍一下Spring Boot对Web开发的支持。&lt;/p&gt;
@@ -130,8 +130,7 @@
 &lt;li&gt;对自定义Favicon的支持。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;如果想全面控制Spring MVC，你可以添加自己的@Configuration，并使用@EnableWebMvc对其注解。如果想保留Spring Boot MVC的特性，并只是添加其他的MVC配置(拦截器，formatters，视图控制器等)，你可以添加自己的WebMvcConfigurerAdapter类型的@Bean（不使用@EnableWebMvc注解）,具体拦截器等配置后续文章会解析。&lt;/p&gt;
-&lt;p&gt;##静态文件&lt;/p&gt;
-&lt;p&gt;默认情况下，Spring Boot从classpath下一个叫/static（/public，/resources或/META-INF/resources）的文件夹或从ServletContext根目录提供静态内容。这使用了Spring MVC的ResourceHttpRequestHandler，所以你可以通过添加自己的WebMvcConfigurerAdapter并覆写addResourceHandlers方法来改变这个行为（加载静态文件）。&lt;/p&gt;
+&lt;h2 id=&quot;静态文件&quot;&gt;&lt;a href=&quot;#静态文件&quot; class=&quot;headerlink&quot; title=&quot;静态文件&quot;&gt;&lt;/a&gt;静态文件&lt;/h2&gt;&lt;p&gt;默认情况下，Spring Boot从classpath下一个叫/static（/public，/resources或/META-INF/resources）的文件夹或从ServletContext根目录提供静态内容。这使用了Spring MVC的ResourceHttpRequestHandler，所以你可以通过添加自己的WebMvcConfigurerAdapter并覆写addResourceHandlers方法来改变这个行为（加载静态文件）。&lt;/p&gt;
 &lt;p&gt;在一个单独的web应用中，容器默认的servlet是开启的，如果Spring决定不处理某些请求，默认的servlet作为一个回退（降级）将从ServletContext根目录加载内容。大多数时候，这不会发生（除非你修改默认的MVC配置），因为Spring总能够通过DispatcherServlet处理请求。&lt;/p&gt;
 &lt;p&gt;此外，上述标准的静态资源位置有个例外情况是&lt;a href=&quot;http://www.webjars.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Webjars内容&lt;/a&gt;。任何在/webjars/**路径下的资源都将从jar文件中提供，只要它们以Webjars的格式打包。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;注&lt;/strong&gt;：如果你的应用将被打包成jar，那就不要使用src/main/webapp文件夹。尽管该文件夹是一个共同的标准，但它仅在打包成war的情况下起作用，并且如果产生一个jar，多数构建工具都会静悄悄的忽略它&lt;/p&gt;
