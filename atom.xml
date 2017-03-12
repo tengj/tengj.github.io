@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tengj.github.io/"/>
-  <updated>2017-03-12T17:20:48.760Z</updated>
+  <updated>2017-03-12T23:07:55.866Z</updated>
   <id>http://tengj.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://tengj.github.io/2017/03/13/springboot5/"/>
     <id>http://tengj.github.io/2017/03/13/springboot5/</id>
     <published>2017-03-12T17:11:59.000Z</published>
-    <updated>2017-03-12T17:20:48.760Z</updated>
+    <updated>2017-03-12T23:07:55.866Z</updated>
     
     <content type="html">&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/spring.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;上一篇介绍了Spring Boot中使用Thymeleaf模板引擎，今天来介绍一下如何使用SpringBoot官方不推荐的jsp,虽然难度有点大，但是玩起来还是蛮有意思的。&lt;/p&gt;
@@ -79,6 +79,7 @@
 &lt;p&gt;虽然网上有介绍说通过pom.xml配置，把WEB-INF目录复制到META-INF/resources下面。但是博主试了一整天还是访问不了，最后放弃了。各位如何有兴趣可以继续尝试，毕竟war也可以通过java -jar命令来启动的不是么。&lt;/p&gt;
 &lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;p&gt;我相信全网都找不到一篇有我这篇这么详细的介绍Spring Boot使用jsp的文章。有很多人问我，为什么我的很多文章这么简单易懂，我每次都是哭着回复他们四个字：主题阅读，天知道我参考了多少篇网上的文章，外加多少本相关书籍中关于这个章节的内容，反复对比提炼，最后才产出对应的博文。说真的，我很羡慕你们在这个信息爆炸的时代，刚好看到一篇自己要学习的技术的好文章，少走多少弯路。&lt;/p&gt;
 &lt;p&gt;说了这么多煽情的话，哪位大兄弟带一波节奏啊，好久没收到打赏了d=====(￣▽￣*)b&lt;/p&gt;
+&lt;h1 id=&quot;源码下载&quot;&gt;&lt;a href=&quot;#源码下载&quot; class=&quot;headerlink&quot; title=&quot;源码下载&quot;&gt;&lt;/a&gt;源码下载&lt;/h1&gt;&lt;p&gt;(￣︶￣)↗[&lt;a href=&quot;https://github.com/tengj/SpringBootDemo/tree/master&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;相关示例完整代码&lt;/a&gt;]&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;我手里有几本Spring Boot的中文电子书资料，有需要的可以关注博主微信公众号（嘟爷java超神学堂），自行前往下载【开发工具-&amp;gt;java电子书籍】&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/springboot1-12.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;a href=&quot;http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
@@ -102,7 +103,7 @@
     <link href="http://tengj.github.io/2017/03/13/springboot4/"/>
     <id>http://tengj.github.io/2017/03/13/springboot4/</id>
     <published>2017-03-12T17:11:52.000Z</published>
-    <updated>2017-03-12T17:13:31.791Z</updated>
+    <updated>2017-03-12T23:07:46.619Z</updated>
     
     <content type="html">&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/spring.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;Web开发是我们平时开发中至关重要的，这里就来介绍一下Spring Boot对Web开发的支持。&lt;/p&gt;
