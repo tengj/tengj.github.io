@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tengj.github.io/"/>
-  <updated>2017-03-12T23:07:55.866Z</updated>
+  <updated>2017-03-13T00:08:21.626Z</updated>
   <id>http://tengj.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://tengj.github.io/2017/03/13/springboot5/"/>
     <id>http://tengj.github.io/2017/03/13/springboot5/</id>
     <published>2017-03-12T17:11:59.000Z</published>
-    <updated>2017-03-12T23:07:55.866Z</updated>
+    <updated>2017-03-13T00:08:21.626Z</updated>
     
     <content type="html">&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/spring.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;上一篇介绍了Spring Boot中使用Thymeleaf模板引擎，今天来介绍一下如何使用SpringBoot官方不推荐的jsp,虽然难度有点大，但是玩起来还是蛮有意思的。&lt;/p&gt;
@@ -55,7 +55,7 @@
 &lt;/ul&gt;
 &lt;p&gt;我测试了好几次都是这样，就是有加&lt;scope&gt;provided&lt;/scope&gt;的时候，右键运行启动类访问页面的时候，提示404错误。&lt;br&gt;其他3种情况都一样， jar运行也报404，spring-boot:run以及war运行都可以。&lt;/p&gt;
 &lt;p&gt;为什么jar包运行不行呢，我们打开打包的jar和war分别看看区别，如下2图所示：&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/sringboot5-2.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/springboot5-33.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;从上面可以看出来，jar包运行的时候会404错误，因为默认jsp不会被拷贝进来，而war包里面有包含了jsp，所以没问题。&lt;/p&gt;
-&lt;h2 id=&quot;内嵌Tomcat配置&quot;&gt;&lt;a href=&quot;#内嵌Tomcat配置&quot; class=&quot;headerlink&quot; title=&quot;内嵌Tomcat配置&quot;&gt;&lt;/a&gt;内嵌Tomcat配置&lt;/h2&gt;&lt;p&gt;关于Tomcat的偶有属性都在org.springframework.boot.autoconfigure.web.ServerProperties配置类中做了定义，我们只需在application.properties配置属性做配置即可。通用的Servlet容器配置都已”server”左右前缀，而Tomcat特有配置都以”server.tomcat”作为前缀。下面举一些常用的例子。&lt;/p&gt;
+&lt;h2 id=&quot;内嵌Tomcat属性配置&quot;&gt;&lt;a href=&quot;#内嵌Tomcat属性配置&quot; class=&quot;headerlink&quot; title=&quot;内嵌Tomcat属性配置&quot;&gt;&lt;/a&gt;内嵌Tomcat属性配置&lt;/h2&gt;&lt;p&gt;关于Tomcat的偶有属性都在org.springframework.boot.autoconfigure.web.ServerProperties配置类中做了定义，我们只需在application.properties配置属性做配置即可。通用的Servlet容器配置都已”server”左右前缀，而Tomcat特有配置都以”server.tomcat”作为前缀。下面举一些常用的例子。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;配置Servlet容器&lt;/strong&gt;：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#&amp;#37197;&amp;#32622;&amp;#31243;&amp;#24207;&amp;#31471;&amp;#21475;&amp;#65292;&amp;#40664;&amp;#35748;&amp;#20026;8080&amp;#10;server.port= 8080&amp;#10;#&amp;#29992;&amp;#25143;&amp;#32472;&amp;#30011;session&amp;#36807;&amp;#26399;&amp;#26102;&amp;#38388;&amp;#65292;&amp;#20197;&amp;#31186;&amp;#20026;&amp;#21333;&amp;#20301;&amp;#10;server.session.timeout=&amp;#10;# &amp;#37197;&amp;#32622;&amp;#40664;&amp;#35748;&amp;#35775;&amp;#38382;&amp;#36335;&amp;#24452;&amp;#65292;&amp;#40664;&amp;#35748;&amp;#20026;/&amp;#10;server.context-path=&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;配置Tomcat：&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# &amp;#37197;&amp;#32622;Tomcat&amp;#32534;&amp;#30721;,&amp;#40664;&amp;#35748;&amp;#20026;UTF-8&amp;#10;server.tomcat.uri-encoding=UTF-8&amp;#10;# &amp;#37197;&amp;#32622;&amp;#26368;&amp;#22823;&amp;#32447;&amp;#31243;&amp;#25968;&amp;#10;server.tomcat.max-threads=1000&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;更为详细的Servlet容器配置以及Tomcat配置，可以前往博主之前文章查看：&lt;a href=&quot;http://tengj.top/2017/02/28/springbootconfig/&quot; title=&quot;Spring Boot干货系列：常用属性汇总&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Spring Boot干货系列：常用属性汇总&lt;/a&gt;&lt;/p&gt;
@@ -81,7 +81,8 @@
 &lt;p&gt;说了这么多煽情的话，哪位大兄弟带一波节奏啊，好久没收到打赏了d=====(￣▽￣*)b&lt;/p&gt;
 &lt;h1 id=&quot;源码下载&quot;&gt;&lt;a href=&quot;#源码下载&quot; class=&quot;headerlink&quot; title=&quot;源码下载&quot;&gt;&lt;/a&gt;源码下载&lt;/h1&gt;&lt;p&gt;(￣︶￣)↗[&lt;a href=&quot;https://github.com/tengj/SpringBootDemo/tree/master&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;相关示例完整代码&lt;/a&gt;]&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;我手里有几本Spring Boot的中文电子书资料，有需要的可以关注博主微信公众号（嘟爷java超神学堂），自行前往下载【开发工具-&amp;gt;java电子书籍】&lt;br&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/springboot1-12.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;a href=&quot;http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;博主有几本Spring Boot的中文电子书资料，有需要的可以关注博主微信公众号（嘟爷java超神学堂），自行前往下载【开发工具-&amp;gt;java电子书籍】  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/springboot1-12.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;a href=&quot;http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;img src=&quot;http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">

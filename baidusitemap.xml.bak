@@ -4,12 +4,12 @@
 
     
   <url>
-    <loc>http://tengj.github.io/2017/03/13/springboot4/</loc>
-    <lastmod>2017-03-12T23:23:56.088Z</lastmod>
+    <loc>http://tengj.github.io/2017/03/13/springboot5/</loc>
+    <lastmod>2017-03-13T00:08:21.626Z</lastmod>
     <data>
         <display>
-        <title>Spring Boot干货系列：（四）开发Web应用之Thymeleaf篇</title>
-        <pubTime>2017-03-12T17:11:52.000Z</pubTime>
+        <title>Spring Boot干货系列：（五）开发Web应用之JSP篇</title>
+        <pubTime>2017-03-12T17:11:59.000Z</pubTime>
         
         <tag>Spring Boot</tag>
          
@@ -24,12 +24,12 @@
 
     
   <url>
-    <loc>http://tengj.github.io/2017/03/13/springboot5/</loc>
-    <lastmod>2017-03-12T23:07:55.866Z</lastmod>
+    <loc>http://tengj.github.io/2017/03/13/springboot4/</loc>
+    <lastmod>2017-03-12T23:23:56.088Z</lastmod>
     <data>
         <display>
-        <title>Spring Boot干货系列：（五）开发Web应用之JSP篇</title>
-        <pubTime>2017-03-12T17:11:59.000Z</pubTime>
+        <title>Spring Boot干货系列：（四）开发Web应用之Thymeleaf篇</title>
+        <pubTime>2017-03-12T17:11:52.000Z</pubTime>
         
         <tag>Spring Boot</tag>
          
