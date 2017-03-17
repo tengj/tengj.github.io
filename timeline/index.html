@@ -1,17 +1,21 @@
-
-  <!DOCTYPE HTML>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html lang="zh-Hans">
 <head>
-  <meta charset="UTF-8">
-  
-    <title>嘟嘟独立博客</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="Teng Jun">
-    
 
-    
-    <meta name="description" content="hello,every body!~">
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Teng Jun" />
+
+
+
+<meta name="description" content="hello,every body!~">
 <meta property="og:type" content="website">
 <meta property="og:title" content="嘟嘟独立博客">
 <meta property="og:url" content="http://tengj.github.io/timeline/index.html">
@@ -22,462 +26,478 @@
 <meta name="twitter:title" content="嘟嘟独立博客">
 <meta name="twitter:description" content="hello,every body!~">
 
-    
-    <link rel="alternative" href="/atom.xml" title="嘟嘟独立博客" type="application/atom+xml">
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/jacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
-    
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="嘟嘟独立博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/author.jpg">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css" type="text/css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>嘟嘟独立博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: false,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
 </head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/dudu.gif" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Teng Jun</a></h1>
+        </hgroup>
 
-    <body>
-      <header>
         
-<div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/dudu.gif" alt="嘟嘟独立博客" title="嘟嘟独立博客"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="嘟嘟独立博客">嘟嘟独立博客</a></h1>
-				<h2 class="blog-motto">爱生活爱编码</h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">首页</a></li>
-					
-						<li><a href="/archives">归档</a></li>
-					
-						<li><a href="/categories">分类</a></li>
-					
-						<li><a href="/timeline">时光机</a></li>
-					
-					<li>
- 					
-						<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="text" id="search" class="st-default-search-input" maxlength="20" placeholder="Search" />
-						</form>
-					
-					</li>
-				</ul>
-			</nav>			
-</div>
-      </header>
-      <div id="container">
-        <link href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" media="all" rel="stylesheet">
-<div id="timelineDiv" class="timeline animated ">
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.1/modernizr.min.js"></script>
-<script src="/js/jquery-2.0.3.min.js"></script>
-<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<script>
-</script>
-<script>
-    $(function () {
-	var arrs=new Array();
-	
-	  var obj={};
-	  obj.title="如何制作微课系列——（第一天）微课选题怎么玩？";
-	  obj.date="2016-05-24";
-	  obj.path="2016/05/24/wk01/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="Java多线程干货系列—（四）volatile关键字";
-	  obj.date="2016-05-06";
-	  obj.path="2016/05/06/threadvolatile4/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="Java多线程干货系列—（二）synchronized";
-	  obj.date="2016-05-03";
-	  obj.path="2016/05/03/threadsynchronized2/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="Java多线程干货系列—（一）Java多线程基础";
-	  obj.date="2016-04-24";
-	  obj.path="2016/04/24/thread1/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="springMVC干货系列：从零搭建springMVC+mybatis（二）：springMVC原理解析及常用注解";
-	  obj.date="2016-05-02";
-	  obj.path="2016/05/02/springmvcyuanli/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="springMVC干货系列：从零搭建springMVC+mybatis（总纲）";
-	  obj.date="2016-05-02";
-	  obj.path="2016/05/02/springmvctotal/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="springMVC干货系列：从零搭建springMVC+mybatis（一）：maven WEB项目的搭建";
-	  obj.date="2016-03-13";
-	  obj.path="2016/03/13/springmvcseries1/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="SpringMVC干货系列：从零搭建SpringMVC+mybatis（四）：Spring两大核心之AOP学习";
-	  obj.date="2016-05-12";
-	  obj.path="2016/05/12/springmvc4aop/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="springMVC干货系列：从零搭建springMVC+mybatis（三）：spring两大核心之IOC/DI学习";
-	  obj.date="2016-05-02";
-	  obj.path="2016/05/02/springmvc3iocdi/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="Spring Boot干货系列：常用属性汇总";
-	  obj.date="2017-02-28";
-	  obj.path="2017/02/28/springbootconfig/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="Spring Boot干货系列：（五）开发Web应用之JSP篇";
-	  obj.date="2017-03-13";
-	  obj.path="2017/03/13/springboot5/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="Spring Boot干货系列：（四）开发Web应用之Thymeleaf篇";
-	  obj.date="2017-03-13";
-	  obj.path="2017/03/13/springboot4/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="Spring Boot干货系列：（三）启动原理解析";
-	  obj.date="2017-03-09";
-	  obj.path="2017/03/09/springboot3/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="Spring Boot干货系列：（二）配置文件解析";
-	  obj.date="2017-02-28";
-	  obj.path="2017/02/28/springboot2/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="Spring Boot干货系列：（一）优雅的入门篇";
-	  obj.date="2017-02-26";
-	  obj.path="2017/02/26/springboot1/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="设计模式干货系列：（总纲）总体介绍设计模式";
-	  obj.date="2016-04-01";
-	  obj.path="2016/04/01/sjmstotal/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="设计模式干货系列：（七）适配器模式【学习难度：★★☆☆☆，使用频率：★★★★☆】";
-	  obj.date="2016-04-17";
-	  obj.path="2016/04/17/sjms7adapter/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="设计模式干货系列：（六）建造者模式【学习难度：★★★★☆，使用频率：★★☆☆☆】";
-	  obj.date="2016-04-09";
-	  obj.path="2016/04/09/sjms6builder/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="设计模式干货系列：（五）原型模式【学习难度：★★★☆☆，使用频率：★★★☆☆】";
-	  obj.date="2016-04-07";
-	  obj.path="2016/04/07/sjms5prototype/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="设计模式干货系列：（四）单例模式【学习难度：★☆☆☆☆，使用频率：★★★★☆】";
-	  obj.date="2016-04-06";
-	  obj.path="2016/04/06/sjms4singleton/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="设计模式干货系列：（三）抽象工厂模式【学习难度：★★★★☆，使用频率：★★★★★】";
-	  obj.date="2016-04-04";
-	  obj.path="2016/04/04/sjms3abstractfactory/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="设计模式干货系列：（二）工厂方法模式【学习难度：★★☆☆☆，使用频率：★★★★★】";
-	  obj.date="2016-04-03";
-	  obj.path="2016/04/03/sjms2factorymethod/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="设计模式干货系列：（一）简单工厂模式【学习难度：★★☆☆☆，使用频率：★★★☆☆】";
-	  obj.date="2016-04-02";
-	  obj.path="2016/04/02/sjms1simpleFactory/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="myeclipse中tomcat内存溢出完美解决方案";
-	  obj.date="2016-02-25";
-	  obj.path="2016/02/25/myeclipse中tomcat内存溢出完美解决方案/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="ajax一个很好的加载效果";
-	  obj.date="2016-03-10";
-	  obj.path="2016/03/10/jqueryLoading/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="Java基础与提高干货系列——Java反射机制";
-	  obj.date="2016-04-28";
-	  obj.path="2016/04/28/javareflect/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="Java集合干货系列-集合总体大纲";
-	  obj.date="2016-04-12";
-	  obj.path="2016/04/12/javajhtotal/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="Java集合干货系列-（五）HashSet源码解析";
-	  obj.date="2016-04-16";
-	  obj.path="2016/04/16/javajh5hashset/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="Java集合干货系列-（四）TreeMap源码解析";
-	  obj.date="2016-04-16";
-	  obj.path="2016/04/16/javajh4treemap/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="Java集合干货系列-（三）HashMap源码解析";
-	  obj.date="2016-04-15";
-	  obj.path="2016/04/15/javajh3hashmap/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="Java集合干货系列-（二）LinkedList源码解析";
-	  obj.date="2016-04-13";
-	  obj.path="2016/04/13/javajh2linklist/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="Java集合干货系列-（一）ArrayList源码解析";
-	  obj.date="2016-04-13";
-	  obj.path="2016/04/13/javajh1arraylist/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="Java人员正确使用 IntelliJ IDEA的方式";
-	  obj.date="2017-02-22";
-	  obj.path="2017/02/22/idea1-1/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="使用高级搜索指令提高搜索效率（百度，谷歌）";
-	  obj.date="2016-03-12";
-	  obj.path="2016/03/12/hightsearchline/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="hexo干货系列：（总纲）搭建独立博客初衷";
-	  obj.date="2016-02-20";
-	  obj.path="2016/02/20/hexo干货系列：（总纲）搭建独立博客初衷/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="hexo干货系列：（四）将hexo博客同时托管到github和coding";
-	  obj.date="2016-03-06";
-	  obj.path="2016/03/06/hexo干货系列：（四）将hexo博客同时托管到github和coding/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="hexo干货系列：（二）hexo主题下载及配置";
-	  obj.date="2016-02-26";
-	  obj.path="2016/02/26/hexo干货系列：（二）hexo主题下载及配置/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="hexo干货系列：（三）hexo的Jacman主题优化";
-	  obj.date="2016-03-06";
-	  obj.path="2016/03/06/hexo干货系列：（三）hexo的Jacman主题优化/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="hexo干货系列：（一）hexo+gitHub搭建个人独立博客";
-	  obj.date="2016-02-22";
-	  obj.path="2016/02/22/hexo干货系列：（一）hexo+gitHub搭建个人独立博客/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="hexo干货系列：（八）hexo文章自动隐藏侧边栏";
-	  obj.date="2016-03-20";
-	  obj.path="2016/03/20/hexo8hidewidgets/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="hexo干货系列：（七）hexo安装统计插件";
-	  obj.date="2016-03-17";
-	  obj.path="2016/03/17/hexo7count/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="hexo干货系列：（六）hexo提交搜索引擎（百度+谷歌）";
-	  obj.date="2016-03-14";
-	  obj.path="2016/03/14/hexo6seo/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="hexo干货系列：（五）hexo添加站内搜索";
-	  obj.date="2016-03-11";
-	  obj.path="2016/03/11/hexo5Swiftype/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="git干货系列：（总纲）根据使用场景介绍git";
-	  obj.date="2016-03-20";
-	  obj.path="2016/03/20/gitTotalMsg/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="git干货系列：（六）公司内部搭建git服务器";
-	  obj.date="2016-03-29";
-	  obj.path="2016/03/29/git6gitlab/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="git干货系列：（五）多人协同工作之分支管理";
-	  obj.date="2016-03-27";
-	  obj.path="2016/03/27/git5branch/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="git干货系列：（四）我要连接远程仓库（github，coding）";
-	  obj.date="2016-03-25";
-	  obj.path="2016/03/25/git4remote/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="git干货系列：（三）我提交错了我想撤销或者回退版本";
-	  obj.date="2016-03-24";
-	  obj.path="2016/03/24/git3reset/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="git干货系列：（二）深入学习之前先理解git暂存区";
-	  obj.date="2016-03-23";
-	  obj.path="2016/03/23/git2konwindex/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="git干货系列：（一）我是小白，我想要搭建git仓库";
-	  obj.date="2016-03-20";
-	  obj.path="2016/03/20/git1creategit/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="百度链接提交主动推送后不收录的原因";
-	  obj.date="2016-03-14";
-	  obj.path="2016/03/14/baidunoshouluresson/";
-	  arrs.push(obj);
-	
-	  var obj={};
-	  obj.title="提高办事效率-奇妙清单";
-	  obj.date="2016-03-22";
-	  obj.path="2016/03/22/apprecommend1/";
-	  arrs.push(obj);
-	
+        <p class="header-subtitle">爱生活爱编码</p>
+        
 
-	arrs.sort(function(a, b){
-	  return new Date(b.date.replace(/-/g, "/")) - new Date(a.date.replace(/-/g, "/"));
-	});
-      var loadTimeline;
-      loadTimeline=function(){
-	  var strArs=new Array();
-	  for(var i=0;i<arrs.length;i++){
-	    strArs.push('<div class="timeline-row">');
-            strArs.push('<div class="timeline-time">');
-            strArs.push(arrs[i].date);
-            strArs.push('</div>');
-            strArs.push('<div class="timeline-icon">');
-            strArs.push('<div class="bg-primary">');
-            strArs.push('<i class="fa fa-pencil"></i>');
-            strArs.push('</div>');
-            strArs.push('</div>');
-            strArs.push('<div class="panel timeline-content">');
-            strArs.push('<div class="panel-body">');
-            strArs.push('<h2>');
-      	    strArs.push('<a href="/'+arrs[i].path+'">'+arrs[i].title+'</a>');
-            strArs.push('</h2>');
-            strArs.push('</div>');
-            strArs.push('</div>');
-            strArs.push('</div>');
-	  }
-          $("#timelineDiv").prepend(strArs.join(''));
-      }
-      loadTimeline();
-    })
-</script>
-<script src="/js/main.js"></script>
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="/#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Teng Jun</a></h1>
       </div>
-      <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<section class="info">
-		<p> 程序员上辈子都是折翼的天使 <br/>
-			This is my blog,Try to do better.</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		
-		<a href="https://github.com/tengj" target="_blank" class="icon-github" title="github"></a>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	</div>
-			
-		
-
-		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
-		
-		<a href="/about" target="_blank" title="Teng Jun">Teng Jun</a>
-		
-		</p>
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/dudu.gif" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Teng Jun</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">爱生活爱编码</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="/#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="timeline-undefined" class="article article-type-timeline" itemscope itemprop="blogPost">
   
-  _st('install','Ts_hz24x26ZaNWfhsYwW','2.0.0');
-</script>
+    <div class="article-meta">
+      <a href="/timeline/index.html" class="article-date">
+      <time datetime="2016-03-19T09:53:42.455Z" itemprop="datePublished">2016-03-19</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <style>
+    .article-meta { display: none; }
+    #container .article .article-title { padding-right: 0; }
+    .article-header {
+        padding: 0;
+        padding-top: 26px;
+        border-left: none;
+        text-align: center;
+    }
+    .article-header:hover { border-left: none; }
+    .article-title { font-size: 1.6em }
+    .article-entry hr { margin: 0;}
+    .article-meta,
+    #container .article-info-post.article-info { display: none;}
+    #container .article .article-title { padding: 0; }
+</style>
+
+
+          
+        
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+  
+</article>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"　| 嘟嘟独立博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
 </div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="timeline/index.html" data-title="" data-url="http://tengj.github.io/timeline/index.html"></div>
+    <script>
+        var duoshuoQuery = {short_name:"tengj"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//tengj.github.io/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+            // Add comment count
+            $(function(){ 
+                var jsonUrl = "http://api.duoshuo.com/threads/counts.jsonp?short_name=tengj&threads=timeline/index.html&callback=?";
+                $.getJSON(jsonUrl, function(result){
+                    $.each(result.response, function(i, field){
+                        var value = field.comments;
+                        if (value > 0) {
+                            $(".count-comment").text(value);
+                            return;
+                        }
+                    })
+                })
+            })
+        
+    </script>
+    
+    <aside class="comment-bar">
+        <a href="javascript:void(0);">
+            <i class="fa fa-commenting-o animated infinite pulse"></i>
+            <i class="fa fa-spinner fa-pulse"></i>
+            <span class="count-comment"></span>
+        </a>
+    </aside>
+    <script>
+        var $commentBar = $("#comments aside.comment-bar");
+        var load$hide = function(){
+            $commentBar.find("a > i").toggle();
+            loadComment();
+            $commentBar.fadeOut(800);
+        }
+        $commentBar.click(function(){
+            load$hide();
+        })
+        $commentBar.children("a").hover(function(){
+            load$hide();
+        })
+        if (window.location.hash === "#comments") {
+            load$hide();
+        }
+    </script>
+
+</div>
+    
+
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 Teng Jun
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
 </footer>
-    </body>
-   </html>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
