@@ -15,23 +15,20 @@
 
 
 
-<meta name="description" content="前言今天介绍下volatile关键字，volatile这个关键字可能很多朋友都听说过，或许也都用过。在Java 5之前，它是一个备受争议的关键字，因为在程序中使用它往往会导致出人意料的结果。在Java 5之后，volatile关键字才得以重获生机。
-正文volatile关键字虽然从字面上理解起来比较简单，但是要用好不是一件容易的事情。由于volatile关键字是与Java的内存模型有关的。所以让我">
+<meta name="description" content="今天介绍下volatile关键字，volatile这个关键字可能很多朋友都听说过，或许也都用过。在Java 5之前，它是一个备受争议的关键字，因为在程序中使用它往往会导致出人意料的结果。在Java 5之后，volatile关键字才得以重获生机。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java多线程干货系列—（四）volatile关键字">
 <meta property="og:url" content="http://tengj.github.io/2016/05/06/threadvolatile4/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="前言今天介绍下volatile关键字，volatile这个关键字可能很多朋友都听说过，或许也都用过。在Java 5之前，它是一个备受争议的关键字，因为在程序中使用它往往会导致出人意料的结果。在Java 5之后，volatile关键字才得以重获生机。
-正文volatile关键字虽然从字面上理解起来比较简单，但是要用好不是一件容易的事情。由于volatile关键字是与Java的内存模型有关的。所以让我">
+<meta property="og:description" content="今天介绍下volatile关键字，volatile这个关键字可能很多朋友都听说过，或许也都用过。在Java 5之前，它是一个备受争议的关键字，因为在程序中使用它往往会导致出人意料的结果。在Java 5之后，volatile关键字才得以重获生机。">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/thread4_1.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/thread4_2.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/Volatile.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
-<meta property="og:updated_time" content="2016-05-06T14:59:36.541Z">
+<meta property="og:updated_time" content="2017-03-18T00:11:24.749Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java多线程干货系列—（四）volatile关键字">
-<meta name="twitter:description" content="前言今天介绍下volatile关键字，volatile这个关键字可能很多朋友都听说过，或许也都用过。在Java 5之前，它是一个备受争议的关键字，因为在程序中使用它往往会导致出人意料的结果。在Java 5之后，volatile关键字才得以重获生机。
-正文volatile关键字虽然从字面上理解起来比较简单，但是要用好不是一件容易的事情。由于volatile关键字是与Java的内存模型有关的。所以让我">
+<meta name="twitter:description" content="今天介绍下volatile关键字，volatile这个关键字可能很多朋友都听说过，或许也都用过。在Java 5之前，它是一个备受争议的关键字，因为在程序中使用它往往会导致出人意料的结果。在Java 5之后，volatile关键字才得以重获生机。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -186,11 +183,15 @@
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
                     </nav>
@@ -199,7 +200,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springMVC/">springMVC</a></li></ul>
                     </div>
                 </section>
                 
@@ -264,11 +265,15 @@
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" target="_blank" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" target="_blank" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
             </nav>
@@ -446,7 +451,7 @@
         <p><span>本文标题:</span><a href="/2016/05/06/threadvolatile4/">Java多线程干货系列—（四）volatile关键字</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Teng Jun</a></p>
         <p><span>发布时间:</span>2016-05-06, 22:56:00</p>
-        <p><span>最后更新:</span>2016-05-06, 22:59:36</p>
+        <p><span>最后更新:</span>2017-03-18, 08:11:24</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/05/06/threadvolatile4/" title="Java多线程干货系列—（四）volatile关键字">http://tengj.github.io/2016/05/06/threadvolatile4/</a>
             <span class="copy-path" data-clipboard-text="原文: http://tengj.github.io/2016/05/06/threadvolatile4/　　作者: Teng Jun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

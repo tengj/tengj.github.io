@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://tengj.github.io/2016/03/10/jqueryLoading/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
 <meta property="og:description" content="推荐一个常用的jquery加载效果插件,很适合开发中使用。">
-<meta property="og:updated_time" content="2016-03-10T17:31:57.574Z">
+<meta property="og:updated_time" content="2017-03-18T00:26:19.449Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ajax一个很好的加载效果">
 <meta name="twitter:description" content="推荐一个常用的jquery加载效果插件,很适合开发中使用。">
@@ -179,11 +179,15 @@
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
                     </nav>
@@ -192,7 +196,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springMVC/">springMVC</a></li></ul>
                     </div>
                 </section>
                 
@@ -257,11 +261,15 @@
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" target="_blank" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" target="_blank" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
             </nav>
@@ -323,7 +331,6 @@
       
           
         <p>推荐一个常用的jquery加载效果插件,很适合开发中使用。</p>
-<a id="more"></a> 
 <h2 id="要引入这个插件的css和js"><a href="#要引入这个插件的css和js" class="headerlink" title="要引入这个插件的css和js:"></a>要引入这个插件的css和js:</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">"&lt;%=path %&gt;/css/showLoading.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">media</span>=<span class="value">"screen"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"&lt;%=path %&gt;/js/jquery.showLoading.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="使用的时候代码如下"><a href="#使用的时候代码如下" class="headerlink" title="使用的时候代码如下:"></a>使用的时候代码如下:</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">".wrapper"</span>).showLoading();  <span class="comment">//展示加载效果 wrapper为你需要加载效果的div， 也可以用body</span></span><br><span class="line">$(<span class="string">".wrapper"</span>).hideLoading();  <span class="comment">//取消加载效果</span></span><br></pre></td></tr></table></figure>
 <h2 id="ajax完整效果"><a href="#ajax完整效果" class="headerlink" title="ajax完整效果"></a>ajax完整效果</h2><p>搭配ajaX的beforeSend提高用户体验：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 提交表单数据到后台处理</span></span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    type: <span class="string">"post"</span>,</span><br><span class="line">    data: studentInfo,</span><br><span class="line">    dataType:<span class="string">"json"</span>,</span><br><span class="line">    url: <span class="string">"/Home/Submit"</span>,</span><br><span class="line">    beforeSend: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 禁用按钮防止重复提交</span></span><br><span class="line">        $(<span class="string">".wrapper"</span>).showLoading();</span><br><span class="line">        $(<span class="string">"#submit"</span>).attr(&#123; disabled: <span class="string">"disabled"</span> &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (data == <span class="string">"Success"</span>) &#123;</span><br><span class="line">            <span class="comment">//清空输入框</span></span><br><span class="line">            clearBox();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    complete: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        $(<span class="string">".wrapper"</span>).hideLoading();</span><br><span class="line">        $(<span class="string">"#submit"</span>).removeAttr(<span class="string">"disabled"</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    error: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.info(<span class="string">"error: "</span> + data.responseText);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
@@ -339,7 +346,7 @@
         <p><span>本文标题:</span><a href="/2016/03/10/jqueryLoading/">ajax一个很好的加载效果</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Teng Jun</a></p>
         <p><span>发布时间:</span>2016-03-10, 22:44:53</p>
-        <p><span>最后更新:</span>2016-03-11, 01:31:57</p>
+        <p><span>最后更新:</span>2017-03-18, 08:26:19</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/03/10/jqueryLoading/" title="ajax一个很好的加载效果">http://tengj.github.io/2016/03/10/jqueryLoading/</a>
             <span class="copy-path" data-clipboard-text="原文: http://tengj.github.io/2016/03/10/jqueryLoading/　　作者: Teng Jun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

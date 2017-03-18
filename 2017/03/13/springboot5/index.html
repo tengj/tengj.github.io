@@ -15,12 +15,13 @@
 
 
 
-<meta name="description" content="前言上一篇介绍了Spring Boot中使用Thymeleaf模板引擎，今天来介绍一下如何使用SpringBoot官方不推荐的jsp,虽然难度有点大，但是玩起来还是蛮有意思的。">
+<meta name="description" content="上一篇介绍了Spring Boot中使用Thymeleaf模板引擎，今天来介绍一下如何使用SpringBoot官方不推荐的jsp,虽然难度有点大，但是玩起来还是蛮有意思的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring Boot干货系列：（五）开发Web应用之JSP篇">
 <meta property="og:url" content="http://tengj.github.io/2017/03/13/springboot5/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="前言上一篇介绍了Spring Boot中使用Thymeleaf模板引擎，今天来介绍一下如何使用SpringBoot官方不推荐的jsp,虽然难度有点大，但是玩起来还是蛮有意思的。">
+<meta property="og:description" content="上一篇介绍了Spring Boot中使用Thymeleaf模板引擎，今天来介绍一下如何使用SpringBoot官方不推荐的jsp,虽然难度有点大，但是玩起来还是蛮有意思的。">
+<meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/spring.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/springboot5-1.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/sringboot5-2.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/springboot5-33.png">
@@ -28,10 +29,10 @@
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/springboot5-5.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/springboot1-12.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
-<meta property="og:updated_time" content="2017-03-17T13:25:56.508Z">
+<meta property="og:updated_time" content="2017-03-18T00:00:37.134Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Boot干货系列：（五）开发Web应用之JSP篇">
-<meta name="twitter:description" content="前言上一篇介绍了Spring Boot中使用Thymeleaf模板引擎，今天来介绍一下如何使用SpringBoot官方不推荐的jsp,虽然难度有点大，但是玩起来还是蛮有意思的。">
+<meta name="twitter:description" content="上一篇介绍了Spring Boot中使用Thymeleaf模板引擎，今天来介绍一下如何使用SpringBoot官方不推荐的jsp,虽然难度有点大，但是玩起来还是蛮有意思的。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -186,11 +187,15 @@
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
                     </nav>
@@ -199,7 +204,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springMVC/">springMVC</a></li></ul>
                     </div>
                 </section>
                 
@@ -264,11 +269,15 @@
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" target="_blank" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" target="_blank" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
             </nav>
@@ -329,7 +338,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇介绍了Spring Boot中使用Thymeleaf模板引擎，今天来介绍一下如何使用SpringBoot官方不推荐的jsp,虽然难度有点大，但是玩起来还是蛮有意思的。<br><a id="more"></a></p>
+        <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/spring.jpg" alt=""></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇介绍了Spring Boot中使用Thymeleaf模板引擎，今天来介绍一下如何使用SpringBoot官方不推荐的jsp,虽然难度有点大，但是玩起来还是蛮有意思的。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>先来看看整体的框架结构，跟前面介绍Thymeleaf的时候差不多，只是多了webapp这个用来存放jsp的目录，静态资源还是放在resources的static下面。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/springboot5-1.jpg" alt=""></p>
 <h2 id="引入依赖"><a href="#引入依赖" class="headerlink" title="引入依赖"></a>引入依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--WEB支持--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--jsp页面使用jstl标签--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>jstl<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--用于编译jsp--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.apache.tomcat.embed<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>tomcat-embed-jasper<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="title">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>使用内嵌的tomcat容器来运行的话只要这3个就好了。这里介绍下maven中scope依赖范围的概念，因为后续涉及到这个会有问题。</p>
@@ -400,7 +410,7 @@
         <p><span>本文标题:</span><a href="/2017/03/13/springboot5/">Spring Boot干货系列：（五）开发Web应用之JSP篇</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Teng Jun</a></p>
         <p><span>发布时间:</span>2017-03-13, 01:11:59</p>
-        <p><span>最后更新:</span>2017-03-17, 21:25:56</p>
+        <p><span>最后更新:</span>2017-03-18, 08:00:37</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/03/13/springboot5/" title="Spring Boot干货系列：（五）开发Web应用之JSP篇">http://tengj.github.io/2017/03/13/springboot5/</a>
             <span class="copy-path" data-clipboard-text="原文: http://tengj.github.io/2017/03/13/springboot5/　　作者: Teng Jun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

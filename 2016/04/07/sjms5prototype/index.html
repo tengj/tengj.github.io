@@ -15,24 +15,18 @@
 
 
 
-<meta name="description" content="前言今天介绍原型模式，我自己偷偷给它命名为克隆模式。因为原型模式的意图是通过复制一个现有的对象来生成新的对象，而不是通过实例化的方式。
-正文原型模式概念原型模式(Prototype Pattern)：使用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。原型模式是一种对象创建型模式。  
-该接口用于创建当前对象的克隆。当直接创建对象的代价比较大时，则采用这种模式。例如，一个对象需要在一">
+<meta name="description" content="今天介绍原型模式，我自己偷偷给它命名为克隆模式。因为原型模式的意图是通过复制一个现有的对象来生成新的对象，而不是通过实例化的方式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式干货系列：（五）原型模式【学习难度：★★★☆☆，使用频率：★★★☆☆】">
 <meta property="og:url" content="http://tengj.github.io/2016/04/07/sjms5prototype/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="前言今天介绍原型模式，我自己偷偷给它命名为克隆模式。因为原型模式的意图是通过复制一个现有的对象来生成新的对象，而不是通过实例化的方式。
-正文原型模式概念原型模式(Prototype Pattern)：使用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。原型模式是一种对象创建型模式。  
-该接口用于创建当前对象的克隆。当直接创建对象的代价比较大时，则采用这种模式。例如，一个对象需要在一">
+<meta property="og:description" content="今天介绍原型模式，我自己偷偷给它命名为克隆模式。因为原型模式的意图是通过复制一个现有的对象来生成新的对象，而不是通过实例化的方式。">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/sjms5_1.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
-<meta property="og:updated_time" content="2016-04-07T11:47:21.642Z">
+<meta property="og:updated_time" content="2017-03-18T00:19:23.842Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式干货系列：（五）原型模式【学习难度：★★★☆☆，使用频率：★★★☆☆】">
-<meta name="twitter:description" content="前言今天介绍原型模式，我自己偷偷给它命名为克隆模式。因为原型模式的意图是通过复制一个现有的对象来生成新的对象，而不是通过实例化的方式。
-正文原型模式概念原型模式(Prototype Pattern)：使用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。原型模式是一种对象创建型模式。  
-该接口用于创建当前对象的克隆。当直接创建对象的代价比较大时，则采用这种模式。例如，一个对象需要在一">
+<meta name="twitter:description" content="今天介绍原型模式，我自己偷偷给它命名为克隆模式。因为原型模式的意图是通过复制一个现有的对象来生成新的对象，而不是通过实例化的方式。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -187,11 +181,15 @@
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
                     </nav>
@@ -200,7 +198,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springMVC/">springMVC</a></li></ul>
                     </div>
                 </section>
                 
@@ -265,11 +263,15 @@
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" target="_blank" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" target="_blank" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
             </nav>
@@ -380,7 +382,7 @@
         <p><span>本文标题:</span><a href="/2016/04/07/sjms5prototype/">设计模式干货系列：（五）原型模式【学习难度：★★★☆☆，使用频率：★★★☆☆】</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Teng Jun</a></p>
         <p><span>发布时间:</span>2016-04-07, 17:59:00</p>
-        <p><span>最后更新:</span>2016-04-07, 19:47:21</p>
+        <p><span>最后更新:</span>2017-03-18, 08:19:23</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/04/07/sjms5prototype/" title="设计模式干货系列：（五）原型模式【学习难度：★★★☆☆，使用频率：★★★☆☆】">http://tengj.github.io/2016/04/07/sjms5prototype/</a>
             <span class="copy-path" data-clipboard-text="原文: http://tengj.github.io/2016/04/07/sjms5prototype/　　作者: Teng Jun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

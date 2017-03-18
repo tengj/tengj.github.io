@@ -15,12 +15,12 @@
 
 
 
-<meta name="description" content="前言暂存区（stage, index）是Git最重要的概念之一，理解了这个概念很多 Git 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。">
+<meta name="description" content="暂存区`（stage, index）`是` Git`最重要的概念之一，理解了这个概念很多 `Git` 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git干货系列：（二）深入学习之前先理解git暂存区">
 <meta property="og:url" content="http://tengj.github.io/2016/03/23/git2konwindex/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="前言暂存区（stage, index）是Git最重要的概念之一，理解了这个概念很多 Git 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。">
+<meta property="og:description" content="暂存区`（stage, index）`是` Git`最重要的概念之一，理解了这个概念很多 `Git` 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_1.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_2.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_3.png">
@@ -34,10 +34,10 @@
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_11.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_12.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
-<meta property="og:updated_time" content="2016-04-02T07:08:20.222Z">
+<meta property="og:updated_time" content="2017-03-18T00:22:08.147Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git干货系列：（二）深入学习之前先理解git暂存区">
-<meta name="twitter:description" content="前言暂存区（stage, index）是Git最重要的概念之一，理解了这个概念很多 Git 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。">
+<meta name="twitter:description" content="暂存区`（stage, index）`是` Git`最重要的概念之一，理解了这个概念很多 `Git` 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -192,11 +192,15 @@
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
                     </nav>
@@ -205,7 +209,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springMVC/">springMVC</a></li></ul>
                     </div>
                 </section>
                 
@@ -270,11 +274,15 @@
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" target="_blank" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" target="_blank" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
             </nav>
@@ -331,7 +339,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>暂存区<code>（stage, index）</code>是<code>Git</code>最重要的概念之一，理解了这个概念很多 <code>Git</code> 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。<br><a id="more"></a> </p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>暂存区<code>（stage, index）</code>是<code>Git</code>最重要的概念之一，理解了这个概念很多 <code>Git</code> 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>下面这个图展示了工作区、版本库中的暂存区和版本库之间的关系。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_1.png" alt=""><br>在这个图中，我们可以看到部分 <code>Git</code>命令是如何影响工作区和暂存区<code>（stage, index）</code>的。</p>
 <ul>
 <li>图中左侧为工作区，右侧为版本库。在版本库中标记为 <code>index</code> 的区域是暂存区<code>（stage, index）</code>，标记为 <code>master</code> 的是 <code>master</code> 分支所代表的目录树。</li>
@@ -413,7 +421,7 @@
         <p><span>本文标题:</span><a href="/2016/03/23/git2konwindex/">git干货系列：（二）深入学习之前先理解git暂存区</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Teng Jun</a></p>
         <p><span>发布时间:</span>2016-03-23, 10:33:27</p>
-        <p><span>最后更新:</span>2016-04-02, 15:08:20</p>
+        <p><span>最后更新:</span>2017-03-18, 08:22:08</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/03/23/git2konwindex/" title="git干货系列：（二）深入学习之前先理解git暂存区">http://tengj.github.io/2016/03/23/git2konwindex/</a>
             <span class="copy-path" data-clipboard-text="原文: http://tengj.github.io/2016/03/23/git2konwindex/　　作者: Teng Jun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

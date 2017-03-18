@@ -15,22 +15,19 @@
 
 
 
-<meta name="description" content="前言上一篇介绍简单工厂模式的时候提到它对开闭原则支持的不够，因为如果有新的产品加入到系统中去，就需要修改工厂类，就违反了开闭原则了，这次介绍的工厂方法模式在保持简单工厂模式优点的前提下，还满足了开闭原则，关键在于它的多态性。
-正文工厂方法模式概念工厂方法模式是类的创建模式，又叫做虚拟构造子(Cirtual Constructor)模式或者多态工厂（Polymorphic Factory）模式。">
+<meta name="description" content="上一篇介绍`简单工厂模式`的时候提到它对`开闭原则`支持的不够，因为如果有新的产品加入到系统中去，就需要修改工厂类，就违反了`开闭原则`了，这次介绍的工厂方法模式在保持简单工厂模式优点的前提下，还满足了开闭原则，关键在于它的多态性。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式干货系列：（二）工厂方法模式【学习难度：★★☆☆☆，使用频率：★★★★★】">
 <meta property="og:url" content="http://tengj.github.io/2016/04/03/sjms2factorymethod/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="前言上一篇介绍简单工厂模式的时候提到它对开闭原则支持的不够，因为如果有新的产品加入到系统中去，就需要修改工厂类，就违反了开闭原则了，这次介绍的工厂方法模式在保持简单工厂模式优点的前提下，还满足了开闭原则，关键在于它的多态性。
-正文工厂方法模式概念工厂方法模式是类的创建模式，又叫做虚拟构造子(Cirtual Constructor)模式或者多态工厂（Polymorphic Factory）模式。">
+<meta property="og:description" content="上一篇介绍`简单工厂模式`的时候提到它对`开闭原则`支持的不够，因为如果有新的产品加入到系统中去，就需要修改工厂类，就违反了`开闭原则`了，这次介绍的工厂方法模式在保持简单工厂模式优点的前提下，还满足了开闭原则，关键在于它的多态性。">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/sjms2_1.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/sjms2_2.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
-<meta property="og:updated_time" content="2016-04-07T11:50:48.346Z">
+<meta property="og:updated_time" content="2017-03-18T00:18:23.816Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式干货系列：（二）工厂方法模式【学习难度：★★☆☆☆，使用频率：★★★★★】">
-<meta name="twitter:description" content="前言上一篇介绍简单工厂模式的时候提到它对开闭原则支持的不够，因为如果有新的产品加入到系统中去，就需要修改工厂类，就违反了开闭原则了，这次介绍的工厂方法模式在保持简单工厂模式优点的前提下，还满足了开闭原则，关键在于它的多态性。
-正文工厂方法模式概念工厂方法模式是类的创建模式，又叫做虚拟构造子(Cirtual Constructor)模式或者多态工厂（Polymorphic Factory）模式。">
+<meta name="twitter:description" content="上一篇介绍`简单工厂模式`的时候提到它对`开闭原则`支持的不够，因为如果有新的产品加入到系统中去，就需要修改工厂类，就违反了`开闭原则`了，这次介绍的工厂方法模式在保持简单工厂模式优点的前提下，还满足了开闭原则，关键在于它的多态性。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -185,11 +182,15 @@
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
                     </nav>
@@ -198,7 +199,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springMVC/">springMVC</a></li></ul>
                     </div>
                 </section>
                 
@@ -263,11 +264,15 @@
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" target="_blank" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" target="_blank" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
             </nav>
@@ -370,7 +375,7 @@
         <p><span>本文标题:</span><a href="/2016/04/03/sjms2factorymethod/">设计模式干货系列：（二）工厂方法模式【学习难度：★★☆☆☆，使用频率：★★★★★】</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Teng Jun</a></p>
         <p><span>发布时间:</span>2016-04-03, 23:28:14</p>
-        <p><span>最后更新:</span>2016-04-07, 19:50:48</p>
+        <p><span>最后更新:</span>2017-03-18, 08:18:23</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/04/03/sjms2factorymethod/" title="设计模式干货系列：（二）工厂方法模式【学习难度：★★☆☆☆，使用频率：★★★★★】">http://tengj.github.io/2016/04/03/sjms2factorymethod/</a>
             <span class="copy-path" data-clipboard-text="原文: http://tengj.github.io/2016/04/03/sjms2factorymethod/　　作者: Teng Jun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

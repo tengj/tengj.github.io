@@ -183,11 +183,15 @@
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
                     </nav>
@@ -196,7 +200,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springMVC/">springMVC</a></li></ul>
                     </div>
                 </section>
                 
@@ -261,11 +265,15 @@
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" target="_blank" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" target="_blank" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
             </nav>
@@ -313,64 +321,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>因为<code>gitHub</code>上的项目是公开的，不适合公司内部项目放在上面，而私人的需要收费，这绝非是我们愿意的。所以找了个跟<code>gitHub</code>很相似，但是又免费的<code>gitLab</code>。现在将搭建<code>gitLab</code>过程记录一下留作参考。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="gitLab介绍"><a href="#gitLab介绍" class="headerlink" title="gitLab介绍"></a>gitLab介绍</h2><p><a href="https://about.gitlab.com/" target="_blank" rel="external">GitLab</a>是利用 <code>Ruby on Rails</code> 一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。它拥有与Github类似的功能，能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序(Wall)进行交流。它还提供一个代码片段收集功能可以轻松实现代码复用，便于日后有需要的时候进行查找。  </p>
-<p>依赖组件：ruby 1.9.3+，MySQL，git，redis， Sidekiq。<br>最低配置CPU 1G，RAM 1G+swap可以支持100用户。</p>
-<h2 id="先连接SSH"><a href="#先连接SSH" class="headerlink" title="先连接SSH"></a>先连接SSH</h2><p>首先要确定<code>ubuntu</code>上安装并且启动了<code>ssh</code>服务,然后还要确保<code>linux</code>系统上的防火墙要关闭,<code>win8</code>的防火墙可以正常开启<br><code>SSH</code>(仿真终端工具有PUTTY，SecureCRT 以及Fterm等）可以<code>google</code>下载的了.<br>步骤:<br>1, 有人说首先要在<code>Virtual Network Editor</code>做<code>NAT</code>的端口映射,其实是不需要的;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps <span class="operator">-e</span>|grep ssh</span><br></pre></td></tr></table></figure></p>
-<p>如果结果中只有<code>ssh-agent</code>,那说明<code>ssh-server</code>还没有启动,一般<code>ubuntu</code>是默认安装<code>ssh</code>的,要是没有安装,可以通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openssh-server</span><br></pre></td></tr></table></figure></p>
-<p>安装ssh服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/ssh start</span><br></pre></td></tr></table></figure></p>
-<p>启动ssh服务</p>
-<h2 id="初始化root密码"><a href="#初始化root密码" class="headerlink" title="初始化root密码"></a>初始化root密码</h2><p><code>ubuntn</code>刚安装时候<code>root</code>还没有密码，设置一个，使用命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo passwd</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_1.png" alt=""></p>
-<h2 id="安装gitlib整合包"><a href="#安装gitlib整合包" class="headerlink" title="安装gitlib整合包"></a>安装gitlib整合包</h2><p><a href="https://about.gitlab.com/downloads/" target="_blank" rel="external">官方有安装包</a>与脚本下载，<a href="https://about.gitlab.com/installation/" target="_blank" rel="external">官方安装指南</a>。同样GITHUB上有个社区非官方的<a href="https://github.com/gitlabhq/gitlab-recipes" target="_blank" rel="external">安装指南</a>。<br>但这儿里推荐<code>bitnami</code>下载打包安装版本 <a href="https://bitnami.com/stack/gitlab/installer" title="https://bitnami.com/stack/gitlab/installer" target="_blank" rel="external">https://bitnami.com/stack/gitlab/installer</a> ,省去很多时间。他们也提供相关<a href="http://wiki.bitnami.com/Applications/BitNami_GitLab" target="_blank" rel="external">WIKI</a><br>以<a href="http://www.ubuntu.com/download/" target="_blank" rel="external">ubuntu</a>为演示环境，来安装这个包，切换到<code>root</code>账户, 在终端运行：<br>如果没有权限，先授权账号：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod <span class="number">777</span> bitnami-gitlab-<span class="number">8.5</span>.<span class="number">7</span>-<span class="number">0</span>-linux-x64-installer.run</span><br></pre></td></tr></table></figure></p>
-<p>然后切换<code>root</code>用户执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bitnami-gitlab-<span class="number">8.5</span>.<span class="number">7</span>-<span class="number">0</span>-linux-x64-installer.run</span><br></pre></td></tr></table></figure></p>
-<p>执行后就会弹出图形化界面，一步步确认就行，如下图<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_2.jpg" alt="">  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_3.jpg" alt="">  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_4.jpg" alt="">  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_5.jpg" alt="">  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_6.jpg" alt="">  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_7.jpg" alt="">  </p>
-<h2 id="启动命令"><a href="#启动命令" class="headerlink" title="启动命令"></a>启动命令</h2><p>第一次安装好了就默认启动了<code>gitlab</code>，如果要手动启动的话有两种办法<br>1.找到安装好的路径<code>/opt/gitlab-8.5.7-0</code><br>需要<code>root</code>权限执行命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo ./ctlscript.sh start</span><br><span class="line">```  </span><br><span class="line">![](http://<span class="number">7</span>xqch5.com1.z0.glb.clouddn.com/git6_8.png)  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">2</span>.也可以查看`GUI`管理控制台，在`Manage Servers中`选择`Start All`启动所有</span><br><span class="line">``` bash</span><br><span class="line">sudo ./manager-linux-x64.run</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_9.png" alt=""></p>
-<h2 id="登陆系统"><a href="#登陆系统" class="headerlink" title="登陆系统"></a>登陆系统</h2><p>启动后，就可以访问系统页面了，这里先通过ifconfig命令获取当前的ip地址<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_10.png" alt=""><br>我的是<code>192.168.153.128</code>，于是就可以在外面<code>window</code>系统浏览器访问  </p>
-<p><a href="http://192.168.153.128/users/sign_in" target="_blank" rel="external">http://192.168.153.128/users/sign_in</a>  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_11.png" alt="">  </p>
-<p>使用我之前配置的<code>git</code>登陆,我之前安装的时候配置的管理员账号是<code>git</code>,密码12345678，<br>这里我登陆后发现跳转到<code>404</code>页面，把地址<code>http://192.168.153.128/users/sign_in</code><br>后面的<code>users/sign_in</code>删掉回车就行,就去后界面如下：  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_12.png" alt="">  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_13.png" alt=""></p>
-<h2 id="创建项目前的设置"><a href="#创建项目前的设置" class="headerlink" title="创建项目前的设置"></a>创建项目前的设置</h2><p>如果你是自己一个人玩就直接创建项目即可，因为我这边是给团队使用的，所以需要创建一下用户组，以及添加组成员，配置权限等，下面来介绍这些配置</p>
-<h2 id="配置服务器邮件"><a href="#配置服务器邮件" class="headerlink" title="配置服务器邮件"></a>配置服务器邮件</h2><p>添加人员或者自己注册的时候需要发邮件激活，所以要先配置服务器，我在<code>bitnami</code>提供的<a href="https://wiki.bitnami.com/Applications/BitNami_GitLab#How_to_configure_the_email_settings_of_GitLab.3f" target="_blank" rel="external">wiki</a>里面找到了办法，原文如下：</p>
-<blockquote>
-<p> <em>How to configure the email settings of GitLab?</em><br>You can configure the SMTP settings during the installation process. If you are using the Virtual Machine or AMI, you can configure it manually. For example, these are the options to configure it using a GMail account:<br>/opt/bitnami/apps/gitlab/htdocs/config/environments/production.rb<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">config.action_mailer.raise_delivery_errors = <span class="literal">true</span></span><br><span class="line">config.action_mailer.delivery_method = :smtp   </span><br><span class="line">config.action_mailer.perform_deliveries = <span class="literal">true</span></span><br><span class="line">config.action_mailer.smtp_settings = &#123;</span><br><span class="line">:address =&gt; <span class="string">"smtp.gmail.com"</span>,</span><br><span class="line">:port =&gt; <span class="number">587</span>,</span><br><span class="line">:domain =&gt; <span class="string">"gmail.com"</span>,</span><br><span class="line">:authentication =&gt; :plain,</span><br><span class="line">:user_name =&gt; <span class="string">"your_account@gmail.com"</span>,</span><br><span class="line">:，password =&gt; <span class="string">"your_password"</span>,</span><br><span class="line">:<span class="built_in">enable</span>_starttls_auto =&gt; <span class="literal">true</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>简单的说就是修改<code>/opt/bitnami/apps/gitlab/htdocs/config/environments/production.rb</code>文件，里面的内容，<code>address</code>，<code>domain</code>，<code>user_name</code>，<code>password</code>这几个配置成你自己的邮箱，记得你的邮箱必须要支持<code>smtp</code>。<code>port</code>端口我默认也是587，不需要修改。<br>配置好了邮箱，就要测试一下，我们在<code>http://192.168.153.128/users/sign_in</code> 首页，注册一个额用户，然后我收到邮件激活，然后就可以登陆系统了。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_141.png" alt="">  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_15.jpg" alt="">  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_16.png" alt="">  </p>
-<p>可以看到，非管理员登陆右上角就没有<code>Admin Area</code>功能</p>
-<h2 id="创建小组，添加组内成员"><a href="#创建小组，添加组内成员" class="headerlink" title="创建小组，添加组内成员"></a>创建小组，添加组内成员</h2><p>让组内成员自己注册账号激活后，我们就准备创建小组了，创建小组是为了方便管理，创建项目的时候直接指定小组，这样小组内的成员都可以看到项目  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_17.png" alt="">  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_18.png" alt="">  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_19.png" alt="">  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_20.png" alt="">  </p>
-<h2 id="新增项目"><a href="#新增项目" class="headerlink" title="新增项目"></a>新增项目</h2><p>小组创建好了就可以新增一个项目了,这里创建的时候选择<code>edw</code>这个创建好的小组，并且项目宣称<code>private</code>私有项目。这样只有小组内的成员可以下载这个项目  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_21.png" alt="">  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_22.png" alt="">  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_23.png" alt="">  </p>
-<h2 id="配置SSH-key"><a href="#配置SSH-key" class="headerlink" title="配置SSH key"></a>配置SSH key</h2><p>这里切换到<code>tengj</code>用户登陆，发现已经有了<code>springmvctouchbaidu</code>项目  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_24.png" alt=""><br>但是要下载到本地还需要配置<code>SSH key</code>,复制我们本地<code>\.ssh\id_rsa.pub</code>的内容黏贴到下面图中指定的即可。  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_25.png" alt=""></p>
-<h2 id="远程下载项目"><a href="#远程下载项目" class="headerlink" title="远程下载项目"></a>远程下载项目</h2><p>这里模拟<code>tengj</code>下载远程项目，在这之前我已经用管理员账号把项目传上去了，如图  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_26.png" alt="">  </p>
-<p>指定一个目录存放该项目，执行<code>git clone</code>命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone git@192.168.153.128:edw/springmvctouchbaidu.git&#10;Cloning into &#39;springmvctouchbaidu&#39;...&#10;The authenticity of host &#39;192.168.153.128 (192.168.153.128)&#39; can&#39;t be established.&#10;ECDSA key fingerprint is SHA256:1SgfW1DLmaZ9m/E82vVtWjBK1AaP+LMW5U4ng8nv6uE.&#10;Are you sure you want to continue connecting (yes/no)? yes&#10;Warning: Permanently added &#39;192.168.153.128&#39; (ECDSA) to the list of known hosts.&#10;remote: &#23545;&#35937;&#35745;&#25968;&#20013;: 339, &#23436;&#25104;.&#10;remote: &#21387;&#32553;&#23545;&#35937;&#20013;: 100% (242/242), &#23436;&#25104;.&#10;remote: Total 339 (delta 68), reused 339 (delta 68)&#10;Receiving objects: 100% (339/339), 12.97 MiB | 14.44 MiB/s, done.&#10;Resolving deltas: 100% (68/68), done.&#10;Checking connectivity... done.</span><br></pre></td></tr></table></figure></p>
-<p>搞定，下载下来了。</p>
-<h2 id="配置权限"><a href="#配置权限" class="headerlink" title="配置权限"></a>配置权限</h2><p>前面文章也说过，一般一个实际项目中<code>master</code>用来版本发布，一般不在这个分支上开发，所以除了<code>git</code>管理员用户可以提交代码到<code>master</code>外，其他组成员只能<code>push</code>代码到<code>dev</code>这个分支。<br>比如我添加<code>tengj</code>用户的时候选择的是<code>Developer</code>角色，只要在<code>Protected Branches</code>中这个勾不够上就行了。这样开发人员就无法<code>push</code>代码到<code>master</code>分支上。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_27.png" alt="">  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_28.png" alt="">  </p>
-<p>下面模拟一下tengj用户提交代码：  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git6_29.png" alt="">  </p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>ok，花了三天时间终于搞定了，截图还是蛮累人的哈哈，算是比较详细的记录了我这次安装<code>gitlab</code>的过程，个人感觉比网络上的文章调理清晰多了。一开始查资料快累死了。希望对你有所帮助。</p>
-<hr>
-<p> 最近撸了个java的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花<br> <img src="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG" alt=""></p>
-
+              因为`gitHub`上的项目是公开的，不适合公司内部项目放在上面，而私人的需要收费，这绝非是我们愿意的。所以找了个跟`gitHub`很相似，但是又免费的`gitLab`。现在将搭建`gitLab`过程记录一下留作参考。
+          
       
     </div>
     
@@ -383,6 +335,10 @@
 
 
       
+      
+        <p class="article-more-link">
+          <a href="/2016/03/29/git6gitlab/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -438,87 +394,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>分支就是科幻电影里面的平行宇宙，当你正在电脑前努力学习<code>Git</code>的时候，另一个你正在另一个平行宇宙里努力学习<code>SVN</code>。如果两个平行宇宙互不干扰，那对现在的你也没啥影响。不过，在某个时间点，两个平行宇宙合并了，结果，你既学会了<code>Git</code>又学会了<code>SVN</code>！<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git5_14.png" alt=""></p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h2 id="分支简介"><a href="#分支简介" class="headerlink" title="分支简介"></a>分支简介</h2><p>为了真正理解 <code>Git</code> 处理分支的方式，我们需要回顾一下<code>Git</code>是如何保存数据的。<br>Git 保存的不是文件的变化或者差异，而是一系列不同时刻的文件快照。在进行提交操作时，<code>Git</code>会保存一个提交对象（<code>commit object</code>）。知道了<code>Git</code>保存数据的方式，我们可以很自然的想到——该提交对象会包含一个指向暂存内容快照的指针。 但不仅仅是这样，该提交对象还包含了作者的姓名和邮箱、提交时输入的信息以及指向它的父对象的指针。首次提交产生的提交对象没有父对象，普通提交操作产生的提交对象有一个父对象，而由多个分支合并产生的提交对象有多个父对象。  </p>
-<p><code>Git</code>的分支，其实本质上仅仅是指向提交对象的可变指针。 <code>Git</code>的默认分支名字是 <code>master</code>。 在多次提交操作之后，你其实已经有一个指向最后那个提交对象的 <code>master</code> 分支。 它会在每次的提交操作中自动向前移动。  </p>
-<blockquote>
-<p><code>Git</code> 的 “master” 分支并不是一个特殊分支。它就跟其它分支完全没有区别。 之所以几乎每一个仓库&gt; 都有 master 分支，是因为 <code>git init</code> 命令默认创建它，并且大多数人都懒得去改动它。</p>
-</blockquote>
-<p>分支在实际中有什么用呢？假设你准备开发一个新功能，但是需要两周才能完成，第一周你写了50%的代码，如果立刻提交，由于代码还没写完，不完整的代码库会导致别人不能干活了。如果等代码全部写完再一次提交，又存在丢失每天进度的巨大风险。<br>现在有了分支，就不用怕了。你创建了一个属于你自己的分支，别人看不到，还继续在原来的分支上正常工作，而你在自己的分支上干活，想提交就提交，直到开发完毕后，再一次性合并到原来的分支上，这样，既安全，又不影响别人工作。<br>其他版本控制系统如SVN等都有分支管理，但是用过之后你会发现，这些版本控制系统创建和切换分支比蜗牛还慢，简直让人无法忍受，结果分支功能成了摆设，大家都不去用。<br>但<code>Git</code>的分支是与众不同的，无论创建、切换和删除分支，<code>Git</code>在1秒钟之内就能完成！无论你的版本库是1个文件还是1万个文件。</p>
-<h2 id="分支创建"><a href="#分支创建" class="headerlink" title="分支创建"></a>分支创建</h2><p><code>Git</code>是怎么创建新分支的呢？ 很简单，它只是为你创建了一个可以移动的新的指针。 比如，创建一个 <code>testing</code>分支， 你需要使用 <code>git branch</code> 命令：  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch testing</span><br></pre></td></tr></table></figure>
-<p>这会在当前所在的提交对象上创建一个指针。  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git5_1.png" alt="两个指向相同提交历史的分支。">  </p>
-<p>那么，<code>Git</code>又是怎么知道当前在哪一个分支上呢？ 也很简单，它有一个名为 <code>HEAD</code> 的特殊指针。 请注意它和许多其它版本控制系统（如 Subversion 或 CVS）里的 <code>HEAD</code> 概念完全不同。 在 <code>Git</code>中，它是一个指针，指向当前所在的本地分支（译注：将 <code>HEAD</code> 想象为当前分支的别名）。 在本例中，你仍然在<code>master</code> 分支上。 因为 <code>git branch</code> 命令仅仅 <em>创建</em> 一个新分支，并不会自动切换到新分支中去。  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git5_2.png" alt="HEAD 指向当前所在的分支.">  </p>
-<p>你可以简单地使用 <code>git log</code> 命令查看各个分支当前所指的对象。 提供这一功能的参数是 <code>--decorate</code>。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --oneline --decorate</span><br><span class="line">f30ab (HEAD, master, testing) add feature <span class="comment">#32 - ability to add new</span></span><br><span class="line"><span class="number">34</span>ac2 fixed bug <span class="comment">#1328 - stack overflow under certain conditions</span></span><br><span class="line"><span class="number">98</span>ca9 initial commit of my project</span><br></pre></td></tr></table></figure>
-<p>正如你所见，当前 “master” 和 “testing” 分支均指向校验和以 <code>f30ab</code> 开头的提交对象。</p>
-<h2 id="分支切换"><a href="#分支切换" class="headerlink" title="分支切换"></a>分支切换</h2><p>要切换到一个已存在的分支，你需要使用<code>git checkout</code>命令。 我们现在切换到新创建的 <code>testing</code> 分支去：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout testing</span><br></pre></td></tr></table></figure></p>
-<p>这样 <code>HEAD</code> 就指向 <code>testing</code> 分支了。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git5_3.png" alt="HEAD 指向当前所在的分支."></p>
-<p>上面的创建分支和切换分支命令可以合起来用下面这个命令来替代。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b testing</span><br></pre></td></tr></table></figure></p>
-<p>那么，这样的实现方式会给我们带来什么好处呢？ 现在不妨再提交一次：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ vim test.rb</span><br><span class="line">$ git commit <span class="operator">-a</span> -m <span class="string">'made a change'</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git5_4.png" alt="HEAD 分支随着提交操作自动向前移动."><br>如图所示，你的 <code>testing</code> 分支向前移动了，但是 <code>master</code> 分支却没有，它仍然指向运行 <code>git checkout</code> 时所指的对象。 这就有意思了，现在我们切换回 <code>master</code> 分支看看：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git5_6.png" alt="检出时 HEAD 随之移动."><br>这条命令做了两件事。 一是使 HEAD 指回 <code>master</code> 分支，二是将工作目录恢复成 <code>master</code> 分支所指向的快照内容。 也就是说，你现在做修改的话，项目将始于一个较旧的版本。 本质上来讲，这就是忽略<code>testing</code> 分支所做的修改，以便于向另一个方向进行开发。<br>可以使用 <code>git branch</code>命令查看当前分支，注意前面带<code>*</code>的表示当前分支<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git5_13.png" alt=""></p>
-<hr>
-<blockquote>
-<p><strong>Note</strong><br><strong>分支切换会改变你工作目录中的文件</strong><br>在切换分支时，一定要注意你工作目录里的文件会被改变。 如果是切换到一个较旧的分支，你的工作目&gt; 录会恢复到该分支最后一次提交时的样子。 如果<code>Git</code>不能干净利落地完成这个任务，它将禁止切换分支。</p>
-</blockquote>
-<h2 id="合并分支（快速合并）"><a href="#合并分支（快速合并）" class="headerlink" title="合并分支（快速合并）"></a>合并分支（快速合并）</h2><p>假如我们在<code>testing</code>上的工作完成了，就可以把<code>testing</code>合并到<code>master</code>上。<code>Git</code>怎么合并呢？最简单的方法，就是直接把<code>master</code>指向<code>testing</code>的当前提交，就完成了合并，这里你需要使用<code>git merge</code>命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git merge testing</span><br><span class="line">Updating <span class="number">64</span>ba18a..<span class="number">760118</span>b</span><br><span class="line">Fast-forward</span><br><span class="line"> hello.txt | <span class="number">1</span> +</span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+)</span><br><span class="line"> create mode <span class="number">100644</span> hello.txt</span><br></pre></td></tr></table></figure></p>
-<p><code>git merge</code>命令用于合并指定分支到当前分支。合并后，再查看内容，就可以看到，和<code>testing</code>分支的最新提交是完全一样的。<br>注意到上面的<code>Fast-forward</code>信息，<code>Git</code>告诉我们，这次合并是“快进模式”，也就是直接把<code>master</code>指向<code>testing</code>的当前提交，所以合并速度非常快。<br>当然，也不是每次合并都能<code>Fast-forward</code>，我们后面会讲其他方式的合并。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git5_7.png" alt=""></p>
-<h2 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h2><p>合并完分支后，甚至可以删除<code>dev</code>分支。删除<code>dev</code>分支就是把<code>dev</code>指针给删掉，删掉后，我们就剩下了一条<code>master</code>分支,这里需要使用<code>git branch -d</code>命令来删除分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch <span class="operator">-d</span> testing</span><br><span class="line">Deleted branch testing (was <span class="number">760118</span>b).</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git5_8.png" alt=""></p>
-<h2 id="分支合并冲突"><a href="#分支合并冲突" class="headerlink" title="分支合并冲突"></a>分支合并冲突</h2><p>人生不如意之事十之八九，合并分支往往也不是一帆风顺的。<br>准备新的<code>dev</code>分支，继续我们的新分支开发：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b dev</span><br><span class="line">Switched to a new branch <span class="string">'dev'</span></span><br></pre></td></tr></table></figure></p>
-<p>修改<code>README.md</code>内容，添加一样内容”day day up~”，在<code>dev</code>分支上提交：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -am <span class="string">"one commit"</span></span><br><span class="line">[dev <span class="number">6</span>a6a08e] one commit</span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+)</span><br></pre></td></tr></table></figure></p>
-<p>切换到<code>master</code>分支：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br><span class="line">Switched to branch <span class="string">'master'</span></span><br><span class="line">Your branch is up-to-date with <span class="string">'origin/master'</span>.</span><br></pre></td></tr></table></figure></p>
-<p><code>Git</code>还会自动提示我们当前<code>master</code>分支比远程的<code>master</code>分支要超前1个提交。<br>在<code>master</code>分支上把<code>README.md</code>文件的最后改为 <code>good good study</code>,然后提价<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -am <span class="string">"two commit"</span></span><br><span class="line">[master <span class="number">75</span>d6f25] two commit</span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+)</span><br></pre></td></tr></table></figure></p>
-<p>现在，<code>master</code>分支和<code>dev</code>分支各自都分别有新的提交，变成了这样：<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git5_9.png" alt=""><br>这种情况下，Git无法执行“快速合并”，只能试图把各自的修改合并起来，但这种合并就可能会有冲突，我们试试看：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git merge dev</span><br><span class="line">Auto-merging README.md</span><br><span class="line">CONFLICT (content): Merge conflict <span class="keyword">in</span> README.md</span><br><span class="line">Automatic merge failed; fix conflicts and <span class="keyword">then</span> commit the result.</span><br></pre></td></tr></table></figure></p>
-<p>果然冲突了！Git告诉我们， README.md文件存在冲突，必须手动解决冲突后再提交。<code>git status</code>也可以告诉我们冲突的文件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is ahead of <span class="string">'origin/master'</span> by <span class="number">1</span> commit.</span><br><span class="line">  (use <span class="string">"git push"</span> to publish your <span class="built_in">local</span> commits)</span><br><span class="line">You have unmerged paths.</span><br><span class="line">  (fix conflicts and run <span class="string">"git commit"</span>)</span><br><span class="line"></span><br><span class="line">Unmerged paths:</span><br><span class="line">  (use <span class="string">"git add &lt;file&gt;..."</span> to mark resolution)</span><br><span class="line"></span><br><span class="line">        both modified:   README.md</span><br><span class="line"></span><br><span class="line">no changes added to commit (use <span class="string">"git add"</span> and/or <span class="string">"git commit -a"</span>)</span><br><span class="line">```  </span><br><span class="line">我们可以直接查看`README.md`的内容：  </span><br><span class="line">``` bash</span><br><span class="line">$ cat README.md</span><br><span class="line"><span class="comment">#gitLearn</span></span><br><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span><br><span class="line">good good study</span><br><span class="line">=======</span><br><span class="line">day day up</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; dev</span><br></pre></td></tr></table></figure></p>
-<p>Git用<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>，<code>=======</code>，<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>标记出不同分支的内容，我们修改如下后保存：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#gitLearn&#10;good good study&#10;day day up</span><br></pre></td></tr></table></figure></p>
-<p>再提交：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -am <span class="string">'merge commit'</span></span><br><span class="line">[master <span class="number">9</span>a4d00b] merge commit</span><br></pre></td></tr></table></figure></p>
-<p>现在，<code>master</code>分支和<code>dev</code>分支变成了下图所示：  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git5_10.png" alt="">  </p>
-<p>用带参数的<code>git log</code>也可以看到分支的合并情况：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --graph --pretty=oneline --abbrev-commit</span><br><span class="line">*   <span class="number">9</span>a4d00b merge commit</span><br><span class="line">|\</span><br><span class="line">| * <span class="number">6</span>a6a08e one commit</span><br><span class="line">* | <span class="number">75</span>d6f25 two commit</span><br><span class="line">|/</span><br><span class="line">* ae06dcf <span class="number">123</span></span><br><span class="line">* <span class="number">760118</span>b <span class="built_in">test</span></span><br><span class="line">*   <span class="number">64</span>ba18a <span class="built_in">test</span></span><br><span class="line">|\</span><br><span class="line">| *   <span class="number">4392848</span> Accept Merge Request <span class="comment">#1 test : (dev -&gt; master)</span></span><br><span class="line">| |\</span><br><span class="line">| | * a430c4b update README.md</span><br><span class="line">| |/</span><br><span class="line">| * <span class="number">88</span>ec6d7 Initial commit</span><br><span class="line">* <span class="number">32</span>d11c8 update README.md</span><br><span class="line">* <span class="number">8</span>d5acc1 new file README</span><br><span class="line">* e02f115 Initial commit</span><br><span class="line"></span><br><span class="line">```  </span><br><span class="line">最后，删除`feature1`分支：  </span><br><span class="line">``` bash</span><br><span class="line">$ git branch <span class="operator">-d</span> dev</span><br><span class="line">Deleted branch dev (was <span class="number">6</span>a6a08e).</span><br></pre></td></tr></table></figure></p>
-<h2 id="合并分支（普通合并）"><a href="#合并分支（普通合并）" class="headerlink" title="合并分支（普通合并）"></a>合并分支（普通合并）</h2><p>通常，合并分支时，如果可能，Git会用<code>Fast forward</code>模式，但这种模式下，删除分支后，会丢掉分支信息。<br>如果要强制禁用<code>Fast forward</code>模式，<code>Git</code>就会在<code>merge</code>时生成一个新的<code>commit</code>，这样，从分支历史上就可以看出分支信息。<br>下面我们实战一下<code>--no-ff</code>方式的<code>git merge</code>：<br>首先，仍然创建并切换<code>dev</code>分支：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b dev</span><br><span class="line">Switched to a new branch <span class="string">'dev'</span></span><br></pre></td></tr></table></figure></p>
-<p>修改README.md文件，并提交一个新的commit：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -am <span class="string">'submit'</span></span><br><span class="line">[dev fee6025] submit</span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+)</span><br></pre></td></tr></table></figure></p>
-<p>现在，我们切换回<code>master</code>：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br><span class="line">Switched to branch <span class="string">'master'</span></span><br></pre></td></tr></table></figure></p>
-<p>目前来说流程图是这样：  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git5_11.png" alt="">    </p>
-<p>准备合并<code>dev</code>分支，请注意<code>--no-ff</code>参数，表示禁用<code>Fast forward</code>：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git merge --no-ff -m <span class="string">"merge with no-ff"</span> dev</span><br><span class="line">Merge made by the <span class="string">'recursive'</span> strategy.</span><br><span class="line"> README.md | <span class="number">1</span> +</span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+)</span><br></pre></td></tr></table></figure></p>
-<p>因为本次合并要创建一个新的commit，所以加上<code>-m</code>参数，把commit描述写进去。</p>
-<p>合并后，我们用<code>git log</code>看看分支历史：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --graph --pretty=oneline --abbrev-commit</span><br><span class="line">*   b98f802 merge with no-ff</span><br><span class="line">|\</span><br><span class="line">| * fee6025 submit</span><br><span class="line">|/</span><br><span class="line">*   <span class="number">9</span>a4d00b merge commit</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
-<p>可以看到，不使用<code>Fast forward</code>模式，merge后就像这样：<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git5_12.png" alt="">  </p>
-<h2 id="分支管理策略"><a href="#分支管理策略" class="headerlink" title="分支管理策略"></a>分支管理策略</h2><p>实际公司开发的时候一般3个分支就可以了：</p>
-<ol>
-<li>mster  主分支用来发布</li>
-<li>dev    日常开发用的分支</li>
-<li>bug    修改bug用的分支</li>
-</ol>
-<p>首先，<code>master</code>分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；<br>干活都在<code>dev</code>分支上，也就是说，<code>dev</code>分支是不稳定的，到某个时候，比如1.0版本发布时，再把<code>dev</code>分支合并到<code>master</code>上，在<code>master</code>分支发布1.0版本,你和你的小伙伴们每个人都在<code>dev</code>分支上干活，每个人都有自己的分支，时不时地往<code>dev</code>分支上合并就可以了；<br><code>bug</code>分支用来处理日常bug,搞定后合到dev分支即可；  </p>
-<p>假设远程公共仓库，有一个<code>master</code>和一个<code>dev</code>分支，进行多人协作开发时候（每个人的公钥必须加入到远程账号下，否则无法<code>push</code>）， 每个人都应该<code>clone</code>一份到本地。 但是<code>clone</code>的只是<code>master</code>，如果远程的<code>master</code>和<code>dev</code>一样，没关系；如果不一致，则需要<code>clone</code>出<code>dev</code>分支 <code>git checkout -b dev origin/dev</code> 之后每个人在本地的<code>dev</code>分支上独自开发（最好不要在<code>mast</code>上开发）， 开发完成之后<code>push</code>到远程<code>dev</code>, <code>git push origin dev</code>。 之后审核人再确定是否合并<code>dev</code>到<code>master</code>。  </p>
-<h2 id="团队多人开发协作"><a href="#团队多人开发协作" class="headerlink" title="团队多人开发协作"></a>团队多人开发协作</h2><p>当你从远程仓库克隆时，实际上Git自动把本地的<code>master</code>分支和远程的<code>master</code>分支对应起来了，并且，远程仓库的默认名称是<code>origin</code>。<br>要查看远程库的信息，用<code>git remote</code>：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git remote</span><br><span class="line">origin</span><br></pre></td></tr></table></figure></p>
-<p>或者，用<code>git remote -v</code>显示更详细的信息：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v</span><br><span class="line">origin  git@git.coding.net:tengj/gitLearn.git (fetch)</span><br><span class="line">origin  git@git.coding.net:tengj/gitLearn.git (push)</span><br></pre></td></tr></table></figure></p>
-<p>上面显示了可以抓取和推送的<code>origin</code>的地址。如果没有推送权限，就看不到push的地址。</p>
-<h3 id="推送分支"><a href="#推送分支" class="headerlink" title="推送分支"></a>推送分支</h3><p>推送分支，就是把该分支上的所有本地提交推送到远程库。推送时，要指定本地分支，这样，<code>Git</code>就会把该分支推送到远程库对应的远程分支上：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure></p>
-<p>如果要推送其他分支，比如<code>dev</code>，就改成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin dev</span><br></pre></td></tr></table></figure></p>
-<h3 id="抓取分支"><a href="#抓取分支" class="headerlink" title="抓取分支"></a>抓取分支</h3><p>多人协作时，大家都会往<code>master</code>和<code>dev</code>分支上推送各自的修改。<br>现在，模拟一个你的小伙伴，可以在另一台电脑（注意要把<code>SSH Key</code>添加到<code>GitHub</code>）或者同一台电脑的另一个目录下克隆：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> git@git.coding.net:tengj/gitStudy.git</span><br><span class="line">Cloning into <span class="string">'gitStudy'</span>...</span><br><span class="line">remote: Counting objects: <span class="number">3</span>, done.</span><br><span class="line">remote: Total <span class="number">3</span> (delta <span class="number">0</span>), reused <span class="number">0</span> (delta <span class="number">0</span>)</span><br><span class="line">Receiving objects: <span class="number">100</span>% (<span class="number">3</span>/<span class="number">3</span>), done.</span><br><span class="line">Checking connectivity... done.</span><br><span class="line">```  </span><br><span class="line">当你的小伙伴从远程库<span class="built_in">clone</span>时，默认情况下，你的小伙伴只能看到本地的`master`分支。不信可以用`git branch`命令看看：</span><br><span class="line">``` bash</span><br><span class="line">$ git branch</span><br><span class="line">* master</span><br></pre></td></tr></table></figure></p>
-<p>现在，你的小伙伴要在<code>dev</code>分支上开发，就必须创建远程<code>origin</code>的<code>dev</code>分支到本地，于是他用这个命令创建本地<code>dev</code>分支（程分支dev要先创建）。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b dev</span><br><span class="line">git</span><br></pre></td></tr></table></figure></p>
-<p>创建dev分之后，先同步远程服务器上的数据到本地<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git fetch origin</span><br><span class="line">From git.coding.net:tengj/gitStudy</span><br><span class="line"> * [new branch]      dev        -&gt; origin/dev</span><br></pre></td></tr></table></figure></p>
-<p>现在，他就可以在<code>dev</code>上继续修改，然后，时不时地把<code>dev</code>分支<code>push</code>到远程：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -am &#39;test&#39;&#10;[dev c120ad6] test&#10; 1 file changed, 1 insertion(+)&#10;$ git push origin dev&#10;Counting objects: 3, done.&#10;Delta compression using up to 4 threads.&#10;Compressing objects: 100% (2/2), done.&#10;Writing objects: 100% (3/3), 262 bytes | 0 bytes/s, done.&#10;Total 3 (delta 0), reused 0 (delta 0)&#10;To git@git.coding.net:tengj/gitStudy.git&#10;   65c05aa..c120ad6  dev -&#62; dev</span><br></pre></td></tr></table></figure></p>
-<p>你的小伙伴已经向<code>origin/dev</code>分支推送了他的提交，而碰巧你也对同样的文件作了修改，并试图推送：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin dev</span><br><span class="line">To git@git.coding.net:tengj/gitStudy.git</span><br><span class="line"> ! [rejected]        dev -&gt; dev (fetch first)</span><br><span class="line">error: failed to push some refs to <span class="string">'git@git.coding.net:tengj/gitStudy.git'</span></span><br><span class="line">hint: Updates were rejected because the remote contains work that you <span class="keyword">do</span></span><br><span class="line">hint: not have locally. This is usually caused by another repository pushing</span><br><span class="line">hint: to the same ref. You may want to first integrate the remote changes</span><br><span class="line">hint: (e.g., <span class="string">'git pull ...'</span>) before pushing again.</span><br><span class="line">hint: See the <span class="string">'Note about fast-forwards'</span> <span class="keyword">in</span> <span class="string">'git push --help'</span> <span class="keyword">for</span> details.</span><br></pre></td></tr></table></figure></p>
-<p>推送失败，因为你的小伙伴的最新提交和你试图推送的提交有冲突，解决办法也很简单，Git已经提示我们，先用<code>git pull</code>把最新的提交从<code>origin/dev</code>抓下来，然后，在本地合并，解决冲突，再推送：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ git pull origin dev</span><br><span class="line">remote: Counting objects: <span class="number">3</span>, done.</span><br><span class="line">remote: Compressing objects: <span class="number">100</span>% (<span class="number">2</span>/<span class="number">2</span>), done.</span><br><span class="line">remote: Total <span class="number">3</span> (delta <span class="number">0</span>), reused <span class="number">0</span> (delta <span class="number">0</span>)</span><br><span class="line">Unpacking objects: <span class="number">100</span>% (<span class="number">3</span>/<span class="number">3</span>), done.</span><br><span class="line">From git.coding.net:tengj/gitStudy</span><br><span class="line"> * branch            dev        -&gt; FETCH_HEAD</span><br><span class="line">   b7b87f4..f636337  dev        -&gt; origin/dev</span><br><span class="line">Auto-merging a.txt</span><br><span class="line">CONFLICT (content): Merge conflict <span class="keyword">in</span> a.txt</span><br><span class="line">Automatic merge failed; fix conflicts and <span class="keyword">then</span> commit the result.</span><br></pre></td></tr></table></figure></p>
-<p>因此，多人协作的工作模式通常是这样：</p>
-<ol>
-<li>首先，可以试图用<code>git push origin branch-name</code>推送自己的修改；</li>
-<li>如果推送失败，则因为远程分支比你的本地更新，需要先用<code>git pull</code>试图合并；</li>
-<li>如果合并有冲突，则解决冲突，并在本地提交；</li>
-<li>没有冲突或者解决掉冲突后，再用<code>git push origin branch-name</code>推送就能成功！</li>
-</ol>
-<p>如果<code>git pull</code>提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令<code>git branch --set-upstream-to branch-name origin/branch-name</code>。<br>这就是多人协作的工作模式，一旦熟悉了，就非常简单。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>到此，<code>Git</code>分支管理就学完了，整理一下所学的命令，大体如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">git branch           查看当前分支</span><br><span class="line">git branch -v        查看每一个分支的最后一次提交</span><br><span class="line">git branch <span class="operator">-a</span>        查看本地和远程分支的情况</span><br><span class="line">git branch --merged  查看已经与当前分支合并的分支</span><br><span class="line">git branch --no-merged 查看已经与当前分支未合并的分支</span><br><span class="line">git branch -r        查看远程分支</span><br><span class="line">git branch dev       创建分支 dev</span><br><span class="line">git checkout dev     切换到分支dev</span><br><span class="line">git checkout -b dev  创建并切换分支dev</span><br><span class="line">git merge dev        名称为dev的分支与当前分支合并</span><br><span class="line">git branch <span class="operator">-d</span> dev    删除分支dev</span><br></pre></td></tr></table></figure></p>
-<hr>
-<p>最近撸了个java的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG" alt=""></p>
-
+              分支就是科幻电影里面的平行宇宙，当你正在电脑前努力学习`Git`的时候，另一个你正在另一个平行宇宙里努力学习`SVN`。如果两个平行宇宙互不干扰，那对现在的你也没啥影响。不过，在某个时间点，两个平行宇宙合并了，结果，你既学会了`Git`又学会了`SVN`！ 
+          
       
     </div>
     
@@ -531,6 +408,10 @@
 
 
       
+      
+        <p class="article-more-link">
+          <a href="/2016/03/27/git5branch/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -586,36 +467,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><code>Git</code>本地操作的熟练了后，就可以尝试连接远程仓库了，目前国内外比较出名的提供<code>Git</code>仓库远程托管的有国外的<code>github</code>，国内的<code>开源中国</code>以及<code>coding</code>。这里我以<code>coding</code>为例子介绍如何操作远程仓库。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>假如你现在本地有一个<code>gitLearn</code>的项目，想托管到<code>coding</code>上面，那么你先进入<code>coding</code>创建一个仓库，如图。  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git4_1.png" alt=""><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git4_2.png" alt="">  </p>
-<p>创建完后复制远程仓库的SSH方式的地址。</p>
-<h2 id="连接远仓库命令"><a href="#连接远仓库命令" class="headerlink" title="连接远仓库命令"></a>连接远仓库命令</h2><p>现进入本地<code>gitLearn</code>的目录，执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure></p>
-<p>初始化你的项目，然后提交你的代码到本地库，执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add readme.txt</span><br><span class="line">git commit -m <span class="string">"first submit"</span></span><br></pre></td></tr></table></figure></p>
-<p>此时你的代码已经在本地库了，执行命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@git.coding.net:tengj/gitLearn.git</span><br></pre></td></tr></table></figure>
-<p>就连上了远程的<code>gitLearn</code>项目。远程库的名字就是<code>origin</code>，这是Git默认的叫法，也可以改成别的，但是<code>origin</code>这个名字一看就知道是远程库。</p>
-<h2 id="列出远端别名"><a href="#列出远端别名" class="headerlink" title="列出远端别名"></a>列出远端别名</h2><p>我们可以使用<code>git remote</code>来列出远端别名，如果没有任何参数，<code>Git</code>会列出它存储的远端仓库别名了事。默认情况下，如果你的项目是克隆的（与本地创建一个新的相反）， <code>Git</code>会自动将你的项目克隆自的仓库添加到列表中，并取名“<code>origin</code>”。 如果你执行时加上 <code>-v</code> 参数，你还可以看到每个别名的实际链接地址。  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git4_3.png" alt=""></p>
-<h2 id="推送内容到远程库"><a href="#推送内容到远程库" class="headerlink" title="推送内容到远程库"></a>推送内容到远程库</h2><p>连上之后就可以推送代码到远程仓库了，执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git4_4.png" alt="">  </p>
-<p>由于远程库是空的，我们第一次推送<code>master</code>分支时，加上了<code>-u</code>参数，<code>Git</code>不但会把本地的<code>master</code>分支内容推送的远程新的<code>master</code>分支，还会把本地的<code>master</code>分支和远程的<code>master</code>分支关联起来，在以后的推送或者拉取时就可以简化命令，直接用<code>git push origin master</code>。<br>推送完后，可以查看远程仓库上多了<code>readme.txt</code>文件。  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git4_8.png" alt=""></p>
-<p>如果你使用上面命令出现如下错误提示：  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git4_5.png" alt="">  </p>
-<p>不用紧张，那是因为你<code>HEAD</code>区域还是空的，记得先用<code>git add</code>和<code>git commit</code>命令提交你想提交的文件到<code>HEAD</code>。然后在用<code>git push -u origin master</code>就可以了。</p>
-<h2 id="从远程仓库下载项目到本地"><a href="#从远程仓库下载项目到本地" class="headerlink" title="从远程仓库下载项目到本地"></a>从远程仓库下载项目到本地</h2><p>在网上看到别人的项目了，想要下载下来该如何，用<code>git clone</code><br>比如我想在我电脑<code>E:\gitRepository</code>目录下面下载这个远程仓库项目<br>直接使用命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@git.coding.net:tengj/gitLearn.git</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git4_6.png" alt="">  </p>
-<p>就会下载项目到<code>E:\gitRepository</code>下面，如图，大家看到了<code>gitLean</code>了没，这个就是远程的仓库项目，<code>gitLean</code>是我远程仓库项目的项目名。</p>
-<h2 id="从远端仓库提取数据并尝试合并到当前分支"><a href="#从远端仓库提取数据并尝试合并到当前分支" class="headerlink" title="从远端仓库提取数据并尝试合并到当前分支"></a>从远端仓库提取数据并尝试合并到当前分支</h2><p>如果你跟别人一起连着一个远程仓库项目，别人提交了代码，你想更新成最新的代码怎么办。<br>使用<code>git pull</code>命令即可</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git4_7.png" alt=""></p>
-<h2 id="删除跟远程仓库的连接"><a href="#删除跟远程仓库的连接" class="headerlink" title="删除跟远程仓库的连接"></a>删除跟远程仓库的连接</h2><p>如果你需要删除一个远端 —— 不再需要它了、项目已经没了，等等 —— 你可以使用 <code>git remote rm [alias]</code> 把它删掉。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote rm origin</span><br></pre></td></tr></table></figure></p>
-<p>注意，断开跟远程的连接后，如果还想连上，则需要再来一次<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@git.coding.net:tengj/gitLearn.git</span><br></pre></td></tr></table></figure></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这次<code>Git</code>连接远程仓库教程到此为止,总结如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote               &#26597;&#30475;&#36828;&#31243;&#24211;&#30340;&#20449;&#24687;  &#10;git remote -v            &#26174;&#31034;&#26356;&#35814;&#32454;&#30340;&#20449;&#24687;  &#10;git remote add origin git@git.coding.net:tengj/gitLearn.git  &#36830;&#25509;&#36828;&#31243;&#20179;&#24211;  &#10;git clone git@git.coding.net:tengj/gitLearn.git            &#22797;&#21046;&#19968;&#20221;&#36828;&#31243;&#20179;&#24211;&#39033;&#30446;&#21040;&#26412;&#22320;  &#10;git remote rm origin     &#20851;&#38381;&#36830;&#25509;&#36828;&#31243;&#20179;&#24211;  &#10;git push origin master   &#25512;&#36865;&#20998;&#25903;  &#10;git pull origin master   &#25235;&#21462;&#26356;&#26032;</span><br></pre></td></tr></table></figure></p>
-<hr>
-<p>最近撸了个java的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG" alt=""></p>
-
+              `Git`本地操作的熟练了后，就可以尝试连接远程仓库了，目前国内外比较出名的提供`Git`仓库远程托管的有国外的`github`，国内的`开源中国`以及`coding`。这里我以`coding`为例子介绍如何操作远程仓库。
+          
       
     </div>
     
@@ -628,6 +481,10 @@
 
 
       
+      
+        <p class="article-more-link">
+          <a href="/2016/03/25/git4remote/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -683,7 +540,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。<br>
+              前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。
           
       
     </div>
@@ -760,7 +617,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>暂存区<code>（stage, index）</code>是<code>Git</code>最重要的概念之一，理解了这个概念很多 <code>Git</code> 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。<br>
+              暂存区`（stage, index）`是` Git`最重要的概念之一，理解了这个概念很多 `Git` 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。
           
       
     </div>
@@ -833,23 +690,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近我认识了一个小伙伴，奇妙清单，使用起来感觉萌萌哒。良心推荐，提高效率的神器。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="奇妙清单是什么"><a href="#奇妙清单是什么" class="headerlink" title="奇妙清单是什么"></a>奇妙清单是什么</h2><p>奇妙清单是一款待办类的To-do云端任务管理工具,用来管理我们日常所要做的事情的清单。一目了然，便于管理。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/app1_1.jpg" alt=""></p>
-<h2 id="为什么人人都需要一份清单"><a href="#为什么人人都需要一份清单" class="headerlink" title="为什么人人都需要一份清单"></a>为什么人人都需要一份清单</h2><h3 id="你的记忆没你想象的可靠"><a href="#你的记忆没你想象的可靠" class="headerlink" title="你的记忆没你想象的可靠"></a>你的记忆没你想象的可靠</h3><p>现代生活中大大小小的琐事越来越多，经常很忙的时候就会忘记一些很重要的事情，事后才来后悔。随着年龄的增长，我们的记忆会慢慢的衰退，它并没有我们想象得可靠，所以借助一款应用来充当我们额外的第二大脑，俗话说【好记忆不如烂笔头】。</p>
-<h3 id="清单可以帮你理清思路，做出规划"><a href="#清单可以帮你理清思路，做出规划" class="headerlink" title="清单可以帮你理清思路，做出规划"></a>清单可以帮你理清思路，做出规划</h3><p><strong>一方面</strong>，清单充当了思维导图的角色，但你把不同的事项分别存放在不同的清单列表中，实际上已经是对这些事项的第一次梳理，明确了大致分类，方便对自己的日程和时间作出具体的分配和规划。<br><strong>另一方面</strong>，清单可以督促我们的行动。很多实验都已经证明了，无论你有没有强迫症，在清单上留有尚待完成的事项，都会激发一个人的行动欲，提高我们的办事效率。</p>
-<h2 id="为什么要使用奇妙清单"><a href="#为什么要使用奇妙清单" class="headerlink" title="为什么要使用奇妙清单"></a>为什么要使用奇妙清单</h2><p>以前我也接触过一些To-do类型的App，但是都是用过一段时间就丢那边了，感觉并不能帮助到我什么。直到我遇到奇妙清单这款应用。<br>我概括了奇妙清单的优点如下：</p>
-<h3 id="因为它【恰到好处】"><a href="#因为它【恰到好处】" class="headerlink" title="因为它【恰到好处】"></a>因为它【恰到好处】</h3><p>任何一款软件如果使用起来太麻烦，都不会获取用户的喜欢。而奇妙清单这款应用，个人觉得很简约，入门极快，它的层级只有「清单 - 事项 - 子任务」三级，它只支持设置到期时间和一次提醒（邮件提醒），它只可以对优先级高的任务打上星标……</p>
-<h3 id="因为它跨了所有平台"><a href="#因为它跨了所有平台" class="headerlink" title="因为它跨了所有平台"></a>因为它跨了所有平台</h3><p>这是很棒的一个功能，跨平台，你可以在电脑、手机、平板上使用，让你随时随地可以管理自己的清单，并且各个平台数据都是同步的。</p>
-<h3 id="因为它支持团队协作"><a href="#因为它支持团队协作" class="headerlink" title="因为它支持团队协作"></a>因为它支持团队协作</h3><p>团队协作是个很棒的功能，适合项目组间协同办公。列好一天内需要完成的清单任务，然后 指派分配任务， 大家都能看到，领导也能很好的把控项目进度。 彼此之间可以留言通知，一切都让沟通无所阻碍。</p>
-<h3 id="因为它免费"><a href="#因为它免费" class="headerlink" title="因为它免费"></a>因为它免费</h3><p>免费，免费，免费。重要的事情说三遍。</p>
-<h2 id="我是如何使用奇妙清单的"><a href="#我是如何使用奇妙清单的" class="headerlink" title="我是如何使用奇妙清单的"></a>我是如何使用奇妙清单的</h2><p>我个人是3月份开始使用奇妙清单这款应用的，也算刚入门。我的清单是根据我个人的需求定制的，我主要列了如下几个清单：<br>【今日待办】，【工作重要事情】，【个人idea】，【2016年阅读统计】</p>
-<blockquote>
-<p>【今日代办】是我每天早上上班的时候会花上五分钟时间想好今天要处理的事情，根据时间排序。<br>【工作重要事情】是工作方面临时有任务但是不是今天马上要完成，统一记录在这个清单，后续可以安排处理。<br>【个人idea】是我突然有灵感或者想做一些事情的时候记录下来这个主意。<br>【2016年阅读统计】用来汇总我今年想读的书或者已经度过的书籍。  </p>
-</blockquote>
-<p>以上只是我个人使用中的一些心得，你可以根据自己实际情况增删清单。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/app1_2.png" alt=""></p>
-<h2 id="奇妙清单带给我什么好处"><a href="#奇妙清单带给我什么好处" class="headerlink" title="奇妙清单带给我什么好处"></a>奇妙清单带给我什么好处</h2><p>以前我做事情会丢三落四，毕竟年纪大了记忆力慢慢就不好了，还经常拖延症发作，想做的事情一大堆，但是都无从下手。 自从用奇妙清单以来，发现自己效率提高了。不用再花时间去思考我接下来要干嘛，迷茫的时候看看清单。要做的事情那么多，哪里还有空在发呆。</p>
-<h1 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h1><p>我之所以推荐这款应用，因为我在使用它的过程中确实感觉到了我的进步。不在拖延，不再迷茫。希望大家也一起使用起来，提高工作效率，可以花更多的时间在生活和家庭上。</p>
-
+              最近我认识了一个小伙伴，奇妙清单，使用起来感觉萌萌哒。良心推荐，提高效率的神器。
+          
       
     </div>
     
@@ -862,6 +704,10 @@
 
 
       
+      
+        <p class="article-more-link">
+          <a href="/2016/03/22/apprecommend1/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -917,36 +763,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>咳，小白你好，我是老白。比你早那么一段时间接触<code>git</code>，不知道你之前是否跟我一样是使用<code>SVN</code>来进行版本管理的，在这里，我不会告诉你<code>git</code>的历史,发展以及优势，既然你想学<code>git</code>，我就当你已经懂了这些。我只能告诉你我为什么要学<code>git</code>，因为我觉得它十分的高大上，外加可以装逼~~</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h2><p>正式开搞了，紧张不。本系列是在window系统上搞的，所以我只介绍window系统如何安装<br>下载路径：<a href="http://git-scm.com/download" target="_blank" rel="external">Git客户端</a><br>安装后再任意地方鼠标右键就会出现如下，<code>Git Bash Here</code>就是我们的客户端<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git1_1.jpg" alt=""><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git1_2.png" alt=""></p>
-<h2 id="初次运行-Git-前的配置"><a href="#初次运行-Git-前的配置" class="headerlink" title="初次运行 Git 前的配置"></a>初次运行 Git 前的配置</h2><p>当安装完<code>Git</code>应该做的第一件事就是设置你的用户名称与邮件地址。 这样做很重要，因为每一个<code>Git</code>的提交都会使用这些信息，并且它会写入到你的每一次提交中，不可更改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &#34;tengj&#34;&#10;git config --global user.email johndoe@example.com</span><br></pre></td></tr></table></figure></p>
-<p>再次强调，如果使用了 <code>--global</code> 选项，那么该命令只需要运行一次，因为之后无论你在该系统上做任何事情， Git 都会使用那些信息。 当你想针对特定项目使用不同的用户名称与邮件地址时，可以在那个项目目录下运行没有 <code>--global</code> 选项的命令来配置。</p>
-<h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><p>指定一个目录作为你的仓库地址，我这里使用<code>E:\gitRepository</code>作为我后期所有项目的总空间。<br>创建我的第一个项目名~起名叫做<code>gitDemo</code>，这个直接在window新建一个文件夹就行。<br>然后在<code>gitDemo</code>目录里面，右键鼠标打开<code>git</code>客户端，输入创建版本库命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git1_3.png" alt=""><br>瞬间Git就把仓库建好了，而且告诉你是一个空的仓库（empty Git repository），细心的读者可以发现当前目录下多了一个<code>.git</code>的目录，这个目录是<code>Git</code>来跟踪管理版本库的，没事千万不要手动修改这个目录里面的文件，不然改乱了，就把Git仓库给破坏了。如果你没有看到<code>.git</code>目录，那是因为这个目录默认是隐藏的,自己麻利的改下目录属性吧。</p>
-<h2 id="添加文件到版本库"><a href="#添加文件到版本库" class="headerlink" title="添加文件到版本库"></a>添加文件到版本库</h2><p>上面把<code>git</code>仓库搭建好了，现在就来试试添加文件到版本库里面。<br>创建一个<code>txt</code>文档起名叫做<code>readme.txt</code>，往里面添加一点内容<code>hello git</code>.<br>注意，最好不要用系统自带的<code>txt</code>来编写，因为这里需要文件是<code>UTF-8</code>格式的，所以我使用<code>EditPlus</code>这种可以把文件另存为<code>UTF-8</code>格式的编辑器的。<br>创建好文件后，添加到仓库只需要2个操作：<br>第一步，用命令<code>git add</code>告诉<code>Git</code>，把本地代码托送到暂存区<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add readme.txt</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git1_4.png" alt=""><br>第二步，用命令<code>git commit</code>告诉<code>Git</code>，把文件提交到仓库：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">"first commit"</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git1_5.png" alt=""></p>
-<p><code>-m</code> 参数是用来注释你提交的信息的，这样以后才知道这次提交时用来干嘛</p>
-<h2 id="查看当前新增或者修改的文件"><a href="#查看当前新增或者修改的文件" class="headerlink" title="查看当前新增或者修改的文件"></a>查看当前新增或者修改的文件</h2><p>实际使用中你不止只有一个文件，或新增或修改多个文件，可能时间一久就忘了有多少文件需要提交<br>这里模拟一下，首先新建一个<code>hello.txt</code>的文件，然后修改<code>readme.txt</code>内容，添加一句<code>come on baby</code>.<br>这样就有2个文件需要提交了。<br>我们使用<code>git status</code>命令来查看当前状态,是否有未提交的文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git1_6.png" alt=""></p>
-<p>如图，可以看到红色的字体显示的一个<code>readme.txt</code>被修改过了，但还没有准备提交的修改，另外一个是<code>Untracked files: hello.txt</code>，表示新增的文件。</p>
-<p>这时候准备把上面2个文件都提交，使用命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add readme.txt</span><br><span class="line">git add hello.txt</span><br></pre></td></tr></table></figure></p>
-<p>或者你嫌弃文件太多，一次次add感觉很麻烦，那么可以试试使用<code>git add .</code>提交，<code>.</code>表示提交当前目录所有文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure></p>
-<p>提交后再使用<code>git status</code>命令查看下<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git1_7.png" alt=""><br>你会看到这2个文件都变成绿色了，表示添加到暂存区成功了<br>然后使用<code>git commit</code>提交后，在使用<code>git status</code>查看<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">"second commit"</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git1_8.png" alt=""><br>如图，可以看到文件提交到仓库了，并且<code>git status</code>后提示<code>nothing to commit, working directory clean</code>，说明当前没有需要提交的修改，工作目录是干净。</p>
-<h2 id="比较当前文件跟版本文件内容"><a href="#比较当前文件跟版本文件内容" class="headerlink" title="比较当前文件跟版本文件内容"></a>比较当前文件跟版本文件内容</h2><p>假如你休假两周从国外回来，第一天上班时，已经记不清上次怎么修改的<code>readme.txt</code>，所以，需要用<code>git diff</code>这个命令看看：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff readme.txt</span><br></pre></td></tr></table></figure></p>
-<p>额我发现什么反应都没有。。原来是我<code>readme.txt</code>已经<code>commit</code>提交到版本库了。内容一样当然没有啥好比对的。这里我们往<code>readme.txt</code>添加一条内容<code>day day up</code>。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git1_9.png" alt=""><br>如图，最后一行绿色的<code>+day day up.</code>表示是新增的。</p>
-<h2 id="查看历史提交记录"><a href="#查看历史提交记录" class="headerlink" title="查看历史提交记录"></a>查看历史提交记录</h2><p>有时候你想看看之前提交的历史纪录~那么就需要使用到<code>git log</code>命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git1_10.png" alt=""><br>如图，可以看到我们提交的2次历史，<code>first commit</code>和<code>second commit</code>。历史纪录是根据时间倒叙排列的。<br>如果觉得代码太多了，加点过滤就行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --pretty=oneline</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git1_11.png" alt=""><br>其中，里面那一串常常字符串作用很重要，介绍版本回退的时候详细说明。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>好了，今天小白入门到此就结束了，如果你看完了这篇教程，说明你已经入门<code>git</code>了，恭喜。接下去就是继续深入学习。今天所涉及的命令整理下如下：</p>
-<blockquote>
-<p>git init    初始化仓库<br>git add     添加文件到暂存区<br>git commit  提交文件到仓库<br>git diff    比对本地和版本库里面的文件<br>git log     查看历史提交记录</p>
-</blockquote>
-<p>注意，文中多次提到的暂存区，在<code>git</code>中是个很重要的概念，弄懂了暂存区才算真正懂了<code>git</code>。我暂时还不是很懂，毕竟我也刚学习，这篇教程说白了是我自己的学习笔记，一起努力吧，下篇就来介绍暂存区概念。</p>
-<hr>
-<p>最近撸了个java的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG" alt=""></p>
-
+              咳，小白你好，我是老白。比你早那么一段时间接触`git`，不知道你之前是否跟我一样是使用`SVN`来进行版本管理的，在这里，我不会告诉你`git`的历史,发展以及优势，既然你想学`git`，我就当你已经懂了这些。我只能告诉你我为什么要学`git`，因为我觉得它十分的高大上，外加可以装逼~~
+          
       
     </div>
     
@@ -959,6 +777,10 @@
 
 
       
+      
+        <p class="article-more-link">
+          <a href="/2016/03/20/git1creategit/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -1014,15 +836,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本人搭建独立博客的时候需要使用到<code>github</code>，<code>coding</code>以及<code>开源中国</code>，发现全部使用<code>git</code>来进行版本控制。了解之后发<code>现git</code>很棒，所以决定学。学习过程中做了一些笔记，经过整理就有了这个系列的文章，其实是我自己的学习笔记整理，如果你也是新手就跟着我一起学习，如果你是大神，那么希望您能指出我的错误，让我学习更进一步，这也是我写这系列笔记的初衷。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="学习环境"><a href="#学习环境" class="headerlink" title="学习环境"></a>学习环境</h2><p>本人是使用window系统来学习的，linux以及Mac的同学自行安装软件哦~</p>
-<h2 id="书写方式"><a href="#书写方式" class="headerlink" title="书写方式"></a>书写方式</h2><p>网上<code>git</code>教程也很多，我想记录我自己学习使用过程中的点滴，不单单是个教程，我想把它当成工具来写，根据实际使用场景来分类，这样方便以后自己快速查找。</p>
-<h2 id="系列博文整理"><a href="#系列博文整理" class="headerlink" title="系列博文整理"></a>系列博文整理</h2><p>整理了下git系列的文章，发现写系列博客感觉还是很棒的：<br><a href="http://tengj.top/2016/03/20/git1creategit/" target="_blank" rel="external">git干货系列：（一）我是小白，我想要搭建git仓库</a><br><a href="http://tengj.top/2016/03/23/git2konwindex/" target="_blank" rel="external">git干货系列：（二）深入学习之前先理解git暂存区</a><br><a href="http://tengj.top/2016/03/24/git3reset/" target="_blank" rel="external">git干货系列：（三）我提交错了我想撤销或者回退版本</a><br><a href="http://tengj.top/2016/03/25/git4remote/" target="_blank" rel="external">git干货系列：（四）我要连接远程仓库（github，coding）</a><br><a href="http://tengj.top/2016/03/27/git5branch/" target="_blank" rel="external">git干货系列：（五）多人协同工作之分支管理</a><br><a href="http://tengj.top/2016/03/29/git6gitlab/" target="_blank" rel="external">git干货系列：（六）公司内部搭建git服务器</a></p>
-<h2 id="所有学习git资源"><a href="#所有学习git资源" class="headerlink" title="所有学习git资源"></a>所有学习git资源</h2><p>学习过程中我参考了许许多多的教程，分享跟大家：<br><a href="http://www.yiibai.com/git/" target="_blank" rel="external">git教程</a><br><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰git教程</a><br><a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="external">git–简易指南</a><br><a href="http://backlogtool.com/git-guide/cn/" target="_blank" rel="external">猴子都能懂的GIT入门</a><br><a href="http://gitref.justjavac.com/" target="_blank" rel="external">Git参考手册</a>  </p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>上面列出的目录是我接下来打算写的文章~学习跨度1-2周，一般两三天写一篇，希望自己不要拖延~动起来小伙伴们，跟我一起学会了装逼。</p>
-<hr>
-<p>最近撸了个java的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG" alt=""></p>
-
+              本人搭建独立博客的时候需要使用到`github`，`coding`以及`开源中国`，发现全部使用`git`来进行版本控制。了解之后发`现git`很棒，所以决定学。
+          
       
     </div>
     
@@ -1035,6 +850,10 @@
 
 
       
+      
+        <p class="article-more-link">
+          <a href="/2016/03/20/gitTotalMsg/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -1090,28 +909,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>使用Jacman主题的时候发现打开具体文章后，侧边栏还是会展示，我想要的效果是自动隐藏侧边栏，并且展示目录。但是当我修改了主题配置文件里面<code>close_aside</code>属性为<code>true</code>的时候，发现侧边栏隐藏了，但是目录没出来。于是就有了这篇文章，让我带你一步步明白原理并解决问题~</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="侧边栏的代码结构"><a href="#侧边栏的代码结构" class="headerlink" title="侧边栏的代码结构"></a>侧边栏的代码结构</h2><p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo8_1.jpg" alt=""><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo8_2.png" alt="">  </p>
-<p>如图：</p>
-<ol>
-<li>为显示侧边栏按钮,对应的是openaside，默认隐藏</li>
-<li>为文章目录,对应的是to和toc-aside，默认隐藏</li>
-<li>为侧边栏,对应的是asidepart，默认是展示</li>
-</ol>
-<h2 id="实现自动隐藏侧边栏"><a href="#实现自动隐藏侧边栏" class="headerlink" title="实现自动隐藏侧边栏"></a>实现自动隐藏侧边栏</h2><p>那我们现在要做得就是打算一打开具体文章，默认先显示成文字目录，而不是侧边栏<br>要实现这个就要通过js来改变，我查找了对应的文件，发现在  <code>\themes\jacman\layout\_partial\after_footer.ejs</code>这里有相关代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> m = $(<span class="string">'#main'</span>),</span><br><span class="line">    a = $(<span class="string">'#asidepart'</span>), <span class="comment">//侧边栏</span></span><br><span class="line">    c = $(<span class="string">'.closeaside'</span>),<span class="comment">//隐藏侧边栏</span></span><br><span class="line">    o = $(<span class="string">'.openaside'</span>); <span class="comment">//显示侧边栏</span></span><br><span class="line">c.click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  a.addClass(<span class="string">'fadeOut'</span>).css(<span class="string">'display'</span>, <span class="string">'none'</span>);</span><br><span class="line">  o.css(<span class="string">'display'</span>, <span class="string">'block'</span>).addClass(<span class="string">'fadeIn'</span>);</span><br><span class="line">  m.addClass(<span class="string">'moveMain'</span>);</span><br><span class="line">&#125;);  </span><br><span class="line"><span class="comment">//*******************************</span></span><br><span class="line"> 中间还有一些代码。。这里不展示</span><br><span class="line"> <span class="comment">//******************************</span></span><br><span class="line">&lt;% <span class="keyword">if</span> (is_post() &amp;&amp; theme.close_aside) &#123; %&gt;</span><br><span class="line">      getSize();</span><br><span class="line">      <span class="keyword">if</span> (myWidth &gt;= <span class="number">1024</span>) &#123;</span><br><span class="line">        c.click();</span><br><span class="line">      &#125;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
-<p>上面代码可以看出来<br><code>is_post()</code>用来判断当前是否post布局，大家记住我们博文详情页默认是<code>post</code>布局，所以为<code>true</code>.<br><code>theme.close_aside</code>这个是在主题配置文件<code>_config.yml</code>下面对应的配置：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">close_aside: <span class="literal">true</span>  <span class="comment">#close sidebar in post page if true</span></span><br><span class="line">mathjax: <span class="literal">false</span>      <span class="comment">#enable mathjax if true</span></span><br></pre></td></tr></table></figure></p>
-<p>我这边<code>close_aside</code>就设置了<code>true</code>，在<code>post</code>布局里面默认关闭侧边栏<br>如果页面宽度大于1024就触发<code>c.click()</code>，也就是触发了隐藏侧边栏的方法。<br>原本的代码<code>c.click(function(){})</code>里面只是简单的隐藏和显示了图标，最关键的目录对应的<code>&lt;div id=&quot;toc&quot; class=&quot;toc-aside&quot;&gt;</code>没有显示，因为默认隐藏的。<br><strong>没错，这就是问题的关键所在</strong>，所以我这里添加上了显示这个<code>div</code>的代码，正确代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> m = $(<span class="string">'#main'</span>),</span><br><span class="line">    a = $(<span class="string">'#asidepart'</span>), <span class="comment">//侧边栏</span></span><br><span class="line">    c = $(<span class="string">'.closeaside'</span>),<span class="comment">//隐藏侧边栏</span></span><br><span class="line">    o = $(<span class="string">'.openaside'</span>); <span class="comment">//显示侧边栏</span></span><br><span class="line">c.click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  a.addClass(<span class="string">'fadeOut'</span>).css(<span class="string">'display'</span>, <span class="string">'none'</span>);</span><br><span class="line">  o.css(<span class="string">'display'</span>, <span class="string">'block'</span>).addClass(<span class="string">'fadeIn'</span>);</span><br><span class="line">   <span class="keyword">var</span> m = $(<span class="string">'#main'</span>),</span><br><span class="line">    a = $(<span class="string">'#asidepart'</span>), <span class="comment">//侧边栏</span></span><br><span class="line">    c = $(<span class="string">'.closeaside'</span>),<span class="comment">//隐藏侧边栏</span></span><br><span class="line">    o = $(<span class="string">'.openaside'</span>); <span class="comment">//显示侧边栏</span></span><br><span class="line">c.click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  a.addClass(<span class="string">'fadeOut'</span>).css(<span class="string">'display'</span>, <span class="string">'none'</span>);</span><br><span class="line">  o.css(<span class="string">'display'</span>, <span class="string">'block'</span>).addClass(<span class="string">'fadeIn'</span>);</span><br><span class="line">  $(<span class="string">'#toc.toc-aside'</span>).css(<span class="string">'display'</span>, <span class="string">'block'</span>).addClass(<span class="string">'fadeIn'</span>); <span class="comment">//这个是我新加的，修改点</span></span><br><span class="line">  m.addClass(<span class="string">'moveMain'</span>);</span><br><span class="line">&#125;);  </span><br><span class="line"><span class="comment">//*******************************</span></span><br><span class="line"> 中间还有一些代码。。这里不展示</span><br><span class="line"> <span class="comment">//******************************</span></span><br><span class="line">&lt;% <span class="keyword">if</span> (is_post() &amp;&amp; theme.close_aside) &#123; %&gt;</span><br><span class="line">      getSize();</span><br><span class="line">      <span class="keyword">if</span> (myWidth &gt;= <span class="number">1024</span>) &#123;</span><br><span class="line">        c.click();</span><br><span class="line">      &#125;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure></p>
-<p>好了搞定,默认打开文章的效果如下：  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo8_3.jpg" alt=""></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>如果你没看懂的话也没关系，概括起来就修改两个地方</p>
-<ol>
-<li><code>\themes\jacman\_config.yml</code>里面修改<code>close_aside</code>属性为<code>true</code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">close_aside: <span class="literal">true</span>  <span class="comment">#close sidebar in post page if true</span></span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"><span class="number">2</span>. `\themes\jacman\layout\_partial\after_footer.ejs`里面添加下面的代码，具体添加在哪里，看看文章里面有提到</span><br><span class="line">``` bash</span><br><span class="line"> $(<span class="string">'#toc.toc-aside'</span>).css(<span class="string">'display'</span>, <span class="string">'block'</span>).addClass(<span class="string">'fadeIn'</span>); //这个是我新加的，修改点</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<hr>
-<p>最近撸了个java的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG" alt=""></p>
-
+              使用Jacman主题的时候发现打开具体文章后，侧边栏还是会展示，我想要的效果是自动隐藏侧边栏，并且展示目录。但是当我修改了主题配置文件里面`close_aside`属性为`true`的时候，发现侧边栏隐藏了，但是目录没出来。于是就有了这篇文章，让我带你一步步明白原理并解决问题~
+          
       
     </div>
     
@@ -1119,7 +918,7 @@
       
       
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/hexo/">hexo</a>
+    <a class="article-category-link" href="/categories/hexo干货系列/">hexo干货系列</a>
     </div>
 
 
@@ -1128,6 +927,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2016/03/20/hexo8hidewidgets/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -1183,25 +986,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前面介绍了如何让百度和谷歌收录我们的博客，那如何查看自己的博客每天被多少人访问呢~ 这里我介绍下<code>hexo</code>中如何使用统计插件，每天看到自己的博客访问量越来越高也是一种享受。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="开启统计功能"><a href="#开启统计功能" class="headerlink" title="开启统计功能"></a>开启统计功能</h2><p>我使用的<code>Jacman</code>主题的配置文件中就有配置有统计插件，有谷歌，百度以及<code>CNZZ</code>，我最终选择的是<code>CNZZ</code>,原因是<code>CNZZ</code>有手机版，比较好随时查看。百度的一开始我也有安装，不过下载的手机软件我打开时空白的，我是<code>IOS</code>版本的，最终CNZZ整体上让我比较满意<br>对应的配置如下，开启<code>cnzz_tongji</code>对应的<code>enable</code>属性改成<code>true</code>,<code>siteid</code>就从注册的<code>cnzz</code>控制台获取。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#### Analytics</span></span><br><span class="line">google_analytics:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  id:        <span class="comment">## e.g. UA-46321946-2 your google analytics ID.</span></span><br><span class="line">  site:      <span class="comment">## e.g. wuchong.me your google analytics site or set the value as auto.</span></span><br><span class="line"><span class="comment">## You MUST upgrade to Universal Analytics first!</span></span><br><span class="line"><span class="comment">## https://developers.google.com/analytics/devguides/collection/upgrade/?hl=zh_CN</span></span><br><span class="line">baidu_tongji:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  sitecode: e6d1f421bbc9962127a50488f9ed37d1  <span class="comment">## e.g. e6d1f421bbc9962127a50488f9ed37d1 your baidu tongji site code</span></span><br><span class="line">cnzz_tongji:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  siteid: <span class="number">1253575964</span>   <span class="comment">## e.g. 1253575964 your cnzz tongji site id</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="注册CNZZ"><a href="#注册CNZZ" class="headerlink" title="注册CNZZ"></a>注册CNZZ</h2><p>进入<a href="http://tongji.cnzz.com/" target="_blank" rel="external">CNZZ</a>注册一下，然后添加你的站点，如下</p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo7_1.png" alt="">  </p>
-<p>添加完后，点击下图的统计代码  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo7_2.png" alt="">  </p>
-<p>siteid在地址栏上面就可以获取，复制下来，配置在上文提到的<code>_config.yml</code>中，CNZZ提供了许多样式，看你个人喜欢  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo7_3.png" alt="">  </p>
-<p><code>Jacman</code>默认对应的是第一种文字样式，我是用默认的。如果你想替换其他的样式，复制js代码。替换 <code>\themes\jacman\layout\_partial\analytics.ejs</code>中的代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (theme.cnzz_tongji.enable)&#123; %&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"><span class="keyword">var</span> cnzz_protocol = ((<span class="string">"https:"</span> == <span class="built_in">document</span>.location.protocol) ? <span class="string">" https://"</span> : <span class="string">" http://"</span>);<span class="built_in">document</span>.write(<span class="built_in">unescape</span>(<span class="string">"%3Cspan id='cnzz_stat_icon_1257841330'%3E%3C/span%3E%3Cscript src='"</span> + cnzz_protocol + <span class="string">"s11.cnzz.com/z_stat.php%3Fid%3D1257841330%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"</span>));</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">%</span> &#125; %&gt;</span></span></span><br></pre></td></tr></table></figure></p>
-<h2 id="配置密码"><a href="#配置密码" class="headerlink" title="配置密码"></a>配置密码</h2><p>上面配置好后，部署博客，你会发现在博客的最下面会出现统计的样式，如图：  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo7_4.jpg" alt="">  </p>
-<p>点击站长统计就能查看了，但是如果你不想被人查看，可以设置密码，这样就只有你自己能查看：  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo7_5.png" alt=""><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo7_6.png" alt=""><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo7_7.png" alt=""></p>
-<h2 id="手机端截图"><a href="#手机端截图" class="headerlink" title="手机端截图"></a>手机端截图</h2><p>下载手机端的CNZZ，查看起来更加轻松，截几个手机端的图，如下：  </p>
-<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo7_8.jpg" alt=""></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>到此，就搞定了统计功能，整个博客基本上功能也就齐全了。每天晚上看看自己博客的流量那种感觉蛮爽哇卡卡。后续打算介绍下<code>markdown</code>写法，只需要掌握一点点就可以写出很棒的排版，真的很方便。相见恨晚~~</p>
-<hr>
-<p>最近撸了个java的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG" alt=""></p>
-
+              前面介绍了如何让百度和谷歌收录我们的博客，那如何查看自己的博客每天被多少人访问呢~ 这里我介绍下`hexo`中如何使用统计插件，每天看到自己的博客访问量越来越高也是一种享受。
+          
       
     </div>
     
@@ -1209,7 +995,7 @@
       
       
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/hexo/">hexo</a>
+    <a class="article-category-link" href="/categories/hexo干货系列/">hexo干货系列</a>
     </div>
 
 
@@ -1218,6 +1004,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2016/03/17/hexo7count/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

@@ -15,14 +15,12 @@
 
 
 
-<meta name="description" content="前言分支就是科幻电影里面的平行宇宙，当你正在电脑前努力学习Git的时候，另一个你正在另一个平行宇宙里努力学习SVN。如果两个平行宇宙互不干扰，那对现在的你也没啥影响。不过，在某个时间点，两个平行宇宙合并了，结果，你既学会了Git又学会了SVN！
-正文分支简介为了真正理解 Git 处理分支的方式，我们需要回顾一下Git是如何保存数据的。Git 保存的不是文件的变化或者差异，而是一系列不同时刻的文件快">
+<meta name="description" content="分支就是科幻电影里面的平行宇宙，当你正在电脑前努力学习`Git`的时候，另一个你正在另一个平行宇宙里努力学习`SVN`。如果两个平行宇宙互不干扰，那对现在的你也没啥影响。不过，在某个时间点，两个平行宇宙合并了，结果，你既学会了`Git`又学会了`SVN`！">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git干货系列：（五）多人协同工作之分支管理">
 <meta property="og:url" content="http://tengj.github.io/2016/03/27/git5branch/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="前言分支就是科幻电影里面的平行宇宙，当你正在电脑前努力学习Git的时候，另一个你正在另一个平行宇宙里努力学习SVN。如果两个平行宇宙互不干扰，那对现在的你也没啥影响。不过，在某个时间点，两个平行宇宙合并了，结果，你既学会了Git又学会了SVN！
-正文分支简介为了真正理解 Git 处理分支的方式，我们需要回顾一下Git是如何保存数据的。Git 保存的不是文件的变化或者差异，而是一系列不同时刻的文件快">
+<meta property="og:description" content="分支就是科幻电影里面的平行宇宙，当你正在电脑前努力学习`Git`的时候，另一个你正在另一个平行宇宙里努力学习`SVN`。如果两个平行宇宙互不干扰，那对现在的你也没啥影响。不过，在某个时间点，两个平行宇宙合并了，结果，你既学会了`Git`又学会了`SVN`！">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git5_14.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git5_1.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git5_2.png">
@@ -37,11 +35,10 @@
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git5_11.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git5_12.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
-<meta property="og:updated_time" content="2016-04-02T07:07:01.537Z">
+<meta property="og:updated_time" content="2017-03-18T00:23:02.600Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git干货系列：（五）多人协同工作之分支管理">
-<meta name="twitter:description" content="前言分支就是科幻电影里面的平行宇宙，当你正在电脑前努力学习Git的时候，另一个你正在另一个平行宇宙里努力学习SVN。如果两个平行宇宙互不干扰，那对现在的你也没啥影响。不过，在某个时间点，两个平行宇宙合并了，结果，你既学会了Git又学会了SVN！
-正文分支简介为了真正理解 Git 处理分支的方式，我们需要回顾一下Git是如何保存数据的。Git 保存的不是文件的变化或者差异，而是一系列不同时刻的文件快">
+<meta name="twitter:description" content="分支就是科幻电影里面的平行宇宙，当你正在电脑前努力学习`Git`的时候，另一个你正在另一个平行宇宙里努力学习`SVN`。如果两个平行宇宙互不干扰，那对现在的你也没啥影响。不过，在某个时间点，两个平行宇宙合并了，结果，你既学会了`Git`又学会了`SVN`！">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -196,11 +193,15 @@
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
                     </nav>
@@ -209,7 +210,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springMVC/">springMVC</a></li></ul>
                     </div>
                 </section>
                 
@@ -274,11 +275,15 @@
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" target="_blank" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" target="_blank" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
             </nav>
@@ -426,7 +431,7 @@
         <p><span>本文标题:</span><a href="/2016/03/27/git5branch/">git干货系列：（五）多人协同工作之分支管理</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Teng Jun</a></p>
         <p><span>发布时间:</span>2016-03-27, 17:03:56</p>
-        <p><span>最后更新:</span>2016-04-02, 15:07:01</p>
+        <p><span>最后更新:</span>2017-03-18, 08:23:02</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/03/27/git5branch/" title="git干货系列：（五）多人协同工作之分支管理">http://tengj.github.io/2016/03/27/git5branch/</a>
             <span class="copy-path" data-clipboard-text="原文: http://tengj.github.io/2016/03/27/git5branch/　　作者: Teng Jun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

@@ -15,14 +15,12 @@
 
 
 
-<meta name="description" content="前言因为gitHub上的项目是公开的，不适合公司内部项目放在上面，而私人的需要收费，这绝非是我们愿意的。所以找了个跟gitHub很相似，但是又免费的gitLab。现在将搭建gitLab过程记录一下留作参考。
-正文gitLab介绍GitLab是利用 Ruby on Rails 一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。它拥有与Github类似">
+<meta name="description" content="因为`gitHub`上的项目是公开的，不适合公司内部项目放在上面，而私人的需要收费，这绝非是我们愿意的。所以找了个跟`gitHub`很相似，但是又免费的`gitLab`。现在将搭建`gitLab`过程记录一下留作参考。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git干货系列：（六）公司内部搭建git服务器">
 <meta property="og:url" content="http://tengj.github.io/2016/03/29/git6gitlab/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="前言因为gitHub上的项目是公开的，不适合公司内部项目放在上面，而私人的需要收费，这绝非是我们愿意的。所以找了个跟gitHub很相似，但是又免费的gitLab。现在将搭建gitLab过程记录一下留作参考。
-正文gitLab介绍GitLab是利用 Ruby on Rails 一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。它拥有与Github类似">
+<meta property="og:description" content="因为`gitHub`上的项目是公开的，不适合公司内部项目放在上面，而私人的需要收费，这绝非是我们愿意的。所以找了个跟`gitHub`很相似，但是又免费的`gitLab`。现在将搭建`gitLab`过程记录一下留作参考。">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_1.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_2.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_3.jpg">
@@ -52,11 +50,10 @@
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_28.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git6_29.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
-<meta property="og:updated_time" content="2016-04-02T07:05:56.319Z">
+<meta property="og:updated_time" content="2017-03-18T00:23:22.464Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git干货系列：（六）公司内部搭建git服务器">
-<meta name="twitter:description" content="前言因为gitHub上的项目是公开的，不适合公司内部项目放在上面，而私人的需要收费，这绝非是我们愿意的。所以找了个跟gitHub很相似，但是又免费的gitLab。现在将搭建gitLab过程记录一下留作参考。
-正文gitLab介绍GitLab是利用 Ruby on Rails 一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。它拥有与Github类似">
+<meta name="twitter:description" content="因为`gitHub`上的项目是公开的，不适合公司内部项目放在上面，而私人的需要收费，这绝非是我们愿意的。所以找了个跟`gitHub`很相似，但是又免费的`gitLab`。现在将搭建`gitLab`过程记录一下留作参考。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -211,11 +208,15 @@
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
                     </nav>
@@ -224,7 +225,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springMVC/">springMVC</a></li></ul>
                     </div>
                 </section>
                 
@@ -289,11 +290,15 @@
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" target="_blank" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" target="_blank" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
             </nav>
@@ -418,7 +423,7 @@
         <p><span>本文标题:</span><a href="/2016/03/29/git6gitlab/">git干货系列：（六）公司内部搭建git服务器</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Teng Jun</a></p>
         <p><span>发布时间:</span>2016-03-29, 15:24:03</p>
-        <p><span>最后更新:</span>2016-04-02, 15:05:56</p>
+        <p><span>最后更新:</span>2017-03-18, 08:23:22</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/03/29/git6gitlab/" title="git干货系列：（六）公司内部搭建git服务器">http://tengj.github.io/2016/03/29/git6gitlab/</a>
             <span class="copy-path" data-clipboard-text="原文: http://tengj.github.io/2016/03/29/git6gitlab/　　作者: Teng Jun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

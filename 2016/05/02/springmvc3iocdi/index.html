@@ -15,26 +15,20 @@
 
 
 
-<meta name="description" content="前言上篇讲了SpringMVC的实现原理以及常用的注解，其实里面都用到的spring的核心概念，那就是IOC/DI，今天给大家介绍下这核心概念IOC/DI。
-正文分享Iteye的开涛这位技术牛人对Spring框架的IOC的理解,写得非常通俗易懂。
-IoC是什么Ioc—Inversion of Control，即“控制反转”，不是什么技术，而是一种设计思想。在Java开发中，Ioc意味着将你设计好的">
+<meta name="description" content="上篇讲了SpringMVC的实现原理以及常用的注解，其实里面都用到的spring的核心概念，那就是IOC/DI，今天给大家介绍下这核心概念IOC/DI。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="springMVC干货系列：从零搭建springMVC+mybatis（三）：spring两大核心之IOC/DI学习">
 <meta property="og:url" content="http://tengj.github.io/2016/05/02/springmvc3iocdi/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="前言上篇讲了SpringMVC的实现原理以及常用的注解，其实里面都用到的spring的核心概念，那就是IOC/DI，今天给大家介绍下这核心概念IOC/DI。
-正文分享Iteye的开涛这位技术牛人对Spring框架的IOC的理解,写得非常通俗易懂。
-IoC是什么Ioc—Inversion of Control，即“控制反转”，不是什么技术，而是一种设计思想。在Java开发中，Ioc意味着将你设计好的">
+<meta property="og:description" content="上篇讲了SpringMVC的实现原理以及常用的注解，其实里面都用到的spring的核心概念，那就是IOC/DI，今天给大家介绍下这核心概念IOC/DI。">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/springmvc3_2.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/springmvc3_3.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/springmvc3_1.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
-<meta property="og:updated_time" content="2016-05-02T11:57:22.354Z">
+<meta property="og:updated_time" content="2017-03-18T00:13:28.442Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springMVC干货系列：从零搭建springMVC+mybatis（三）：spring两大核心之IOC/DI学习">
-<meta name="twitter:description" content="前言上篇讲了SpringMVC的实现原理以及常用的注解，其实里面都用到的spring的核心概念，那就是IOC/DI，今天给大家介绍下这核心概念IOC/DI。
-正文分享Iteye的开涛这位技术牛人对Spring框架的IOC的理解,写得非常通俗易懂。
-IoC是什么Ioc—Inversion of Control，即“控制反转”，不是什么技术，而是一种设计思想。在Java开发中，Ioc意味着将你设计好的">
+<meta name="twitter:description" content="上篇讲了SpringMVC的实现原理以及常用的注解，其实里面都用到的spring的核心概念，那就是IOC/DI，今天给大家介绍下这核心概念IOC/DI。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -189,11 +183,15 @@ IoC是什么Ioc—Inversion of Control，即“控制反转”，不是什么技
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
                     </nav>
@@ -202,7 +200,7 @@ IoC是什么Ioc—Inversion of Control，即“控制反转”，不是什么技
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springMVC/">springMVC</a></li></ul>
                     </div>
                 </section>
                 
@@ -267,11 +265,15 @@ IoC是什么Ioc—Inversion of Control，即“控制反转”，不是什么技
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" target="_blank" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" target="_blank" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
             </nav>
@@ -316,11 +318,15 @@ IoC是什么Ioc—Inversion of Control，即“控制反转”，不是什么技
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/springMVC/">springMVC</a>
+    <a class="article-category-link" href="/categories/springMVC干货系列/">springMVC干货系列</a>
     </div>
 
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springMVC/">springMVC</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -400,7 +406,7 @@ IoC是什么Ioc—Inversion of Control，即“控制反转”，不是什么技
         <p><span>本文标题:</span><a href="/2016/05/02/springmvc3iocdi/">springMVC干货系列：从零搭建springMVC+mybatis（三）：spring两大核心之IOC/DI学习</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Teng Jun</a></p>
         <p><span>发布时间:</span>2016-05-02, 18:21:16</p>
-        <p><span>最后更新:</span>2016-05-02, 19:57:22</p>
+        <p><span>最后更新:</span>2017-03-18, 08:13:28</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/05/02/springmvc3iocdi/" title="springMVC干货系列：从零搭建springMVC+mybatis（三）：spring两大核心之IOC/DI学习">http://tengj.github.io/2016/05/02/springmvc3iocdi/</a>
             <span class="copy-path" data-clipboard-text="原文: http://tengj.github.io/2016/05/02/springmvc3iocdi/　　作者: Teng Jun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

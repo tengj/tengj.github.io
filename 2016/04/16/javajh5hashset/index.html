@@ -15,24 +15,21 @@
 
 
 
-<meta name="description" content="前言今天来介绍下HashSet。前面，我们已经系统的对List和Map进行了学习。接下来，我们开始可以学习Set。相信经过Map的了解之后，学习Set会容易很多。毕竟，Set的实现类都是基于Map来实现的(HashSet是通过HashMap实现的)。构造图如下:蓝色线条：继承绿色线条：接口实现
-正文对于HashSet而言，它是基于HashMap来实现的，底层采用HashMap来保存元素。所以如果对">
+<meta name="description" content="今天来介绍下HashSet。前面，我们已经系统的对List和Map进行了学习。接下来，我们开始可以学习Set。相信经过Map的了解之后，学习Set会容易很多。毕竟，Set的实现类都是基于Map来实现的(HashSet是通过HashMap实现的)。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java集合干货系列-（五）HashSet源码解析">
 <meta property="og:url" content="http://tengj.github.io/2016/04/16/javajh5hashset/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="前言今天来介绍下HashSet。前面，我们已经系统的对List和Map进行了学习。接下来，我们开始可以学习Set。相信经过Map的了解之后，学习Set会容易很多。毕竟，Set的实现类都是基于Map来实现的(HashSet是通过HashMap实现的)。构造图如下:蓝色线条：继承绿色线条：接口实现
-正文对于HashSet而言，它是基于HashMap来实现的，底层采用HashMap来保存元素。所以如果对">
+<meta property="og:description" content="今天来介绍下HashSet。前面，我们已经系统的对List和Map进行了学习。接下来，我们开始可以学习Set。相信经过Map的了解之后，学习Set会容易很多。毕竟，Set的实现类都是基于Map来实现的(HashSet是通过HashMap实现的)。">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/jh5_1.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/jh5_2.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/jh5_3.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/jhswdt.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
-<meta property="og:updated_time" content="2016-04-16T09:42:25.031Z">
+<meta property="og:updated_time" content="2017-03-18T00:15:26.848Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java集合干货系列-（五）HashSet源码解析">
-<meta name="twitter:description" content="前言今天来介绍下HashSet。前面，我们已经系统的对List和Map进行了学习。接下来，我们开始可以学习Set。相信经过Map的了解之后，学习Set会容易很多。毕竟，Set的实现类都是基于Map来实现的(HashSet是通过HashMap实现的)。构造图如下:蓝色线条：继承绿色线条：接口实现
-正文对于HashSet而言，它是基于HashMap来实现的，底层采用HashMap来保存元素。所以如果对">
+<meta name="twitter:description" content="今天来介绍下HashSet。前面，我们已经系统的对List和Map进行了学习。接下来，我们开始可以学习Set。相信经过Map的了解之后，学习Set会容易很多。毕竟，Set的实现类都是基于Map来实现的(HashSet是通过HashMap实现的)。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -187,11 +184,15 @@
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
                     </nav>
@@ -200,7 +201,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springMVC/">springMVC</a></li></ul>
                     </div>
                 </section>
                 
@@ -265,11 +266,15 @@
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" target="_blank" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" target="_blank" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
             </nav>
@@ -361,7 +366,7 @@
         <p><span>本文标题:</span><a href="/2016/04/16/javajh5hashset/">Java集合干货系列-（五）HashSet源码解析</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Teng Jun</a></p>
         <p><span>发布时间:</span>2016-04-16, 17:39:33</p>
-        <p><span>最后更新:</span>2016-04-16, 17:42:25</p>
+        <p><span>最后更新:</span>2017-03-18, 08:15:26</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/04/16/javajh5hashset/" title="Java集合干货系列-（五）HashSet源码解析">http://tengj.github.io/2016/04/16/javajh5hashset/</a>
             <span class="copy-path" data-clipboard-text="原文: http://tengj.github.io/2016/04/16/javajh5hashset/　　作者: Teng Jun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

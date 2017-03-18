@@ -15,23 +15,20 @@
 
 
 
-<meta name="description" content="前言入行java几年，一直不敢尝试学习设计模式，总感觉自己能力不行，不敢接触这么高深的东西。这次难得的机会，参加了一场公司的培训，接触到设计模式，听过后发现其实设计模式也不是那样高深和难以理解，实际开发中其实都不由自主用到了。这次开篇，一是整理自己学习过程中的笔记，准备一天一个模式的分享；二是给自己压力和动力，希望自己坚持下来。后续博文皆是学习的整理笔记。没办法，人丑就要读书。
-正文设计模式简介设">
+<meta name="description" content="入行`java`几年，一直不敢尝试学习设计模式，总感觉自己能力不行，不敢接触这么高深的东西。这次难得的机会，参加了一场公司的培训，接触到设计模式，听过后发现其实设计模式也不是那样高深和难以理解，实际开发中其实都不由自主用到了">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式干货系列：（总纲）总体介绍设计模式">
 <meta property="og:url" content="http://tengj.github.io/2016/04/01/sjmstotal/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="前言入行java几年，一直不敢尝试学习设计模式，总感觉自己能力不行，不敢接触这么高深的东西。这次难得的机会，参加了一场公司的培训，接触到设计模式，听过后发现其实设计模式也不是那样高深和难以理解，实际开发中其实都不由自主用到了。这次开篇，一是整理自己学习过程中的笔记，准备一天一个模式的分享；二是给自己压力和动力，希望自己坚持下来。后续博文皆是学习的整理笔记。没办法，人丑就要读书。
-正文设计模式简介设">
+<meta property="og:description" content="入行`java`几年，一直不敢尝试学习设计模式，总感觉自己能力不行，不敢接触这么高深的东西。这次难得的机会，参加了一场公司的培训，接触到设计模式，听过后发现其实设计模式也不是那样高深和难以理解，实际开发中其实都不由自主用到了">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/sjms0_3.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/sjms0_1.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/sjms0_2.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
-<meta property="og:updated_time" content="2016-04-02T07:01:20.970Z">
+<meta property="og:updated_time" content="2017-03-18T00:23:39.948Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式干货系列：（总纲）总体介绍设计模式">
-<meta name="twitter:description" content="前言入行java几年，一直不敢尝试学习设计模式，总感觉自己能力不行，不敢接触这么高深的东西。这次难得的机会，参加了一场公司的培训，接触到设计模式，听过后发现其实设计模式也不是那样高深和难以理解，实际开发中其实都不由自主用到了。这次开篇，一是整理自己学习过程中的笔记，准备一天一个模式的分享；二是给自己压力和动力，希望自己坚持下来。后续博文皆是学习的整理笔记。没办法，人丑就要读书。
-正文设计模式简介设">
+<meta name="twitter:description" content="入行`java`几年，一直不敢尝试学习设计模式，总感觉自己能力不行，不敢接触这么高深的东西。这次难得的机会，参加了一场公司的培训，接触到设计模式，听过后发现其实设计模式也不是那样高深和难以理解，实际开发中其实都不由自主用到了">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -186,11 +183,15 @@
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
                     </nav>
@@ -199,7 +200,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springMVC/">springMVC</a></li></ul>
                     </div>
                 </section>
                 
@@ -264,11 +265,15 @@
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" target="_blank" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" target="_blank" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
             </nav>
@@ -626,7 +631,7 @@
         <p><span>本文标题:</span><a href="/2016/04/01/sjmstotal/">设计模式干货系列：（总纲）总体介绍设计模式</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Teng Jun</a></p>
         <p><span>发布时间:</span>2016-04-01, 20:23:20</p>
-        <p><span>最后更新:</span>2016-04-02, 15:01:20</p>
+        <p><span>最后更新:</span>2017-03-18, 08:23:39</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/04/01/sjmstotal/" title="设计模式干货系列：（总纲）总体介绍设计模式">http://tengj.github.io/2016/04/01/sjmstotal/</a>
             <span class="copy-path" data-clipboard-text="原文: http://tengj.github.io/2016/04/01/sjmstotal/　　作者: Teng Jun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

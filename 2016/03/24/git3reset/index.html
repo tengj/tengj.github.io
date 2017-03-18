@@ -15,12 +15,12 @@
 
 
 
-<meta name="description" content="前言前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。">
+<meta name="description" content="前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git干货系列：（三）我提交错了我想撤销或者回退版本">
 <meta property="og:url" content="http://tengj.github.io/2016/03/24/git3reset/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="前言前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。">
+<meta property="og:description" content="前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git2_1.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git3_1.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git3_2.png">
@@ -31,10 +31,10 @@
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git3_7.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/git3_8.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
-<meta property="og:updated_time" content="2016-04-02T07:07:53.295Z">
+<meta property="og:updated_time" content="2017-03-18T00:22:31.443Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git干货系列：（三）我提交错了我想撤销或者回退版本">
-<meta name="twitter:description" content="前言前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。">
+<meta name="twitter:description" content="前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -189,11 +189,15 @@
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
                     </nav>
@@ -202,7 +206,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springMVC/">springMVC</a></li></ul>
                     </div>
                 </section>
                 
@@ -267,11 +271,15 @@
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" target="_blank" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" target="_blank" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
             </nav>
@@ -332,7 +340,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。<br><a id="more"></a><br>在上图大家回顾一下，看这里<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_1.png" alt=""></p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。<br>在上图大家回顾一下，看这里<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_1.png" alt=""></p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h2><h3 id="git-checkout-–-file"><a href="#git-checkout-–-file" class="headerlink" title="git checkout – [file]"></a>git checkout – [file]</h3><p>如果你文件只是在工作区修改了，但是还没提交到暂存区的时候，你可以用<code>git checkout -- [file]</code>来撤销。简单的说就是暂存区覆盖工作区。这里模拟一下，比如现在<code>readme.txt</code>里面内容是<code>first day</code>，并且已经提交到暂存区了，此时修改<code>readme.txt</code>，内容改成<code>second day.</code>，然后执行<code>git checkout -- readme.txt</code>命令,你会发现<code>readme.txt</code>内容又变成<code>first day</code>了<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_1.png" alt=""></p>
 <h3 id="git-reset-HEAD"><a href="#git-reset-HEAD" class="headerlink" title="git reset HEAD"></a>git reset HEAD</h3><p>如果你文件在工作区修改了,并且也执行<code>git add</code>命令提交给暂存区了，那么执行上面的<code>git checkout -- [file]</code>已经无效了，因为工作区跟暂存区已经一样了，再怎么覆盖内容也一样，这时候就应该使用<code>git reset HEAD</code>命令来撤销，简单的说就是让<code>HEAD</code>覆盖暂存区，因为此时的<code>HEAD</code>这边的文件内容还是上次提交时的内容。现在模拟一下，现在有<code>readme.txt</code>跟<code>hello.txt</code>两个文件，都经过修改<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_2.png" alt=""><br>如图可以看到，使用<code>git status -s</code>来查看的时候，红色的M表示这2个文件都经过修改，使用<code>git add .</code>提交后在查看，发现都是绿色的M，表示都提交到暂存区了，这时候执行<code>git reset HEAD hello.txt</code>后在查看，发现<code>hello.txt</code>变成红色M了，说明hello.txt从暂存区撤销了。如果还想把工作区间的文件也撤回，就继续执行上面的<code>git reset HEAD readme.txt</code>就行。</p>
 <h3 id="git-checkout-HEAD-file"><a href="#git-checkout-HEAD-file" class="headerlink" title="git checkout HEAD [file]"></a>git checkout HEAD [file]</h3><p><code>git checkout HEAD [file]</code>命令是<code>git checkout -- [file]</code>和<code>git reset HEAD</code>的合成体，直接用HEAD覆盖工作区,暂存区。如下图中所示，一开始 工作区暂存区以及HEAD中文件内容都是<code>first day.</code>,此时修改<code>readme.txt</code>内容为<code>second day.</code>，然后执行<code>git add .</code>提交到暂存区，接着执行<code>git checkout HEAD readme.txt</code>命令，再查看<code>readme.txt</code>内容的时候你会发现变成了<code>first day.</code><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_3.png" alt=""></p>
@@ -363,7 +371,7 @@
         <p><span>本文标题:</span><a href="/2016/03/24/git3reset/">git干货系列：（三）我提交错了我想撤销或者回退版本</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Teng Jun</a></p>
         <p><span>发布时间:</span>2016-03-24, 22:15:55</p>
-        <p><span>最后更新:</span>2016-04-02, 15:07:53</p>
+        <p><span>最后更新:</span>2017-03-18, 08:22:31</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/03/24/git3reset/" title="git干货系列：（三）我提交错了我想撤销或者回退版本">http://tengj.github.io/2016/03/24/git3reset/</a>
             <span class="copy-path" data-clipboard-text="原文: http://tengj.github.io/2016/03/24/git3reset/　　作者: Teng Jun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

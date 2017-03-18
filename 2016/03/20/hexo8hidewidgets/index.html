@@ -15,35 +15,20 @@
 
 
 
-<meta name="description" content="前言使用Jacman主题的时候发现打开具体文章后，侧边栏还是会展示，我想要的效果是自动隐藏侧边栏，并且展示目录。但是当我修改了主题配置文件里面close_aside属性为true的时候，发现侧边栏隐藏了，但是目录没出来。于是就有了这篇文章，让我带你一步步明白原理并解决问题~
-正文侧边栏的代码结构  
-如图：
-
-为显示侧边栏按钮,对应的是openaside，默认隐藏
-为文章目录,对应的是to和toc">
+<meta name="description" content="使用Jacman主题的时候发现打开具体文章后，侧边栏还是会展示，我想要的效果是自动隐藏侧边栏，并且展示目录。但是当我修改了主题配置文件里面`close_aside`属性为`true`的时候，发现侧边栏隐藏了，但是目录没出来。于是就有了这篇文章，让我带你一步步明白原理并解决问题~">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo干货系列：（八）hexo文章自动隐藏侧边栏">
 <meta property="og:url" content="http://tengj.github.io/2016/03/20/hexo8hidewidgets/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="前言使用Jacman主题的时候发现打开具体文章后，侧边栏还是会展示，我想要的效果是自动隐藏侧边栏，并且展示目录。但是当我修改了主题配置文件里面close_aside属性为true的时候，发现侧边栏隐藏了，但是目录没出来。于是就有了这篇文章，让我带你一步步明白原理并解决问题~
-正文侧边栏的代码结构  
-如图：
-
-为显示侧边栏按钮,对应的是openaside，默认隐藏
-为文章目录,对应的是to和toc">
+<meta property="og:description" content="使用Jacman主题的时候发现打开具体文章后，侧边栏还是会展示，我想要的效果是自动隐藏侧边栏，并且展示目录。但是当我修改了主题配置文件里面`close_aside`属性为`true`的时候，发现侧边栏隐藏了，但是目录没出来。于是就有了这篇文章，让我带你一步步明白原理并解决问题~">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo8_1.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo8_2.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/hexo8_3.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
-<meta property="og:updated_time" content="2016-04-09T15:40:51.923Z">
+<meta property="og:updated_time" content="2017-03-18T00:17:26.495Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo干货系列：（八）hexo文章自动隐藏侧边栏">
-<meta name="twitter:description" content="前言使用Jacman主题的时候发现打开具体文章后，侧边栏还是会展示，我想要的效果是自动隐藏侧边栏，并且展示目录。但是当我修改了主题配置文件里面close_aside属性为true的时候，发现侧边栏隐藏了，但是目录没出来。于是就有了这篇文章，让我带你一步步明白原理并解决问题~
-正文侧边栏的代码结构  
-如图：
-
-为显示侧边栏按钮,对应的是openaside，默认隐藏
-为文章目录,对应的是to和toc">
+<meta name="twitter:description" content="使用Jacman主题的时候发现打开具体文章后，侧边栏还是会展示，我想要的效果是自动隐藏侧边栏，并且展示目录。但是当我修改了主题配置文件里面`close_aside`属性为`true`的时候，发现侧边栏隐藏了，但是目录没出来。于是就有了这篇文章，让我带你一步步明白原理并解决问题~">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -198,11 +183,15 @@
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
                     </nav>
@@ -211,7 +200,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springMVC/">springMVC</a></li></ul>
                     </div>
                 </section>
                 
@@ -276,11 +265,15 @@
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" target="_blank" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" target="_blank" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
             </nav>
@@ -325,7 +318,7 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/hexo/">hexo</a>
+    <a class="article-category-link" href="/categories/hexo干货系列/">hexo干货系列</a>
     </div>
 
 
@@ -373,7 +366,7 @@
         <p><span>本文标题:</span><a href="/2016/03/20/hexo8hidewidgets/">hexo干货系列：（八）hexo文章自动隐藏侧边栏</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Teng Jun</a></p>
         <p><span>发布时间:</span>2016-03-20, 14:54:21</p>
-        <p><span>最后更新:</span>2016-04-09, 23:40:51</p>
+        <p><span>最后更新:</span>2017-03-18, 08:17:26</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/03/20/hexo8hidewidgets/" title="hexo干货系列：（八）hexo文章自动隐藏侧边栏">http://tengj.github.io/2016/03/20/hexo8hidewidgets/</a>
             <span class="copy-path" data-clipboard-text="原文: http://tengj.github.io/2016/03/20/hexo8hidewidgets/　　作者: Teng Jun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

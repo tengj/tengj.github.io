@@ -6,7 +6,8 @@
     <entry>
       <title><![CDATA[Spring Boot干货系列：（五）开发Web应用之JSP篇]]></title>
       <url>http://tengj.github.io/2017/03/13/springboot5/</url>
-      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇介绍了Spring Boot中使用Thymeleaf模板引擎，今天来介绍一下如何使用SpringBoot官方不推荐的jsp,虽然难度有点大，但是玩起来还是蛮有意思的。<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/spring.jpg" alt=""></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇介绍了Spring Boot中使用Thymeleaf模板引擎，今天来介绍一下如何使用SpringBoot官方不推荐的jsp,虽然难度有点大，但是玩起来还是蛮有意思的。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>先来看看整体的框架结构，跟前面介绍Thymeleaf的时候差不多，只是多了webapp这个用来存放jsp的目录，静态资源还是放在resources的static下面。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/springboot5-1.jpg" alt=""></p>
 <h2 id="引入依赖"><a href="#引入依赖" class="headerlink" title="引入依赖"></a>引入依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--WEB支持--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--jsp页面使用jstl标签--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>jstl<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--用于编译jsp--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.apache.tomcat.embed<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>tomcat-embed-jasper<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="title">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>使用内嵌的tomcat容器来运行的话只要这3个就好了。这里介绍下maven中scope依赖范围的概念，因为后续涉及到这个会有问题。</p>
@@ -86,7 +87,8 @@
     <entry>
       <title><![CDATA[Spring Boot干货系列：（四）开发Web应用之Thymeleaf篇]]></title>
       <url>http://tengj.github.io/2017/03/13/springboot4/</url>
-      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Web开发是我们平时开发中至关重要的，这里就来介绍一下Spring Boot对Web开发的支持。<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/spring.jpg" alt=""></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Web开发是我们平时开发中至关重要的，这里就来介绍一下Spring Boot对Web开发的支持。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>Spring Boot提供了spring-boot-starter-web为Web开发予以支持，spring-boot-starter-web为我们提供了嵌入的Tomcat以及Spring MVC的依赖。</p>
 <h2 id="项目结构推荐"><a href="#项目结构推荐" class="headerlink" title="项目结构推荐"></a>项目结构推荐</h2><p>一个好的项目结构会让你开发少一些问题，特别是Spring Boot中启动类要放在root package下面，我的web工程项目结构如下：<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/springboot4-1.jpg" alt=""></p>
 <ul>
@@ -156,7 +158,7 @@
       
         <categories>
             
-            <category> Spring Boot </category>
+            <category> Spring Boot干货系列 </category>
             
         </categories>
         
@@ -251,7 +253,7 @@
       
         <categories>
             
-            <category> Spring Boot </category>
+            <category> Spring Boot干货系列 </category>
             
         </categories>
         
@@ -353,7 +355,7 @@
       
         <categories>
             
-            <category> Spring Boot </category>
+            <category> Spring Boot干货系列 </category>
             
         </categories>
         
@@ -381,7 +383,7 @@
       
         <categories>
             
-            <category> Spring Boot </category>
+            <category> Spring Boot干货系列 </category>
             
         </categories>
         
@@ -494,7 +496,7 @@
       
         <categories>
             
-            <category> Spring Boot </category>
+            <category> Spring Boot干货系列 </category>
             
         </categories>
         
@@ -781,10 +783,16 @@
       
         <categories>
             
-            <category> springMVC </category>
+            <category> springMVC干货系列 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> springMVC </tag>
+            
+        </tags>
         
     </entry>
     
@@ -989,10 +997,16 @@
       
         <categories>
             
-            <category> springMVC </category>
+            <category> springMVC干货系列 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> springMVC </tag>
+            
+        </tags>
         
     </entry>
     
@@ -1064,10 +1078,16 @@
       
         <categories>
             
-            <category> springMVC </category>
+            <category> springMVC干货系列 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> springMVC </tag>
+            
+        </tags>
         
     </entry>
     
@@ -1221,10 +1241,16 @@
       
         <categories>
             
-            <category> springMVC </category>
+            <category> springMVC干货系列 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> springMVC </tag>
+            
+        </tags>
         
     </entry>
     
@@ -2940,7 +2966,7 @@
     <entry>
       <title><![CDATA[git干货系列：（三）我提交错了我想撤销或者回退版本]]></title>
       <url>http://tengj.github.io/2016/03/24/git3reset/</url>
-      <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。<br><a id="more"></a><br>在上图大家回顾一下，看这里<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_1.png" alt=""></p>
+      <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。<br>在上图大家回顾一下，看这里<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_1.png" alt=""></p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h2><h3 id="git-checkout-–-file"><a href="#git-checkout-–-file" class="headerlink" title="git checkout – [file]"></a>git checkout – [file]</h3><p>如果你文件只是在工作区修改了，但是还没提交到暂存区的时候，你可以用<code>git checkout -- [file]</code>来撤销。简单的说就是暂存区覆盖工作区。这里模拟一下，比如现在<code>readme.txt</code>里面内容是<code>first day</code>，并且已经提交到暂存区了，此时修改<code>readme.txt</code>，内容改成<code>second day.</code>，然后执行<code>git checkout -- readme.txt</code>命令,你会发现<code>readme.txt</code>内容又变成<code>first day</code>了<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_1.png" alt=""></p>
 <h3 id="git-reset-HEAD"><a href="#git-reset-HEAD" class="headerlink" title="git reset HEAD"></a>git reset HEAD</h3><p>如果你文件在工作区修改了,并且也执行<code>git add</code>命令提交给暂存区了，那么执行上面的<code>git checkout -- [file]</code>已经无效了，因为工作区跟暂存区已经一样了，再怎么覆盖内容也一样，这时候就应该使用<code>git reset HEAD</code>命令来撤销，简单的说就是让<code>HEAD</code>覆盖暂存区，因为此时的<code>HEAD</code>这边的文件内容还是上次提交时的内容。现在模拟一下，现在有<code>readme.txt</code>跟<code>hello.txt</code>两个文件，都经过修改<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_2.png" alt=""><br>如图可以看到，使用<code>git status -s</code>来查看的时候，红色的M表示这2个文件都经过修改，使用<code>git add .</code>提交后在查看，发现都是绿色的M，表示都提交到暂存区了，这时候执行<code>git reset HEAD hello.txt</code>后在查看，发现<code>hello.txt</code>变成红色M了，说明hello.txt从暂存区撤销了。如果还想把工作区间的文件也撤回，就继续执行上面的<code>git reset HEAD readme.txt</code>就行。</p>
 <h3 id="git-checkout-HEAD-file"><a href="#git-checkout-HEAD-file" class="headerlink" title="git checkout HEAD [file]"></a>git checkout HEAD [file]</h3><p><code>git checkout HEAD [file]</code>命令是<code>git checkout -- [file]</code>和<code>git reset HEAD</code>的合成体，直接用HEAD覆盖工作区,暂存区。如下图中所示，一开始 工作区暂存区以及HEAD中文件内容都是<code>first day.</code>,此时修改<code>readme.txt</code>内容为<code>second day.</code>，然后执行<code>git add .</code>提交到暂存区，接着执行<code>git checkout HEAD readme.txt</code>命令，再查看<code>readme.txt</code>内容的时候你会发现变成了<code>first day.</code><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_3.png" alt=""></p>
@@ -2980,7 +3006,7 @@
     <entry>
       <title><![CDATA[git干货系列：（二）深入学习之前先理解git暂存区]]></title>
       <url>http://tengj.github.io/2016/03/23/git2konwindex/</url>
-      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>暂存区<code>（stage, index）</code>是<code>Git</code>最重要的概念之一，理解了这个概念很多 <code>Git</code> 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。<br><a id="more"></a> </p>
+      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>暂存区<code>（stage, index）</code>是<code>Git</code>最重要的概念之一，理解了这个概念很多 <code>Git</code> 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>下面这个图展示了工作区、版本库中的暂存区和版本库之间的关系。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_1.png" alt=""><br>在这个图中，我们可以看到部分 <code>Git</code>命令是如何影响工作区和暂存区<code>（stage, index）</code>的。</p>
 <ul>
 <li>图中左侧为工作区，右侧为版本库。在版本库中标记为 <code>index</code> 的区域是暂存区<code>（stage, index）</code>，标记为 <code>master</code> 的是 <code>master</code> 分支所代表的目录树。</li>
@@ -3185,7 +3211,7 @@
       
         <categories>
             
-            <category> hexo </category>
+            <category> hexo干货系列 </category>
             
         </categories>
         
@@ -3223,7 +3249,7 @@
       
         <categories>
             
-            <category> hexo </category>
+            <category> hexo干货系列 </category>
             
         </categories>
         
@@ -3239,7 +3265,7 @@
     <entry>
       <title><![CDATA[百度链接提交主动推送后不收录的原因]]></title>
       <url>http://tengj.github.io/2016/03/14/baidunoshouluresson/</url>
-      <content type="html"><![CDATA[<h1 id="前言-（转载）"><a href="#前言-（转载）" class="headerlink" title="前言 （转载）"></a>前言 （转载）</h1><p>自从百度站长平台开放了百度链接主动推送接口以后，很多站长都开始使用百度开放的这个主动推送接口来推送网站的最新内容，但是在使用这个推送接口的时候，大家肯定也发现了不少问题，比如推送的内容不收录、推送的链接数量 和 站长平台显示的主动提交数量不符等等<a id="more"></a> ，今天小编就针对这些问题给大家做一个详细的说明。</p>
+      <content type="html"><![CDATA[<h1 id="前言-（转载）"><a href="#前言-（转载）" class="headerlink" title="前言 （转载）"></a>前言 （转载）</h1><p>自从百度站长平台开放了百度链接主动推送接口以后，很多站长都开始使用百度开放的这个主动推送接口来推送网站的最新内容，但是在使用这个推送接口的时候，大家肯定也发现了不少问题，比如推送的内容不收录、推送的链接数量 和 站长平台显示的主动提交数量不符等等 ，今天小编就针对这些问题给大家做一个详细的说明。</p>
 <h2 id="主动推送不一定百分百收录"><a href="#主动推送不一定百分百收录" class="headerlink" title="主动推送不一定百分百收录"></a>主动推送不一定百分百收录</h2><p>虽然说百度链接主动推送在收录速度上要优先于sitemap 和 网页提交，但是提交的内容是否收录还要取决你内容本身，如果你提交的网页内容质量较低，属于采集内容或者违规内容，那么这样的内容及时你使用主动推送提交也不一定能够百分百收录。</p>
 <p>百度的主动推送只是给站长们提供一个能够更快让百度发现网页链接的接口，但是内容是否会被收录依然要经过百度数据库的对比检测以后，符合收录标准的内容才会被收录。</p>
 <h2 id="主动推送并非立马出现在搜索结果快照中"><a href="#主动推送并非立马出现在搜索结果快照中" class="headerlink" title="主动推送并非立马出现在搜索结果快照中"></a>主动推送并非立马出现在搜索结果快照中</h2><p>很多站长朋友们使用的百度的主动推送接口以后，都错误的以为通过百度主动推送接口推送的内容都可以在第一时间内显示在百度搜索结果的快照中，其实这是错误的理解，因为你推送的内容仅仅是进入了百度搜索的数据库中，是否会在搜索结果快照中显示还需要百度爬虫的进一步检测和处理，一般收录以后的内容1-5天才会出现在快照中。当然，如果你的网站质量较高，或者你的网站属于新闻源类型的网站，一般主动推送以后的内容确实是立刻就能出现在搜索引擎结果中的。</p>
@@ -3270,7 +3296,7 @@
     <entry>
       <title><![CDATA[hexo干货系列：（六）hexo提交搜索引擎（百度+谷歌）]]></title>
       <url>http://tengj.github.io/2016/03/14/hexo6seo/</url>
-      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>能看到这里，说明大家都跟我一样，已经把博客搭起来并洋洋洒洒写了几篇博文，正春风得意感觉良好的时候，搭建博客有屎以来最大的危机出现在没有准备的我面前，百度+谷歌都无法搜索到我的博客。装逼还没几天就这样，真是不能忍。<a id="more"></a> 于是就研究了几天，鼓捣出了这篇文章。教大家如何脱坑。</p>
+      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>能看到这里，说明大家都跟我一样，已经把博客搭起来并洋洋洒洒写了几篇博文，正春风得意感觉良好的时候，搭建博客有屎以来最大的危机出现在没有准备的我面前，百度+谷歌都无法搜索到我的博客。装逼还没几天就这样，真是不能忍。于是就研究了几天，鼓捣出了这篇文章。教大家如何脱坑。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>下面准备分别介绍谷歌和百度如何提交搜索引擎，其中有一些共同的地方，这里先说明</p>
 <h2 id="先确认博客是否被收录"><a href="#先确认博客是否被收录" class="headerlink" title="先确认博客是否被收录"></a>先确认博客是否被收录</h2><p>在百度或者谷歌上面输入下面格式来判断，如果能搜索到就说明被收录，否则就没有，用你的域名替代我的tengj.top<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">site:tengj.top</span><br></pre></td></tr></table></figure></p>
 <p>我目前搜索结果如图：<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo6_1.png" alt=""><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo6_2.png" alt=""></p>
@@ -3339,7 +3365,7 @@
       
         <categories>
             
-            <category> hexo </category>
+            <category> hexo干货系列 </category>
             
         </categories>
         
@@ -3397,17 +3423,23 @@
       
         <categories>
             
-            <category> springMVC </category>
+            <category> springMVC干货系列 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> springMVC </tag>
+            
+        </tags>
         
     </entry>
     
     <entry>
       <title><![CDATA[使用高级搜索指令提高搜索效率（百度，谷歌）]]></title>
       <url>http://tengj.github.io/2016/03/12/hightsearchline/</url>
-      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我们普通人平时都会用到搜索引擎，但也只是简单的输入名称查询而已，这里介绍几个比较简单但是又及其好用的高级搜索指令，能让你搜索效率提高好几倍。<br><a id="more"></a> </p>
+      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我们普通人平时都会用到搜索引擎，但也只是简单的输入名称查询而已，这里介绍几个比较简单但是又及其好用的高级搜索指令，能让你搜索效率提高好几倍。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><blockquote>
 <p>高级搜索指令<br>这么理解：一般人不知道的，能够提高搜索效率以及精度的一些特殊指令。</p>
 </blockquote>
@@ -3476,7 +3508,7 @@
       
         <categories>
             
-            <category> hexo </category>
+            <category> hexo干货系列 </category>
             
         </categories>
         
@@ -3493,7 +3525,6 @@
       <title><![CDATA[ajax一个很好的加载效果]]></title>
       <url>http://tengj.github.io/2016/03/10/jqueryLoading/</url>
       <content type="html"><![CDATA[<p>推荐一个常用的jquery加载效果插件,很适合开发中使用。</p>
-<a id="more"></a> 
 <h2 id="要引入这个插件的css和js"><a href="#要引入这个插件的css和js" class="headerlink" title="要引入这个插件的css和js:"></a>要引入这个插件的css和js:</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">"&lt;%=path %&gt;/css/showLoading.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">media</span>=<span class="value">"screen"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"&lt;%=path %&gt;/js/jquery.showLoading.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="使用的时候代码如下"><a href="#使用的时候代码如下" class="headerlink" title="使用的时候代码如下:"></a>使用的时候代码如下:</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">".wrapper"</span>).showLoading();  <span class="comment">//展示加载效果 wrapper为你需要加载效果的div， 也可以用body</span></span><br><span class="line">$(<span class="string">".wrapper"</span>).hideLoading();  <span class="comment">//取消加载效果</span></span><br></pre></td></tr></table></figure>
 <h2 id="ajax完整效果"><a href="#ajax完整效果" class="headerlink" title="ajax完整效果"></a>ajax完整效果</h2><p>搭配ajaX的beforeSend提高用户体验：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 提交表单数据到后台处理</span></span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    type: <span class="string">"post"</span>,</span><br><span class="line">    data: studentInfo,</span><br><span class="line">    dataType:<span class="string">"json"</span>,</span><br><span class="line">    url: <span class="string">"/Home/Submit"</span>,</span><br><span class="line">    beforeSend: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 禁用按钮防止重复提交</span></span><br><span class="line">        $(<span class="string">".wrapper"</span>).showLoading();</span><br><span class="line">        $(<span class="string">"#submit"</span>).attr(&#123; disabled: <span class="string">"disabled"</span> &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (data == <span class="string">"Success"</span>) &#123;</span><br><span class="line">            <span class="comment">//清空输入框</span></span><br><span class="line">            clearBox();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    complete: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        $(<span class="string">".wrapper"</span>).hideLoading();</span><br><span class="line">        $(<span class="string">"#submit"</span>).removeAttr(<span class="string">"disabled"</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    error: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.info(<span class="string">"error: "</span> + data.responseText);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
@@ -3518,7 +3549,7 @@
     <entry>
       <title><![CDATA[hexo干货系列：（四）将hexo博客同时托管到github和coding]]></title>
       <url>http://tengj.github.io/2016/03/06/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E5%9B%9B%EF%BC%89%E5%B0%86hexo%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%97%B6%E6%89%98%E7%AE%A1%E5%88%B0github%E5%92%8Ccoding/</url>
-      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前我们把hexo托管在github，但是毕竟github是国外的，访问速度上还是有点慢，所以想也部署一套在国内的托管平台，之前查资料听说gitcafe,但是听说gitcafe已经被coding收购了，所以就决定部署到coding。<a id="more"></a> 查询了多方资料，终于鼓捣出了本地一次部署，同时更新到github以及coding。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_13.jpg" alt=""></p>
+      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前我们把hexo托管在github，但是毕竟github是国外的，访问速度上还是有点慢，所以想也部署一套在国内的托管平台，之前查资料听说gitcafe,但是听说gitcafe已经被coding收购了，所以就决定部署到coding。查询了多方资料，终于鼓捣出了本地一次部署，同时更新到github以及coding。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_13.jpg" alt=""></p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="config-yml配置"><a href="#config-yml配置" class="headerlink" title="_config.yml配置"></a>_config.yml配置</h2><p>想要同时部署到2个平台，就要修改博客根目录下面的_config.yml文件中的deploy如下<br>根据Hexo官方文档需要修改成下面的形式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  message: [message]</span><br><span class="line">  repo:</span><br><span class="line">    github: &lt;repository url&gt;,[branch]</span><br><span class="line">    gitcafe: &lt;repository url&gt;,[branch]</span><br></pre></td></tr></table></figure></p>
 <p>所以我的是这样：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo:</span><br><span class="line">	  github: git@github.com:tengj/tengj.github.io.git,master</span><br><span class="line">	  coding: git@git.coding.net:tengj/hexoblob.git,master</span><br></pre></td></tr></table></figure></p>
 <p>这里要注意一下：上面这段代码左边的-号只能有2个(如下图红圈)，如果超过2个一般就是会被认定为填写格式有问题。我是在repo下面两行用tab键缩进就行，之前没注意这里一直报错。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_1.png" alt="">  </p>
@@ -3570,7 +3601,7 @@ hexo deploy -g
       
         <categories>
             
-            <category> hexo </category>
+            <category> hexo干货系列 </category>
             
         </categories>
         
@@ -3587,7 +3618,6 @@ hexo deploy -g
       <title><![CDATA[hexo干货系列：（三）hexo的Jacman主题优化]]></title>
       <url>http://tengj.github.io/2016/03/06/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%89%EF%BC%89hexo%E7%9A%84Jacman%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇介绍了Jacman主题的安装和配置，今天根据上次的基础做了些优化，让博客看起来很舒服。</p>
-<a id="more"></a> 
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="首页文章展示摘要"><a href="#首页文章展示摘要" class="headerlink" title="首页文章展示摘要"></a>首页文章展示摘要</h2><p>该主题首页文章列表默认是全部展开，感觉不好，我关闭掉了，只展示少量摘要。<br>修改<code>\themes\jacman</code>下面<code>_config.yml</code>中的<code>expand</code>改成<code>false</code>即可<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">index:</span><br><span class="line">  expand: <span class="literal">false</span>           <span class="comment">## default is unexpanding,so you can only see the short description of each post.</span></span><br><span class="line">  excerpt_link: Read More</span><br></pre></td></tr></table></figure></p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo3_4.png" alt=""></p>
 <h2 id="主题背景色修改"><a href="#主题背景色修改" class="headerlink" title="主题背景色修改"></a>主题背景色修改</h2><p>我给主题添加了个背景图片，看清来很文艺<br>修改<code>\themes\jacman\source\css\_base</code>下的<code>public.styl</code>，找到body，添加<code>background-image url(&#39;/img/bg.jpg&#39;)</code>，图片放在<code>\themes\jacman\source\img</code>即可<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">body</span><br><span class="line">  background color-background</span><br><span class="line">  background-image url('/img/bg.jpg')</span><br><span class="line">  font-family font-default</span><br><span class="line">  font-size font-size</span><br><span class="line">  color color-font</span><br><span class="line">  line-height line-height</span><br><span class="line">  min-height: 100vh</span><br><span class="line">  display: -webkit-flex</span><br><span class="line">  display: flex</span><br><span class="line">  -webkit-flex-direction: column</span><br><span class="line">  flex-direction: column</span><br></pre></td></tr></table></figure></p>
@@ -3623,7 +3653,7 @@ hexo deploy -g
       
         <categories>
             
-            <category> hexo </category>
+            <category> hexo干货系列 </category>
             
         </categories>
         
@@ -3640,7 +3670,7 @@ hexo deploy -g
       <title><![CDATA[hexo干货系列：（二）hexo主题下载及配置]]></title>
       <url>http://tengj.github.io/2016/02/26/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%BA%8C%EF%BC%89hexo%E4%B8%BB%E9%A2%98%E4%B8%8B%E8%BD%BD%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><hr>
-<p>上一篇文章介绍了hexo+gitHub简易搭建属于自己的个人独立博客，但是主题是默认的landscape，略显简单，今天的教程推荐Jacman主题。<a id="more"></a><br>Jacman是一款为Hexo打造的一款扁平化，有着响应式设计的主题，个人感觉还不错就使用了。</p>
+<p>上一篇文章介绍了hexo+gitHub简易搭建属于自己的个人独立博客，但是主题是默认的landscape，略显简单，今天的教程推荐Jacman主题。<br>Jacman是一款为Hexo打造的一款扁平化，有着响应式设计的主题，个人感觉还不错就使用了。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><hr>
 <h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><hr>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/wuchong/jacman.git themes/jacman</span><br></pre></td></tr></table></figure>
@@ -3704,7 +3734,7 @@ hexo deploy -g
     <entry>
       <title><![CDATA[myeclipse中tomcat内存溢出完美解决方案]]></title>
       <url>http://tengj.github.io/2016/02/25/myeclipse%E4%B8%ADtomcat%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%AE%8C%E7%BE%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
-      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天工作启动项目的时候发现报了内存溢出的错误，java.lang.OutOfMemoryError: PermGen space<br><a id="more"></a><br>网上百度了许多，各种解决方案，有的说修改tomcat下面的catalina.bat,有的说修改myeclipse.ini，把我弄得晕头转向。后来发现一个个人认为最好的解决方案，就是使用jdk自带的jvisualvm.exe来监控，特此来总结一下，希望对大家有帮助。</p>
+      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天工作启动项目的时候发现报了内存溢出的错误，java.lang.OutOfMemoryError: PermGen space<br>网上百度了许多，各种解决方案，有的说修改tomcat下面的catalina.bat,有的说修改myeclipse.ini，把我弄得晕头转向。后来发现一个个人认为最好的解决方案，就是使用jdk自带的jvisualvm.exe来监控，特此来总结一下，希望对大家有帮助。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>动手前先了解这几个参数的意思：  </p>
 <pre><code>-Xms128m JVM初始分配的堆内存
 -Xmx512m JVM最大允许分配的堆内存，按需分配  
@@ -3825,7 +3855,7 @@ tags: [文章] #文章标签，多于一项时用这种格式，只有一项时�
       
         <categories>
             
-            <category> hexo </category>
+            <category> hexo干货系列 </category>
             
         </categories>
         
@@ -3841,7 +3871,7 @@ tags: [文章] #文章标签，多于一项时用这种格式，只有一项时�
     <entry>
       <title><![CDATA[hexo干货系列：（总纲）搭建独立博客初衷]]></title>
       <url>http://tengj.github.io/2016/02/20/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E6%80%BB%E7%BA%B2%EF%BC%89%E6%90%AD%E5%BB%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2%E5%88%9D%E8%A1%B7/</url>
-      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我是一名程序员，以前知识整理都是整理在为知笔记上，博客用的比较少，更别说是使用独立博客，因为不会。。。<br>2016年过年在家期间偶然的机会萌发了自己要搭建一个属于自己的独立博客的想法，于是就有了下面的这些。<br><a id="more"></a> </p>
+      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我是一名程序员，以前知识整理都是整理在为知笔记上，博客用的比较少，更别说是使用独立博客，因为不会。。。<br>2016年过年在家期间偶然的机会萌发了自己要搭建一个属于自己的独立博客的想法，于是就有了下面的这些。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="技能点涉及"><a href="#技能点涉及" class="headerlink" title="技能点涉及"></a>技能点涉及</h2><p>为了搭建自己的独立博客，结果学了许多东西，感觉也是蛮好玩的。<br>下面用思维导图画一下我为了搭建个人博客而不得不涉及学习的知识点。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo0_1.png" alt="">  </p>
 <h2 id="系列博文整理"><a href="#系列博文整理" class="headerlink" title="系列博文整理"></a>系列博文整理</h2><p>整理了下hexo系列的文章，发现写系列博客感觉还是很棒的：<br><a href="http://tengj.top/2016/02/22/hexo干货系列：（一）hexo+gitHub搭建个人独立博客/" target="_blank" rel="external">hexo干货系列：（一）hexo+gitHub搭建个人独立博客</a><br><a href="http://tengj.top/2016/02/26/hexo干货系列：（二）hexo主题下载及配置/" target="_blank" rel="external">hexo干货系列：（二）hexo主题下载及配置</a><br><a href="http://tengj.top/2016/03/06/hexo干货系列：（三）hexo的Jacman主题优化/" target="_blank" rel="external">hexo干货系列：（三）hexo的Jacman主题优化</a><br><a href="http://tengj.top/2016/03/06/hexo干货系列：（四）将hexo博客同时托管到github和coding/" target="_blank" rel="external">hexo干货系列：（四）将hexo博客同时托管到github和coding</a><br><a href="http://tengj.top/2016/03/11/hexo5Swiftype" target="_blank" rel="external">hexo干货系列：（五）hexo添加站内搜索</a><br><a href="http://tengj.top/2016/03/14/hexo6seo" target="_blank" rel="external">hexo干货系列：（六）hexo提交搜索引擎（百度+谷歌）</a><br><a href="http://tengj.top/2016/03/17/hexo7count/" target="_blank" rel="external">hexo干货系列：（七）hexo安装统计插件</a><br><a href="http://tengj.top/2016/03/20/hexo8hidewidgets/" target="_blank" rel="external">hexo干货系列：（八）hexo文章自动隐藏侧边栏</a>  </p>
 <h1 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h1><p>2016年才知道有hexo这个东西，真希望早两年有人告诉我可以这样搭博客~~<br>hexo系列的学的差不多了，个人博客也搭建好了，后续就是用来记录自己工作以及生活上的点点滴滴。也会顺便把这几年学习的心得一片片写出来跟大家分享。<br>有分享才有进度，期待与你的碰撞！</p>
@@ -3849,7 +3879,7 @@ tags: [文章] #文章标签，多于一项时用这种格式，只有一项时�
       
         <categories>
             
-            <category> hexo </category>
+            <category> hexo干货系列 </category>
             
         </categories>
         

@@ -15,36 +15,21 @@
 
 
 
-<meta name="description" content="前言今天来介绍下HashMap，之前的List，讲了ArrayList、LinkedList，就前两者而言，反映的是两种思想：
-
-ArrayList以数组形式实现，顺序插入、查找快，插入、删除较慢
-LinkedList以链表形式实现，顺序插入、查找较慢，插入、删除方便
-
-那么是否有一种数据结构能够结合上面两种的优点呢？有，答案就是HashMap。它是基于哈希表的 Map 接口的实现，以key-va">
+<meta name="description" content="今天来介绍下HashMap，之前的List，讲了ArrayList、LinkedList">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java集合干货系列-（三）HashMap源码解析">
 <meta property="og:url" content="http://tengj.github.io/2016/04/15/javajh3hashmap/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="前言今天来介绍下HashMap，之前的List，讲了ArrayList、LinkedList，就前两者而言，反映的是两种思想：
-
-ArrayList以数组形式实现，顺序插入、查找快，插入、删除较慢
-LinkedList以链表形式实现，顺序插入、查找较慢，插入、删除方便
-
-那么是否有一种数据结构能够结合上面两种的优点呢？有，答案就是HashMap。它是基于哈希表的 Map 接口的实现，以key-va">
+<meta property="og:description" content="今天来介绍下HashMap，之前的List，讲了ArrayList、LinkedList">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/jh3_1.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/jh3_2.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/jh3_3.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/jhswdt.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
-<meta property="og:updated_time" content="2016-04-15T02:34:01.572Z">
+<meta property="og:updated_time" content="2017-03-18T00:16:10.661Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java集合干货系列-（三）HashMap源码解析">
-<meta name="twitter:description" content="前言今天来介绍下HashMap，之前的List，讲了ArrayList、LinkedList，就前两者而言，反映的是两种思想：
-
-ArrayList以数组形式实现，顺序插入、查找快，插入、删除较慢
-LinkedList以链表形式实现，顺序插入、查找较慢，插入、删除方便
-
-那么是否有一种数据结构能够结合上面两种的优点呢？有，答案就是HashMap。它是基于哈希表的 Map 接口的实现，以key-va">
+<meta name="twitter:description" content="今天来介绍下HashMap，之前的List，讲了ArrayList、LinkedList">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -199,11 +184,15 @@ LinkedList以链表形式实现，顺序插入、查找较慢，插入、删除�
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
                     </nav>
@@ -212,7 +201,7 @@ LinkedList以链表形式实现，顺序插入、查找较慢，插入、删除�
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springMVC/">springMVC</a></li></ul>
                     </div>
                 </section>
                 
@@ -277,11 +266,15 @@ LinkedList以链表形式实现，顺序插入、查找较慢，插入、删除�
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" target="_blank" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" target="_blank" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
             </nav>
@@ -437,7 +430,7 @@ LinkedList以链表形式实现，顺序插入、查找较慢，插入、删除�
         <p><span>本文标题:</span><a href="/2016/04/15/javajh3hashmap/">Java集合干货系列-（三）HashMap源码解析</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Teng Jun</a></p>
         <p><span>发布时间:</span>2016-04-15, 09:09:14</p>
-        <p><span>最后更新:</span>2016-04-15, 10:34:01</p>
+        <p><span>最后更新:</span>2017-03-18, 08:16:10</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/04/15/javajh3hashmap/" title="Java集合干货系列-（三）HashMap源码解析">http://tengj.github.io/2016/04/15/javajh3hashmap/</a>
             <span class="copy-path" data-clipboard-text="原文: http://tengj.github.io/2016/04/15/javajh3hashmap/　　作者: Teng Jun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

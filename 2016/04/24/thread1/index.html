@@ -15,20 +15,12 @@
 
 
 
-<meta name="description" content="前言多线程并发编程是Java编程中重要的一块内容，也是面试重点覆盖区域，所以学好多线程并发编程对我们来说极其重要，下面跟我一起开启本次的学习之旅吧。
-正文线程与进程1 线程：进程中负责程序执行的执行单元线程本身依靠程序进行运行线程是程序中的顺序控制流，只能使用分配给程序的资源和环境
-2 进程：执行中的程序一个进程至少包含一个线程
-3 单线程：程序中只存在一个线程，实际上主方法就是一个主线程
-4 多">
+<meta name="description" content="多线程并发编程是Java编程中重要的一块内容，也是面试重点覆盖区域，所以学好多线程并发编程对我们来说极其重要，下面跟我一起开启本次的学习之旅吧。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java多线程干货系列—（一）Java多线程基础">
 <meta property="og:url" content="http://tengj.github.io/2016/04/24/thread1/index.html">
 <meta property="og:site_name" content="嘟嘟独立博客">
-<meta property="og:description" content="前言多线程并发编程是Java编程中重要的一块内容，也是面试重点覆盖区域，所以学好多线程并发编程对我们来说极其重要，下面跟我一起开启本次的学习之旅吧。
-正文线程与进程1 线程：进程中负责程序执行的执行单元线程本身依靠程序进行运行线程是程序中的顺序控制流，只能使用分配给程序的资源和环境
-2 进程：执行中的程序一个进程至少包含一个线程
-3 单线程：程序中只存在一个线程，实际上主方法就是一个主线程
-4 多">
+<meta property="og:description" content="多线程并发编程是Java编程中重要的一块内容，也是面试重点覆盖区域，所以学好多线程并发编程对我们来说极其重要，下面跟我一起开启本次的学习之旅吧。">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/thread1_1.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/thread1_2.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/thread1_3.jpg">
@@ -36,14 +28,10 @@
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/thread1_5.jpg">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/thread1.png">
 <meta property="og:image" content="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG">
-<meta property="og:updated_time" content="2016-04-24T02:35:36.572Z">
+<meta property="og:updated_time" content="2017-03-18T00:14:53.144Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java多线程干货系列—（一）Java多线程基础">
-<meta name="twitter:description" content="前言多线程并发编程是Java编程中重要的一块内容，也是面试重点覆盖区域，所以学好多线程并发编程对我们来说极其重要，下面跟我一起开启本次的学习之旅吧。
-正文线程与进程1 线程：进程中负责程序执行的执行单元线程本身依靠程序进行运行线程是程序中的顺序控制流，只能使用分配给程序的资源和环境
-2 进程：执行中的程序一个进程至少包含一个线程
-3 单线程：程序中只存在一个线程，实际上主方法就是一个主线程
-4 多">
+<meta name="twitter:description" content="多线程并发编程是Java编程中重要的一块内容，也是面试重点覆盖区域，所以学好多线程并发编程对我们来说极其重要，下面跟我一起开启本次的学习之旅吧。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -198,11 +186,15 @@
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
                     </nav>
@@ -211,7 +203,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springMVC/">springMVC</a></li></ul>
                     </div>
                 </section>
                 
@@ -276,11 +268,15 @@
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" target="_blank" href="/358593266@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" target="_blank" href="/#" title="GitHub"></a>
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/u/2550837117" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/tengj" title="GitHub"></a>
                             
                                 <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="http://www.jianshu.com/u/a7f72d78fe0d" title="简书"></a>
                             
                         </ul>
             </nav>
@@ -545,7 +541,7 @@
         <p><span>本文标题:</span><a href="/2016/04/24/thread1/">Java多线程干货系列—（一）Java多线程基础</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Teng Jun</a></p>
         <p><span>发布时间:</span>2016-04-24, 10:12:04</p>
-        <p><span>最后更新:</span>2016-04-24, 10:35:36</p>
+        <p><span>最后更新:</span>2017-03-18, 08:14:53</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/04/24/thread1/" title="Java多线程干货系列—（一）Java多线程基础">http://tengj.github.io/2016/04/24/thread1/</a>
             <span class="copy-path" data-clipboard-text="原文: http://tengj.github.io/2016/04/24/thread1/　　作者: Teng Jun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
