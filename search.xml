@@ -4,8 +4,41 @@
   
     
     <entry>
+      <title><![CDATA[精品软件推荐—Listary一款高效人士必备搜索增强工具]]></title>
+      <url>http://tengj.top/2017/03/18/listary/</url>
+      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上次推荐了Wox这款快捷启动辅助工具后，反响不错（不知道的可以看我之前发布的文章）。今天就来推荐一款可以跟Wox配合使用，提高效率X2的神器。<br>那就是Listary。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>如果你平常工作经常处理文件，或者你平时文件路径藏的很深，那么这款Listary绝对可以减少你的搜索时间。大家都知道，我们使用的Window本身自带的 文件浏览对话框查询慢不说，还只能查询的路径下面的，比如我打开的是E盘，那我搜索的话就只能搜索E盘下面的内容，查询体验很差。 Listary 它是一款非常优秀的 <code>Windows文件浏览</code>和<code>搜索增强</code>工具， 可以为你 Windows 的「文件浏览对话框」、「资源管理器」等增加非常方便的文件快速定位、实时全盘搜索、常用文件夹收藏、打开历史、快速切换到已打开的路径、快捷右键菜单等一系列非常非常实用和高效的功能，它能将 Windows 的便捷性提高到一个新的高度！</p>
+<p>小编我自从认识这个软件后，就彻底爱上它了。接下来就让我一一来介绍Listarty的各个功能。</p>
+<h2 id="Listarty结构"><a href="#Listarty结构" class="headerlink" title="Listarty结构"></a>Listarty结构</h2><p>软件如下图所示，提供了简体中文语言，多款可选择主题。自带网页搜索以及自定义的快捷命令，以后关机重启什么的直接键盘搞定即可，大大的释放你的鼠标。并且Listary体积小巧，而且运行快速，即便在低配置的电脑上常驻系统使用也不会察觉有丝毫拖慢速度的现象。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/listart1.gif" alt=""></p>
+<h2 id="实时全盘搜索"><a href="#实时全盘搜索" class="headerlink" title="实时全盘搜索"></a>实时全盘搜索</h2><p>Listarty可以在任何地方发起全盘搜索，只要双击两次Ctrl即可弹出搜索框，然后输入你要查询的内容即可。Listarty支持拼音搜索功能，可以说对中文环境的支持已经达到了完美。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/listary0.gif" alt=""></p>
+<h2 id="网页搜索功能"><a href="#网页搜索功能" class="headerlink" title="网页搜索功能"></a>网页搜索功能</h2><p>Listarty支持网页搜索功能，平时我们要查东西，还要先点击浏览器，再切到百度或者谷歌输入你想要搜索的内容。而Listarty下面提供了网页搜索的快捷，默认提供了如下这些触发命令。例如我们要百度博主博客嘟嘟MD，可以这样:<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/web.gif" alt=""></p>
+<h2 id="快捷命令启动"><a href="#快捷命令启动" class="headerlink" title="快捷命令启动"></a>快捷命令启动</h2><p>Listarty内置了一些快捷的命令启动，个人感觉比较有用的是以管理员身份启动cmd窗口，还有就是关机了。Listarty也可以快捷启动应用程序。不过个人感觉这点没有Wox的好用。所以推荐2者搭配使用<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/kuaijiemingl.gif" alt=""></p>
+<h2 id="常用文件夹收藏和打开历史"><a href="#常用文件夹收藏和打开历史" class="headerlink" title="常用文件夹收藏和打开历史"></a>常用文件夹收藏和打开历史</h2><p>Listarty有人性化的提供了历史纪录以及查看收藏的功能，这样就可以有效的提高重复的工作效率了。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/lisi.gif" alt=""></p>
+<h2 id="快速切换功能"><a href="#快速切换功能" class="headerlink" title="快速切换功能"></a>快速切换功能</h2><p>有没有这样一种场景，你在使用的软件中想打开某个文件的时候，你会先在外面一层一层打开你想要的文件，然后再使用软件一层一层再找到刚才那个文件的路径。 这里就做了一遍重复的操作。</p>
+<p>Listary就能快速帮你切换，节省最后一步的重复时间，你只要在需要在软件需要选择文件或者图片的时候，直接按CTRL+O即可切换到刚才选择的文件，如下：<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/listary3.gif" alt=""></p>
+<h2 id="其他功能"><a href="#其他功能" class="headerlink" title="其他功能"></a>其他功能</h2><p>Listary 除了支持 Windows 的资源管理器、文件对话框的增强之外，还能提供TotalCommander、WinRAR、FileZillar、7Zip、XYPlorer、FreeCommander 等知名软件的增强支持，配合它们用起来使用效率更加无敌！此外，如果你喜欢使用 Everything 进行文件搜索的话，Listary 还能与它结合，用它替代自身的搜索功能。具体的大家可以慢慢研究，这里就不一一介绍了。</p>
+<h2 id="免费版与Pro版区别"><a href="#免费版与Pro版区别" class="headerlink" title="免费版与Pro版区别"></a>免费版与Pro版区别</h2><p>除了视频中介绍的那些特性之外，Listary 其实还有很多很实用的增强功能和特性，譬如 Project (项目汇聚搜索)、FuzzyNavigation (搜索当前文件夹里面的所有文件)  等特性大家可以下载回去慢慢试用和体会。不过可惜的是，其中很多优秀的功能（如刚提到的两项、还有视频中按右方向键调用文件的菜单等等）都是 Listary Pro 专业版专享的，免费版并不能使用。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>目前Listary官网只能下载到Listary初级版本的~ Listary Pro的好像原售价高达 19.95$ 美元，折合人民币122元。大家不要怕，既然博主推荐大家使用。说明我已经找到Pro破解版了（有经济能力的还是推荐购买原版）。有需要的在下方评论留下你的邮箱。博主会一一奉献上的。喜欢就点个赞，关注我，后续精品软件推荐不断。gif中的壁纸喜欢的话也可以留言。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 精品软件推荐 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> listary </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Spring Boot干货系列：（五）开发Web应用之JSP篇]]></title>
-      <url>http://tengj.github.io/2017/03/13/springboot5/</url>
+      <url>http://tengj.top/2017/03/13/springboot5/</url>
       <content type="html"><![CDATA[<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/spring.jpg" alt=""></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇介绍了Spring Boot中使用Thymeleaf模板引擎，今天来介绍一下如何使用SpringBoot官方不推荐的jsp,虽然难度有点大，但是玩起来还是蛮有意思的。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>先来看看整体的框架结构，跟前面介绍Thymeleaf的时候差不多，只是多了webapp这个用来存放jsp的目录，静态资源还是放在resources的static下面。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/springboot5-1.jpg" alt=""></p>
@@ -42,7 +75,7 @@
 <h2 id="内嵌Tomcat属性配置"><a href="#内嵌Tomcat属性配置" class="headerlink" title="内嵌Tomcat属性配置"></a>内嵌Tomcat属性配置</h2><p>关于Tomcat的偶有属性都在org.springframework.boot.autoconfigure.web.ServerProperties配置类中做了定义，我们只需在application.properties配置属性做配置即可。通用的Servlet容器配置都已”server”左右前缀，而Tomcat特有配置都以”server.tomcat”作为前缀。下面举一些常用的例子。</p>
 <p><strong>配置Servlet容器</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#&#37197;&#32622;&#31243;&#24207;&#31471;&#21475;&#65292;&#40664;&#35748;&#20026;8080&#10;server.port= 8080&#10;#&#29992;&#25143;&#32472;&#30011;session&#36807;&#26399;&#26102;&#38388;&#65292;&#20197;&#31186;&#20026;&#21333;&#20301;&#10;server.session.timeout=&#10;# &#37197;&#32622;&#40664;&#35748;&#35775;&#38382;&#36335;&#24452;&#65292;&#40664;&#35748;&#20026;/&#10;server.context-path=</span><br></pre></td></tr></table></figure></p>
 <p><strong>配置Tomcat：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># &#37197;&#32622;Tomcat&#32534;&#30721;,&#40664;&#35748;&#20026;UTF-8&#10;server.tomcat.uri-encoding=UTF-8&#10;# &#37197;&#32622;&#26368;&#22823;&#32447;&#31243;&#25968;&#10;server.tomcat.max-threads=1000</span><br></pre></td></tr></table></figure></p>
-<p>更为详细的Servlet容器配置以及Tomcat配置，可以前往博主之前文章查看：<a href="http://tengj.top/2017/02/28/springbootconfig/" title="Spring Boot干货系列：常用属性汇总" target="_blank" rel="external">Spring Boot干货系列：常用属性汇总</a></p>
+<p>更为详细的Servlet容器配置以及Tomcat配置，可以前往博主之前文章查看：<a href="http://tengj.top/2017/02/28/springbootconfig/" title="Spring Boot干货系列：常用属性汇总">Spring Boot干货系列：常用属性汇总</a></p>
 <h2 id="外部的Tomcat服务器部署war包"><a href="#外部的Tomcat服务器部署war包" class="headerlink" title="外部的Tomcat服务器部署war包"></a>外部的Tomcat服务器部署war包</h2><p>Spring Boot项目需要部署在外部容器中的时候，Spring Boot导出的war包如果直接在Tomcat的部署会报错，不信你可以试试看。<br>需要做到下面两点修改才可以：</p>
 <ul>
 <li>继承SpringBootServletInitializer<br>外部容器部署的话，就不能依赖于Application的main函数了，而是要以类似于web.xml文件配置的方式来启动Spring应用上下文，此时我们需要在启动类中继承SpringBootServletInitializer并实现configure方法：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> <span class="keyword">extends</span> <span class="title">SpringBootServletInitializer</span> </span>&#123;</span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> SpringApplicationBuilder <span class="title">configure</span><span class="params">(SpringApplicationBuilder application)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> application.sources(Application.class);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -86,7 +119,7 @@
     
     <entry>
       <title><![CDATA[Spring Boot干货系列：（四）开发Web应用之Thymeleaf篇]]></title>
-      <url>http://tengj.github.io/2017/03/13/springboot4/</url>
+      <url>http://tengj.top/2017/03/13/springboot4/</url>
       <content type="html"><![CDATA[<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/spring.jpg" alt=""></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Web开发是我们平时开发中至关重要的，这里就来介绍一下Spring Boot对Web开发的支持。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>Spring Boot提供了spring-boot-starter-web为Web开发予以支持，spring-boot-starter-web为我们提供了嵌入的Tomcat以及Spring MVC的依赖。</p>
@@ -173,7 +206,7 @@
     
     <entry>
       <title><![CDATA[Spring Boot干货系列：（三）启动原理解析]]></title>
-      <url>http://tengj.github.io/2017/03/09/springboot3/</url>
+      <url>http://tengj.top/2017/03/09/springboot3/</url>
       <content type="html"><![CDATA[<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/spring.jpg" alt=""></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前面几章我们见识了SpringBoot为我们做的自动配置，确实方便快捷，但是对于新手来说，如果不大懂SpringBoot内部启动原理，以后难免会吃亏。所以这次博主就跟你们一起一步步揭开SpringBoot的神秘面纱，让它不在神秘。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>我们开发任何一个Spring Boot项目，都会用到如下的启动类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(Application.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -268,7 +301,7 @@
     
     <entry>
       <title><![CDATA[Spring Boot干货系列：（二）配置文件解析]]></title>
-      <url>http://tengj.github.io/2017/02/28/springboot2/</url>
+      <url>http://tengj.top/2017/02/28/springboot2/</url>
       <content type="html"><![CDATA[<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/spring.jpg" alt=""></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇介绍了Spring Boot的入门，知道了Spring Boot使用“习惯优于配置”（项目中存在大量的配置，此外还内置了一个习惯性的配置，让你无需手动进行配置）的理念让你的项目快速运行起来。所以，我们要想把Spring Boot玩的溜，就要懂得如何开启各个功能模块的默认配置，这就需要了解Spring Boot的配置文件application.properties。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>Spring Boot使用了一个全局的配置文件application.properties，放在src/main/resources目录下或者类路径的/config下。Sping Boot的全局配置文件的作用是对一些默认配置的配置值进行修改。</p>
@@ -345,7 +378,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@RestController</span></span><br><span class="line"><span class="annotation">@RequestMapping</span>(<span class="string">"/task"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TaskController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Autowired</span> DBConnector connector ;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@RequestMapping</span>(value = &#123;<span class="string">"/"</span>,<span class="string">""</span>&#125;)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">hellTask</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        connector.configure(); <span class="comment">//最终打印testdb     </span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"hello task !! myage is "</span> + myage;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>除了spring.profiles.active来激活一个或者多个profile之外，还可以用spring.profiles.include来叠加profile<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring.profiles.active: testdb  &#10;spring.profiles.include: proddb,prodmq</span><br></pre></td></tr></table></figure></p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这次对Spring Boot中application.properties配置文件做的整理总结希望对大家有所帮助，最后贴上Spring Boot中常用的配置属性，需要的时候可打开查找。</p>
-<p>(￣︶￣)↗<a href="http://tengj.top/2017/02/28/springbootconfig/" target="_blank" rel="external">Spring Boot干货系列：常用属性汇总</a></p>
+<p>(￣︶￣)↗<a href="http://tengj.top/2017/02/28/springbootconfig/">Spring Boot干货系列：常用属性汇总</a></p>
 <p>下篇我们来弄懂 Spring Boot干货系列：（三）启动原理解析,敬请期待</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://blog.didispace.com/springbootproperties/" target="_blank" rel="external">Spring Boot属性配置文件详解</a><br><a href="http://blog.csdn.net/yingxiake/article/details/51263679" target="_blank" rel="external">spring boot 使用profile来分区配置</a><br>Spring Boot实战<br>JavaEE开发的颠覆者Spring Boot实战</p>
 <h1 id="源码下载"><a href="#源码下载" class="headerlink" title="源码下载"></a>源码下载</h1><p>(￣︶￣)↗[<a href="https://github.com/tengj/SpringBootDemo/tree/master" target="_blank" rel="external">相关示例完整代码</a>]</p>
@@ -370,7 +403,7 @@
     
     <entry>
       <title><![CDATA[Spring Boot干货系列：常用属性汇总]]></title>
-      <url>http://tengj.github.io/2017/02/28/springbootconfig/</url>
+      <url>http://tengj.top/2017/02/28/springbootconfig/</url>
       <content type="html"><![CDATA[<h1 id="附录A-常用应用程序属性"><a href="#附录A-常用应用程序属性" class="headerlink" title="附录A.常用应用程序属性"></a>附录A.常用应用程序属性</h1><blockquote>
 <p>摘自：<a href="http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html" target="_blank" rel="external">http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html</a></p>
 </blockquote>
@@ -398,7 +431,7 @@
     
     <entry>
       <title><![CDATA[Spring Boot干货系列：（一）优雅的入门篇]]></title>
-      <url>http://tengj.github.io/2017/02/26/springboot1/</url>
+      <url>http://tengj.top/2017/02/26/springboot1/</url>
       <content type="html"><![CDATA[<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/spring.jpg" alt=""></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Spring一直是很火的一个开源框架，在过去的一段时间里，Spring Boot在社区中热度一直很高，所以决定花时间来了解和学习，为自己做技术储备。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>首先声明，Spring Boot不是一门新技术，所以不用紧张。从本质上来说，Spring Boot就是Spring,它做了那些没有它你也会去做的Spring Bean配置。它使用“习惯优于配置”（项目中存在大量的配置，此外还内置了一个习惯性的配置，让你无需手动进行配置）的理念让你的项目快速运行起来。使用Spring Boot很容易创建一个独立运行（运行jar,内嵌Servlet容器）、准生产级别的基于Spring框架的项目，使用Spring Boot你可以不用或者只需要很少的Spring配置。</p>
@@ -414,7 +447,7 @@
 <blockquote>
 <p>虽然你可以使用Java 6或7的Spring Boot，但我们通常推荐Java 8。</p>
 </blockquote>
-<p>所以本博客系列统一使用Java 1.8，Spring Boot 1.5.1.RELEASE以及Maven3.3.9版本。开发工具使用IDEA（强烈推荐，可以看我另外一篇介绍IDEA入门文章，内有官方中文教程:<a href="http://tengj.top/2017/02/22/idea1-1/" target="_blank" rel="external">Java人员正确使用 IntelliJ IDEA的方式</a>）</p>
+<p>所以本博客系列统一使用Java 1.8，Spring Boot 1.5.1.RELEASE以及Maven3.3.9版本。开发工具使用IDEA（强烈推荐，可以看我另外一篇介绍IDEA入门文章，内有官方中文教程:<a href="http://tengj.top/2017/02/22/idea1-1/">Java人员正确使用 IntelliJ IDEA的方式</a>）</p>
 <h2 id="光速入门-开发一个web服务"><a href="#光速入门-开发一个web服务" class="headerlink" title="光速入门-开发一个web服务"></a>光速入门-开发一个web服务</h2><p>没有比较就没有伤害，让我们先看看传统Spring MVC开发一个简单的Hello World Web应用程序，你应该做什么，我能想到一些基本的需求。</p>
 <ul>
 <li>一个项目结构，其中有一个包含必要依赖的Maven或者Gradle构建文件，最起码要有Spring MVC和Servlet API这些依赖。</li>
@@ -511,7 +544,7 @@
     
     <entry>
       <title><![CDATA[Java人员正确使用 IntelliJ IDEA的方式]]></title>
-      <url>http://tengj.github.io/2017/02/22/idea1-1/</url>
+      <url>http://tengj.top/2017/02/22/idea1-1/</url>
       <content type="html"><![CDATA[<p><img src="http://7xqch5.com1.z0.glb.clouddn.com/idea1_1.jpg" alt=""></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>博主是Java开发人员，以前一直都用myeclipse来开发的，说实话感觉myeclipse毫无美感可言，后来经过同事介绍，认识了IDEA，一眼就相中了IDEA黑色的主题风格，自此就抛弃了旧爱myeclipse。当时还不懂IDEA功能上比myeclipse好在哪里，只是单纯的爱上了黑色的主题。后来用了一段时间，事实证明还真的更好用。下文我将介绍一下正确的使用IDEA的方式。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>IntelliJ IDEA 主要用于支持 Java、Scala、Groovy 等语言的开发工具，同时具备支持目前主流的技术和框架，擅长于企业应用、移动应用和 Web 应用的开发。</p>
@@ -558,7 +591,7 @@
     
     <entry>
       <title><![CDATA[如何制作微课系列——（第一天）微课选题怎么玩？]]></title>
-      <url>http://tengj.github.io/2016/05/24/wk01/</url>
+      <url>http://tengj.top/2016/05/24/wk01/</url>
       <content type="html"><![CDATA[<h1 id="首页"><a href="#首页" class="headerlink" title="首页"></a>首页</h1><p>今天第一次接触微课，还是蛮新鲜的，非常感谢公司举办的这个活动，自己也有幸参与进来。<br>今天是第一天，王发松老师给我们带来的精彩课程——《微课选题怎么玩》。下面是个人整理的课后笔记，希望对您有用。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>一个好的微课选题要怎么包装，老师介绍需要以下3个步骤</p>
 <ul>
@@ -643,7 +676,7 @@
     
     <entry>
       <title><![CDATA[SpringMVC干货系列：从零搭建SpringMVC+mybatis（四）：Spring两大核心之AOP学习]]></title>
-      <url>http://tengj.github.io/2016/05/12/springmvc4aop/</url>
+      <url>http://tengj.top/2016/05/12/springmvc4aop/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇我们介绍了Spring的核心概念DI,DI有助与应用对象之间的解耦。今天我们就来介绍下另一个非常核心的概念，面向切面编程AOP。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>在软件开发中，散布于应用中多处的功能被称为横切关注点（cross-cutting concern）。通常来讲，这些横切关注点从概念上是与应用的业务逻辑相分离的。比如：日志、声明式事物、安全和缓存。这些东西都不是我们平时写代码的核心功能，但许多地方都要用到。<br>把这些横切关注点与业务相分离正是面向切面编程（AOP）索要解决的问题。<br>简单的说就是把这些许多地方都要用到，但又不是核心业务的功能，单独剥离出来封装，通过配置指定要切入到指定的方法中去。</p>
 <h2 id="什么是面向切面编程"><a href="#什么是面向切面编程" class="headerlink" title="什么是面向切面编程"></a>什么是面向切面编程</h2><p><img src="http://7xqch5.com1.z0.glb.clouddn.com/springmvc4_1.png" alt="">  </p>
@@ -798,7 +831,7 @@
     
     <entry>
       <title><![CDATA[Java多线程干货系列—（四）volatile关键字]]></title>
-      <url>http://tengj.github.io/2016/05/06/threadvolatile4/</url>
+      <url>http://tengj.top/2016/05/06/threadvolatile4/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天介绍下volatile关键字，volatile这个关键字可能很多朋友都听说过，或许也都用过。在Java 5之前，它是一个备受争议的关键字，因为在程序中使用它往往会导致出人意料的结果。在Java 5之后，volatile关键字才得以重获生机。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>volatile关键字虽然从字面上理解起来比较简单，但是要用好不是一件容易的事情。由于volatile关键字是与Java的内存模型有关的。所以让我们先来了解下Java的内存模型。</p>
 <h2 id="Java内存模型"><a href="#Java内存模型" class="headerlink" title="Java内存模型"></a>Java内存模型</h2><p>Java内存模型规定所有的变量都是存在主存当中（类似于前面说的物理内存），每个线程都有自己的工作内存（类似于前面的高速缓存）。线程对变量的所有操作都必须在工作内存中进行，而不能直接对主存进行操作。并且每个线程不能访问其他线程的工作内存。如下图：<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/thread4_1.jpg" alt=""></p>
@@ -922,7 +955,7 @@
     
     <entry>
       <title><![CDATA[Java多线程干货系列—（二）synchronized]]></title>
-      <url>http://tengj.github.io/2016/05/03/threadsynchronized2/</url>
+      <url>http://tengj.top/2016/05/03/threadsynchronized2/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本篇主要介绍Java多线程中的同步，也就是如何在Java语言中写出线程安全的程序，如何在Java语言中解决非线程安全的相关问题。没错就是使用synchronized。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="如何解决线程安全问题？"><a href="#如何解决线程安全问题？" class="headerlink" title="如何解决线程安全问题？"></a>如何解决线程安全问题？</h2><p>那么一般来说，是如何解决线程安全问题的呢？</p>
 <p>基本上所有的并发模式在解决线程安全问题时，都采用“序列化访问临界资源”的方案，即在同一时刻，只能有一个线程访问临界资源，也称作同步互斥访问。</p>
@@ -986,10 +1019,10 @@
     
     <entry>
       <title><![CDATA[springMVC干货系列：从零搭建springMVC+mybatis（总纲）]]></title>
-      <url>http://tengj.github.io/2016/05/02/springmvctotal/</url>
+      <url>http://tengj.top/2016/05/02/springmvctotal/</url>
       <content type="html"><![CDATA[<h1 id="首页"><a href="#首页" class="headerlink" title="首页"></a>首页</h1><p>最近一段时间有个公司项目需求调研后，项目组决定使用springMVC+mybatis3+bootstrap来实现。<br>于是总结一下最近使用的心得，以及开发过程中遇到的问题。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>SpringMVC是Java开发人员必须要掌握的一个框架，掌握它能令你工作上如鱼得水。<br>本系列会从零开始教你如何搭建springMVC的项目，包含spring注解，mybatis,日志系统，事务，多数据源，单元测试等居多功能。<br>让新手也能一步到位：搭建起来现在比较流行的框架<br>开发环境：<br>IED:myeclipse2014<br>jdk:1.7<br>tomcat:7<br>springmvc:4<br>mybatis: 3.3<br>junit: 4.11</p>
-<h2 id="后期该系列博文目录如下"><a href="#后期该系列博文目录如下" class="headerlink" title="后期该系列博文目录如下"></a>后期该系列博文目录如下</h2><p><a href="http://tengj.top/2016/03/13/springmvcseries1/" target="_blank" rel="external">从零搭建SpringMVC+mybatis（一）：maven WEB 项目的搭建</a><br><a href="http://tengj.top/2016/05/02/springmvcyuanli/" target="_blank" rel="external">从零搭建SpringMVC+mybatis（二）：SpringMVC原理解析及常用注解</a><br><a href="http://tengj.top/2016/05/02/springmvc3iocdi/" target="_blank" rel="external">从零搭建SpringMVC+mybatis（三）：Spring两大核心之IOC/DI学习</a><br><a href="http://tengj.top/2016/05/12/springmvc4aop/" target="_blank" rel="external">从零搭建SpringMVC+mybatis（四）：Spring两大核心之AOP学习</a><br>从零搭建SpringMVC+mybatis（五）：SpringMVC整合mybatis<br>从零搭建SpringMVC+mybatis（六）：SpringMVC中日志系统log4j的配置<br>从零搭建SpringMVC+mybatis（七）：基于注解的事务配置，多数据源切换<br>从零搭建SpringMVC+mybatis（八）：SpringMVC使用Junit4单元测试<br>从零搭建SpringMVC+mybatis（九）：SpringMVC中定时任务的配置 (Quartz &amp; spring-task)<br>从零搭建SpringMVC+mybatis（十）： SpringMVC中 安全机制<br>从零搭建SpringMVC+mybatis（十一）： SpringMVC中 缓存实现方式  </p>
+<h2 id="后期该系列博文目录如下"><a href="#后期该系列博文目录如下" class="headerlink" title="后期该系列博文目录如下"></a>后期该系列博文目录如下</h2><p><a href="http://tengj.top/2016/03/13/springmvcseries1/">从零搭建SpringMVC+mybatis（一）：maven WEB 项目的搭建</a><br><a href="http://tengj.top/2016/05/02/springmvcyuanli/">从零搭建SpringMVC+mybatis（二）：SpringMVC原理解析及常用注解</a><br><a href="http://tengj.top/2016/05/02/springmvc3iocdi/">从零搭建SpringMVC+mybatis（三）：Spring两大核心之IOC/DI学习</a><br><a href="http://tengj.top/2016/05/12/springmvc4aop/">从零搭建SpringMVC+mybatis（四）：Spring两大核心之AOP学习</a><br>从零搭建SpringMVC+mybatis（五）：SpringMVC整合mybatis<br>从零搭建SpringMVC+mybatis（六）：SpringMVC中日志系统log4j的配置<br>从零搭建SpringMVC+mybatis（七）：基于注解的事务配置，多数据源切换<br>从零搭建SpringMVC+mybatis（八）：SpringMVC使用Junit4单元测试<br>从零搭建SpringMVC+mybatis（九）：SpringMVC中定时任务的配置 (Quartz &amp; spring-task)<br>从零搭建SpringMVC+mybatis（十）： SpringMVC中 安全机制<br>从零搭建SpringMVC+mybatis（十一）： SpringMVC中 缓存实现方式  </p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>希望自己能坚持写下去，整理出一套入门简单的教程。</p>
 <hr>
 <p> 博主弄了个java学习资源的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花<br> <img src="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG" alt=""></p>
@@ -1012,7 +1045,7 @@
     
     <entry>
       <title><![CDATA[springMVC干货系列：从零搭建springMVC+mybatis（三）：spring两大核心之IOC/DI学习]]></title>
-      <url>http://tengj.github.io/2016/05/02/springmvc3iocdi/</url>
+      <url>http://tengj.top/2016/05/02/springmvc3iocdi/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上篇讲了SpringMVC的实现原理以及常用的注解，其实里面都用到的spring的核心概念，那就是IOC/DI，今天给大家介绍下这核心概念IOC/DI。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>分享Iteye的开涛这位技术牛人对Spring框架的IOC的理解,写得非常通俗易懂。</p>
 <h2 id="IoC是什么"><a href="#IoC是什么" class="headerlink" title="IoC是什么"></a>IoC是什么</h2><p>Ioc—Inversion of Control，即“控制反转”，不是什么技术，而是一种设计思想。在Java开发中，Ioc意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部直接控制。如何理解好Ioc呢？理解好Ioc的关键是要明确“谁控制谁，控制什么，为何是反转（有反转就应该有正转了），哪些方面反转了”，那我们来深入分析一下：</p>
@@ -1093,7 +1126,7 @@
     
     <entry>
       <title><![CDATA[springMVC干货系列：从零搭建springMVC+mybatis（二）：springMVC原理解析及常用注解]]></title>
-      <url>http://tengj.github.io/2016/05/02/springmvcyuanli/</url>
+      <url>http://tengj.top/2016/05/02/springmvcyuanli/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上篇文章介绍了maven WEB 项目的搭建，基本的配置文件也都贴出来了，今天就来介绍下SpringMVC的工作原理以及工作中常用的注解。为以后开发打下坚实的基础。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="SpringMVC框架介绍"><a href="#SpringMVC框架介绍" class="headerlink" title="SpringMVC框架介绍"></a>SpringMVC框架介绍</h2><p>SpringMVC就是通过DispatcherServlet将一堆组件串联起来的Web框架。</p>
 <ul>
@@ -1256,7 +1289,7 @@
     
     <entry>
       <title><![CDATA[Java基础与提高干货系列——Java反射机制]]></title>
-      <url>http://tengj.github.io/2016/04/28/javareflect/</url>
+      <url>http://tengj.top/2016/04/28/javareflect/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天介绍下Java的反射机制，以前我们获取一个类的实例都是使用new一个实例出来。那样太low了，今天跟我一起来学习学习一种更加高大上的方式来实现。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="Java反射机制定义"><a href="#Java反射机制定义" class="headerlink" title="Java反射机制定义"></a>Java反射机制定义</h2><p>Java反射机制是指在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。<br>用一句话总结就是反射可以实现在运行时可以知道任意一个类的属性和方法。</p>
 <h2 id="反射机制的优点与缺点"><a href="#反射机制的优点与缺点" class="headerlink" title="反射机制的优点与缺点"></a>反射机制的优点与缺点</h2><p>为什么要用反射机制？直接创建对象不就可以了吗，这就涉及到了动态与静态的概念</p>
@@ -1338,7 +1371,7 @@
     
     <entry>
       <title><![CDATA[Java多线程干货系列—（一）Java多线程基础]]></title>
-      <url>http://tengj.github.io/2016/04/24/thread1/</url>
+      <url>http://tengj.top/2016/04/24/thread1/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>多线程并发编程是Java编程中重要的一块内容，也是面试重点覆盖区域，所以学好多线程并发编程对我们来说极其重要，下面跟我一起开启本次的学习之旅吧。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="线程与进程"><a href="#线程与进程" class="headerlink" title="线程与进程"></a>线程与进程</h2><p>1 线程：进程中负责程序执行的执行单元<br>线程本身依靠程序进行运行<br>线程是程序中的顺序控制流，只能使用分配给程序的资源和环境</p>
 <p>2 进程：执行中的程序<br>一个进程至少包含一个线程</p>
@@ -1549,7 +1582,7 @@
     
     <entry>
       <title><![CDATA[设计模式干货系列：（七）适配器模式【学习难度：★★☆☆☆，使用频率：★★★★☆】]]></title>
-      <url>http://tengj.github.io/2016/04/17/sjms7adapter/</url>
+      <url>http://tengj.top/2016/04/17/sjms7adapter/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天介绍适配器模式，举个生活中的例子，我们笔记本用到的充电器其实就是个适配器，笔记本电脑的工作电压是20V，而我国的家庭用电是220V，如何让20V的笔记本电脑能够在220V的电压下工作？就是靠这个充电器搞定的。</p>
 <p>在软件开发中，有时也存在类似这种不兼容的情况，我们也可以像引入一个电源适配器一样引入一个称之为适配器的角色来协调这些存在不兼容的结构，这种设计方案即为适配器模式。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="适配器模式概念"><a href="#适配器模式概念" class="headerlink" title="适配器模式概念"></a>适配器模式概念</h2><p>适配器模式(Adapter Pattern)：将一个接口转换成客户希望的另一个接口，使接口不兼容的那些类可以一起工作，其别名为包装器(Wrapper)。适配器模式既可以作为类结构型模式，也可以作为对象结构型模式。</p>
@@ -1632,7 +1665,7 @@
     
     <entry>
       <title><![CDATA[Java集合干货系列-（五）HashSet源码解析]]></title>
-      <url>http://tengj.github.io/2016/04/16/javajh5hashset/</url>
+      <url>http://tengj.top/2016/04/16/javajh5hashset/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天来介绍下HashSet。前面，我们已经系统的对List和Map进行了学习。接下来，我们开始可以学习Set。相信经过Map的了解之后，学习Set会容易很多。毕竟，Set的实现类都是基于Map来实现的(HashSet是通过HashMap实现的)。<br>构造图如下:<br>蓝色线条：继承<br>绿色线条：接口实现<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/jh5_1.png" alt=""></p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>对于HashSet而言，它是基于HashMap来实现的，底层采用HashMap来保存元素。所以如果对HashMap比较熟悉，那么HashSet是so  easy!!</p>
 <h2 id="HashSet简介"><a href="#HashSet简介" class="headerlink" title="HashSet简介"></a>HashSet简介</h2><h3 id="HashSet定义"><a href="#HashSet定义" class="headerlink" title="HashSet定义"></a>HashSet定义</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashSet</span>&lt;<span class="title">E</span>&gt;</span><br><span class="line">     <span class="keyword">extends</span> <span class="title">AbstractSet</span>&lt;<span class="title">E</span>&gt;</span><br><span class="line">     <span class="keyword">implements</span> <span class="title">Set</span>&lt;<span class="title">E</span>&gt;, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br></pre></td></tr></table></figure>
@@ -1670,7 +1703,7 @@
     
     <entry>
       <title><![CDATA[Java集合干货系列-（四）TreeMap源码解析]]></title>
-      <url>http://tengj.github.io/2016/04/16/javajh4treemap/</url>
+      <url>http://tengj.top/2016/04/16/javajh4treemap/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天来介绍下TreeMap,TreeMap是基于红黑树结构实现的一种Map，要分析TreeMap的实现首先就要对红黑树有所了解。<br>构造图如下:<br>蓝色线条：继承<br>绿色线条：接口实现<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/jh4_1.png" alt=""></p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>TreeMap底层是基于<strong>红黑树（Red-Black tree）实现</strong>，所以在学习TreeMap之前我们先来了解下红黑树。<br>红黑树又称红-黑二叉树，它首先是一颗二叉树，它具体二叉树所有的特性。同时红黑树更是一颗自平衡的排序二叉树。<br>我们知道一颗基本的二叉树他们都需要满足一个基本性质–即树中的任何节点的值大于它的左子节点，且小于它的右子节点。按照这个基本性质使得树的检索效率大大提高。我们知道在生成二叉树的过程是非常容易失衡的，最坏的情况就是一边倒（只有右/左子树），这样势必会导致二叉树的检索效率大大降低（O(n)），所以为了维持二叉树的平衡，大牛们提出了各种实现的算法，如：<a href="http://baike.baidu.com/view/414610.htm" target="_blank" rel="external">AVL</a>，<a href="http://baike.baidu.com/view/2957252.htm" target="_blank" rel="external">SBT</a>，<a href="http://baike.baidu.com/view/1118088.htm" target="_blank" rel="external">伸展树</a>，<a href="http://baike.baidu.com/view/956602.htm" target="_blank" rel="external">TREAP</a> ，<a href="http://baike.baidu.com/view/133754.htm?fr=aladdin#1_1" target="_blank" rel="external">红黑树</a>等等。</p>
 <p>平衡二叉树必须具备如下特性：它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。也就是说该二叉树的任何一个等等子节点，其左右子树的高度都相近。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/jh4_2.png" alt=""><br>红黑树顾名思义就是节点是红色或者黑色的平衡二叉树，它通过颜色的约束来维持着二叉树的平衡。对于一棵有效的红黑树二叉树而言我们必须增加如下规则：</p>
@@ -1758,7 +1791,7 @@
     
     <entry>
       <title><![CDATA[Java集合干货系列-（三）HashMap源码解析]]></title>
-      <url>http://tengj.github.io/2016/04/15/javajh3hashmap/</url>
+      <url>http://tengj.top/2016/04/15/javajh3hashmap/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天来介绍下HashMap，之前的List，讲了ArrayList、LinkedList，就前两者而言，反映的是两种思想：</p>
 <ul>
 <li>ArrayList以数组形式实现，顺序插入、查找快，插入、删除较慢</li>
@@ -1860,7 +1893,7 @@
     
     <entry>
       <title><![CDATA[Java集合干货系列-（二）LinkedList源码解析]]></title>
-      <url>http://tengj.github.io/2016/04/13/javajh2linklist/</url>
+      <url>http://tengj.top/2016/04/13/javajh2linklist/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天来介绍下ArrayList，在集合框架整体框架一章中，我们介绍了List接口，LinkedList与ArrayList一样实现List接口，只是ArrayList是List接口的大小可变数组的实现，LinkedList是List接口链表的实现。基于链表实现的方式使得LinkedList在插入和删除时更优于ArrayList，而随机访问则比ArrayList逊色些。<br>构造图如下:<br>蓝色线条：继承<br>绿色线条：接口实现<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/jh2_1.png" alt=""></p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>LinkedList是基于链表结构的一种List，在分析LinkedList源码前有必要对链表结构进行说明。<br><strong>1.链表的概念</strong><br>链表是由一系列非连续的节点组成的存储结构，简单分下类的话，链表又分为单向链表和双向链表，而单向/双向链表又可以分为循环链表和非循环链表，下面简单就这四种链表进行图解说明。</p>
 <p><strong>1.1.单向链表</strong><br>单向链表就是通过每个结点的指针指向下一个结点从而链接起来的结构，最后一个节点的next指向null。  </p>
@@ -1934,7 +1967,7 @@
     
     <entry>
       <title><![CDATA[Java集合干货系列-（一）ArrayList源码解析]]></title>
-      <url>http://tengj.github.io/2016/04/13/javajh1arraylist/</url>
+      <url>http://tengj.top/2016/04/13/javajh1arraylist/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天来介绍下ArrayList，在集合框架整体框架一章中，我们介绍了List接口，ArrayList继承了AbstractList，实现了List。ArrayList在工作中经常用到，所以要弄懂这个类是极其重要的。<br>构造图如下:<br>蓝色线条：继承<br>绿色线条：接口实现<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/jh1_1.png" alt=""></p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="ArrayList简介"><a href="#ArrayList简介" class="headerlink" title="ArrayList简介"></a>ArrayList简介</h2><h3 id="ArrayList定义"><a href="#ArrayList定义" class="headerlink" title="ArrayList定义"></a>ArrayList定义</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br></pre></td></tr></table></figure>
 <p>ArrayList 是一个<strong>数组队列</strong>，相当于 <strong>动态数组</strong>。与Java中的数组相比，它的容量能动态增长。它继承于AbstractList，实现了List, RandomAccess, Cloneable, java.io.Serializable这些接口。</p>
@@ -2004,7 +2037,7 @@
     
     <entry>
       <title><![CDATA[Java集合干货系列-集合总体大纲]]></title>
-      <url>http://tengj.github.io/2016/04/12/javajhtotal/</url>
+      <url>http://tengj.top/2016/04/12/javajhtotal/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Java集合是java提供的工具包，包含了常用的数据结构：集合、链表、队列、栈、数组、映射等。Java集合工具包位置是java.util.*<br>Java集合主要可以划分为4个部分：List列表、Set集合、Map映射、工具类(Iterator迭代器、Enumeration枚举类、Arrays和Collections)<br>Java集合工具包框架图(如下)：</p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/jhtotal02.jpg" alt=""></p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>看上面的框架图，先抓住它的主干，即Collection和Map。</p>
@@ -2087,7 +2120,7 @@
     
     <entry>
       <title><![CDATA[设计模式干货系列：（六）建造者模式【学习难度：★★★★☆，使用频率：★★☆☆☆】]]></title>
-      <url>http://tengj.github.io/2016/04/09/sjms6builder/</url>
+      <url>http://tengj.top/2016/04/09/sjms6builder/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天介绍建造者模式，建造者模式又称为生成器模式，它是一种较为复杂、使用频率也相对较低的创建型模式。建造者模式为客户端返回的不是一个简单的产品，而是一个由多个部件组成的复杂产品。举个简单的例子，比如我们去买电脑，买的是成品而不是散装的零件。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="建造者模式概念"><a href="#建造者模式概念" class="headerlink" title="建造者模式概念"></a>建造者模式概念</h2><p>建造者模式(Builder Pattern)：将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。建造者模式是一种对象创建型模式。  </p>
 <p><strong>产品的内部表象</strong>  </p>
@@ -2161,7 +2194,7 @@
     
     <entry>
       <title><![CDATA[设计模式干货系列：（五）原型模式【学习难度：★★★☆☆，使用频率：★★★☆☆】]]></title>
-      <url>http://tengj.github.io/2016/04/07/sjms5prototype/</url>
+      <url>http://tengj.top/2016/04/07/sjms5prototype/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天介绍原型模式，我自己偷偷给它命名为克隆模式。因为原型模式的意图是通过复制一个现有的对象来生成新的对象，而不是通过实例化的方式。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="原型模式概念"><a href="#原型模式概念" class="headerlink" title="原型模式概念"></a>原型模式概念</h2><p>原型模式(Prototype Pattern)：使用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。原型模式是一种对象创建型模式。  </p>
 <p>该接口用于创建当前对象的克隆。当直接创建对象的代价比较大时，则采用这种模式。例如，一个对象需要在一个高代价的数据库操作之后被创建。我们可以缓存该对象，在下一个请求时返回它的克隆，在需要的时候更新数据库，以此来减少数据库调用。</p>
@@ -2218,7 +2251,7 @@
     
     <entry>
       <title><![CDATA[设计模式干货系列：（四）单例模式【学习难度：★☆☆☆☆，使用频率：★★★★☆】]]></title>
-      <url>http://tengj.github.io/2016/04/06/sjms4singleton/</url>
+      <url>http://tengj.top/2016/04/06/sjms4singleton/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天介绍下单例模式，单例模式（Singleton Pattern）是 Java 中最简单的设计模式之一。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>举个常见的单例模式例子，我们日常使用的电脑上都有一个回收站，在整个操作系统中，回收站只能有一个实例，整个系统都使用这个唯一的实例，而且回收站自行提供自己的实例。因此回收站是单例模式的应用。</p>
 <h2 id="单例模式概念"><a href="#单例模式概念" class="headerlink" title="单例模式概念"></a>单例模式概念</h2><p><strong>单例模式(Singleton Pattern)</strong>：确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例，这个类称为单例类，它提供全局访问的方法。单例模式是一种<code>对象创建型模式</code>。</p>
@@ -2297,7 +2330,7 @@
     
     <entry>
       <title><![CDATA[设计模式干货系列：（三）抽象工厂模式【学习难度：★★★★☆，使用频率：★★★★★】]]></title>
-      <url>http://tengj.github.io/2016/04/04/sjms3abstractfactory/</url>
+      <url>http://tengj.top/2016/04/04/sjms3abstractfactory/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>接着上一篇工厂方法模式说，现在披萨店生意很好，除了卖披萨，又卖汉堡，并且为了适用不同的客户群体，增加了<code>单人套餐</code>和<code>家庭套餐</code>。这种情况下多了一个产品汉堡，已经不适合用工厂方法模式了，这时候就要用到更加抽象化的抽象工厂模式来满足这个系统。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="抽象工厂模式概念"><a href="#抽象工厂模式概念" class="headerlink" title="抽象工厂模式概念"></a>抽象工厂模式概念</h2><p><code>抽象工厂模式</code>是所有形态的工厂模式中最为抽象和最具一般性的一种形态。<code>抽象工厂模式</code>可以向客户端提供一个接口，使得客户端在不必指定产品的具体类型的情况下，创建多个产品族中的产品对象。这就是抽象工厂的用意。</p>
 <h2 id="抽象工厂模式的结构"><a href="#抽象工厂模式的结构" class="headerlink" title="抽象工厂模式的结构"></a>抽象工厂模式的结构</h2><p><code>抽象工厂模式</code>的简略类图如下:  </p>
@@ -2357,7 +2390,7 @@
     
     <entry>
       <title><![CDATA[设计模式干货系列：（二）工厂方法模式【学习难度：★★☆☆☆，使用频率：★★★★★】]]></title>
-      <url>http://tengj.github.io/2016/04/03/sjms2factorymethod/</url>
+      <url>http://tengj.top/2016/04/03/sjms2factorymethod/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇介绍<code>简单工厂模式</code>的时候提到它对<code>开闭原则</code>支持的不够，因为如果有新的产品加入到系统中去，就需要修改工厂类，就违反了<code>开闭原则</code>了，这次介绍的工厂方法模式在保持简单工厂模式优点的前提下，还满足了开闭原则，关键在于它的多态性。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="工厂方法模式概念"><a href="#工厂方法模式概念" class="headerlink" title="工厂方法模式概念"></a>工厂方法模式概念</h2><p>工厂方法模式是类的创建模式，又叫做虚拟构造子(Cirtual Constructor)模式或者多态工厂（Polymorphic Factory）模式。  </p>
 <p>工厂方法模式的用意是定义一个创建产品对象的工厂接口，将实际创建工作推迟到子类中。  </p>
@@ -2406,7 +2439,7 @@
     
     <entry>
       <title><![CDATA[设计模式干货系列：（一）简单工厂模式【学习难度：★★☆☆☆，使用频率：★★★☆☆】]]></title>
-      <url>http://tengj.github.io/2016/04/02/sjms1simpleFactory/</url>
+      <url>http://tengj.top/2016/04/02/sjms1simpleFactory/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>面对设计模式这个高大上的敌人，如何找到一个脆弱可以下手的地方尤其重要，经过参考《JAVA与模式》后发现最容易下手但又及其重要的模式，那就是<code>简单工厂模式</code>，书里是这么介绍的：<code>简单工厂模式</code>是最简单的模式，有助于引出<code>工厂方法模式</code>，而<code>工厂方法模式</code>在后面的许多模式都有应用，它在模式的讨论里屡见不鲜。了解<code>工厂方法模式</code>是了解所有模式的起点。看了这段话，我热血澎湃，这么脆弱又及其重要的模式不打你打谁。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>介绍简单工厂模式之前先通过一个披萨项目的例子来引出问题，然后给出简单工厂模式这种解决方案，然后随着披萨项目的不断扩展，遇到新的问题，引出工厂方法模式，然后又遇到新的问题，引出最终解决方案，抽象工厂模式。</p>
 <h2 id="披萨项目介绍"><a href="#披萨项目介绍" class="headerlink" title="披萨项目介绍"></a>披萨项目介绍</h2><p>比如一个披萨店 ，店长一名，目前卖两种口味披萨，<code>GreekPizza</code>和<code>CheesePizza</code>，每个披萨都有<code>prePare()</code>,<code>bake()</code>,<code>cut()</code>,<code>box()</code>这4种步骤，原料，烘培，切割，打包，最后给用户吃。<br>把上述这个过程抽象后，设计如下：<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/sjms1_1.png" alt=""></p>
@@ -2453,7 +2486,7 @@
     
     <entry>
       <title><![CDATA[设计模式干货系列：（总纲）总体介绍设计模式]]></title>
-      <url>http://tengj.github.io/2016/04/01/sjmstotal/</url>
+      <url>http://tengj.top/2016/04/01/sjmstotal/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>入行<code>java</code>几年，一直不敢尝试学习设计模式，总感觉自己能力不行，不敢接触这么高深的东西。这次难得的机会，参加了一场公司的培训，接触到设计模式，听过后发现其实设计模式也不是那样高深和难以理解，实际开发中其实都不由自主用到了。这次开篇，一是整理自己学习过程中的笔记，准备一天一个模式的分享；二是给自己压力和动力，希望自己坚持下来。后续博文皆是学习的整理笔记。没办法，人丑就要读书。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="设计模式简介"><a href="#设计模式简介" class="headerlink" title="设计模式简介"></a>设计模式简介</h2><p>设计模式（<code>Design pattern</code>）代表了最佳的实践，通常被有经验的面向对象的软件开发人员所采用。设计模式是软件开发人员在软件开发过程中面临的一般问题的解决方案。这些解决方案是众多软件开发人员经过相当长的一段时间的试验和错误总结出来的。</p>
 <p>设计模式是一套被反复使用的、多数人知晓的、经过分类编目的、代码设计经验的总结。使用设计模式是为了重用代码、让代码更容易被他人理解、保证代码可靠性。 毫无疑问，设计模式于己于他人于系统都是多赢的，设计模式使代码编制真正工程化，设计模式是软件工程的基石，如同大厦的一块块砖石一样。项目中合理地运用设计模式可以完美地解决很多问题，每种模式在现实中都有相应的原理来与之对应，每种模式都描述了一个在我们周围不断重复发生的问题，以及该问题的核心解决方案，这也是设计模式能被广泛应用的原因。</p>
@@ -2757,7 +2790,7 @@
     
     <entry>
       <title><![CDATA[git干货系列：（六）公司内部搭建git服务器]]></title>
-      <url>http://tengj.github.io/2016/03/29/git6gitlab/</url>
+      <url>http://tengj.top/2016/03/29/git6gitlab/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>因为<code>gitHub</code>上的项目是公开的，不适合公司内部项目放在上面，而私人的需要收费，这绝非是我们愿意的。所以找了个跟<code>gitHub</code>很相似，但是又免费的<code>gitLab</code>。现在将搭建<code>gitLab</code>过程记录一下留作参考。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="gitLab介绍"><a href="#gitLab介绍" class="headerlink" title="gitLab介绍"></a>gitLab介绍</h2><p><a href="https://about.gitlab.com/" target="_blank" rel="external">GitLab</a>是利用 <code>Ruby on Rails</code> 一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。它拥有与Github类似的功能，能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序(Wall)进行交流。它还提供一个代码片段收集功能可以轻松实现代码复用，便于日后有需要的时候进行查找。  </p>
 <p>依赖组件：ruby 1.9.3+，MySQL，git，redis， Sidekiq。<br>最低配置CPU 1G，RAM 1G+swap可以支持100用户。</p>
@@ -2828,7 +2861,7 @@
     
     <entry>
       <title><![CDATA[git干货系列：（五）多人协同工作之分支管理]]></title>
-      <url>http://tengj.github.io/2016/03/27/git5branch/</url>
+      <url>http://tengj.top/2016/03/27/git5branch/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>分支就是科幻电影里面的平行宇宙，当你正在电脑前努力学习<code>Git</code>的时候，另一个你正在另一个平行宇宙里努力学习<code>SVN</code>。如果两个平行宇宙互不干扰，那对现在的你也没啥影响。不过，在某个时间点，两个平行宇宙合并了，结果，你既学会了<code>Git</code>又学会了<code>SVN</code>！<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git5_14.png" alt=""></p>
 <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h2 id="分支简介"><a href="#分支简介" class="headerlink" title="分支简介"></a>分支简介</h2><p>为了真正理解 <code>Git</code> 处理分支的方式，我们需要回顾一下<code>Git</code>是如何保存数据的。<br>Git 保存的不是文件的变化或者差异，而是一系列不同时刻的文件快照。在进行提交操作时，<code>Git</code>会保存一个提交对象（<code>commit object</code>）。知道了<code>Git</code>保存数据的方式，我们可以很自然的想到——该提交对象会包含一个指向暂存内容快照的指针。 但不仅仅是这样，该提交对象还包含了作者的姓名和邮箱、提交时输入的信息以及指向它的父对象的指针。首次提交产生的提交对象没有父对象，普通提交操作产生的提交对象有一个父对象，而由多个分支合并产生的提交对象有多个父对象。  </p>
 <p><code>Git</code>的分支，其实本质上仅仅是指向提交对象的可变指针。 <code>Git</code>的默认分支名字是 <code>master</code>。 在多次提交操作之后，你其实已经有一个指向最后那个提交对象的 <code>master</code> 分支。 它会在每次的提交操作中自动向前移动。  </p>
@@ -2922,7 +2955,7 @@
     
     <entry>
       <title><![CDATA[git干货系列：（四）我要连接远程仓库（github，coding）]]></title>
-      <url>http://tengj.github.io/2016/03/25/git4remote/</url>
+      <url>http://tengj.top/2016/03/25/git4remote/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><code>Git</code>本地操作的熟练了后，就可以尝试连接远程仓库了，目前国内外比较出名的提供<code>Git</code>仓库远程托管的有国外的<code>github</code>，国内的<code>开源中国</code>以及<code>coding</code>。这里我以<code>coding</code>为例子介绍如何操作远程仓库。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>假如你现在本地有一个<code>gitLearn</code>的项目，想托管到<code>coding</code>上面，那么你先进入<code>coding</code>创建一个仓库，如图。  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/git4_1.png" alt=""><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git4_2.png" alt="">  </p>
@@ -2965,7 +2998,7 @@
     
     <entry>
       <title><![CDATA[git干货系列：（三）我提交错了我想撤销或者回退版本]]></title>
-      <url>http://tengj.github.io/2016/03/24/git3reset/</url>
+      <url>http://tengj.top/2016/03/24/git3reset/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面给大家普及了暂存区的概念以及展示的工作区、版本库中的暂存区和版本库之间的关系，如果大家都理解的话，那么今天的课程就很简单了。<br>在上图大家回顾一下，看这里<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_1.png" alt=""></p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h2><h3 id="git-checkout-–-file"><a href="#git-checkout-–-file" class="headerlink" title="git checkout – [file]"></a>git checkout – [file]</h3><p>如果你文件只是在工作区修改了，但是还没提交到暂存区的时候，你可以用<code>git checkout -- [file]</code>来撤销。简单的说就是暂存区覆盖工作区。这里模拟一下，比如现在<code>readme.txt</code>里面内容是<code>first day</code>，并且已经提交到暂存区了，此时修改<code>readme.txt</code>，内容改成<code>second day.</code>，然后执行<code>git checkout -- readme.txt</code>命令,你会发现<code>readme.txt</code>内容又变成<code>first day</code>了<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_1.png" alt=""></p>
 <h3 id="git-reset-HEAD"><a href="#git-reset-HEAD" class="headerlink" title="git reset HEAD"></a>git reset HEAD</h3><p>如果你文件在工作区修改了,并且也执行<code>git add</code>命令提交给暂存区了，那么执行上面的<code>git checkout -- [file]</code>已经无效了，因为工作区跟暂存区已经一样了，再怎么覆盖内容也一样，这时候就应该使用<code>git reset HEAD</code>命令来撤销，简单的说就是让<code>HEAD</code>覆盖暂存区，因为此时的<code>HEAD</code>这边的文件内容还是上次提交时的内容。现在模拟一下，现在有<code>readme.txt</code>跟<code>hello.txt</code>两个文件，都经过修改<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git3_2.png" alt=""><br>如图可以看到，使用<code>git status -s</code>来查看的时候，红色的M表示这2个文件都经过修改，使用<code>git add .</code>提交后在查看，发现都是绿色的M，表示都提交到暂存区了，这时候执行<code>git reset HEAD hello.txt</code>后在查看，发现<code>hello.txt</code>变成红色M了，说明hello.txt从暂存区撤销了。如果还想把工作区间的文件也撤回，就继续执行上面的<code>git reset HEAD readme.txt</code>就行。</p>
@@ -3005,7 +3038,7 @@
     
     <entry>
       <title><![CDATA[git干货系列：（二）深入学习之前先理解git暂存区]]></title>
-      <url>http://tengj.github.io/2016/03/23/git2konwindex/</url>
+      <url>http://tengj.top/2016/03/23/git2konwindex/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>暂存区<code>（stage, index）</code>是<code>Git</code>最重要的概念之一，理解了这个概念很多 <code>Git</code> 命令就不再那么神秘了。下面几个验证例子一开始看不懂没关系，工作区、版本库中的暂存区和版本库之间的关系图先理解先。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>下面这个图展示了工作区、版本库中的暂存区和版本库之间的关系。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git2_1.png" alt=""><br>在这个图中，我们可以看到部分 <code>Git</code>命令是如何影响工作区和暂存区<code>（stage, index）</code>的。</p>
 <ul>
@@ -3090,7 +3123,7 @@
     
     <entry>
       <title><![CDATA[提高办事效率-奇妙清单]]></title>
-      <url>http://tengj.github.io/2016/03/22/apprecommend1/</url>
+      <url>http://tengj.top/2016/03/22/apprecommend1/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近我认识了一个小伙伴，奇妙清单，使用起来感觉萌萌哒。良心推荐，提高效率的神器。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="奇妙清单是什么"><a href="#奇妙清单是什么" class="headerlink" title="奇妙清单是什么"></a>奇妙清单是什么</h2><p>奇妙清单是一款待办类的To-do云端任务管理工具,用来管理我们日常所要做的事情的清单。一目了然，便于管理。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/app1_1.jpg" alt=""></p>
 <h2 id="为什么人人都需要一份清单"><a href="#为什么人人都需要一份清单" class="headerlink" title="为什么人人都需要一份清单"></a>为什么人人都需要一份清单</h2><h3 id="你的记忆没你想象的可靠"><a href="#你的记忆没你想象的可靠" class="headerlink" title="你的记忆没你想象的可靠"></a>你的记忆没你想象的可靠</h3><p>现代生活中大大小小的琐事越来越多，经常很忙的时候就会忘记一些很重要的事情，事后才来后悔。随着年龄的增长，我们的记忆会慢慢的衰退，它并没有我们想象得可靠，所以借助一款应用来充当我们额外的第二大脑，俗话说【好记忆不如烂笔头】。</p>
@@ -3120,7 +3153,7 @@
     
     <entry>
       <title><![CDATA[git干货系列：（一）我是小白，我想要搭建git仓库]]></title>
-      <url>http://tengj.github.io/2016/03/20/git1creategit/</url>
+      <url>http://tengj.top/2016/03/20/git1creategit/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>咳，小白你好，我是老白。比你早那么一段时间接触<code>git</code>，不知道你之前是否跟我一样是使用<code>SVN</code>来进行版本管理的，在这里，我不会告诉你<code>git</code>的历史,发展以及优势，既然你想学<code>git</code>，我就当你已经懂了这些。我只能告诉你我为什么要学<code>git</code>，因为我觉得它十分的高大上，外加可以装逼~~</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h2><p>正式开搞了，紧张不。本系列是在window系统上搞的，所以我只介绍window系统如何安装<br>下载路径：<a href="http://git-scm.com/download" target="_blank" rel="external">Git客户端</a><br>安装后再任意地方鼠标右键就会出现如下，<code>Git Bash Here</code>就是我们的客户端<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git1_1.jpg" alt=""><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/git1_2.png" alt=""></p>
 <h2 id="初次运行-Git-前的配置"><a href="#初次运行-Git-前的配置" class="headerlink" title="初次运行 Git 前的配置"></a>初次运行 Git 前的配置</h2><p>当安装完<code>Git</code>应该做的第一件事就是设置你的用户名称与邮件地址。 这样做很重要，因为每一个<code>Git</code>的提交都会使用这些信息，并且它会写入到你的每一次提交中，不可更改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &#34;tengj&#34;&#10;git config --global user.email johndoe@example.com</span><br></pre></td></tr></table></figure></p>
@@ -3163,11 +3196,11 @@
     
     <entry>
       <title><![CDATA[git干货系列：（总纲）根据使用场景介绍git]]></title>
-      <url>http://tengj.github.io/2016/03/20/gitTotalMsg/</url>
+      <url>http://tengj.top/2016/03/20/gitTotalMsg/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本人搭建独立博客的时候需要使用到<code>github</code>，<code>coding</code>以及<code>开源中国</code>，发现全部使用<code>git</code>来进行版本控制。了解之后发<code>现git</code>很棒，所以决定学。学习过程中做了一些笔记，经过整理就有了这个系列的文章，其实是我自己的学习笔记整理，如果你也是新手就跟着我一起学习，如果你是大神，那么希望您能指出我的错误，让我学习更进一步，这也是我写这系列笔记的初衷。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="学习环境"><a href="#学习环境" class="headerlink" title="学习环境"></a>学习环境</h2><p>本人是使用window系统来学习的，linux以及Mac的同学自行安装软件哦~</p>
 <h2 id="书写方式"><a href="#书写方式" class="headerlink" title="书写方式"></a>书写方式</h2><p>网上<code>git</code>教程也很多，我想记录我自己学习使用过程中的点滴，不单单是个教程，我想把它当成工具来写，根据实际使用场景来分类，这样方便以后自己快速查找。</p>
-<h2 id="系列博文整理"><a href="#系列博文整理" class="headerlink" title="系列博文整理"></a>系列博文整理</h2><p>整理了下git系列的文章，发现写系列博客感觉还是很棒的：<br><a href="http://tengj.top/2016/03/20/git1creategit/" target="_blank" rel="external">git干货系列：（一）我是小白，我想要搭建git仓库</a><br><a href="http://tengj.top/2016/03/23/git2konwindex/" target="_blank" rel="external">git干货系列：（二）深入学习之前先理解git暂存区</a><br><a href="http://tengj.top/2016/03/24/git3reset/" target="_blank" rel="external">git干货系列：（三）我提交错了我想撤销或者回退版本</a><br><a href="http://tengj.top/2016/03/25/git4remote/" target="_blank" rel="external">git干货系列：（四）我要连接远程仓库（github，coding）</a><br><a href="http://tengj.top/2016/03/27/git5branch/" target="_blank" rel="external">git干货系列：（五）多人协同工作之分支管理</a><br><a href="http://tengj.top/2016/03/29/git6gitlab/" target="_blank" rel="external">git干货系列：（六）公司内部搭建git服务器</a></p>
+<h2 id="系列博文整理"><a href="#系列博文整理" class="headerlink" title="系列博文整理"></a>系列博文整理</h2><p>整理了下git系列的文章，发现写系列博客感觉还是很棒的：<br><a href="http://tengj.top/2016/03/20/git1creategit/">git干货系列：（一）我是小白，我想要搭建git仓库</a><br><a href="http://tengj.top/2016/03/23/git2konwindex/">git干货系列：（二）深入学习之前先理解git暂存区</a><br><a href="http://tengj.top/2016/03/24/git3reset/">git干货系列：（三）我提交错了我想撤销或者回退版本</a><br><a href="http://tengj.top/2016/03/25/git4remote/">git干货系列：（四）我要连接远程仓库（github，coding）</a><br><a href="http://tengj.top/2016/03/27/git5branch/">git干货系列：（五）多人协同工作之分支管理</a><br><a href="http://tengj.top/2016/03/29/git6gitlab/">git干货系列：（六）公司内部搭建git服务器</a></p>
 <h2 id="所有学习git资源"><a href="#所有学习git资源" class="headerlink" title="所有学习git资源"></a>所有学习git资源</h2><p>学习过程中我参考了许许多多的教程，分享跟大家：<br><a href="http://www.yiibai.com/git/" target="_blank" rel="external">git教程</a><br><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰git教程</a><br><a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="external">git–简易指南</a><br><a href="http://backlogtool.com/git-guide/cn/" target="_blank" rel="external">猴子都能懂的GIT入门</a><br><a href="http://gitref.justjavac.com/" target="_blank" rel="external">Git参考手册</a>  </p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>上面列出的目录是我接下来打算写的文章~学习跨度1-2周，一般两三天写一篇，希望自己不要拖延~动起来小伙伴们，跟我一起学会了装逼。</p>
 <hr>
@@ -3185,7 +3218,7 @@
     
     <entry>
       <title><![CDATA[hexo干货系列：（八）hexo文章自动隐藏侧边栏]]></title>
-      <url>http://tengj.github.io/2016/03/20/hexo8hidewidgets/</url>
+      <url>http://tengj.top/2016/03/20/hexo8hidewidgets/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>使用Jacman主题的时候发现打开具体文章后，侧边栏还是会展示，我想要的效果是自动隐藏侧边栏，并且展示目录。但是当我修改了主题配置文件里面<code>close_aside</code>属性为<code>true</code>的时候，发现侧边栏隐藏了，但是目录没出来。于是就有了这篇文章，让我带你一步步明白原理并解决问题~</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="侧边栏的代码结构"><a href="#侧边栏的代码结构" class="headerlink" title="侧边栏的代码结构"></a>侧边栏的代码结构</h2><p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo8_1.jpg" alt=""><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo8_2.png" alt="">  </p>
 <p>如图：</p>
@@ -3226,7 +3259,7 @@
     
     <entry>
       <title><![CDATA[hexo干货系列：（七）hexo安装统计插件]]></title>
-      <url>http://tengj.github.io/2016/03/17/hexo7count/</url>
+      <url>http://tengj.top/2016/03/17/hexo7count/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前面介绍了如何让百度和谷歌收录我们的博客，那如何查看自己的博客每天被多少人访问呢~ 这里我介绍下<code>hexo</code>中如何使用统计插件，每天看到自己的博客访问量越来越高也是一种享受。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="开启统计功能"><a href="#开启统计功能" class="headerlink" title="开启统计功能"></a>开启统计功能</h2><p>我使用的<code>Jacman</code>主题的配置文件中就有配置有统计插件，有谷歌，百度以及<code>CNZZ</code>，我最终选择的是<code>CNZZ</code>,原因是<code>CNZZ</code>有手机版，比较好随时查看。百度的一开始我也有安装，不过下载的手机软件我打开时空白的，我是<code>IOS</code>版本的，最终CNZZ整体上让我比较满意<br>对应的配置如下，开启<code>cnzz_tongji</code>对应的<code>enable</code>属性改成<code>true</code>,<code>siteid</code>就从注册的<code>cnzz</code>控制台获取。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#### Analytics</span></span><br><span class="line">google_analytics:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  id:        <span class="comment">## e.g. UA-46321946-2 your google analytics ID.</span></span><br><span class="line">  site:      <span class="comment">## e.g. wuchong.me your google analytics site or set the value as auto.</span></span><br><span class="line"><span class="comment">## You MUST upgrade to Universal Analytics first!</span></span><br><span class="line"><span class="comment">## https://developers.google.com/analytics/devguides/collection/upgrade/?hl=zh_CN</span></span><br><span class="line">baidu_tongji:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  sitecode: e6d1f421bbc9962127a50488f9ed37d1  <span class="comment">## e.g. e6d1f421bbc9962127a50488f9ed37d1 your baidu tongji site code</span></span><br><span class="line">cnzz_tongji:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  siteid: <span class="number">1253575964</span>   <span class="comment">## e.g. 1253575964 your cnzz tongji site id</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="注册CNZZ"><a href="#注册CNZZ" class="headerlink" title="注册CNZZ"></a>注册CNZZ</h2><p>进入<a href="http://tongji.cnzz.com/" target="_blank" rel="external">CNZZ</a>注册一下，然后添加你的站点，如下</p>
@@ -3264,7 +3297,7 @@
     
     <entry>
       <title><![CDATA[百度链接提交主动推送后不收录的原因]]></title>
-      <url>http://tengj.github.io/2016/03/14/baidunoshouluresson/</url>
+      <url>http://tengj.top/2016/03/14/baidunoshouluresson/</url>
       <content type="html"><![CDATA[<h1 id="前言-（转载）"><a href="#前言-（转载）" class="headerlink" title="前言 （转载）"></a>前言 （转载）</h1><p>自从百度站长平台开放了百度链接主动推送接口以后，很多站长都开始使用百度开放的这个主动推送接口来推送网站的最新内容，但是在使用这个推送接口的时候，大家肯定也发现了不少问题，比如推送的内容不收录、推送的链接数量 和 站长平台显示的主动提交数量不符等等 ，今天小编就针对这些问题给大家做一个详细的说明。</p>
 <h2 id="主动推送不一定百分百收录"><a href="#主动推送不一定百分百收录" class="headerlink" title="主动推送不一定百分百收录"></a>主动推送不一定百分百收录</h2><p>虽然说百度链接主动推送在收录速度上要优先于sitemap 和 网页提交，但是提交的内容是否收录还要取决你内容本身，如果你提交的网页内容质量较低，属于采集内容或者违规内容，那么这样的内容及时你使用主动推送提交也不一定能够百分百收录。</p>
 <p>百度的主动推送只是给站长们提供一个能够更快让百度发现网页链接的接口，但是内容是否会被收录依然要经过百度数据库的对比检测以后，符合收录标准的内容才会被收录。</p>
@@ -3295,7 +3328,7 @@
     
     <entry>
       <title><![CDATA[hexo干货系列：（六）hexo提交搜索引擎（百度+谷歌）]]></title>
-      <url>http://tengj.github.io/2016/03/14/hexo6seo/</url>
+      <url>http://tengj.top/2016/03/14/hexo6seo/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>能看到这里，说明大家都跟我一样，已经把博客搭起来并洋洋洒洒写了几篇博文，正春风得意感觉良好的时候，搭建博客有屎以来最大的危机出现在没有准备的我面前，百度+谷歌都无法搜索到我的博客。装逼还没几天就这样，真是不能忍。于是就研究了几天，鼓捣出了这篇文章。教大家如何脱坑。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>下面准备分别介绍谷歌和百度如何提交搜索引擎，其中有一些共同的地方，这里先说明</p>
 <h2 id="先确认博客是否被收录"><a href="#先确认博客是否被收录" class="headerlink" title="先确认博客是否被收录"></a>先确认博客是否被收录</h2><p>在百度或者谷歌上面输入下面格式来判断，如果能搜索到就说明被收录，否则就没有，用你的域名替代我的tengj.top<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">site:tengj.top</span><br></pre></td></tr></table></figure></p>
@@ -3309,7 +3342,7 @@
 <p><a href="http://zhanzhang.baidu.com/college/courseinfo?id=267&amp;page=1#h2_article_title3" target="_blank" rel="external">为什么要验证网站</a>　　<br>站长平台推荐站长添加主站（您网站的链接也许会使用www 和非 www 两种网址，建议添加用户能够真实访问到的网址），添加并验证后，可证明您是该域名的拥有者，可以快捷批量添加子站点，查看所有子站数据，无需再一一验证您的子站点。<br><a href="http://zhanzhang.baidu.com/college/courseinfo?id=267&amp;page=1#h2_article_title13" target="_blank" rel="external">如何验证网站</a><br>首先如果您的网站已使用了百度统计，您可以使用统计账号登录平台，或者绑定站长平台与百度统计账号，站长平台支持您批量导入百度统计中的站点，您不需要再对网站进行验证。<br>百度站长平台为未使用百度统计的站点提供三种验证方式：<strong>文件验证、html标签验证、CNAME验证</strong>。<br>　　1.文件验证：您需要下载验证文件，将文件上传至您的服务器，放置于域名根目录下。<br>　　2.html标签验证：将html标签添加至网站首页html代码的<head>标签与</head>标签之间。<br>　　3.CNAME验证：您需要登录域名提供商或托管服务提供商的网站，添加新的DNS记录。<br>验证完成后，我们将会认为您是网站的拥有者。为使您的网站一直保持验证通过的状态，请保留验证的文件、html标签或CNAME记录，我们会去定期检查验证记录。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo6_16.png" alt=""><br>不管谷歌还是百度都要先添加域名，然后验证网站，这里统一都使用文件验证，就是下载对应的html文件，放到域名根目录下，也就收博客根目录下的source下面  </p>
 </blockquote>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo6_3.png" alt=""></p>
-<p>然后部署到服务器,输入地址：<a href="http://tengj.top/googlead0e22632f59a368.html" target="_blank" rel="external">http://tengj.top/googlead0e22632f59a368.html</a> 能访问到就可以点验证按钮。  </p>
+<p>然后部署到服务器,输入地址：<a href="http://tengj.top/googlead0e22632f59a368.html">http://tengj.top/googlead0e22632f59a368.html</a> 能访问到就可以点验证按钮。  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo6_4.png" alt=""></p>
 <blockquote>
 <p>站点地图是一种文件，您可以通过该文件列出您网站上的网页，从而将您网站内容的组织架构告知Google和其他搜索引擎。Googlebot等搜索引擎网页抓取工具会读取此文件，以便更加智能地抓取您的网站。  </p>
@@ -3320,7 +3353,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 自动生成sitemap</span></span><br><span class="line">sitemap:</span><br><span class="line">path: sitemap.xml</span><br><span class="line">baidusitemap:</span><br><span class="line">path: baidusitemap.xml</span><br></pre></td></tr></table></figure>
 <p>编译你的博客  </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-<p>如果你在你的博客根目录的<code>public</code>下面发现生成了<code>sitemap.xml</code>以及<code>baidusitemap.xml</code>就表示成功了。<br>这时候<code>sitemap.xml</code>跟<code>baidusitemap.xml</code>里面的内容一样，但是文章链接都是tengj.github.io的，这里我就很奇怪了，我博客同时对应github和coding的，为啥生成的<code>sitemap.xml</code>对应的域名都指向了github，<code>sitemap.xml</code>我是要提交谷歌的，对应github的域名没问题，但是<code>baidusitemap.xml</code>里面域名还对应github问题就大了，因为github禁止了百度爬虫，提交了百度也是不会访问的。所以我把<code>baidusitemap.xml</code>里面的改成了我的个人域名tengj.top，因为国内用户访问tengj.top其实是访问coding上面。<br>部署后你分别访问<br><a href="http://tengj.top/sitemap.xml" target="_blank" rel="external">http://tengj.top/sitemap.xml</a><br><a href="http://tengj.top/baidusitemap.xml" target="_blank" rel="external">http://tengj.top/baidusitemap.xml</a><br>效果如下图：<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo6_6.png" alt=""><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo6_7.png" alt=""></p>
+<p>如果你在你的博客根目录的<code>public</code>下面发现生成了<code>sitemap.xml</code>以及<code>baidusitemap.xml</code>就表示成功了。<br>这时候<code>sitemap.xml</code>跟<code>baidusitemap.xml</code>里面的内容一样，但是文章链接都是tengj.github.io的，这里我就很奇怪了，我博客同时对应github和coding的，为啥生成的<code>sitemap.xml</code>对应的域名都指向了github，<code>sitemap.xml</code>我是要提交谷歌的，对应github的域名没问题，但是<code>baidusitemap.xml</code>里面域名还对应github问题就大了，因为github禁止了百度爬虫，提交了百度也是不会访问的。所以我把<code>baidusitemap.xml</code>里面的改成了我的个人域名tengj.top，因为国内用户访问tengj.top其实是访问coding上面。<br>部署后你分别访问<br><a href="http://tengj.top/sitemap.xml">http://tengj.top/sitemap.xml</a><br><a href="http://tengj.top/baidusitemap.xml">http://tengj.top/baidusitemap.xml</a><br>效果如下图：<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo6_6.png" alt=""><br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo6_7.png" alt=""></p>
 <h2 id="让谷歌收录我们的博客"><a href="#让谷歌收录我们的博客" class="headerlink" title="让谷歌收录我们的博客"></a>让谷歌收录我们的博客</h2><p>谷歌操作比较简单，就是向<a href="https://www.google.com/webmasters/tools" target="_blank" rel="external">Google站长工具</a>提交sitemap  </p>
 <p>登录Google账号，添加了站点验证通过后，选择站点，之后在<code>抓取</code>——<code>站点地图</code>中就能看到<code>添加/测试站点地图</code>，如下图：  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo6_5.png" alt="">  </p>
@@ -3349,14 +3382,14 @@
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo6_13.png" alt="">  </p>
 <h4 id="自动推送"><a href="#自动推送" class="headerlink" title="自动推送"></a>自动推送</h4><p>自动推送很简单，就是在你代码里面嵌入自动推送JS代码，在页面被访问时，页面URL将立即被推送给百度<br>代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> bp = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">    bp.src = <span class="string">'//push.zhanzhang.baidu.com/push.js'</span>;</span><br><span class="line">    <span class="keyword">var</span> s = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"script"</span>)[<span class="number">0</span>];</span><br><span class="line">    s.parentNode.insertBefore(bp, s);</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
 <p>我是放在<code>\themes\jacman\layout\_partial\after_footer.ejs</code>中，添加到下面就行。</p>
-<h4 id="sitemap提交"><a href="#sitemap提交" class="headerlink" title="sitemap提交"></a>sitemap提交</h4><p><code>sitemap</code>提交最上面提过了，直接提交<a href="http://tengj.top/baidusitemap.xml" target="_blank" rel="external">http://tengj.top/baidusitemap.xml</a> 就行，大家看下图就知道，一开始我是提交 <code>sitemap.xml</code>，里面是指向<code>github</code>的，结果主域校验失败了，后来切换到指向<code>tengj.top</code>域名的<code>baidusitemap.xml</code>就提交成功。  </p>
+<h4 id="sitemap提交"><a href="#sitemap提交" class="headerlink" title="sitemap提交"></a>sitemap提交</h4><p><code>sitemap</code>提交最上面提过了，直接提交<a href="http://tengj.top/baidusitemap.xml">http://tengj.top/baidusitemap.xml</a> 就行，大家看下图就知道，一开始我是提交 <code>sitemap.xml</code>，里面是指向<code>github</code>的，结果主域校验失败了，后来切换到指向<code>tengj.top</code>域名的<code>baidusitemap.xml</code>就提交成功。  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo6_14.png" alt=""></p>
 <p>最后大家看下我最近提交的情况  </p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo6_15.png" alt=""></p>
 <blockquote>
 <p><strong>为什么自动推送可以更快的将页面推送给百度搜索？</strong>基于自动推送的实现原理问题，当新页面每次被浏览时，页面URL会自动推送给百度，无需站长汇总URL再进行主动推送操作。<br>借助用户的浏览行为来触发推送动作，省去了站长人工操作的时间。<br><strong>自动推送和链接提交有什么区别？</strong>已经在使用链接提交的网站还需要再部署自动推送代码吗？<br>二者之间互不冲突，互为补充。已经使用主动推送的站点，依然可以部署自动推送的JS代码，二者一起使用。<br><strong>什么样的网站更适合使用自动推送？</strong>自动推送由于实现便捷和后续维护成本低的特点，适合技术能力相对薄弱，无能力支持全天候实时主动推送程序的站长。<br>站长仅需一次部署自动推送JS代码的操作，就可以实现新页面被浏览即推送的效果，低成本实现链接自动提交。<br>同时，我们也支持主动推送和自动推送代码配合使用，二者互不影响。</p>
 </blockquote>
-<p><a href="http://tengj.top/2016/03/14/baidunoshouluresson/" target="_blank" rel="external">百度链接提交主动推送后不收录的原因</a></p>
+<p><a href="http://tengj.top/2016/03/14/baidunoshouluresson/">百度链接提交主动推送后不收录的原因</a></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://selfboot.cn/2014/12/21/add_blog_to_google/" target="_blank" rel="external"># 博客推广——提交搜索引擎</a></p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>写了3个小时终于写差不多了，很早就想写这篇的，结果百度不给力，一直不给收录所以拖到今天，昨天花了点时间写了下主动推送的接口方便大家，地址上面有。<br>3月8号 分别用<code>sitemap</code>和<code>baidusitemap</code>提交到谷歌和百度<br>3月9号 谷歌的收录了，可以搜索到我的博客<br>3月10号 百度收录了</p>
 <hr>
@@ -3380,7 +3413,7 @@
     
     <entry>
       <title><![CDATA[springMVC干货系列：从零搭建springMVC+mybatis（一）：maven WEB项目的搭建]]></title>
-      <url>http://tengj.github.io/2016/03/13/springmvcseries1/</url>
+      <url>http://tengj.top/2016/03/13/springmvcseries1/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天手把手来教大家如何搭建基于Maven的SpringMVC WEB项目。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="开发环境介绍"><a href="#开发环境介绍" class="headerlink" title="开发环境介绍"></a>开发环境介绍</h2><blockquote>
 <p>IDE: MyEclipse 2014<br>jdk: 1.7<br>maven：apache-maven-3.1.1  </p>
@@ -3438,7 +3471,7 @@
     
     <entry>
       <title><![CDATA[使用高级搜索指令提高搜索效率（百度，谷歌）]]></title>
-      <url>http://tengj.github.io/2016/03/12/hightsearchline/</url>
+      <url>http://tengj.top/2016/03/12/hightsearchline/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我们普通人平时都会用到搜索引擎，但也只是简单的输入名称查询而已，这里介绍几个比较简单但是又及其好用的高级搜索指令，能让你搜索效率提高好几倍。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><blockquote>
 <p>高级搜索指令<br>这么理解：一般人不知道的，能够提高搜索效率以及精度的一些特殊指令。</p>
@@ -3472,7 +3505,7 @@
     
     <entry>
       <title><![CDATA[hexo干货系列：（五）hexo添加站内搜索]]></title>
-      <url>http://tengj.github.io/2016/03/11/hexo5Swiftype/</url>
+      <url>http://tengj.top/2016/03/11/hexo5Swiftype/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本来想用百度站内搜索，但是没成功，所以改用swiftype，用起来还是很棒的，这里分享一下我的安装步骤</p>
 <a id="more"></a> 
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h2><p>去swiftype<a href="https://swiftype.com/" target="_blank" rel="external">官网</a>注册个账号，然后登陆，对了不要去在意30天试用，30天过了还能继续使用，网站给的是30天高级账户的使用（那种有可以建立多个搜索引擎、多账户共同管理、一个引擎index多个域名的功能的账户），降级成为免费的账户类型，但是还能使用。</p>
@@ -3494,7 +3527,7 @@
 <p>然后再切换的到\themes\jacman\layout_partial目录下，最后需要做的收尾工作全部都在这个目录下。<br>先打开header.ejs，找到<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;%  &#125;  else  if(theme.baidu_search.enable)&#123; %&gt;</span><br><span class="line">    &lt;form class="search" action="&lt;%- theme.baidu_search.site %&gt;" target="_blank"&gt;</span><br><span class="line">&lt;label&gt;Search&lt;/label&gt;</span><br><span class="line">    &lt;input name="s" type="hidden" value= &lt;%= theme.baidu_search.id %&gt; &gt;&lt;input type="text" name="q" size="30" placeholder="&lt;%= __('search') %&gt;"&gt;&lt;br&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure></p>
 <p>直接替换成<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">%</span> &#125; <span class="attribute">else</span> <span class="attribute">if</span>(<span class="attribute">theme.swift_search.enable</span>)&#123; %&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">form</span> <span class="attribute">class</span>=<span class="value">"search"</span> <span class="attribute">action</span>=<span class="value">"&lt;%- config.root %&gt;search/index.html"</span> <span class="attribute">method</span>=<span class="value">"get"</span> <span class="attribute">accept-charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">label</span>&gt;</span>Search<span class="tag">&lt;/<span class="title">label</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"search"</span> <span class="attribute">class</span>=<span class="value">"st-default-search-input"</span> <span class="attribute">maxlength</span>=<span class="value">"20"</span> <span class="attribute">placeholder</span>=<span class="value">"Search"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>反正我也不会用baidu_search，所以直接替换无所谓，你要是还想保留，就直接添加else判断吧。<br>最后打开footer.ejs（其实header也行，随便你），在最后一个<code>div</code>标签之前添加一开始拷贝的那段js代码，我的是：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">  (<span class="function"><span class="keyword">function</span>(<span class="params">w,d,t,u,n,s,e</span>)</span>&#123;w[<span class="string">'SwiftypeObject'</span>]=n;w[n]=w[n]||<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  (w[n].q=w[n].q||[]).push(<span class="built_in">arguments</span>);&#125;;s=d.createElement(t);</span><br><span class="line">  e=d.getElementsByTagName(t)[<span class="number">0</span>];s.async=<span class="number">1</span>;s.src=u;e.parentNode.insertBefore(s,e);</span><br><span class="line">  &#125;)(<span class="built_in">window</span>,<span class="built_in">document</span>,<span class="string">'script'</span>,<span class="string">'//s.swiftypecdn.com/install/v2/st.js'</span>,<span class="string">'_st'</span>);</span><br><span class="line">  </span><br><span class="line">  _st(<span class="string">'install'</span>,<span class="string">'Ts_hz24x26ZaNWfhsYwW'</span>,<span class="string">'2.0.0'</span>);</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
-<p>大功告成，来看看什么效果吧，自己发布后打开<a href="http://tengj.top" target="_blank" rel="external">博客</a>,查询一个博客文章中出现的内容，效果如下：<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo5_7.png" alt=""></p>
+<p>大功告成，来看看什么效果吧，自己发布后打开<a href="http://tengj.top">博客</a>,查询一个博客文章中出现的内容，效果如下：<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo5_7.png" alt=""></p>
 <p>上面查询的列表其实是之前在swiftype那边解析的文章列表，如果Content那边没有东西。那你这边查询不会有用的。  </p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>好了，站内搜索搞定了，要不要使用你们自己决定。希望这篇文章对你有帮助~下篇计划写个网站统计插件的教程，我用的CNZZ。写完这篇已经凌晨1点了，明天还要上班，洗洗睡。  </p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.jerryfu.net/post/search-engine-for-hexo-with-swiftype-v2.html" target="_blank" rel="external">利用swiftype为hexo添加站内搜索v2.0</a></p>
@@ -3523,7 +3556,7 @@
     
     <entry>
       <title><![CDATA[ajax一个很好的加载效果]]></title>
-      <url>http://tengj.github.io/2016/03/10/jqueryLoading/</url>
+      <url>http://tengj.top/2016/03/10/jqueryLoading/</url>
       <content type="html"><![CDATA[<p>推荐一个常用的jquery加载效果插件,很适合开发中使用。</p>
 <h2 id="要引入这个插件的css和js"><a href="#要引入这个插件的css和js" class="headerlink" title="要引入这个插件的css和js:"></a>要引入这个插件的css和js:</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">"&lt;%=path %&gt;/css/showLoading.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">media</span>=<span class="value">"screen"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"&lt;%=path %&gt;/js/jquery.showLoading.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="使用的时候代码如下"><a href="#使用的时候代码如下" class="headerlink" title="使用的时候代码如下:"></a>使用的时候代码如下:</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">".wrapper"</span>).showLoading();  <span class="comment">//展示加载效果 wrapper为你需要加载效果的div， 也可以用body</span></span><br><span class="line">$(<span class="string">".wrapper"</span>).hideLoading();  <span class="comment">//取消加载效果</span></span><br></pre></td></tr></table></figure>
@@ -3548,7 +3581,7 @@
     
     <entry>
       <title><![CDATA[hexo干货系列：（四）将hexo博客同时托管到github和coding]]></title>
-      <url>http://tengj.github.io/2016/03/06/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E5%9B%9B%EF%BC%89%E5%B0%86hexo%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%97%B6%E6%89%98%E7%AE%A1%E5%88%B0github%E5%92%8Ccoding/</url>
+      <url>http://tengj.top/2016/03/06/hexo4/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前我们把hexo托管在github，但是毕竟github是国外的，访问速度上还是有点慢，所以想也部署一套在国内的托管平台，之前查资料听说gitcafe,但是听说gitcafe已经被coding收购了，所以就决定部署到coding。查询了多方资料，终于鼓捣出了本地一次部署，同时更新到github以及coding。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo4_13.jpg" alt=""></p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="config-yml配置"><a href="#config-yml配置" class="headerlink" title="_config.yml配置"></a>_config.yml配置</h2><p>想要同时部署到2个平台，就要修改博客根目录下面的_config.yml文件中的deploy如下<br>根据Hexo官方文档需要修改成下面的形式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  message: [message]</span><br><span class="line">  repo:</span><br><span class="line">    github: &lt;repository url&gt;,[branch]</span><br><span class="line">    gitcafe: &lt;repository url&gt;,[branch]</span><br></pre></td></tr></table></figure></p>
 <p>所以我的是这样：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo:</span><br><span class="line">	  github: git@github.com:tengj/tengj.github.io.git,master</span><br><span class="line">	  coding: git@git.coding.net:tengj/hexoblob.git,master</span><br></pre></td></tr></table></figure></p>
@@ -3616,7 +3649,7 @@ hexo deploy -g
     
     <entry>
       <title><![CDATA[hexo干货系列：（三）hexo的Jacman主题优化]]></title>
-      <url>http://tengj.github.io/2016/03/06/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%89%EF%BC%89hexo%E7%9A%84Jacman%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</url>
+      <url>http://tengj.top/2016/03/06/hexo3/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇介绍了Jacman主题的安装和配置，今天根据上次的基础做了些优化，让博客看起来很舒服。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="首页文章展示摘要"><a href="#首页文章展示摘要" class="headerlink" title="首页文章展示摘要"></a>首页文章展示摘要</h2><p>该主题首页文章列表默认是全部展开，感觉不好，我关闭掉了，只展示少量摘要。<br>修改<code>\themes\jacman</code>下面<code>_config.yml</code>中的<code>expand</code>改成<code>false</code>即可<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">index:</span><br><span class="line">  expand: <span class="literal">false</span>           <span class="comment">## default is unexpanding,so you can only see the short description of each post.</span></span><br><span class="line">  excerpt_link: Read More</span><br></pre></td></tr></table></figure></p>
 <p><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo3_4.png" alt=""></p>
@@ -3645,7 +3678,7 @@ hexo deploy -g
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy -g</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>5.查看是否成功，输入你的博客域名，后面加上/atom.xml,比如我的是<a href="http://tengj.top/atom.xml" target="_blank" rel="external">http://tengj.top/atom.xml</a> 如果打开有下面数据就表示成功。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo3_3.png" alt=""></p>
+<p>5.查看是否成功，输入你的博客域名，后面加上/atom.xml,比如我的是<a href="http://tengj.top/atom.xml">http://tengj.top/atom.xml</a> 如果打开有下面数据就表示成功。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo3_3.png" alt=""></p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>暂时先优化这么多，已经感觉很不错了。我们关心的应该是内容，而不是死命折腾博客本身，总觉得它会被我们玩坏。冏</p>
 <hr>
 <p>最近撸了个java的公众号，学习资源超级多，视频，电子书，最新开发工具一个都不能少，已全部分享到百度云盘，求资源共享，打造一个学习方便，工作方便的java公众号，开源开源，有需求的可以关注~撒花<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/javaLearn.PNG" alt=""></p>
@@ -3668,7 +3701,7 @@ hexo deploy -g
     
     <entry>
       <title><![CDATA[hexo干货系列：（二）hexo主题下载及配置]]></title>
-      <url>http://tengj.github.io/2016/02/26/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%BA%8C%EF%BC%89hexo%E4%B8%BB%E9%A2%98%E4%B8%8B%E8%BD%BD%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
+      <url>http://tengj.top/2016/02/26/hexo2/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><hr>
 <p>上一篇文章介绍了hexo+gitHub简易搭建属于自己的个人独立博客，但是主题是默认的landscape，略显简单，今天的教程推荐Jacman主题。<br>Jacman是一款为Hexo打造的一款扁平化，有着响应式设计的主题，个人感觉还不错就使用了。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><hr>
@@ -3733,7 +3766,7 @@ hexo deploy -g
     
     <entry>
       <title><![CDATA[myeclipse中tomcat内存溢出完美解决方案]]></title>
-      <url>http://tengj.github.io/2016/02/25/myeclipse%E4%B8%ADtomcat%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%AE%8C%E7%BE%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+      <url>http://tengj.top/2016/02/25/myeclipsetomcat/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天工作启动项目的时候发现报了内存溢出的错误，java.lang.OutOfMemoryError: PermGen space<br>网上百度了许多，各种解决方案，有的说修改tomcat下面的catalina.bat,有的说修改myeclipse.ini，把我弄得晕头转向。后来发现一个个人认为最好的解决方案，就是使用jdk自带的jvisualvm.exe来监控，特此来总结一下，希望对大家有帮助。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>动手前先了解这几个参数的意思：  </p>
 <pre><code>-Xms128m JVM初始分配的堆内存
@@ -3773,7 +3806,7 @@ hexo deploy -g
     
     <entry>
       <title><![CDATA[hexo干货系列：（一）hexo+gitHub搭建个人独立博客]]></title>
-      <url>http://tengj.github.io/2016/02/22/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%80%EF%BC%89hexo+gitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2/</url>
+      <url>http://tengj.top/2016/02/22/hexo1/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>一直想要一个自己的独立博客，但是觉得申请域名+服务器的太麻烦了就一直没有实现。偶然机会发现Hexo这个优秀的静态博客框架，再搭配现在流行的gitHub，简直是完美写博客的黄金搭档（免费+方便）。于是就上网参考了好多教程最后磕磕碰碰的搭建了起来。但是网上的教程多多少少都有点问题，可能比较早吧。就有了这个自己总结的教程，一是自己总结一下。二是给也想搭建Hexo博客的童鞋们多一点参考。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>我这个教程是基于window系统用户，Hexo3版本</p>
 <h2 id="安装前提软件"><a href="#安装前提软件" class="headerlink" title="安装前提软件"></a>安装前提软件</h2><p><a href="https://nodejs.org/en" target="_blank" rel="external">Node.js</a>:<br>作用：node.js用来创建hexo博客框架的，我当前安装版本为：node-v5.6.0-x64   </p>
@@ -3870,10 +3903,10 @@ tags: [文章] #文章标签，多于一项时用这种格式，只有一项时�
     
     <entry>
       <title><![CDATA[hexo干货系列：（总纲）搭建独立博客初衷]]></title>
-      <url>http://tengj.github.io/2016/02/20/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E6%80%BB%E7%BA%B2%EF%BC%89%E6%90%AD%E5%BB%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2%E5%88%9D%E8%A1%B7/</url>
+      <url>http://tengj.top/2016/02/20/hexoTotal/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我是一名程序员，以前知识整理都是整理在为知笔记上，博客用的比较少，更别说是使用独立博客，因为不会。。。<br>2016年过年在家期间偶然的机会萌发了自己要搭建一个属于自己的独立博客的想法，于是就有了下面的这些。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="技能点涉及"><a href="#技能点涉及" class="headerlink" title="技能点涉及"></a>技能点涉及</h2><p>为了搭建自己的独立博客，结果学了许多东西，感觉也是蛮好玩的。<br>下面用思维导图画一下我为了搭建个人博客而不得不涉及学习的知识点。<br><img src="http://7xqch5.com1.z0.glb.clouddn.com/hexo0_1.png" alt="">  </p>
-<h2 id="系列博文整理"><a href="#系列博文整理" class="headerlink" title="系列博文整理"></a>系列博文整理</h2><p>整理了下hexo系列的文章，发现写系列博客感觉还是很棒的：<br><a href="http://tengj.top/2016/02/22/hexo干货系列：（一）hexo+gitHub搭建个人独立博客/" target="_blank" rel="external">hexo干货系列：（一）hexo+gitHub搭建个人独立博客</a><br><a href="http://tengj.top/2016/02/26/hexo干货系列：（二）hexo主题下载及配置/" target="_blank" rel="external">hexo干货系列：（二）hexo主题下载及配置</a><br><a href="http://tengj.top/2016/03/06/hexo干货系列：（三）hexo的Jacman主题优化/" target="_blank" rel="external">hexo干货系列：（三）hexo的Jacman主题优化</a><br><a href="http://tengj.top/2016/03/06/hexo干货系列：（四）将hexo博客同时托管到github和coding/" target="_blank" rel="external">hexo干货系列：（四）将hexo博客同时托管到github和coding</a><br><a href="http://tengj.top/2016/03/11/hexo5Swiftype" target="_blank" rel="external">hexo干货系列：（五）hexo添加站内搜索</a><br><a href="http://tengj.top/2016/03/14/hexo6seo" target="_blank" rel="external">hexo干货系列：（六）hexo提交搜索引擎（百度+谷歌）</a><br><a href="http://tengj.top/2016/03/17/hexo7count/" target="_blank" rel="external">hexo干货系列：（七）hexo安装统计插件</a><br><a href="http://tengj.top/2016/03/20/hexo8hidewidgets/" target="_blank" rel="external">hexo干货系列：（八）hexo文章自动隐藏侧边栏</a>  </p>
+<h2 id="系列博文整理"><a href="#系列博文整理" class="headerlink" title="系列博文整理"></a>系列博文整理</h2><p>整理了下hexo系列的文章，发现写系列博客感觉还是很棒的：<br><a href="http://tengj.top/2016/02/22/hexo干货系列：（一）hexo+gitHub搭建个人独立博客/">hexo干货系列：（一）hexo+gitHub搭建个人独立博客</a><br><a href="http://tengj.top/2016/02/26/hexo干货系列：（二）hexo主题下载及配置/">hexo干货系列：（二）hexo主题下载及配置</a><br><a href="http://tengj.top/2016/03/06/hexo干货系列：（三）hexo的Jacman主题优化/">hexo干货系列：（三）hexo的Jacman主题优化</a><br><a href="http://tengj.top/2016/03/06/hexo干货系列：（四）将hexo博客同时托管到github和coding/">hexo干货系列：（四）将hexo博客同时托管到github和coding</a><br><a href="http://tengj.top/2016/03/11/hexo5Swiftype">hexo干货系列：（五）hexo添加站内搜索</a><br><a href="http://tengj.top/2016/03/14/hexo6seo">hexo干货系列：（六）hexo提交搜索引擎（百度+谷歌）</a><br><a href="http://tengj.top/2016/03/17/hexo7count/">hexo干货系列：（七）hexo安装统计插件</a><br><a href="http://tengj.top/2016/03/20/hexo8hidewidgets/">hexo干货系列：（八）hexo文章自动隐藏侧边栏</a>  </p>
 <h1 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h1><p>2016年才知道有hexo这个东西，真希望早两年有人告诉我可以这样搭博客~~<br>hexo系列的学的差不多了，个人博客也搭建好了，后续就是用来记录自己工作以及生活上的点点滴滴。也会顺便把这几年学习的心得一片片写出来跟大家分享。<br>有分享才有进度，期待与你的碰撞！</p>
 ]]></content>
       
